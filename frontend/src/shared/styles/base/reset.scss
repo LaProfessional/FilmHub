@@ -1,3 +1,6 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/theme-vars" as theme;
+
 * {
     margin: 0;
     padding: 0;
@@ -8,4 +11,16 @@
     list-style: none;
 
     font-family: "Montserrat", sans-serif;
+}
+
+body.light {
+    @include theme.theme-vars(var.$light-theme);
+}
+
+body.dark {
+    @include theme.theme-vars(var.$dark-theme);;
+}
+
+body {
+    background-color: var(--bg-primary);
 }

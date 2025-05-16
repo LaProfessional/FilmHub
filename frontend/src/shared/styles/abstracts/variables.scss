@@ -1,0 +1,45 @@
+$light-theme: (
+    color-primary: #0c0a09,
+    color-muted: #6b7280,
+    color-danger: #ef4444,
+
+    color-muted-hover: #2563eb,
+
+    bg-primary: #f9fafb,
+    bg-secondary: #ffffff,
+    bg-accent: #f3f4f6,
+
+    bg-hover-primary: #f5f4f4,
+
+    card: #ffffff,
+    input: #ffffff,
+
+    border: #e5e7eb,
+
+    bg-button-primary: #1f94f3,
+    
+    svg-primary: #2094f3,
+);
+
+$dark-theme: (
+    color-primary: #fafafa,
+    color-muted: #9ca3af,
+    color-danger: #ef4444,
+
+    color-muted-hover: #60a5fa,
+
+    bg-primary: #111828,
+    bg-secondary: #202938,
+    bg-accent: #374151,
+
+    bg-hover-primary: #27272a,
+
+    card: #09090b,
+    input: #09090b,
+
+    border: #394150,
+
+    bg-button-primary: #1f94f3,
+
+    svg-primary: #2094f3,
+);
