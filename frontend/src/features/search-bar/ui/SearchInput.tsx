@@ -2,7 +2,6 @@ import styles from "./SearchInput.module.scss";
 
 import { ReactComponent as SearchSvg } from "../../../shared/assets/header/Search.svg";
 
-
 const SearchInput = () => {
     return (
         <div className={ styles.wrapper }>

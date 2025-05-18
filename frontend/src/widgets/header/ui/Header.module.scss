@@ -3,7 +3,7 @@
 
 .headerContainer {
     background-color: var(--bg-primary);
-    padding: 0.75rem 1rem;
+    padding: .75rem 1rem;
     width: 100%;
 
     border-bottom: 1px solid var(--border);
@@ -17,10 +17,12 @@
     margin: 0 11.563rem;
 }
 
-.headerTitle {
+.titleWrapper {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: .5rem;
+
+    padding-right: 0.5rem;
 
     .logoSvg {
         stroke: var(--logo);
@@ -46,8 +48,40 @@
     width: 100%;
     gap: 1rem;
 
-    .sunSvg {
-        stroke: #e9e6e6;
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 38px;
+        border-radius: 100%;
+
+        padding: .5rem;
+
+        transition: background-color .1s ease-in-out;
+
+        cursor: pointer;
+
+        .sunSvg {
+            stroke: #e9e6e6;
+        }
+
+        &:hover {
+            background-color: var(--bg-hover-primary);
+        }
+    }
+
+    .language {
+        color: var(--color-primary);
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .avatar {
+        width: 38px;
+        height: 38px;
+        border-radius: 100%;
+
         cursor: pointer;
     }
 }
