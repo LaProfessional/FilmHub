@@ -5,12 +5,17 @@
     margin: 0;
     padding: 0;
 
+    box-sizing: border-box;
     background-color: transparent;
     border: none;
 
     list-style: none;
 
     font-family: "Montserrat", sans-serif;
+}
+
+input:focus {
+    outline: none;
 }
 
 body.light {

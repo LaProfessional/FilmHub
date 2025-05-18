@@ -1,0 +1,24 @@
+@use "../../../shared/styles/abstracts/variables" as var;
+
+.wrapper {
+    position: relative;
+    width: clamp(80px, 100%, 250px);
+
+    .input {
+        width: 100%;
+        height: 38px;
+        border-radius: 0.5rem;
+        border: 1px solid var(--border);
+        background-color: var(--input);
+
+        padding: 0.5rem 1rem 0.5rem 2.5rem;
+    }
+}
+
+.searchSvg {
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    stroke: #9CA3AF;
+}

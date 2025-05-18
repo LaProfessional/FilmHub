@@ -5,20 +5,20 @@ $light-theme: (
 
     color-muted-hover: #2563eb,
 
-    bg-primary: #f9fafb,
+    bg-primary: #fafafae6,
     bg-secondary: #ffffff,
     bg-accent: #f3f4f6,
 
     bg-hover-primary: #f5f4f4,
 
     card: #ffffff,
-    input: #ffffff,
+    input: #f4f5f5cc,
 
-    border: #e5e7eb,
+    border: #e4e4e7,
 
     bg-button-primary: #1f94f3,
     
-    svg-primary: #2094f3,
+    logo: #2094f3,
 );
 
 $dark-theme: (
@@ -28,18 +28,18 @@ $dark-theme: (
 
     color-muted-hover: #60a5fa,
 
-    bg-primary: #111828,
+    bg-primary: #09090b,
     bg-secondary: #202938,
     bg-accent: #374151,
 
     bg-hover-primary: #27272a,
 
     card: #09090b,
-    input: #09090b,
+    input: #212124,
 
-    border: #394150,
+    border: #27272a,
 
     bg-button-primary: #1f94f3,
 
-    svg-primary: #2094f3,
+    logo: #2094f3,
 );

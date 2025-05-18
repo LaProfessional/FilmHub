@@ -1,0 +1,53 @@
+@use "sass:map";
+@use "../../../shared/styles/abstracts/variables" as var;
+
+.headerContainer {
+    background-color: var(--bg-primary);
+    padding: 0.75rem 1rem;
+    width: 100%;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 0 11.563rem;
+}
+
+.headerTitle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .logoSvg {
+        stroke: var(--logo);
+    }
+
+    .title {
+        background: linear-gradient(
+            to right,
+            hsl(267 84% 64%),
+            hsl(290 82% 62%),
+            hsl(330 81% 60%)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    gap: 1rem;
+
+    .sunSvg {
+        stroke: #e9e6e6;
+        cursor: pointer;
+    }
+}
