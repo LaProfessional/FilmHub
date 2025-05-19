@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import styles from "./Header.module.scss";
 
 import { ReactComponent as LogoSvg } from "../../../shared/assets/header/Logo.svg";
@@ -8,11 +7,13 @@ import Avatar from '../../../shared/assets/header/Avatar.png';
 
 import SearchInput from "../../../features/search-bar/ui/SearchInput.tsx";
 
-import { ThemeContext } from "../../../app/providers/ThemeProvider";
+import { useTheme } from "../../../app/providers/ThemeProvider";
+import { useLanguage } from "../../../app/providers/LanguageProvider.tsx";
 
 const Header = () => {
 
-    const { theme, toggleTheme } = useContext(ThemeContext) ?? {};
+    const { theme, toggleTheme } = useTheme();
+    const { language, changeLanguage } = useLanguage();
 
     return (
         <header className={ styles.headerContainer }>
@@ -29,8 +30,10 @@ const Header = () => {
                         { theme === "dark" ? <SunSvg className={ styles.sunSvg }/> : <MoonSvg/> }
                     </button>
 
-                    <button className={ styles.button }>
-                        <span className={ styles.language }>ru</span>
+                    <button
+                        className={ styles.button }
+                        onClick={ () => changeLanguage(language === "en" ? "ru" : "en") }>
+                        <span className={ styles.language }>{ language === "en" ? "en" : "ru" }</span>
                     </button>
 
                     <img

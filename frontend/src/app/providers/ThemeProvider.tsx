@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import * as React from "react";
 
 type Theme = "light" | "dark";
@@ -15,6 +15,7 @@ interface ThemeContextProps {
 export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 const ThemeProvider: React.FC<ThemeContextProps> = ({ children }) => {
+
     const [ theme, setTheme ] = useState<Theme>(() => {
         const stored = localStorage.getItem("theme");
         return (stored === "dark" || stored === "light") ? stored : "dark";
@@ -37,5 +38,10 @@ const ThemeProvider: React.FC<ThemeContextProps> = ({ children }) => {
     );
 
 };
-
 export default ThemeProvider;
+
+export const useTheme = () => {
+    const context = useContext(ThemeContext);
+    if (!context) throw new Error('useTheme must be used within a ThemeProvider');
+    return context;
+};
