@@ -2,7 +2,7 @@ import i18n from "../../shared/config/i18n/i18n.ts";
 import { createContext, useState, useContext } from "react";
 import * as React from "react";
 
-type LanguageContextType = {
+interface LanguageContextType {
     language: string,
     changeLanguage: (lng: string) => void,
 }

@@ -1,0 +1,53 @@
+@use "../../../shared/styles/abstracts/variables" as var;
+
+.sidebar {
+    max-width: 255px;
+    border-right: 1px solid var(--border);
+
+    padding: 1.5rem 1rem;
+
+    .nav {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
+.section {
+
+    .wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        margin-bottom: .5rem;
+
+        .title {
+            color: var(--color-category);
+            font-size: .75rem;
+            text-transform: uppercase;
+        }
+
+        .collapseExpandBtn {
+            width: 16px;
+            height: 16px;
+
+            cursor: pointer;
+        }
+
+        .arrowSvg {
+            stroke: var(--arrow);
+
+            &:hover {
+                stroke: var(--arrow-hover);
+            }
+        }
+    }
+
+    .item {
+        color: var(--color-primary);
+        font-size: .875rem;
+        padding: .5rem .75rem;
+    }
+
+}
