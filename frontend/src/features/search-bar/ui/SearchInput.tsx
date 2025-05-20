@@ -12,7 +12,7 @@ const SearchInput = () => {
             <input
                 className={ styles.input }
                 type="text"
-                placeholder={ t("placeholderSearchInput") }
+                placeholder={ t("SearchMovies") }
             />
             <SearchSvg className={ styles.searchSvg }></SearchSvg>
         </div>

@@ -7,7 +7,7 @@
     transition: outline-color .2s ease-in-out;
     outline: 1px solid transparent;
 
-    &:focus-within {
+    &:has(.input:focus-within) {
         outline: 1px solid var(--input-focus);
     }
 

@@ -44,10 +44,30 @@
         }
     }
 
-    .item {
-        color: var(--color-primary);
-        font-size: .875rem;
-        padding: .5rem .75rem;
+    .item.select {
+        background-color: var(--bg-accent-focus);
+        border-radius: .5rem;
+        border-left: 0.25rem solid;
+
+        color: var(--color-accent);
     }
 
+    .item {
+        border-radius: .5rem;
+
+        color: var(--color-primary);
+        font-size: .875rem;
+        font-weight: 600;
+
+        padding: .625rem .75rem;
+        margin-bottom: .25rem;
+
+        cursor: pointer;
+
+        transition: background-color .1s linear;
+
+        &:not(.select):hover {
+            background-color: var(--bg-hover-primary);
+        }
+    }
 }

@@ -3,6 +3,7 @@ import styles from "./Sidebar.module.scss";
 import { ReactComponent as ArrowSvg } from "../../../shared/assets/sidebar/Arrow.svg";
 
 import AddCategoryInput from "../../../features/sidebar/ui/AddCategoryInput.tsx";
+import AddBtn from "../../../features/sidebar/model/AddBtn.tsx";
 
 const Sidebar = () => {
     return (
@@ -19,9 +20,11 @@ const Sidebar = () => {
                     </div>
 
                     <ul>
-                        <li className={ styles.item }>Все фильмы</li>
+                        <li className={ `${ styles.item } ${ styles.select }` }>Все фильмы</li>
                         <li className={ styles.item }>Избранное</li>
                     </ul>
+
+                    <AddBtn>Новая папка</AddBtn>
                 </section>
             </nav>
         </aside>
