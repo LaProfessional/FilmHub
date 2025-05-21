@@ -1,4 +1,8 @@
 {
   "SearchMovies": "Search movies...",
-  "createCategory": "Create category"
+  "createCategory": "Create category",
+  "yourCollections": "your collections",
+  "allMovies": "All movies",
+  "favourites": "Favourites",
+  "newFolder": "New folder"
 }

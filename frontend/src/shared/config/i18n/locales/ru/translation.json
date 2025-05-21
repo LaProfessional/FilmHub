@@ -1,4 +1,8 @@
 {
   "SearchMovies": "Поиск фильмов...",
-  "createCategory": "Создать категорию"
+  "createCategory": "Создать категорию",
+  "yourCollections": "Ваши коллекции",
+  "allMovies": "Все фильмы",
+  "favourites": "Избранное",
+  "newFolder": "Новая папка"
 }
