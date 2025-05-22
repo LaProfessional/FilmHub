@@ -4,5 +4,13 @@
   "yourCollections": "your collections",
   "allMovies": "All movies",
   "favourites": "Favourites",
-  "newFolder": "New folder"
+  "newFolder": "New folder",
+  "categories": "Categories",
+  "storyLevel": "Story level",
+  "narrativeChaos": "Narrative chaos",
+  "predictableOrdinariness": "Predictable ordinariness",
+  "satisfactoryStructure": "Satisfactory structure",
+  "grippingNarrative": "Gripping narrative",
+  "literaryMasterpiece": "Literary masterpiece",
+  "addFlag": "Add flag"
 }

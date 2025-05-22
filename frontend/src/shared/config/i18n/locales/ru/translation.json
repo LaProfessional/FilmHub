@@ -4,5 +4,13 @@
   "yourCollections": "Ваши коллекции",
   "allMovies": "Все фильмы",
   "favourites": "Избранное",
-  "newFolder": "Новая папка"
+  "newFolder": "Новая папка",
+  "categories": "Категории",
+  "storyLevel": "Уровень сюжета",
+  "narrativeChaos": "Нарративный хаос",
+  "predictableOrdinariness": "Предсказуемая обыденность",
+  "satisfactoryStructure": "Удовлетворительная структура",
+  "grippingNarrative": "Захватывающее повествование",
+  "literaryMasterpiece": "Литературный шедевр",
+  "addFlag": "Добавить флаг"
 }
