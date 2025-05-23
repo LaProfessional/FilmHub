@@ -1,14 +1,14 @@
 import styles from "./Header.module.scss";
 
-import { ReactComponent as LogoSvg } from "../../../shared/assets/header/Logo.svg";
-import { ReactComponent as SunSvg } from "../../../shared/assets/header/Sun.svg";
-import { ReactComponent as MoonSvg } from "../../../shared/assets/header/Moon.svg";
-import Avatar from '../../../shared/assets/header/Avatar.png';
+import { ReactComponent as LogoSvg } from "@/shared/assets/header/Logo.svg";
+import { ReactComponent as SunSvg } from "@/shared/assets/header/Sun.svg";
+import { ReactComponent as MoonSvg } from "@/shared/assets/header/Moon.svg";
+import Avatar from '@/shared/assets/header/Avatar.png';
 
-import SearchInput from "../../../features/search-bar/ui/SearchInput.tsx";
+import SearchInput from "@/features/search-bar/ui/SearchInput.tsx";
 
-import { useTheme } from "../../../app/providers/ThemeProvider";
-import { useLanguage } from "../../../app/providers/LanguageProvider.tsx";
+import { useTheme } from "@/app/providers/ThemeProvider";
+import { useLanguage } from "@/app/providers/LanguageProvider.tsx";
 
 const Header = () => {
 

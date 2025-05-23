@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { ReactComponent as ArrowSvg } from "../../../shared/assets/sidebar/Arrow.svg";
 
 import AddCategoryInput from "../../../features/sidebar/ui/AddCategoryInput.tsx";
-import AddBtn from "../../../features/sidebar/model/AddBtn.tsx";
+import AddBtn from "../../../features/sidebar/ui/AddBtn.tsx";
 
 const Sidebar = () => {
 
