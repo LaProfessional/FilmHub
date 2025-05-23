@@ -1,0 +1,25 @@
+{
+  "hash": "d653bc80",
+  "configHash": "e5a0e995",
+  "lockfileHash": "f4b04633",
+  "browserHash": "05431ceb",
+  "optimized": {
+    "react-i18next": {
+      "src": "../../node_modules/react-i18next/dist/es/index.js",
+      "file": "react-i18next.js",
+      "fileHash": "7af9e341",
+      "needsInterop": false
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "e5be0cf2",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-5WQJO2FO": {
+      "file": "chunk-5WQJO2FO.js"
+    }
+  }
+}

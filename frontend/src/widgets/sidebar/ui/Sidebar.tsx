@@ -10,6 +10,24 @@ const Sidebar = () => {
 
     const { t } = useTranslation();
 
+    const dataFlag = [
+        {
+            flagName: "narrativeChaos",
+        },
+        {
+            flagName: "predictableOrdinariness",
+        },
+        {
+            flagName: "satisfactoryStructure",
+        },
+        {
+            flagName: "grippingNarrative",
+        },
+        {
+            flagName: "literaryMasterpiece",
+        }
+    ];
+
     return (
         <aside className={ styles.sidebar }>
             <nav className={ styles.nav }>
@@ -47,85 +65,43 @@ const Sidebar = () => {
                     </div>
 
                     <ul className={ styles.flagContainer }>
-                        <li
-                            className={ styles.flag }
-                            title={ t("narrativeChaos") }>{ t("narrativeChaos") }
-                        </li>
-                        <li
-                            className={ styles.flag }
-                            title={ t("predictableOrdinariness") }>{ t("predictableOrdinariness") }
-                        </li>
-                        <li
-                            className={ styles.flag }
-                            title={ t("satisfactoryStructure") }>{ t("satisfactoryStructure") }
-                        </li>
-                        <li
-                            className={ styles.flag }
-                            title={ t("grippingNarrative") }>{ t("grippingNarrative") }
-                        </li>
-                        <li
-                            className={ styles.flag }
-                            title={ t("literaryMasterpiece") }>{ t("literaryMasterpiece") }
-                        </li>
+                        { dataFlag.map((flag, index) => (
+                            <li className={ styles.flagData } key={ index }>
+                                <div className={ styles.wrapperFlagStat }>
+                                <span
+                                    className={ styles.flag }
+                                    title={ t(flag.flagName) }>{ t(flag.flagName) }
+                                </span>
+
+                                    <div className={ styles.amountFlag }>3</div>
+                                </div>
+
+                                <div className={ styles.progressBar }>
+                                    <div className={ styles.progress }></div>
+                                </div>
+                            </li>
+                        )) }
+
+                        {/*<li*/}
+                        {/*    className={ styles.flag }*/}
+                        {/*    title={ t("predictableOrdinariness") }>{ t("predictableOrdinariness") }*/}
+                        {/*</li>*/}
+                        {/*<li*/}
+                        {/*    className={ styles.flag }*/}
+                        {/*    title={ t("satisfactoryStructure") }>{ t("satisfactoryStructure") }*/}
+                        {/*</li>*/}
+                        {/*<li*/}
+                        {/*    className={ styles.flag }*/}
+                        {/*    title={ t("grippingNarrative") }>{ t("grippingNarrative") }*/}
+                        {/*</li>*/}
+                        {/*<li*/}
+                        {/*    className={ styles.flag }*/}
+                        {/*    title={ t("literaryMasterpiece") }>{ t("literaryMasterpiece") }*/}
+                        {/*</li>*/}
                     </ul>
 
                     <AddBtn>{ t("addFlag") }</AddBtn>
                 </section>
-
-                {/*<section>*/}
-                {/*    <div className={ styles.wrapper }>*/}
-                {/*        <h2 className={ styles.title }>Статистика флагов</h2>*/}
-                {/*        <button className={ styles.collapseExpandBtn }>*/}
-                {/*            <ArrowSvg className={ styles.arrowSvg }/>*/}
-                {/*        </button>*/}
-                {/*    </div>*/}
-
-
-                {/*    <div className={ styles.categoryGroup }>*/}
-                {/*        <h3 className={ styles.categoryGroupTitle }>{ t("storyLevel") }</h3>*/}
-                {/*        <button>*/}
-                {/*            <ArrowSvg className={ styles.arrowSvg }/>*/}
-                {/*        </button>*/}
-                {/*    </div>*/}
-
-                {/*    <ul className={ styles.flagContainer }>*/}
-                {/*        <li className={ styles.flagData }>*/}
-                {/*            <div className={ styles.wrapperFlagStat }>*/}
-                {/*                <span*/}
-                {/*                    className={ `${ styles.flag } ${ styles.flagStat }` }*/}
-                {/*                    title={ t("narrativeChaos") }>{ t("narrativeChaos") }*/}
-                {/*                </span>*/}
-
-                {/*                <div className={ styles.amountFlag }>3</div>*/}
-                {/*            </div>*/}
-
-                {/*            <div className={ styles.progressBar }>*/}
-                {/*                <div className={ styles.progress }></div>*/}
-                {/*            </div>*/}
-                {/*        </li>*/}
-
-                {/*        <li*/}
-                {/*            className={ `${ styles.flag } ${ styles.flagStat }` }*/}
-                {/*            title={ t("predictableOrdinariness") }>{ t("predictableOrdinariness") }*/}
-                {/*        </li>*/}
-
-                {/*        <li*/}
-                {/*            className={ `${ styles.flag } ${ styles.flagStat }` }*/}
-                {/*            title={ t("satisfactoryStructure") }>{ t("satisfactoryStructure") }*/}
-                {/*        </li>*/}
-
-                {/*        <li*/}
-                {/*            className={ `${ styles.flag } ${ styles.flagStat }` }*/}
-                {/*            title={ t("grippingNarrative") }>{ t("grippingNarrative") }*/}
-                {/*        </li>*/}
-
-                {/*        <li*/}
-                {/*            className={ `${ styles.flag } ${ styles.flagStat }` }*/}
-                {/*            title={ t("literaryMasterpiece") }>{ t("literaryMasterpiece") }*/}
-                {/*        </li>*/}
-                {/*    </ul>*/}
-
-                {/*</section>*/}
             </nav>
         </aside>
     );
