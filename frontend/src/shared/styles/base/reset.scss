@@ -26,7 +26,12 @@ body.dark {
     @include theme.theme-vars(var.$dark-theme);;
 }
 
-body {
+body, html {
+    height: 200vh;
     background-color: var(--bg-primary);
     transition: background-color .2s ease-in-out;
+}
+
+#root {
+    height: 100%;
 }
