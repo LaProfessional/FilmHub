@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import styles from "./SearchInput.module.scss";
 
-import { ReactComponent as SearchSvg } from "../../../shared/assets/header/Search.svg";
+import { ReactComponent as SearchSvg } from "@/shared/assets/header/Search.svg";
 
 const SearchInput = () => {
 
