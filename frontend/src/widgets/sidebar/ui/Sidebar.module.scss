@@ -103,6 +103,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 1rem;
 
             margin-bottom: .75rem;
 
@@ -116,39 +117,8 @@
                 overflow: hidden;
                 font-size: .875rem;
                 font-weight: 600;
-
+                outline: #1f94f3;
                 padding: .25rem .5rem;
-                //margin-bottom: .75rem;
-
-                &:nth-child(1) {
-                    background-color: rgba(139, 134, 128, 0.08);
-                    border-left: 4px solid #8b8680;
-                    color: #8b8680;
-                }
-
-                &:nth-child(2) {
-                    background-color: rgba(242, 230, 216, 0.08);
-                    border-left: 4px solid #f2e6d8;
-                    color: #f2e6d8;
-                }
-
-                &:nth-child(3) {
-                    background-color: rgba(169, 220, 227, 0.08);
-                    border-left: 4px solid #a9dce3;
-                    color: #a9dce3;
-                }
-
-                &:nth-child(4) {
-                    background-color: rgba(255, 147, 126, 0.08);
-                    border-left: 4px solid #ff937e;
-                    color: #ff937e;
-                }
-
-                &:nth-child(5) {
-                    background-color: rgba(0, 138, 115, 0.08);
-                    border-left: 4px solid #008a73;
-                    color: #008a73;
-                }
             }
 
             .amountFlag {
@@ -172,7 +142,6 @@
             .progress {
                 height: 100%;
                 width: 30%;
-                background-color: #8B8680;
                 border-radius: 1rem;
             }
         }
