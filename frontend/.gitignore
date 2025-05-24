@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 .idea/
 frontend/.vite/
+
+*.css
+*.css.map
