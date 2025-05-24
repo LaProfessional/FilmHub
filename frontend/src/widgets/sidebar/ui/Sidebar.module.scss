@@ -1,15 +1,20 @@
 @use "../../../shared/styles/abstracts/variables" as var;
 
 .sidebar {
-    max-width: 288px;
-    border-right: 1px solid var(--border);
-
-    padding: 1.5rem 1rem;
+    position: sticky;
+    top: 63px;
+    height: calc(100vh - 63px);
 
     .nav {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
+        height: 100%;
+
+        max-width: 288px;
+        border-right: 1px solid var(--border);
+
+        padding: 1.5rem 1rem;
     }
 }
 

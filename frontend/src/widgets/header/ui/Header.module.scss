@@ -1,6 +1,9 @@
 @use "../../../shared/styles/abstracts/variables" as var;
 
 .headerContainer {
+    position: sticky;
+    top: 0;
+
     background-color: var(--bg-primary);
     padding: .75rem 1rem;
     width: 100%;
