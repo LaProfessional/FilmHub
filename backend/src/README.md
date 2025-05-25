@@ -1,3 +1,10 @@
+### 🔐 Как запустить:
+- yarn install or npm install
+- npm run migration
+- npm run dev
+
+
+
 ### 🔐 Auth API
 
 ---

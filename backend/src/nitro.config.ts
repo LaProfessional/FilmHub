@@ -11,7 +11,12 @@ export default defineNitroConfig({
       host: 'db'
     },
     auth: {
-      saltRounds: 10
+      saltRounds: 10,
+      tokenHashLong: 'asdfjhqweiunhwieurcn23r',
+      tokenHash: 'TruLaLaLa',
+      refresh: {
+        maxAge: 60 * 60 * 24 * 7
+      }
     }
   }
 });

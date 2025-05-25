@@ -3,6 +3,7 @@
   "scripts": {
     "build": "nitro build",
     "dev": "nitro dev",
+    "migration": "npx sequelize-cli db:migrate",
     "prepare": "nitro prepare",
     "preview": "node .output/server/index.mjs"
   },
