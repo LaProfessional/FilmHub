@@ -14,7 +14,17 @@ export const useMovieApi = (event: H3Event) => {
         })
     }
 
+    const findOne = (id: number) => {
+        return $fetch(`${PATH}/films/${id}`, {
+            method: 'GET',
+            headers: {
+                'X-API-KEY': config.kinopoisk.key,
+                'Content-Type': 'application/json',
+            },
+        })
+    }
+
     return {
-        getList
+        getList, findOne
     }
 }

@@ -4,13 +4,17 @@ export const useErrorCombiner = () => {
 
     return {
         set(key, err) {
-            errors.push({[key]: err})
             isNotEmpty = true
+            const keyIndex = errors.findIndex((item) => !!item[key])
+
+            if (keyIndex === -1) {
+                return errors.push({[key]: [err]})
+            }
+            errors[keyIndex][key].push(err)
         },
         get() {
             return errors
         },
-        errors,
         isNotEmpty() {
             return isNotEmpty
         }
