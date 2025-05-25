@@ -5,11 +5,11 @@ import { AppRouter } from "@/app/providers/router";
 import { RootLayout } from "@/shared/layout";
 
 const App = () => {
-  return (
-    <RootLayout>
-      <AppRouter />
-    </RootLayout>
-  );
+    return (
+        <RootLayout>
+            <AppRouter/>
+        </RootLayout>
+    );
 };
 
 export default App;

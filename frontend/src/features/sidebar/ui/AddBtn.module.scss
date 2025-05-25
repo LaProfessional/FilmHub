@@ -11,18 +11,12 @@
 
     transition: background-color .1s linear;
 
-    &, .button, .addSvg {
+    &, .addSvg {
         cursor: pointer;
     }
 
     &:hover {
         background-color: var(--bg-hover-primary);
-    }
-
-    .button {
-        font-size: .875rem;
-        color: var(--color-accent);
-        font-weight: 500;
     }
 
     .addSvg {

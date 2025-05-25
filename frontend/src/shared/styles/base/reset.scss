@@ -27,11 +27,27 @@ body.dark {
 }
 
 body, html {
-    height: 200vh;
+    overflow-y: hidden;
     background-color: var(--bg-primary);
     transition: background-color .2s ease-in-out;
 }
 
-#root {
-    height: 100%;
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
 }
+
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-hover);
+}
+
