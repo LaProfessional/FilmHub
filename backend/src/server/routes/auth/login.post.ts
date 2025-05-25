@@ -17,13 +17,13 @@ export default defineEventHandler(async (event) => {
     checkEmailValid(errors, candidate?.email)
     checkPasswordValid(errors, candidate?.password)
 
-    if (errors.get().length) {
+    if (errors.isNotEmpty()) {
         setResponseStatus(event, 400)
         return { detail: errors.get() }
     }
 
     const user = await modelUser.findOne({where: {email: candidate.email}})
-    if (!user.email) {
+    if (!user) {
         setResponseStatus(event, 404)
         return {detail: `Пользователь с email '${candidate.email}' не найден!`}
     }
@@ -34,7 +34,7 @@ export default defineEventHandler(async (event) => {
         return {detail: `Не верный пароль!`}
     }
 
-    const { accessToken, refreshToken } = createTokens(event)
+    const { accessToken, refreshToken } = createTokens(event, candidate.email)
     await user.update({token: accessToken})
 
     setCookie(event, "refreshToken", refreshToken, {maxAge: config.auth.refresh.maxAge, httpOnly: true});

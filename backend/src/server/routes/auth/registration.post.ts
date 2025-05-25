@@ -22,7 +22,7 @@ export default defineEventHandler(async (event) => {
     checkNameValid(errors, candidate.firstName, 'First name')
     checkNameValid(errors, candidate.lastName, 'Last name')
 
-    if (errors.get().length) {
+    if (errors.isNotEmpty()) {
         setResponseStatus(event, 400)
         return { detail: errors.get() }
     }

@@ -11,9 +11,10 @@ export const useDB = (event) => {
         host: config.host,
         dialect: config.dialect,
     });
-    const modelUser = createUser(sequelize, DataTypes)
-    const modelMovie = createMovie(sequelize, DataTypes)
+
     const modelCategory = createCategory(sequelize, DataTypes)
+    const modelMovie = createMovie(sequelize, DataTypes)
+    const modelUser = createUser(sequelize, DataTypes)
 
     modelUser.associate(sequelize.models)
     modelMovie.associate(sequelize.models)

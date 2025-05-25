@@ -3,7 +3,7 @@ import { Model } from 'sequelize'
 export default (sequelize, DataTypes) => {
   class Movie extends Model {
     static associate(models) {
-      Movie.belongsTo(models.User)
+      Movie.belongsTo(models.User, { targetKey: 'id', foreignKey: 'userId' })
       Movie.belongsToMany(models.Category, { through: 'CategoryMovie'});
     }
   }
