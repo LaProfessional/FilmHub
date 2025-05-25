@@ -17,6 +17,9 @@ export default defineNitroConfig({
       refresh: {
         maxAge: 60 * 60 * 24 * 7
       }
+    },
+    kinopoisk: {
+      key: '89e47a16-4d5e-436f-8e3d-2c764f44051c',
     }
   }
 });
