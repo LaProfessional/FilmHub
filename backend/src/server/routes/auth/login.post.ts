@@ -22,13 +22,13 @@ export default defineEventHandler(async event => {
     return { detail: errors.get() }
   }
 
-  const user = await modelUser.findOne({ where: { email: candidate.email } })
+  const user: any = await modelUser.findOne({ where: { email: candidate.email } })
   if (!user) {
     setResponseStatus(event, 404)
     return { detail: `Пользователь с email '${candidate.email}' не найден!` }
   }
 
-  const isPasswordCorrect = await bcrypt.compare(candidate.password, user.password)
+  const isPasswordCorrect = bcrypt.compare(candidate.password, user.password)
   if (!isPasswordCorrect) {
     setResponseStatus(event, 401)
     return { detail: `Не верный пароль!` }

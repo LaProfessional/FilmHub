@@ -1,4 +1,3 @@
-import jwt from 'jsonwebtoken'
 import {
   checkColorHexValid,
   checkIconValid,
@@ -22,7 +21,7 @@ export default defineEventHandler(async event => {
     return { detail: errors.get() }
   }
 
-  const user = await modelUser.findOne({ where: { email } })
+  const user: any = await modelUser.findOne({ where: { email } })
 
   await user.createCategory({
     title: data.title,

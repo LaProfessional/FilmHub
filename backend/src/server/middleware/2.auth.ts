@@ -12,7 +12,6 @@ export default defineEventHandler(event => {
     const config = useRuntimeConfig(event)
     const tokenHeader = getRequestHeader(event, 'Authorization')
     const refreshToken = getCookie(event, 'refreshToken')
-
     if (!tokenHeader) {
       setResponseStatus(event, 401, 'Unauthorized')
       return {
@@ -31,14 +30,12 @@ export default defineEventHandler(event => {
 
     try {
       jwt.verify(token, config.auth.tokenHash)
+
       const refreshTokenDecoded = jwt.verify(refreshToken, config.auth.tokenHashLong)
-      console.log(refreshTokenDecoded)
       event.context.user = { email: refreshTokenDecoded.data.email }
     } catch (err) {
-      if (!token) {
-        setResponseStatus(event, 401, 'Unauthorized')
-        return { detail: err }
-      }
+      setResponseStatus(event, 401, 'Unauthorized')
+      return { detail: err }
     }
   }
 })
