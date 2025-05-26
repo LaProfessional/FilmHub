@@ -4,13 +4,10 @@ import { useCollapsible } from "@/widgets/sidebar/lib/useCollapsible.ts";
 
 import { SidebarSectionHeader } from "@/widgets/sidebar/ui/SidebarSectionHeader.tsx";
 
-type Variant = "wrapper" | "categoryGroup";
-type HeadingStyle = "title" | "categoryGroupTitle";
-
 interface CollapsibleSidebarSectionProps {
     children: React.ReactNode;
-    variant: Variant;
-    headingStyle: HeadingStyle;
+    variant: string;
+    headingStyle: string;
     heading: string;
 }
 
@@ -20,7 +17,6 @@ export const CollapsibleSidebarSection: React.FC<CollapsibleSidebarSectionProps>
                                                                                         headingStyle,
                                                                                         heading
                                                                                     }) => {
-
     const { toggleMenu, isClose, contentRef } = useCollapsible();
 
     return (

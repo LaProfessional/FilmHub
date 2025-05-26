@@ -1,11 +1,12 @@
 import styles from "./Sidebar.module.scss";
-
 import { useTranslation } from "react-i18next";
 
+import { ReactComponent as AddSvg } from "@/shared/assets/sidebar/Add.svg";
+
 import AddCategoryInput from "@/features/sidebar/ui/AddCategoryInput.tsx";
-import AddBtnWrapper from "@/features/sidebar/ui/AddBtnWrapper.tsx";
 
 import { CollapsibleSidebarSection } from "@/widgets/sidebar/ui/CollapsibleSidebarSection.tsx";
+import { Button } from "@/shared/ui/Button.tsx";
 
 export const Sidebar = () => {
 
@@ -52,7 +53,7 @@ export const Sidebar = () => {
     return (
         <aside className={ styles.sidebar }>
             <nav className={ styles.nav }>
-                <AddCategoryInput></AddCategoryInput>
+                <AddCategoryInput />
 
                 <section>
                     <CollapsibleSidebarSection
@@ -64,7 +65,11 @@ export const Sidebar = () => {
                             <li className={ `${ styles.item } ${ styles.select }` }>{ t("allMovies") }</li>
                             <li className={ styles.item }>{ t("favourites") }</li>
                         </ul>
-                        <AddBtnWrapper label={ t("newFolder") } type={ "addBtn" }></AddBtnWrapper>
+
+                        <div className={ styles.wrapper }>
+                            <AddSvg className={ styles.addSvg }/>
+                            <Button variant={ "addBtn" }>{ t("newFolder") }</Button>
+                        </div>
 
                     </CollapsibleSidebarSection>
                 </section>
@@ -107,7 +112,11 @@ export const Sidebar = () => {
                                     </li>
                                 )) }
                             </ul>
-                            <AddBtnWrapper label={ t("addFlag") } type={ "addBtn" }></AddBtnWrapper>
+
+                            <div className={ styles.wrapper }>
+                                <AddSvg className={ styles.addSvg }/>
+                                <Button variant={ "addBtn" }>{ t("addFlag") }</Button>
+                            </div>
 
                         </CollapsibleSidebarSection>
 

@@ -1,20 +1,26 @@
-import * as React from "react";
 import styles from "./Button.module.scss";
 
-type TypeButton = "collapseExpandBtn" | "addBtn";
-type ToggleMenu = () => void;
-
-interface ButtonProps {
+interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode;
-    toggleMenu?: ToggleMenu;
-    type: TypeButton;
+    variant: string;
 }
 
-export const Button: React.FC<ButtonProps> = ({ children, toggleMenu, type }) => {
+export const Button: React.FC<ButtonProps> = ({ children, variant, ...props }) => {
+
+    let className;
+    switch (variant) {
+        case "addBtn":
+            className = styles.addBtn;
+            break;
+        case "collapseExpandBtn":
+            className = styles.collapseExpandBtn;
+            break;
+    }
+
     return (
         <button
-            onClick={ toggleMenu }
-            className={ styles[type] }
+            { ...props }
+            className={ className }
         >{ children }</button>
     );
 };
