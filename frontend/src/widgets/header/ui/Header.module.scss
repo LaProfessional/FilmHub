@@ -50,6 +50,19 @@
     width: 100%;
     gap: 1rem;
 
+    .wrapper {
+        position: relative;
+        width: clamp(100px, 100%, 400px);
+    }
+
+    .searchSvg {
+        position: absolute;
+        left: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        stroke: #9CA3AF;
+    }
+
     .button {
         display: flex;
         justify-content: center;

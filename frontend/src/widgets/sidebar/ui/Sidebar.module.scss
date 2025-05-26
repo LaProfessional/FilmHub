@@ -24,6 +24,36 @@
     }
 }
 
+.wrapperInput {
+    display: flex;
+    border-radius: .5rem;
+
+    transition: outline-color .2s ease-in-out;
+    outline: 1px solid transparent;
+
+    &:has(input:focus) {
+        outline: 1px solid var(--input-focus);
+    }
+
+    .addCategoryBtn {
+        border-radius: 0 .5rem .5rem 0;
+        background-color: var(--button);
+
+        font-size: 1.5rem;
+        color: var(--color-add-button);
+
+        padding: 0 .8rem;
+
+        transition: background-color .1s ease-in-out;
+
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--button-hover);
+        }
+    }
+}
+
 .item {
     border-radius: .5rem;
 

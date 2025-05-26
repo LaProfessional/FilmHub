@@ -3,10 +3,9 @@ import { useTranslation } from "react-i18next";
 
 import { ReactComponent as AddSvg } from "@/shared/assets/sidebar/Add.svg";
 
-import AddCategoryInput from "@/features/sidebar/ui/AddCategoryInput.tsx";
-
 import { CollapsibleSidebarSection } from "@/widgets/sidebar/ui/CollapsibleSidebarSection.tsx";
 import { Button } from "@/shared/ui/Button.tsx";
+import { Input } from "@/shared/ui/Input.tsx";
 
 export const Sidebar = () => {
 
@@ -53,7 +52,14 @@ export const Sidebar = () => {
     return (
         <aside className={ styles.sidebar }>
             <nav className={ styles.nav }>
-                <AddCategoryInput />
+                <div className={ styles.wrapperInput }>
+                    <Input
+                        variant={ "inputCategory" }
+                        type={ "text" }
+                        placeholder={ t("createCategory") }
+                    />
+                    <button className={ styles.addCategoryBtn }>+</button>
+                </div>
 
                 <section>
                     <CollapsibleSidebarSection

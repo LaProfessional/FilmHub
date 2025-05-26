@@ -7,20 +7,10 @@ interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
 
 export const Button: React.FC<ButtonProps> = ({ children, variant, ...props }) => {
 
-    let className;
-    switch (variant) {
-        case "addBtn":
-            className = styles.addBtn;
-            break;
-        case "collapseExpandBtn":
-            className = styles.collapseExpandBtn;
-            break;
-    }
-
     return (
         <button
             { ...props }
-            className={ className }
+            className={ styles[variant] }
         >{ children }</button>
     );
 };
