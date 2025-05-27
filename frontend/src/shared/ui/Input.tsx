@@ -10,6 +10,7 @@ export const Input: React.FC<InputProps> = ({ variant, ...props }) => {
             className={ styles[variant] }
             type={ props.type }
             placeholder={ props.placeholder }
+            id={ props.id }
         />
     );
 };
