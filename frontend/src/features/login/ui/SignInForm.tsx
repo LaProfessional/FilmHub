@@ -13,15 +13,15 @@ export const SignInForm = () => {
 
             <FormField
                 variant={ "inputReg" }
-                id="username"
-                label="Username"
-                placeholder="Enter your username"
+                id="Email"
+                label="Email"
+                placeholder="Enter your email"
                 type="text"
             />
 
             <FormField
                 variant={ "inputReg" }
-                id="password"
+                id="Email"
                 label="Password"
                 placeholder="Enter your password"
                 type="text"

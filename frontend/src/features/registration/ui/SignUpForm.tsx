@@ -14,32 +14,38 @@ export const SignUpForm = () => {
 
             <FormField
                 variant="inputReg"
-                id="username"
-                label="Username"
-                placeholder="Choose a username"
+                id="Firstname"
+                label="Firstname"
+                placeholder="Choose a firstname"
             />
             <FormField
                 variant="inputReg"
-                id="email"
+                id="Lastname"
+                label="Lastname"
+                placeholder="Choose a lastname"
+            />
+            <FormField
+                variant="inputReg"
+                id="Email"
                 label="Email"
                 placeholder="Enter your email"
             />
             <FormField
                 variant="inputReg"
-                id="password"
+                id="Password"
                 label="Password"
                 placeholder="Create a password"
                 type="password"
             />
             <FormField
                 variant="inputReg"
-                id="confirm"
+                id="Confirm Password"
                 label="Confirm Password"
                 placeholder="Confirm your password"
                 type="password"
             />
 
-            <Button variant="signInBtn">Login</Button>
+            <Button variant="signInBtn">Register</Button>
         </form>
 
     );
