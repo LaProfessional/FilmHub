@@ -1,5 +1,6 @@
 import styles from "./LoginModal.module.scss";
 import titleStyles from "@/shared/styles/components/TitleStyles.module.scss"
+// import { useForm } from "react-hook-form";
 
 import { Button } from "@/shared/ui/Button.tsx";
 import { SignInForm } from "@/features/login/ui/SignInForm.tsx";
@@ -10,6 +11,8 @@ export const LoginModal = () => {
     const [ isActive, setIsActive ] = useState<Boolean>(true);
 
     const toggleModal = () => setIsActive(!isActive);
+
+
 
     return (
         <div className={ styles.modal }>
