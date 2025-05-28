@@ -1,0 +1,9 @@
+src/node_modules
+dist
+.data
+.nitro
+.cache
+.output
+.env
+package-lock.json
+yarn.lock
