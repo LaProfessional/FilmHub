@@ -4,16 +4,16 @@ import { type RouteProps } from "react-router-dom";
 import { HomePage } from "@/pages/home";
 
 export enum AppRoutes {
-  HOME = "home",
+    HOME = "home",
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
-  [AppRoutes.HOME]: "/",
+    [AppRoutes.HOME]: "/",
 };
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
-  [AppRoutes.HOME]: {
-    path: RoutePath[AppRoutes.HOME],
-    element: <HomePage />,
-  },
+    [AppRoutes.HOME]: {
+        path: RoutePath[AppRoutes.HOME],
+        element: <HomePage/>,
+    },
 };

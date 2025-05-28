@@ -1,0 +1,40 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: .5rem;
+
+    .title {
+        color: var(--color-category);
+        font-size: .875rem;
+        text-transform: uppercase;
+    }
+}
+
+.arrowSvg {
+    stroke: var(--arrow);
+
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        stroke: var(--arrow-hover);
+    }
+
+    &.close {
+        transform: rotate(-90deg);
+    }
+}
+
+.categoryGroup {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    padding: .625rem .75rem;
+
+    .categoryGroupTitle {
+        color: var(--color-primary);
+        font-size: .875rem;
+    }
+}

@@ -1,0 +1,39 @@
+.inputCategory {
+    width: 100%;
+    border-radius: .5rem 0 0 .5rem;
+
+    border: 1px solid var(--border);
+    border-right: none;
+
+    color: var(--color-primary);
+    font-weight: bold;
+    font-style: oblique;
+
+    padding: .5rem .8rem;
+}
+
+.inputSearch {
+    width: 100%;
+    height: 38px;
+    border-radius: .5rem;
+    border: 1px solid var(--border);
+    background-color: var(--input);
+
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 1.125em;
+
+    padding: .5rem 1rem .5rem 2.5rem;
+
+    transition: outline-color .2s ease-in-out;
+    outline: 1px solid transparent;
+
+    &:focus {
+        outline: 1px solid var(--input-focus);
+    }
+
+    &::placeholder {
+        letter-spacing: .125em;
+        font-size: 1rem;
+    }
+}
