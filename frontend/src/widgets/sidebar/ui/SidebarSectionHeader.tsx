@@ -1,5 +1,5 @@
-import * as React from "react";
 import styles from "@/widgets/sidebar/ui/SidebarSectionHeader.module.scss";
+import cls from "@fvilers/cls";
 
 import { ReactComponent as ArrowSvg } from "@/shared/assets/sidebar/Arrow.svg";
 
@@ -8,9 +8,9 @@ import { Button } from "@/shared/ui/Button.tsx";
 interface SidebarSectionHeaderProps {
     variant: string;
     headingStyle: string;
-    toggleMenu: () => void;
-
     heading: string;
+
+    toggleMenu: () => void;
     isClose: Boolean;
 }
 
@@ -18,8 +18,8 @@ export const SidebarSectionHeader: React.FC<SidebarSectionHeaderProps> = ({
                                                                               variant,
                                                                               headingStyle,
                                                                               heading,
-                                                                              isClose,
-                                                                              toggleMenu
+                                                                              toggleMenu,
+                                                                              isClose
                                                                           }) => {
     return (
         <div className={ styles[variant] }>
@@ -30,7 +30,7 @@ export const SidebarSectionHeader: React.FC<SidebarSectionHeaderProps> = ({
             ) }
 
             <Button variant={ "collapseExpandBtn" } onClick={ toggleMenu }>
-                <ArrowSvg className={ `${ styles.arrowSvg } ${ isClose ? styles.close : "" }` }/>
+                <ArrowSvg className={ cls(styles.arrowSvg, isClose && styles.close) }/>
             </Button>
         </div>
     );

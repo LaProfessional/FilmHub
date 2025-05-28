@@ -10,3 +10,21 @@
     font-weight: 500;
     cursor: pointer;
 }
+
+.addCategoryBtn {
+    border-radius: 0 .5rem .5rem 0;
+    background-color: var(--button);
+
+    font-size: 1.5rem;
+    color: var(--color-add-button);
+
+    padding: 0 .8rem;
+
+    transition: background-color .1s ease-in-out;
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--button-hover);
+    }
+}
