@@ -49,4 +49,8 @@
     font-weight: 600;
 
     padding: .8rem 1.2rem;
+
+    &.error {
+        border: 1px solid var(--border-danger);
+    }
 }

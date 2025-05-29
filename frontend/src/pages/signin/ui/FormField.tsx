@@ -21,6 +21,7 @@ export const FormField: React.FC<FormFieldProps> = ({ variant, label, error, ...
             <Input
                 variant={ variant }
                 { ...props }
+                error={ error?.message }
             />
             <p className={ cls(error?.message && styles.error) }>{ error?.message }</p>
         </div>
