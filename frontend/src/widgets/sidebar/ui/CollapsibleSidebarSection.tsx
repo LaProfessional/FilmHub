@@ -1,5 +1,6 @@
-import * as React from "react";
 import styles from "./CollapsibleSidebarSection.module.scss";
+import cls from "@fvilers/cls";
+
 import { useCollapsible } from "@/widgets/sidebar/lib/useCollapsible.ts";
 
 import { SidebarSectionHeader } from "@/widgets/sidebar/ui/SidebarSectionHeader.tsx";
@@ -31,7 +32,7 @@ export const CollapsibleSidebarSection: React.FC<CollapsibleSidebarSectionProps>
 
             <div
                 ref={ contentRef }
-                className={ `${ styles.section } ${ isClose ? styles.close : "" }` }
+                className={ cls(styles.section, isClose && styles.close) }
             >{ children }
             </div>
         </>

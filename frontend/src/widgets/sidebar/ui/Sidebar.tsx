@@ -1,6 +1,8 @@
 import styles from "./Sidebar.module.scss";
 import { useTranslation } from "react-i18next";
 
+import { dataFlags } from "@/widgets/sidebar/model/dataFlags.ts";
+
 import { ReactComponent as AddSvg } from "@/shared/assets/sidebar/Add.svg";
 
 import { CollapsibleSidebarSection } from "@/widgets/sidebar/ui/CollapsibleSidebarSection.tsx";
@@ -11,44 +13,6 @@ export const Sidebar = () => {
 
     const { t } = useTranslation();
 
-    const dataFlag = [
-        {
-            flagName: "narrativeChaos",
-            color: "#8b8680",
-            bg: "rgba(139, 134, 128, 0.08)",
-            border: "4px solid #8b8680",
-            progress: "#8b8680",
-        },
-        {
-            flagName: "predictableOrdinariness",
-            color: "#f2e6d8",
-            bg: "rgba(242, 230, 216, 0.08)",
-            border: "4px solid #f2e6d8",
-            progress: "#f2e6d8",
-        },
-        {
-            flagName: "satisfactoryStructure",
-            color: "#a9dce3",
-            bg: "rgba(169, 220, 227, 0.08)",
-            border: "4px solid #a9dce3",
-            progress: "#a9dce3",
-        },
-        {
-            flagName: "grippingNarrative",
-            color: "#ff937e",
-            bg: "rgba(255, 147, 126, 0.08)",
-            border: "4px solid #ff937e",
-            progress: "#ff937e",
-        },
-        {
-            flagName: "literaryMasterpiece",
-            color: "#008a73",
-            bg: "rgba(0, 138, 115, 0.08)",
-            border: "4px solid #008a73",
-            progress: "#008a73",
-        },
-    ];
-
     return (
         <aside className={ styles.sidebar }>
             <nav className={ styles.nav }>
@@ -58,7 +22,7 @@ export const Sidebar = () => {
                         type={ "text" }
                         placeholder={ t("createCategory") }
                     />
-                    <button className={ styles.addCategoryBtn }>+</button>
+                    <Button variant={ "addCategoryBtn" }>+</Button>
                 </div>
 
                 <section>
@@ -93,7 +57,7 @@ export const Sidebar = () => {
                         >
 
                             <ul className={ styles.flagContainer }>
-                                { dataFlag.map((flag, index) => (
+                                { dataFlags.map((flag, index) => (
                                     <li className={ styles.flagData } key={ index }>
                                         <div className={ styles.wrapperFlagStat }>
                                     <span
