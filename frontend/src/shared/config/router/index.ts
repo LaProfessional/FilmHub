@@ -1,1 +1,1 @@
-export { routeConfig, type AppRoutes, RoutePath } from "./router";
+export { routeConfig } from "./routeConfig.tsx";

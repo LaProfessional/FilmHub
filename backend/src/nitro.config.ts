@@ -8,7 +8,7 @@ export default defineNitroConfig({
       password: 'la-professional-password',
       port: 5432,
       dialect: 'postgres',
-      host: 'db'
+      host: 'localhost'
     },
     auth: {
       saltRounds: 10,

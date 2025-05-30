@@ -1,4 +1,5 @@
 import styles from "./Header.module.scss";
+import titleStyles from "@/shared/styles/components/TitleStyles.module.scss"
 
 import { ReactComponent as LogoSvg } from "@/shared/assets/header/Logo.svg";
 import { ReactComponent as SunSvg } from "@/shared/assets/header/Sun.svg";
@@ -23,7 +24,7 @@ export const Header = () => {
             <div className={ styles.header }>
                 <div className={ styles.titleWrapper }>
                     <LogoSvg className={ styles.logoSvg }/>
-                    <h2 className={ styles.title }>FilmHub</h2>
+                    <h2 className={ titleStyles.titleGradient }>FilmHub</h2>
                 </div>
 
                 <nav className={ styles.nav }>
