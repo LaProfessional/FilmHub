@@ -1,14 +1,14 @@
 import formStyles from "@/shared/styles/components/FormStyles.module.scss";
+import { useSignUp } from "@/features/registration/model/services.ts";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { signUpSchema } from "@/features/registration/model/validation.ts";
 
 import { FormField } from "@/pages/signin/ui/FormField.tsx";
 import { Button } from "@/shared/ui/Button.tsx";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-
-import { signUpSchema } from "@/features/registration/model/validation.ts";
-import { signUp } from "@/features/registration/model/services.ts";
 
 export const SignUpForm = () => {
+    const { signUp } = useSignUp();
 
     const { register, handleSubmit, setError, formState: { errors } } = useForm({
         resolver: zodResolver(signUpSchema),

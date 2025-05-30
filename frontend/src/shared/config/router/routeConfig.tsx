@@ -1,11 +1,19 @@
 import { HomePage } from "@/pages/home";
 import { LoginModal } from "@/pages/signin/ui/LoginModal.tsx";
 import { RootLayout } from "@/shared/layout/ui/RootLayout";
-import type { RouteObject } from "react-router-dom";
+import { Navigate, type RouteObject } from "react-router-dom";
 
 export const routeConfig: RouteObject[] = [
     {
         path: "/",
+        element: <Navigate to="/auth" replace />,
+    },
+    {
+        path: "/auth",
+        element: <LoginModal />,
+    },
+    {
+        path: "/home",
         element: <RootLayout />,
         children: [
             {
@@ -13,9 +21,5 @@ export const routeConfig: RouteObject[] = [
                 element: <HomePage />,
             },
         ],
-    },
-    {
-        path: "/auth",
-        element: <LoginModal />,
     },
 ];
