@@ -12,6 +12,7 @@
     list-style: none;
 
     font-family: "Montserrat", sans-serif;
+    font-size: 10px;
 }
 
 input:focus {
@@ -39,12 +40,12 @@ body, html {
 
 ::-webkit-scrollbar-track {
     background: var(--scrollbar-track);
-    border-radius: 10px;
+    border-radius: 1rem;
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: var(--scrollbar);
-    border-radius: 10px;
+    border-radius: 1rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {
