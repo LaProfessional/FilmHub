@@ -5,7 +5,7 @@
     top: 0;
 
     background-color: var(--bg-primary);
-    padding: .75rem 1rem;
+    padding: 1.2rem 1.6rem;
     width: 100%;
 
     border-bottom: 1px solid var(--border);
@@ -16,26 +16,28 @@
     justify-content: space-between;
     align-items: center;
 
-    margin: 0 11.563rem;
+    margin: 0 18.5rem;
 }
 
 .titleWrapper {
     display: flex;
     align-items: center;
-    gap: .5rem;
+    gap: .8rem;
 
-    padding-right: 0.5rem;
+    padding-right: .8rem;
 
     .logoSvg {
         stroke: var(--logo);
     }
 
     .title {
+        font-size: 2.4rem;
+
         background: linear-gradient(
-            to right,
-            hsl(267 84% 64%),
-            hsl(290 82% 62%),
-            hsl(330 81% 60%)
+                to right,
+                hsl(267 84% 64%),
+                hsl(290 82% 62%),
+                hsl(330 81% 60%)
         );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -48,7 +50,7 @@
     align-items: center;
     justify-content: flex-end;
     width: 100%;
-    gap: 1rem;
+    gap: 1.6rem;
 
     .wrapper {
         position: relative;
@@ -71,7 +73,7 @@
         height: 38px;
         border-radius: 100%;
 
-        padding: .5rem;
+        padding: .8rem;
 
         transition: background-color .1s ease-in-out;
 
@@ -90,6 +92,7 @@
         color: var(--color-primary);
         text-transform: uppercase;
         font-weight: bold;
+        font-size: 1.4rem;
     }
 
     .avatar {
