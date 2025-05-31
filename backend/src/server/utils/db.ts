@@ -1,23 +1,24 @@
-import Sequelize from "sequelize";
-import {DataTypes} from "sequelize";
-import createUser from "~/models/user";
-import createMovie from "~/models/movie";
-import createCategory from "~/models/category";
+import Sequelize from 'sequelize'
+import { DataTypes } from 'sequelize'
+import createUser from '~/models/user'
+import createMovie from '~/models/movie'
+import createCategory from '~/models/category'
 
-export const useDB = (event) => {
-    const {db: config} = useRuntimeConfig(event)
-    const sequelize = new Sequelize(config.name, config.user, config.password, {
-        port: config.port,
-        host: config.host,
-        dialect: config.dialect,
-    });
-    const modelUser = createUser(sequelize, DataTypes)
-    const modelMovie = createMovie(sequelize, DataTypes)
-    const modelCategory = createCategory(sequelize, DataTypes)
+export const useDB = event => {
+  const { db: config } = useRuntimeConfig(event)
+  const sequelize = new Sequelize(config.name, config.user, config.password, {
+    port: config.port,
+    host: config.host,
+    dialect: config.dialect,
+  })
 
-    modelUser.associate(sequelize.models)
-    modelMovie.associate(sequelize.models)
-    modelCategory.associate(sequelize.models)
+  const modelCategory = createCategory(sequelize, DataTypes)
+  const modelMovie = createMovie(sequelize, DataTypes)
+  const modelUser = createUser(sequelize, DataTypes)
 
-    return { modelUser, modelMovie, modelCategory }
+  modelUser.associate(sequelize.models)
+  modelMovie.associate(sequelize.models)
+  modelCategory.associate(sequelize.models)
+
+  return { modelUser, modelMovie, modelCategory }
 }
