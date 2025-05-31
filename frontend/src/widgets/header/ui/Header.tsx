@@ -1,10 +1,11 @@
 import styles from "./Header.module.scss";
+import { UserMenu } from "./UserMenu";
+
 
 import { ReactComponent as LogoSvg } from "@/shared/assets/header/Logo.svg";
 import { ReactComponent as SunSvg } from "@/shared/assets/header/Sun.svg";
 import { ReactComponent as MoonSvg } from "@/shared/assets/header/Moon.svg";
 import { ReactComponent as SearchSvg } from "@/shared/assets/header/Search.svg";
-import Avatar from "@/shared/assets/header/Avatar.png";
 
 import { Input } from "@/shared/ui/Input.tsx";
 
@@ -49,7 +50,7 @@ export const Header = () => {
                         <span className={ styles.language }>{ language === "en" ? "en" : "ru" }</span>
                     </button>
 
-                    <img className={ styles.avatar } src={ Avatar } alt="Avatar"/>
+                    <UserMenu />
                 </nav>
             </div>
         </header>
