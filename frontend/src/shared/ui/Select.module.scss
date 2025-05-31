@@ -1,0 +1,37 @@
+.select {
+    border: 1px solid var(--border);
+
+    .listItem {
+        padding: .8rem 1.2rem;
+    }
+
+    .dropdownTitleWrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: .8rem 1.2rem;
+
+        .dropdownTitle {
+            color: var(--color-primary);
+            font-size: 1.6rem;
+        }
+
+        .chevronDown {
+            display: inline-block;
+            vertical-align: baseline;
+            stroke: var(--arrow);
+        }
+    }
+
+    .genreItem {
+        color: var(--color-primary);
+        padding-bottom: .8rem;
+
+        .label {
+            font-size: 1.6rem;
+            padding-left: .8rem;
+            cursor: pointer;
+        }
+    }
+}

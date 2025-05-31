@@ -1,0 +1,31 @@
+.container {
+    padding: 2.4rem;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    gap: 2.5rem;
+
+    .titleWrapper {
+
+        .title {
+            color: var(--color-primary);
+            font-size: 2.4rem;
+            font-weight: 600;
+        }
+
+        .description {
+            color: var(--color-muted);
+            font-size: 1.6rem;
+
+            padding-top: .4rem;
+        }
+    }
+
+    .selectWrapper {
+        display: flex;
+        gap: 2.5rem;
+    }
+}
+
