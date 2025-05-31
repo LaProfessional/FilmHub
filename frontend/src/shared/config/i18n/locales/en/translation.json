@@ -12,5 +12,10 @@
   "satisfactoryStructure": "Satisfactory structure",
   "grippingNarrative": "Gripping narrative",
   "literaryMasterpiece": "Literary masterpiece",
-  "addFlag": "Add flag"
+  "addFlag": "Add flag",
+  "YourProfile": "Your Profile",
+  "YourCollections": "Your Collections",
+  "YourTags": "Your Tags",
+  "Settings": "Settings",
+  "Logout": "Log Out"
 }

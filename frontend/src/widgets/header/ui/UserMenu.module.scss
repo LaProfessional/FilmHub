@@ -1,0 +1,80 @@
+@use "../../../shared/styles/abstracts/variables" as var;
+
+.menuContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .avatar {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+}
+
+.dropdown {
+    position: absolute;
+    top: calc(100% + .5rem);
+    right: 0;
+    width: 20rem;
+    background-color: var(--bg-primary);
+    color: var(--color-primary);
+    border-radius: .75rem;
+    box-shadow: 0 .25rem 1rem var(--border);
+    border: .1rem solid var(--border);
+    z-index: 1000;
+    overflow: hidden;
+    font-size: 1.4rem;
+}
+
+.userInfo {
+    padding: 1.4rem;
+    border-bottom: .1rem solid var(--border);
+    font-size: inherit;
+    .username {
+        font-weight: bold;
+        font-size: inherit;
+    }
+
+    .email {
+        color: var(--color-muted);
+    }
+}
+
+.menuList {
+    display: flex;
+    flex-direction: column;
+    font-size: inherit;
+    li {
+        display: flex;
+        align-items: center;
+        gap: .8rem;
+        padding: 1rem 1.4rem;
+        cursor: pointer;
+        transition: background-color .2s;
+        font-size: inherit;
+        &:hover {
+            background-color: var(--bg-hover-primary);
+        }
+    }
+}
+
+.logout {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    width: 100%;
+    padding: 1rem 1.4rem;
+    border: none;
+    background: none;
+    color: var(--color-danger);
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    border-top: .1rem solid var(--border);
+
+    &:hover {
+        background-color: var(--bg-hover-primary);
+    }
+}
