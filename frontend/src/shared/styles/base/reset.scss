@@ -28,7 +28,7 @@ body.dark {
 }
 
 body, html {
-    overflow-y: hidden;
+    //overflow-y: hidden;
     background-color: var(--bg-primary);
     transition: background-color .2s ease-in-out;
 }

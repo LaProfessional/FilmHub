@@ -1,20 +1,19 @@
 .select {
     border: 1px solid var(--border);
-
-    .listItem {
-        padding: .8rem 1.2rem;
-    }
+    height: fit-content;
 
     .dropdownTitleWrapper {
         display: flex;
         justify-content: space-between;
         align-items: center;
 
-        padding: .8rem 1.2rem;
+        cursor: pointer;
+        padding: .8rem;
 
         .dropdownTitle {
             color: var(--color-primary);
             font-size: 1.6rem;
+            padding-right: .5rem;
         }
 
         .chevronDown {
@@ -24,14 +23,28 @@
         }
     }
 
-    .genreItem {
+    .listItem, .label {
+        cursor: pointer;
+        overflow: hidden;
+        height: 0;
+
+        &.open {
+            overflow: visible;
+        }
+    }
+
+    .item {
         color: var(--color-primary);
-        padding-bottom: .8rem;
+        padding: .8rem;
+
+        &:hover {
+            background-color: var(--bg-hover-select);
+        }
 
         .label {
+            vertical-align: baseline;
             font-size: 1.6rem;
-            padding-left: .8rem;
-            cursor: pointer;
+            padding-left: .5rem;
         }
     }
 }

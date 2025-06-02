@@ -1,11 +1,11 @@
 import styles from "./HomePage.module.scss";
-
 import { useTranslation } from "react-i18next";
 
 import { LayoutGrid } from "lucide-react";
 import { LayoutList } from "lucide-react";
 
 import { Select } from "@/shared/ui/Select.tsx";
+
 import { dataGenre, dataYear, sortOptions } from "@/pages/home/model/filterData.ts";
 
 export const HomePage = () => {
@@ -20,9 +20,20 @@ export const HomePage = () => {
                 </div>
 
                 <div className={ styles.selectWrapper }>
-                    <Select data={ dataGenre }></Select>
-                    <Select data={ dataYear }></Select>
-                    <Select data={ sortOptions }></Select>
+                    <Select
+                        data={ dataGenre }
+                        dropdownTitle={ "Any genre" }
+                    ></Select>
+
+                    <Select
+                        data={ dataYear }
+                        dropdownTitle={ "Year of release" }
+                    ></Select>
+
+                    <Select
+                        data={ sortOptions }
+                        dropdownTitle={ "Sorting" }
+                    ></Select>
                 </div>
 
                 <div className={ styles.layoutControls }>

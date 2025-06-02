@@ -24,11 +24,11 @@ export const dataYear = [
 ];
 
 export const sortOptions = [
-    { id: "rating", htmlFor: "rating", label: "По рейтингу", value: "rating" },
-    { id: "newest", htmlFor: "newest", label: "Сначала новые", value: "newest" },
-    { id: "oldest", htmlFor: "oldest", label: "Сначала старые", value: "oldest" },
-    { id: "az", htmlFor: "az", label: "По названию: A-Z", value: "az" },
-    { id: "za", htmlFor: "za", label: "По названию: Z-A", value: "za" },
-    { id: "ay", htmlFor: "ay", label: "По названию: А-Я", value: "ay" },
-    { id: "ya", htmlFor: "ya", label: "По названию: Я-А", value: "ya" },
+    { id: "rating", htmlFor: "rating", label: "By rating", value: "rating" },
+    { id: "newest", htmlFor: "newest", label: "Newest first", value: "newest" },
+    { id: "oldest", htmlFor: "oldest", label: "Oldest first", value: "oldest" },
+    { id: "az", htmlFor: "az", label: "By name: A-Z", value: "az" },
+    { id: "za", htmlFor: "za", label: "By name: Z-A", value: "za" },
+    { id: "ay", htmlFor: "ay", label: "By name: А-Я", value: "ay" },
+    { id: "ya", htmlFor: "ya", label: "By name: Я-А", value: "ya" },
 ];

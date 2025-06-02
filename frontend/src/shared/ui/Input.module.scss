@@ -40,5 +40,37 @@
 }
 
 .checkbox {
+    position: relative;
+    display: inline-block;
+    vertical-align: text-bottom;
+    appearance: none;
+
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--border-accent);
+    border-radius: .3rem;
+
     cursor: pointer;
+
+    outline: 4px solid transparent;
+    transition: outline-color .2s ease-in-out;
+
+    &:checked {
+        background-color: var(--bg-accent);
+        outline: 4px solid hsla(267, 83%, 63%, 0.2);
+
+        &::after {
+            content: "";
+            position: absolute;
+
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+
+            width: 4px;
+            height: 8px;
+            border: solid #ffffff;
+            border-width: 0 2px 2px 0;
+        }
+    }
 }
