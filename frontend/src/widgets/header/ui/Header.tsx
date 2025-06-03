@@ -1,5 +1,5 @@
 import styles from "./Header.module.scss";
-import { UserMenu } from "./UserMenu";
+import { UserMenu } from "./UserMenu/UserMenu";
 
 
 import { ReactComponent as LogoSvg } from "@/shared/assets/header/Logo.svg";
