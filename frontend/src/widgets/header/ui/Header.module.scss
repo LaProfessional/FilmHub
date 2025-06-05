@@ -1,4 +1,4 @@
-@use "../../../shared/styles/abstracts/variables" as var;
+@use "@/shared/styles/abstracts/text-styles" as text-styles;
 
 .headerContainer {
     position: sticky;
@@ -77,8 +77,6 @@
 
         transition: background-color .1s ease-in-out;
 
-        cursor: pointer;
-
         .sunSvg {
             stroke: #e9e6e6;
         }
@@ -89,17 +87,6 @@
     }
 
     .language {
-        color: var(--color-primary);
-        text-transform: uppercase;
-        font-weight: bold;
-        font-size: 1.4rem;
-    }
-
-    .avatar {
-        width: 38px;
-        height: 38px;
-        border-radius: 100%;
-
-        cursor: pointer;
+        @include text-styles.text-small-semibold-uppercase;
     }
 }

@@ -1,43 +1,41 @@
+@use "../../../../../src/shared/styles/abstracts/text-styles" as text-styles;
+
 .avatar {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  cursor: pointer;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .userInfo {
-  padding: 1.4rem;
-  font-size: 1.4rem;
-  color: var(--color-primary);
-}
+    @include text-styles.text-small-primary;
+    padding: 1.4rem;
 
-.userInfo .username {
-  font-weight: bold;
-  font-size: 1.4rem;
-}
+    .username {
+        @include text-styles.text-small-primary;
+    }
 
-.userInfo .email {
-  color: var(--color-muted);
+    .email {
+        color: var(--color-muted);
+    }
 }
 
 .menuList {
-  display: flex;
-  flex-direction: column;
-  font-size: 1.4rem;
-  color: var(--color-primary);
-}
+    display: flex;
+    flex-direction: column;
+    @include text-styles.text-small-primary;
 
-.menuList li {
-  display: flex;
-  align-items: center;
-  gap: .6rem;
-  padding: 1.2rem 1.4rem;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  font-size: 1.4rem;
-}
+    li {
+        display: flex;
+        align-items: center;
+        gap: .6rem;
+        padding: 1.2rem 1.4rem;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        font-size: 1.4rem;
 
-.menuList li:hover {
-  background-color: var(--bg-hover-primary);
+        &:hover {
+            background-color: var(--bg-hover-primary);
+        }
+    }
 }
-

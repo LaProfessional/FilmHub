@@ -1,28 +1,23 @@
+@use "../styles/abstracts/text-styles" as text-styles;
+
 .collapseExpandBtn {
     width: 16px;
     height: 16px;
-    cursor: pointer;
 }
 
 .addBtn {
-    font-size: 1.4rem;
-    color: var(--color-accent);
-    font-weight: 500;
-    cursor: pointer;
+    @include text-styles.text-small-accent;
 }
 
 .addCategoryBtn {
     border-radius: 0 .8rem .8rem 0;
     background-color: var(--button);
 
-    font-size: 2.4rem;
-    color: var(--color-add-button);
+    // Сюда svg +
 
     padding: 0 1.3rem;
 
     transition: background-color .1s ease-in-out;
-
-    cursor: pointer;
 
     &:hover {
         background-color: var(--button-hover);
@@ -30,17 +25,16 @@
 }
 
 .logoutBtn {
-  display: flex;
-  align-items: center;
-  gap: .6rem;
-  width: 100%;
-  padding: 1.4rem 1.4rem;
-  color: var(--color-danger);
-  font-weight: 500;
-  font-size: 1.4rem;
-  cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    width: 100%;
 
-  &:hover {
-    background-color: var(--bg-hover-primary);
-  }
+    @include text-styles.text-small-danger;
+
+    padding: 1.4rem 1.4rem;
+
+    &:hover {
+        background-color: var(--bg-hover-primary);
+    }
 }

@@ -1,3 +1,5 @@
+@use "@/shared/styles/abstracts/text-styles" as text-styles;
+
 .wrapper {
     display: flex;
     justify-content: space-between;
@@ -6,9 +8,7 @@
     margin-bottom: .8rem;
 
     .title {
-        color: var(--color-category);
-        font-size: 1.4rem;
-        text-transform: uppercase;
+        @include text-styles.text-small-category;
     }
 }
 
@@ -34,7 +34,6 @@
     padding: 1rem 1.2rem;
 
     .categoryGroupTitle {
-        color: var(--color-primary);
-        font-size: 1.4rem;
+        @include text-styles.text-small-primary;
     }
 }
