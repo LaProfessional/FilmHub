@@ -12,5 +12,10 @@
   "satisfactoryStructure": "Удовлетворительная структура",
   "grippingNarrative": "Захватывающее повествование",
   "literaryMasterpiece": "Литературный шедевр",
-  "addFlag": "Добавить флаг"
+  "addFlag": "Добавить флаг",
+  "YourProfile": "Ваш профиль",
+  "YourCollections": "Ваши коллекции",
+  "YourFlags": "Ваши флаги",
+  "Settings": "Настройки",
+  "Logout": "Выйти"
 }

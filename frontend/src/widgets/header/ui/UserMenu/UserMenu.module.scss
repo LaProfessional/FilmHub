@@ -1,0 +1,43 @@
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.userInfo {
+  padding: 1.4rem;
+  font-size: 1.4rem;
+  color: var(--color-primary);
+}
+
+.userInfo .username {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.userInfo .email {
+  color: var(--color-muted);
+}
+
+.menuList {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.4rem;
+  color: var(--color-primary);
+}
+
+.menuList li {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: 1.2rem 1.4rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 1.4rem;
+}
+
+.menuList li:hover {
+  background-color: var(--bg-hover-primary);
+}
+

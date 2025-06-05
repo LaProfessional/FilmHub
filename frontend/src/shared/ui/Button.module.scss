@@ -28,3 +28,19 @@
         background-color: var(--button-hover);
     }
 }
+
+.logoutBtn {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  width: 100%;
+  padding: 1.4rem 1.4rem;
+  color: var(--color-danger);
+  font-weight: 500;
+  font-size: 1.4rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--bg-hover-primary);
+  }
+}
