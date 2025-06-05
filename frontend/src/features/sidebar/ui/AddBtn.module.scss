@@ -1,0 +1,31 @@
+@use "../../../shared/styles/abstracts/variables" as var;
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    border-radius: .5rem;
+
+    padding: .625rem .75rem;
+
+    transition: background-color .1s linear;
+
+    &, .button, .addSvg {
+        cursor: pointer;
+    }
+
+    &:hover {
+        background-color: var(--bg-hover-primary);
+    }
+
+    .button {
+        font-size: .875rem;
+        color: var(--color-accent);
+        font-weight: 500;
+    }
+
+    .addSvg {
+        stroke: var(--color-accent);
+    }
+}

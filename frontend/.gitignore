@@ -6,7 +6,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-yarn.lock
 
 node_modules
 dist
@@ -23,8 +22,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-.idea/
-frontend/.vite/
-
-*.css
-*.css.map

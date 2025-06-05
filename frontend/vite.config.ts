@@ -4,10 +4,10 @@ import svgr from "@svgr/rollup";
 import path from "path";
 
 export default defineConfig({
-    resolve: {
-        alias: {
-            "@": path.resolve(__dirname, "./src"),
-        },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
     },
-    plugins: [ react(), svgr() ],
+  },
+  plugins: [react(), svgr()],
 });

@@ -1,11 +1,8 @@
-@use "@/shared/styles/abstracts/text-styles" as text-styles;
+@use "../../../shared/styles/abstracts/variables" as var;
 
 .headerContainer {
-    position: sticky;
-    top: 0;
-
     background-color: var(--bg-primary);
-    padding: 1.2rem 1.6rem;
+    padding: .75rem 1rem;
     width: 100%;
 
     border-bottom: 1px solid var(--border);
@@ -16,28 +13,26 @@
     justify-content: space-between;
     align-items: center;
 
-    margin: 0 18.5rem;
+    margin: 0 11.563rem;
 }
 
 .titleWrapper {
     display: flex;
     align-items: center;
-    gap: .8rem;
+    gap: .5rem;
 
-    padding-right: .8rem;
+    padding-right: 0.5rem;
 
     .logoSvg {
         stroke: var(--logo);
     }
 
     .title {
-        font-size: 2.4rem;
-
         background: linear-gradient(
-                to right,
-                hsl(267 84% 64%),
-                hsl(290 82% 62%),
-                hsl(330 81% 60%)
+            to right,
+            hsl(267 84% 64%),
+            hsl(290 82% 62%),
+            hsl(330 81% 60%)
         );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -50,20 +45,7 @@
     align-items: center;
     justify-content: flex-end;
     width: 100%;
-    gap: 1.6rem;
-
-    .wrapper {
-        position: relative;
-        width: clamp(100px, 100%, 400px);
-    }
-
-    .searchSvg {
-        position: absolute;
-        left: 8px;
-        top: 50%;
-        transform: translateY(-50%);
-        stroke: #9CA3AF;
-    }
+    gap: 1rem;
 
     .button {
         display: flex;
@@ -73,9 +55,11 @@
         height: 38px;
         border-radius: 100%;
 
-        padding: .8rem;
+        padding: .5rem;
 
         transition: background-color .1s ease-in-out;
+
+        cursor: pointer;
 
         .sunSvg {
             stroke: #e9e6e6;
@@ -87,6 +71,16 @@
     }
 
     .language {
-        @include text-styles.text-small-semibold-uppercase;
+        color: var(--color-primary);
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .avatar {
+        width: 38px;
+        height: 38px;
+        border-radius: 100%;
+
+        cursor: pointer;
     }
 }

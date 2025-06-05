@@ -1,4 +1,0 @@
-export const MIN_LENGTH_CATEGORY_TITLE = 3
-export const MIN_LENGTH_CATEGORY_VALUE = 3
-export const MIN_LENGTH_CATEGORY_HEX = 3
-export const MIN_LENGTH_CATEGORY_ICON = 3
