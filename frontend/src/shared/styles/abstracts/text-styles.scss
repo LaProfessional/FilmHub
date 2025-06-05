@@ -1,0 +1,64 @@
+// Small text
+@mixin text-small-primary {
+    color: var(--color-primary);
+    font-size: 1.4rem;
+}
+
+@mixin text-small-semibold {
+    @include text-small-primary;
+    font-weight: 600;
+}
+
+@mixin text-small-semibold-uppercase {
+    @include text-small-semibold;
+    text-transform: uppercase;
+}
+
+@mixin text-small-accent {
+    font-size: 1.4rem;
+    color: var(--color-accent);
+    font-weight: 500;
+}
+
+@mixin text-small-danger {
+    color: var(--color-danger);
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+@mixin text-small-category {
+    font-size: 1.4rem;
+    color: var(--color-category);
+    text-transform: uppercase;
+}
+
+// Medium text
+@mixin text-medium-primary {
+    color: var(--color-primary);
+    font-size: 1.6rem;
+}
+
+@mixin text-medium-semibold {
+    @include text-medium-primary;
+    font-weight: 600;
+}
+
+@mixin text-medium-semibold-oblique {
+    @include text-medium-semibold;
+    font-style: oblique;
+}
+
+@mixin text-placeholder-bold {
+    @include text-medium-primary;
+    font-weight: 700;
+    letter-spacing: .2rem;
+}
+
+@mixin text-muted-semibold {
+    color: var(--color-muted);
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+
+
+

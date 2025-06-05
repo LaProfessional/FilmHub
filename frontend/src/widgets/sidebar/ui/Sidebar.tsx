@@ -1,110 +1,98 @@
 import styles from "./Sidebar.module.scss";
 import { useTranslation } from "react-i18next";
 
-import { ReactComponent as ArrowSvg } from "../../../shared/assets/sidebar/Arrow.svg";
+import { dataFlags } from "@/widgets/sidebar/model/dataFlags.ts";
 
-import AddCategoryInput from "../../../features/sidebar/ui/AddCategoryInput.tsx";
-import AddBtn from "../../../features/sidebar/ui/AddBtn.tsx";
+import { ReactComponent as AddSvg } from "@/shared/assets/sidebar/Add.svg";
 
-const Sidebar = () => {
+import { CollapsibleSidebarSection } from "@/widgets/sidebar/ui/CollapsibleSidebarSection.tsx";
+import { Button } from "@/shared/ui/Button.tsx";
+import { Input } from "@/shared/ui/Input.tsx";
+
+export const Sidebar = () => {
 
     const { t } = useTranslation();
-
-    const dataFlag = [
-        {
-            flagName: "narrativeChaos",
-        },
-        {
-            flagName: "predictableOrdinariness",
-        },
-        {
-            flagName: "satisfactoryStructure",
-        },
-        {
-            flagName: "grippingNarrative",
-        },
-        {
-            flagName: "literaryMasterpiece",
-        }
-    ];
 
     return (
         <aside className={ styles.sidebar }>
             <nav className={ styles.nav }>
-                <AddCategoryInput></AddCategoryInput>
+                <div className={ styles.wrapperInput }>
+                    <Input
+                        variant={ "inputCategory" }
+                        type={ "text" }
+                        placeholder={ t("createCategory") }
+                    />
+                    <Button variant={ "addCategoryBtn" }>+</Button>
+                </div>
 
                 <section>
-                    <div className={ styles.wrapper }>
-                        <h2 className={ styles.title }>{ t("yourCollections") }</h2>
-                        <button className={ styles.collapseExpandBtn }>
-                            <ArrowSvg className={ styles.arrowSvg }/>
-                        </button>
-                    </div>
+                    <CollapsibleSidebarSection
+                        heading={ t("yourCollections") }
+                        variant="wrapper"
+                        headingStyle="title"
+                    >
+                        <ul>
+                            <li className={ `${ styles.item } ${ styles.select }` }>{ t("allMovies") }</li>
+                            <li className={ styles.item }>{ t("favourites") }</li>
+                        </ul>
 
-                    <ul>
-                        <li className={ `${ styles.item } ${ styles.select }` }>{ t("allMovies") }</li>
-                        <li className={ styles.item }>{ t("favourites") }</li>
-                    </ul>
+                        <div className={ styles.wrapper }>
+                            <AddSvg className={ styles.addSvg }/>
+                            <Button variant={ "addBtn" }>{ t("newFolder") }</Button>
+                        </div>
 
-                    <AddBtn>{ t("newFolder") }</AddBtn>
+                    </CollapsibleSidebarSection>
                 </section>
 
                 <section>
-                    <div className={ styles.wrapper }>
-                        <h2 className={ styles.title }>{ t("categories") }</h2>
-                        <button className={ styles.collapseExpandBtn }>
-                            <ArrowSvg className={ styles.arrowSvg }/>
-                        </button>
-                    </div>
+                    <CollapsibleSidebarSection
+                        heading={ t("categories") }
+                        variant="wrapper"
+                        headingStyle="title"
+                    >
+                        <CollapsibleSidebarSection
+                            heading={ t("storyLevel") }
+                            variant="categoryGroup"
+                            headingStyle="categoryGroupTitle"
+                        >
 
-                    <div className={ styles.categoryGroup }>
-                        <h3 className={ styles.categoryGroupTitle }>{ t("storyLevel") }</h3>
-                        <button>
-                            <ArrowSvg className={ styles.arrowSvg }/>
-                        </button>
-                    </div>
+                            <ul className={ styles.flagContainer }>
+                                { dataFlags.map((flag, index) => (
+                                    <li className={ styles.flagData } key={ index }>
+                                        <div className={ styles.wrapperFlagStat }>
+                                    <span
+                                        className={ styles.flag }
+                                        title={ t(flag.flagName) }
+                                        style={ {
+                                            color: flag.color,
+                                            backgroundColor: flag.bg,
+                                            borderLeft: flag.border
+                                        } }
+                                    >{ t(flag.flagName) }
+                                    </span>
+                                            <div className={ styles.amountFlag }>3</div>
+                                        </div>
 
-                    <ul className={ styles.flagContainer }>
-                        { dataFlag.map((flag, index) => (
-                            <li className={ styles.flagData } key={ index }>
-                                <div className={ styles.wrapperFlagStat }>
-                                <span
-                                    className={ styles.flag }
-                                    title={ t(flag.flagName) }>{ t(flag.flagName) }
-                                </span>
+                                        <div className={ styles.progressBar }>
+                                            <div
+                                                className={ styles.progress }
+                                                style={ { backgroundColor: flag.progress } }
+                                            ></div>
+                                        </div>
+                                    </li>
+                                )) }
+                            </ul>
 
-                                    <div className={ styles.amountFlag }>3</div>
-                                </div>
+                            <div className={ styles.wrapper }>
+                                <AddSvg className={ styles.addSvg }/>
+                                <Button variant={ "addBtn" }>{ t("addFlag") }</Button>
+                            </div>
 
-                                <div className={ styles.progressBar }>
-                                    <div className={ styles.progress }></div>
-                                </div>
-                            </li>
-                        )) }
+                        </CollapsibleSidebarSection>
 
-                        {/*<li*/}
-                        {/*    className={ styles.flag }*/}
-                        {/*    title={ t("predictableOrdinariness") }>{ t("predictableOrdinariness") }*/}
-                        {/*</li>*/}
-                        {/*<li*/}
-                        {/*    className={ styles.flag }*/}
-                        {/*    title={ t("satisfactoryStructure") }>{ t("satisfactoryStructure") }*/}
-                        {/*</li>*/}
-                        {/*<li*/}
-                        {/*    className={ styles.flag }*/}
-                        {/*    title={ t("grippingNarrative") }>{ t("grippingNarrative") }*/}
-                        {/*</li>*/}
-                        {/*<li*/}
-                        {/*    className={ styles.flag }*/}
-                        {/*    title={ t("literaryMasterpiece") }>{ t("literaryMasterpiece") }*/}
-                        {/*</li>*/}
-                    </ul>
-
-                    <AddBtn>{ t("addFlag") }</AddBtn>
+                    </CollapsibleSidebarSection>
                 </section>
             </nav>
         </aside>
     );
 };
-
-export default Sidebar;

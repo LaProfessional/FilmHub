@@ -1,0 +1,8 @@
+.section {
+    overflow: hidden;
+    transition: height .2s ease-in-out;
+
+    &.close {
+        height: 0;
+    }
+}
