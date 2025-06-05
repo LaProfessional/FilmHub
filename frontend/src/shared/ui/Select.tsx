@@ -32,13 +32,12 @@ export const Select: React.FC<SelectProps> = ({ data, dropdownTitle }) => {
     const toggleMenu = () => setIsOpen(!isOpen);
 
     return (
-        <div className={ styles.select } ref={ wrapperRef }>
-            <div
-                className={ styles.dropdownTitleWrapper }
-                onClick={ toggleMenu }
-            >
-                <span className={ styles.dropdownTitle }>{ t(dropdownTitle) }</span>
-                <ChevronDown className={ styles.chevronDown }/>
+        <div className={ styles.selectContainer } ref={ wrapperRef }>
+            <div className={ styles.select } onClick={ toggleMenu } tabIndex={ 0 }>
+                <div className={ styles.dropdownTitleWrapper }>
+                    <span className={ styles.dropdownTitle }>{ t(dropdownTitle) }...</span>
+                    <ChevronDown className={ cls(styles.chevronDown, isOpen && styles.open) }/>
+                </div>
             </div>
 
             <ul className={ cls(styles.listItem, isOpen && styles.open) }>

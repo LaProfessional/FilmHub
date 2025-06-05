@@ -1,32 +1,83 @@
 .container {
+    max-width: clamp(100px, 100%, 1280px);
+    margin: 0 auto;
     padding: 2.4rem;
 }
 
-.header {
+.nav {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     width: 100%;
-    gap: 2.5rem;
 
-    .titleWrapper {
+    .navItemWrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
 
-        .title {
+        .navItem {
             color: var(--color-primary);
-            font-size: 2.4rem;
+            font-size: 2rem;
             font-weight: 600;
-        }
+            letter-spacing: .1rem;
 
-        .description {
-            color: var(--color-muted);
-            font-size: 1.6rem;
+            padding: .5rem 1.6rem;
 
-            padding-top: .4rem;
+            cursor: pointer;
+
+            &.select {
+                background-color: var(--bg-accent);
+                border-radius: .5rem;
+            }
         }
     }
+}
 
-    .selectWrapper {
+hr {
+    width: 100%;
+    border-bottom: 1px solid var(--border);
+
+    padding-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 40px;
+    width: 100%;
+
+    .filters {
         display: flex;
-        align-items: center;
+        flex-wrap: wrap;
         gap: 2.5rem;
+    }
+
+    .controlsGroup {
+        display: flex;
+        gap: 2.5rem;
+
+        .layoutControls {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            max-height: 35px;
+
+            border: 1px solid var(--border);
+            border-radius: .5rem;
+
+            padding: .4rem;
+
+            .controlLayoutSvg {
+                stroke: var(--control-layout);
+
+                &.disabled {
+                    stroke: var(--control-layout-disabled);
+                }
+            }
+        }
     }
 }
 

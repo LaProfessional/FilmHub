@@ -28,3 +28,38 @@
         background-color: var(--button-hover);
     }
 }
+
+.btnLayoutControls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: .5rem;
+    padding: .5rem;
+
+    cursor: pointer;
+
+    &.active {
+        background-color: var(--bg-accent);
+    }
+}
+
+.btnAddMovie {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    max-height: 35px;
+    min-width: 100px;
+
+    background-color: var(--bg-accent);
+    border-radius: .5rem;
+
+    color: var(--color-add-button);
+    font-weight: 600;
+    font-size: 1.4rem;
+    white-space: nowrap;
+
+    padding: .8rem;
+
+    cursor: pointer;
+}

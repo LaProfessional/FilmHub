@@ -29,8 +29,8 @@
   "Adventure": "Приключения",
   "Historical": "Исторический",
   "All years": "Все года",
-  "Before": "До",
-  "Today": "Сегодня",
+  "Before": "До {{year}}",
+  "Today": "{{year}} - Сегодня",
   "By rating": "По рейтингу",
   "Newest first": "Сначала новые",
   "Oldest first": "Сначала старые",
@@ -39,5 +39,11 @@
   "By name: А-Я": "По названию: А-Я",
   "By name: Я-А": "По названию: Я-А",
   "Year of release": "Год выпуска",
-  "Sorting": "Сортировка"
+  "Sorting": "Сортировка",
+  "Add movie": "Добавить фильм",
+  "All": "Всe",
+  "Movies": "Фильмы",
+  "Serials": "Сериалы",
+  "Cartoons": "Мультфильмы",
+  "Filters": "Фильтры"
 }

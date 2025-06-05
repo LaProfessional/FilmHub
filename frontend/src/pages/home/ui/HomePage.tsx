@@ -1,46 +1,74 @@
 import styles from "./HomePage.module.scss";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import cls from "@fvilers/cls";
 
 import { LayoutGrid } from "lucide-react";
 import { LayoutList } from "lucide-react";
+import { Plus } from "lucide-react";
 
-import { Select } from "@/shared/ui/Select.tsx";
+import { Filters } from "@/widgets/filters/ui/Filters.tsx";
 
-import { dataGenre, dataYear, sortOptions } from "@/pages/home/model/filterData.ts";
+import { Button } from "@/shared/ui/Button.tsx";
 
 export const HomePage = () => {
+    const [ isActive, setIsActive ] = useState(true);
+    const [ isSelect, setIsSelect ] = useState(true);
     const { t } = useTranslation();
+
+
+    const toggleLayout = () => setIsActive(prev => !prev);
+
+    const selectItem = () => setIsSelect(!isSelect);
 
     return (
         <div className={ styles.container }>
-            <header className={ styles.header }>
-                <div className={ styles.titleWrapper }>
-                    <h1 className={ styles.title }>{ t("allMovies") }</h1>
-                    <p className={ styles.description }>{ t("Manage and organize your personal movie library") }</p>
+            <nav className={ styles.nav }>
+                <ul className={ styles.navItemWrapper }>
+                    <li className={ cls(styles.navItem, isSelect && styles.select) }>{ t("All") } 124</li>
+                    <li className={ styles.navItem }>{ t("Movies") } 2</li>
+                    <li className={ styles.navItem }>{ t("Serials") } 55</li>
+                    <li className={ styles.navItem }>{ t("Cartoons") } 224</li>
+                </ul>
+
+                <Filters/>
+            </nav>
+
+            <hr/>
+
+            <nav className={ styles.wrapper }>
+                <div className={ styles.controlsGroup }>
+                    <div className={ styles.layoutControls }>
+                        <Button
+                            variant={ "btnLayoutControls" }
+                            isActive={ !isActive }
+                            onClick={ toggleLayout }
+                        >
+                            <LayoutGrid
+                                size={ 18 }
+                                className={ cls(styles.controlLayoutSvg, isActive && styles.disabled) }
+                            />
+                        </Button>
+
+                        <Button
+                            variant={ "btnLayoutControls" }
+                            isActive={ isActive }
+                            onClick={ toggleLayout }
+                        >
+                            <LayoutList
+                                size={ 18 }
+                                className={ cls(styles.controlLayoutSvg, !isActive && styles.disabled) }
+                            />
+                        </Button>
+                    </div>
+
+                    <Button variant={ "btnAddMovie" }>
+                        <Plus/>
+                        { t("Add movie") }
+                    </Button>
                 </div>
-
-                <div className={ styles.selectWrapper }>
-                    <Select
-                        data={ dataGenre }
-                        dropdownTitle={ "Any genre" }
-                    ></Select>
-
-                    <Select
-                        data={ dataYear }
-                        dropdownTitle={ "Year of release" }
-                    ></Select>
-
-                    <Select
-                        data={ sortOptions }
-                        dropdownTitle={ "Sorting" }
-                    ></Select>
-                </div>
-
-                <div className={ styles.layoutControls }>
-                    <LayoutGrid/>
-                    <LayoutList/>
-                </div>
-            </header>
+            </nav>
         </div>
     );
 };
+

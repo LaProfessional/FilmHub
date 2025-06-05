@@ -29,8 +29,8 @@
   "Adventure": "Adventure",
   "Historical": "Historical",
   "All years": "All years",
-  "Before": "Before",
-  "Today": "Today",
+  "Before": "Before {{year}}",
+  "Today": "{{year}} - Today",
   "By rating": "By rating",
   "Newest first": "Newest first",
   "Oldest first": "Oldest first",
@@ -39,5 +39,11 @@
   "By name: А-Я": "By name: А-Я",
   "By name: Я-А": "By name: Я-А",
   "Year of release": "Year of release",
-  "Sorting": "Sorting"
+  "Sorting": "Sorting",
+  "Add movie": "Add movie",
+  "All": "All",
+  "Movies": "Movies",
+  "Serials": "Serials",
+  "Cartoons": "Cartoons",
+  "Filters": "Filters"
 }
