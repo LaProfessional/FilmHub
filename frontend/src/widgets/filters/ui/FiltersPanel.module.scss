@@ -1,0 +1,25 @@
+@use "../../../../src/shared/styles/abstracts/text-styles" as text-styles;
+@use "../../../../src/shared/styles/components/filters" as dropdown;
+
+.container {
+    position: relative;
+    width: clamp(150px, 100%, 300px);
+
+    .filtersControl {
+        @include dropdown.filter;
+        padding: 1rem 4.8rem 1rem 5.5rem;
+
+        .titleWrapper {
+            @include text-styles.text-medium-semibold-spaced;
+        }
+    }
+}
+
+.filtersFields {
+    @include dropdown.filterMenu;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    padding: 1.6rem;
+}

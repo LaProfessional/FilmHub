@@ -1,4 +1,4 @@
-import styles from "./Select.module.scss";
+import styles from "./FilterToggle.module.scss";
 import cls from "@fvilers/cls";
 
 import { ChevronDown } from "lucide-react";
@@ -21,7 +21,7 @@ interface SelectProps {
     dropdownTitle: string;
 }
 
-export const Select: React.FC<SelectProps> = ({ data, dropdownTitle }) => {
+export const FilterToggle: React.FC<SelectProps> = ({ data, dropdownTitle }) => {
     const [ isOpen, setIsOpen ] = useState(false);
     const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -32,10 +32,10 @@ export const Select: React.FC<SelectProps> = ({ data, dropdownTitle }) => {
     const toggleMenu = () => setIsOpen(!isOpen);
 
     return (
-        <div className={ styles.selectContainer } ref={ wrapperRef }>
-            <div className={ styles.select } onClick={ toggleMenu } tabIndex={ 0 }>
-                <div className={ styles.dropdownTitleWrapper }>
-                    <span className={ styles.dropdownTitle }>{ t(dropdownTitle) }...</span>
+        <div className={ styles.filterContainer } ref={ wrapperRef }>
+            <div className={ styles.filterWrapper } onClick={ toggleMenu } tabIndex={ 0 }>
+                <div className={ styles.titleWrapper }>
+                    <span className={ styles.title }>{ t(dropdownTitle) }...</span>
                     <ChevronDown className={ cls(styles.chevronDown, isOpen && styles.open) }/>
                 </div>
             </div>

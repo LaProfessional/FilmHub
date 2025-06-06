@@ -1,4 +1,4 @@
-@use "@/shared/styles/abstracts/text-styles" as text-styles;
+@use  "../../../../src/shared/styles/abstracts/text-styles" as text-styles;
 
 .sidebar {
     height: calc(100vh - 63px);
@@ -22,7 +22,7 @@
 
         .plusIcon {
             stroke-width: 3px;
-            color: var(--bg-primary);
+            color: #f2f2f2;
         }
     }
 }
@@ -53,7 +53,7 @@
 
     transition: background-color .1s linear;
 
-    &.select {
+    &.filterWrapper {
         background-color: var(--bg-accent-focus);
         border-radius: .8rem;
         border-left: .4rem solid;
@@ -61,7 +61,7 @@
         color: var(--color-accent);
     }
 
-    &:not(.select):hover {
+    &:not(.filterWrapper):hover {
         background-color: var(--bg-hover-primary);
     }
 }

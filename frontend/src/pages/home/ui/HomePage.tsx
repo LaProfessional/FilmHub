@@ -7,31 +7,31 @@ import { LayoutGrid } from "lucide-react";
 import { LayoutList } from "lucide-react";
 import { Plus } from "lucide-react";
 
-import { Filters } from "@/widgets/filters/ui/Filters.tsx";
+import { FiltersPanel } from "@/widgets/filters/ui/FiltersPanel.tsx";
 
 import { Button } from "@/shared/ui/Button.tsx";
 
 export const HomePage = () => {
     const [ isActive, setIsActive ] = useState(true);
-    const [ isSelect, setIsSelect ] = useState(true);
+    // const [ isSelect, setIsSelect ] = useState(true);
     const { t } = useTranslation();
 
 
     const toggleLayout = () => setIsActive(prev => !prev);
 
-    const selectItem = () => setIsSelect(!isSelect);
+    // const selectItem = () => setIsSelect(!isSelect);
 
     return (
         <div className={ styles.container }>
             <nav className={ styles.nav }>
                 <ul className={ styles.navItemWrapper }>
-                    <li className={ cls(styles.navItem, isSelect && styles.select) }>{ t("All") } 124</li>
+                    <li className={ styles.navItem }>{ t("All") } 124</li>
                     <li className={ styles.navItem }>{ t("Movies") } 2</li>
                     <li className={ styles.navItem }>{ t("Serials") } 55</li>
                     <li className={ styles.navItem }>{ t("Cartoons") } 224</li>
                 </ul>
 
-                <Filters/>
+                <FiltersPanel/>
             </nav>
 
             <hr/>

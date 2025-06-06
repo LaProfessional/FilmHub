@@ -1,16 +1,17 @@
-import styles from "./Filters.module.scss";
+import { useRef, useState } from "react";
+import styles from "././FiltersPanel.module.scss";
 import { useTranslation } from "react-i18next";
+import cls from "@fvilers/cls";
 
 import { SlidersHorizontal } from "lucide-react";
 import { ChevronDown } from "lucide-react";
 
 import { dataFilter } from "@/pages/home/model/filterData.ts";
-
-import { Select } from "@/shared/ui/Select.tsx";
 import { useHandleClickOutside } from "@/shared/lib/useHandleClickOutside.ts";
-import { useRef, useState } from "react";
 
-export const Filters = () => {
+import { FilterToggle } from "@/widgets/filters/ui/FilterToggle.tsx";
+
+export const FiltersPanel = () => {
     const [ isOpen, setIsOpen ] = useState(false);
     const fieldsRef = useRef(null);
 
@@ -19,22 +20,26 @@ export const Filters = () => {
 
     useHandleClickOutside(fieldsRef, isOpen, setIsOpen);
 
-    return (
-        <div className={ styles.filters } tabIndex={ 0 }>
-            <SlidersHorizontal className={ styles.slidersHorizontal }/>
-            <h2 className={ styles.title }>{ t("Filters") }</h2>
-            <ChevronDown className={ styles.chevronDown }/>
+    const toggleMenu = () => setIsOpen(!isOpen);
 
-            <div className={ styles.filtersFields }>
-                <Select
+    return (
+        <div className={ styles.container } ref={ fieldsRef }>
+            <div className={ styles.filtersControl } onClick={ toggleMenu } tabIndex={ 0 }>
+                <SlidersHorizontal className={ styles.slidersHorizontal }/>
+                <h2 className={ styles.title }>{ t("Filters") }</h2>
+                <ChevronDown className={ cls(styles.chevronDown, isOpen && styles.open) }/>
+            </div>
+
+            <div className={ cls(styles.filtersFields, isOpen && styles.open) }>
+                <FilterToggle
                     data={ dataGenre }
                     dropdownTitle={ "Genre" }
                 />
-                <Select
+                <FilterToggle
                     data={ dataYear }
                     dropdownTitle={ "Year of release" }
                 />
-                <Select
+                <FilterToggle
                     data={ dataOptions }
                     dropdownTitle={ "Sorting" }
                 />

@@ -28,7 +28,7 @@
 
 @mixin text-small-category {
     font-size: 1.4rem;
-    color: var(--color-category);
+    color: var(--color-muted);
     text-transform: uppercase;
 }
 
@@ -41,6 +41,13 @@
 @mixin text-medium-semibold {
     @include text-medium-primary;
     font-weight: 600;
+}
+
+@mixin text-medium-semibold-spaced {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 1.6rem;
+    letter-spacing: .1rem;
 }
 
 @mixin text-medium-semibold-oblique {
@@ -60,5 +67,11 @@
     font-size: 1.6rem;
 }
 
-
+// Large text
+@mixin text-large-semibold-spaced {
+    color: var(--color-primary);
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+}
 
