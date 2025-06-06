@@ -9,6 +9,8 @@ import { CollapsibleSidebarSection } from "@/widgets/sidebar/ui/CollapsibleSideb
 import { Button } from "@/shared/ui/Button.tsx";
 import { Input } from "@/shared/ui/Input.tsx";
 
+import { Plus } from "lucide-react";
+
 export const Sidebar = () => {
 
     const { t } = useTranslation();
@@ -22,7 +24,7 @@ export const Sidebar = () => {
                         type={ "text" }
                         placeholder={ t("createCategory") }
                     />
-                    <Button variant={ "addCategoryBtn" }>+</Button>
+                    <Button variant={ "addCategoryBtn" }><Plus size={22} className={styles.plusIcon} /></Button>
                 </div>
 
                 <section>

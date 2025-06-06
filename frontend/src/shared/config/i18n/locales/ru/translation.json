@@ -12,7 +12,6 @@
   "satisfactoryStructure": "Удовлетворительная структура",
   "grippingNarrative": "Захватывающее повествование",
   "literaryMasterpiece": "Литературный шедевр",
-  "addFlag": "Добавить флаг",
   "Manage and organize your personal movie library": "Управление и организация вашей личной библиотеки фильмов",
   "Any genre": "Любой жанр",
   "Genre": "Жанр",
@@ -45,5 +44,11 @@
   "Movies": "Фильмы",
   "Serials": "Сериалы",
   "Cartoons": "Мультфильмы",
-  "Filters": "Фильтры"
+  "Filters": "Фильтры",
+  "addFlag": "Добавить флаг",
+  "YourProfile": "Ваш профиль",
+  "YourCollections": "Ваши коллекции",
+  "YourFlags": "Ваши флаги",
+  "Settings": "Настройки",
+  "Logout": "Выйти"
 }

@@ -1,3 +1,5 @@
+@use "../styles/abstracts/text-styles" as text-styles;
+
 .inputCategory {
     width: 100%;
     border-radius: .8rem 0 0 .8rem;
@@ -5,10 +7,7 @@
     border: 1px solid var(--border);
     border-right: none;
 
-    color: var(--color-primary);
-    font-weight: bold;
-    font-style: oblique;
-    font-size: 1.6rem;
+    @include text-styles.text-medium-semibold-oblique;
 
     padding: .8rem 1.3rem;
 }
@@ -20,9 +19,7 @@
     border: 1px solid var(--border);
     background-color: var(--input);
 
-    color: var(--color-primary);
-    font-weight: bold;
-    font-size: 1.8rem;
+    @include text-styles.text-placeholder-bold;
 
     padding: .8rem 1.6rem .8rem 4rem;
 
@@ -31,11 +28,6 @@
 
     &:focus {
         outline: 1px solid var(--input-focus);
-    }
-
-    &::placeholder {
-        letter-spacing: .2rem;
-        font-size: 1.6rem;
     }
 }
 

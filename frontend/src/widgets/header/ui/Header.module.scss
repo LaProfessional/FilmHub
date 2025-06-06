@@ -1,22 +1,15 @@
-@use "../../../shared/styles/abstracts/variables" as var;
-
-.headerContainer {
-    position: sticky;
-    top: 0;
-
-    background-color: var(--bg-primary);
-    padding: 1.2rem 1.6rem;
-    width: 100%;
-
-    border-bottom: 1px solid var(--border);
-}
+@use "@/shared/styles/abstracts/text-styles" as text-styles;
 
 .header {
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-primary);
+    padding: 1.2rem 20.1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    margin: 0 18.5rem;
+    width: 100%;    
+    border-bottom: 1px solid var(--border);
 }
 
 .titleWrapper {
@@ -77,11 +70,7 @@
 
         transition: background-color .1s ease-in-out;
 
-        cursor: pointer;
 
-        .sunSvg {
-            stroke: #e9e6e6;
-        }
 
         &:hover {
             background-color: var(--bg-hover-primary);
@@ -89,17 +78,10 @@
     }
 
     .language {
-        color: var(--color-primary);
-        text-transform: uppercase;
-        font-weight: bold;
-        font-size: 1.4rem;
+        @include text-styles.text-small-semibold-uppercase;
     }
+}
 
-    .avatar {
-        width: 38px;
-        height: 38px;
-        border-radius: 100%;
-
-        cursor: pointer;
-    }
+.sunSvg {
+    stroke: #e9e6e6;
 }

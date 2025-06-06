@@ -1,4 +1,4 @@
-@use "../../../shared/styles/abstracts/variables" as var;
+@use "@/shared/styles/abstracts/text-styles" as text-styles;
 
 .sidebar {
     height: calc(100vh - 63px);
@@ -19,8 +19,15 @@
         border-right: 1px solid var(--border);
 
         padding: 2.4rem 1.6rem 8rem 1.6rem;
+
+        .plusIcon {
+            stroke-width: 3px;
+            color: var(--bg-primary);
+        }
     }
 }
+
+
 
 .wrapperInput {
     display: flex;
@@ -37,9 +44,7 @@
 .item {
     border-radius: .8rem;
 
-    color: var(--color-primary);
-    font-size: 1.4rem;
-    font-weight: 600;
+    @include text-styles.text-small-semibold;
 
     padding: 1rem 1.2rem;
     margin-bottom: .4rem;
@@ -105,12 +110,12 @@
                 border: 1px solid var(--border-flag);
                 border-radius: .6rem;
 
+                overflow: hidden;
+
+                @include text-styles.text-small-semibold;
                 white-space: nowrap;
                 text-overflow: ellipsis;
-                overflow: hidden;
-                font-size: 1.4rem;
-                font-weight: 600;
-                outline: #1f94f3;
+
                 padding: .4rem .8rem;
             }
 
@@ -119,9 +124,7 @@
                 background-color: var(--bg-amount-flag);
                 border-radius: .8rem;
 
-                color: var(--color-muted);
-                font-weight: 600;
-                font-size: 1.6rem;
+                @include text-styles.text-muted-semibold;
 
                 padding: .4rem .6rem;
             }
