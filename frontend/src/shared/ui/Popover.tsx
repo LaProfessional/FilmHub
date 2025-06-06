@@ -40,7 +40,7 @@ Popover.Content = ({
   children,
   className,
   variant,
-  align = "center",
+  align = "end",
   side = "bottom",
 }: PopoverContentProps) => {
   const ref = useRef<HTMLDivElement>(null);

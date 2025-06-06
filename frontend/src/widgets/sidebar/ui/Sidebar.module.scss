@@ -19,8 +19,15 @@
         border-right: 1px solid var(--border);
 
         padding: 2.4rem 1.6rem 8rem 1.6rem;
+
+        .plusIcon {
+            stroke-width: 3px;
+            color: var(--bg-primary);
+        }
     }
 }
+
+
 
 .wrapperInput {
     display: flex;
