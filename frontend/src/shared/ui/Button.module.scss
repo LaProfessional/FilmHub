@@ -38,3 +38,17 @@
         background-color: var(--bg-hover-primary);
     }
 }
+
+.headerButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 38px;
+    border-radius: 100%;
+    padding: .8rem;
+    transition: background-color .1s ease-in-out;
+    &:hover {
+        background-color: var(--bg-hover-primary);
+    }
+}

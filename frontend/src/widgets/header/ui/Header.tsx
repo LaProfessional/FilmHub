@@ -1,6 +1,6 @@
 import styles from "./Header.module.scss";
 import { UserMenu } from "./UserMenu/UserMenu";
-
+import { Button } from "@/shared/ui/Button";
 
 import { ReactComponent as LogoSvg } from "@/shared/assets/header/Logo.svg";
 import { ReactComponent as SunSvg } from "@/shared/assets/header/Sun.svg";
@@ -20,8 +20,8 @@ export const Header = () => {
     const { t } = useTranslation();
 
     return (
-        <header className={ styles.headerContainer }>
-            <div className={ styles.header }>
+        <header className={ styles.header }>
+
                 <div className={ styles.titleWrapper }>
                     <LogoSvg className={ styles.logoSvg }/>
                     <h2 className={ styles.title }>FilmHub</h2>
@@ -39,20 +39,19 @@ export const Header = () => {
                     </div>
 
 
-                    <button className={ styles.button } onClick={ toggleTheme }>
-                        { theme === "dark" ? <SunSvg className={ styles.sunSvg }/> : <MoonSvg/> }
-                    </button>
+                    <Button variant="headerButton" onClick={toggleTheme}>
+                        {theme === "dark" ? <SunSvg className={ styles.sunSvg }/> : <MoonSvg />}
+                    </Button>
 
-                    <button
-                        className={ styles.button }
-                        onClick={ () => changeLanguage(language === "en" ? "ru" : "en") }
-                    >
-                        <span className={ styles.language }>{ language === "en" ? "en" : "ru" }</span>
-                    </button>
+                    <Button variant="headerButton" onClick={() => changeLanguage(language === "en" ? "ru" : "en")}>
+                        <span className={styles.language}>{language === "en" ? "en" : "ru"}</span>
+                    </Button>
+
+
 
                     <UserMenu />
                 </nav>
-            </div>
+
         </header>
     );
 };
