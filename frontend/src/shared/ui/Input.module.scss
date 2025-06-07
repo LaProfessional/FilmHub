@@ -30,3 +30,21 @@
         outline: 1px solid var(--input-focus);
     }
 }
+
+
+.inputReg {
+    height: 40px;
+    width: 100%;
+    border: 1px solid var(--border-reg-form);
+    border-radius: .6rem;
+
+    color: var(--color-primary);
+    font-size: 1.4rem;
+    font-weight: 600;
+
+    padding: .8rem 1.2rem;
+
+    &.error {
+        border: 1px solid var(--border-danger);
+    }
+}
