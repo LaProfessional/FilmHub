@@ -1,11 +1,12 @@
 import styles from "./Header.module.scss";
+import { UserMenu } from "./UserMenu/UserMenu";
+import { Button } from "@/shared/ui/Button";
 import titleStyles from "@/shared/styles/components/TitleStyles.module.scss"
 
 import { ReactComponent as LogoSvg } from "@/shared/assets/header/Logo.svg";
 import { ReactComponent as SunSvg } from "@/shared/assets/header/Sun.svg";
 import { ReactComponent as MoonSvg } from "@/shared/assets/header/Moon.svg";
 import { ReactComponent as SearchSvg } from "@/shared/assets/header/Search.svg";
-import Avatar from "@/shared/assets/header/Avatar.png";
 
 import { Input } from "@/shared/ui/Input.tsx";
 
@@ -20,39 +21,35 @@ export const Header = () => {
     const { t } = useTranslation();
 
     return (
-        <header className={ styles.headerContainer }>
-            <div className={ styles.header }>
-                <div className={ styles.titleWrapper }>
-                    <LogoSvg className={ styles.logoSvg }/>
-                    <h2 className={ titleStyles.titleGradient }>FilmHub</h2>
+        <header className={ styles.header }>
+            <div className={ styles.titleWrapper }>
+                <LogoSvg className={ styles.logoSvg }/>
+                <h2 className={ titleStyles.titleGradient }>FilmHub</h2>
+            </div>
+
+            <nav className={ styles.nav }>
+                <div className={ styles.wrapper }>
+                    <Input
+                        variant={ "inputSearch" }
+                        type="text"
+                        placeholder={ t("SearchMovies") }
+                    />
+
+                    <SearchSvg className={ styles.searchSvg }></SearchSvg>
                 </div>
 
-                <nav className={ styles.nav }>
-                    <div className={ styles.wrapper }>
-                        <Input
-                            variant={ "inputSearch" }
-                            type="text"
-                            placeholder={ t("SearchMovies") }
-                        />
 
-                        <SearchSvg className={ styles.searchSvg }></SearchSvg>
-                    </div>
+                <Button variant="headerButton" onClick={ toggleTheme }>
+                    { theme === "dark" ? <SunSvg className={ styles.sunSvg }/> : <MoonSvg/> }
+                </Button>
+
+                <Button variant="headerButton" onClick={ () => changeLanguage(language === "en" ? "ru" : "en") }>
+                    <span className={ styles.language }>{ language === "en" ? "en" : "ru" }</span>
+                </Button>
 
 
-                    <button className={ styles.button } onClick={ toggleTheme }>
-                        { theme === "dark" ? <SunSvg className={ styles.sunSvg }/> : <MoonSvg/> }
-                    </button>
-
-                    <button
-                        className={ styles.button }
-                        onClick={ () => changeLanguage(language === "en" ? "ru" : "en") }
-                    >
-                        <span className={ styles.language }>{ language === "en" ? "en" : "ru" }</span>
-                    </button>
-
-                    <img className={ styles.avatar } src={ Avatar } alt="Avatar"/>
-                </nav>
-            </div>
+                <UserMenu/>
+            </nav>
         </header>
     );
 };

@@ -1,36 +1,31 @@
-@use "../../../shared/styles/abstracts/variables" as var;
-
-.headerContainer {
-    position: sticky;
-    top: 0;
-
-    background-color: var(--bg-primary);
-    padding: .75rem 1rem;
-    width: 100%;
-
-    border-bottom: 1px solid var(--border);
-}
+@use "@/shared/styles/abstracts/text-styles" as text-styles;
 
 .header {
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-primary);
+    padding: 1.2rem 20.1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    margin: 0 11.563rem;
+    width: 100%;    
+    border-bottom: 1px solid var(--border);
 }
 
 .titleWrapper {
     display: flex;
     align-items: center;
-    gap: .5rem;
+    gap: .8rem;
 
-    padding-right: 0.5rem;
+    padding-right: .8rem;
 
     .logoSvg {
         stroke: var(--logo);
     }
 
     .title {
+        font-size: 2.4rem;
+
         background: linear-gradient(
                 to right,
                 hsl(267 84% 64%),
@@ -48,7 +43,7 @@
     align-items: center;
     justify-content: flex-end;
     width: 100%;
-    gap: 1rem;
+    gap: 1.6rem;
 
     .wrapper {
         position: relative;
@@ -71,15 +66,11 @@
         height: 38px;
         border-radius: 100%;
 
-        padding: .5rem;
+        padding: .8rem;
 
         transition: background-color .1s ease-in-out;
 
-        cursor: pointer;
 
-        .sunSvg {
-            stroke: #e9e6e6;
-        }
 
         &:hover {
             background-color: var(--bg-hover-primary);
@@ -87,16 +78,10 @@
     }
 
     .language {
-        color: var(--color-primary);
-        text-transform: uppercase;
-        font-weight: bold;
+        @include text-styles.text-small-semibold-uppercase;
     }
+}
 
-    .avatar {
-        width: 38px;
-        height: 38px;
-        border-radius: 100%;
-
-        cursor: pointer;
-    }
+.sunSvg {
+    stroke: #e9e6e6;
 }

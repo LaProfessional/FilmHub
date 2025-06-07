@@ -4,7 +4,6 @@ import { Header } from "@/widgets/header";
 import { Sidebar } from "@/widgets/sidebar";
 import { Outlet } from "react-router-dom";
 
-
 export const RootLayout = () => {
     return (
         <div className={ styles["main-layout"] }>
@@ -12,7 +11,7 @@ export const RootLayout = () => {
             <div className={ styles["layout-content"] }>
                 <Sidebar/>
                 <main className={ styles["page-content"] }>
-                    <Outlet />
+                    <Outlet/>
                 </main>
             </div>
         </div>
