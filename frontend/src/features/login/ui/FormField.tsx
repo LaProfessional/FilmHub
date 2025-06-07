@@ -19,8 +19,8 @@ export const FormField: React.FC<FormFieldProps> = ({ variant, label, error, ...
             <label className={ styles.label } htmlFor={ label }>{ label }</label>
 
             <Input
-                variant={ variant }
                 { ...props }
+                variant={ variant }
                 error={ error?.message }
             />
             <p className={ cls(error?.message && styles.error) }>{ error?.message }</p>

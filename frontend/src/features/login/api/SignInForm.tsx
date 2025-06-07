@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { signInSchema } from "@/features/login/model/validation.ts";
 import { useSignIn } from "@/features/login/model/services.ts";
 
-import { FormField } from "@/pages/signin/ui/FormField.tsx";
+import { FormField } from "@/features/login/ui/FormField.tsx";
 import { Button } from "@/shared/ui/Button.tsx";
 
 export const SignInForm = () => {

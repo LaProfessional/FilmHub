@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema } from "@/features/registration/model/validation.ts";
 
-import { FormField } from "@/pages/signin/ui/FormField.tsx";
+import { FormField } from "@/features/login/ui/FormField.tsx";
 import { Button } from "@/shared/ui/Button.tsx";
 
 export const SignUpForm = () => {

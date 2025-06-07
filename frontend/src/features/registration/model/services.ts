@@ -5,7 +5,7 @@ export const useSignUp = () => {
     const { signIn } = useSignIn();
 
     const signUp = (data: any, setError: any) => {
-        axios.post("http://localhost:3000/auth/registration", data)
+        axios.post(`${ import.meta.env.VITE_API_URL }/auth/registration`, data)
             .then(() => {
                 signIn(data, setError);
             })
