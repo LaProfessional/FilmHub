@@ -1,10 +1,10 @@
-import { Popover } from "@/shared/ui/Popover";
+import { Popover } from "@/shared/ui/Popover/Popover";
 import Avatar from "@/shared/assets/header/Avatar.png";
 import styles from "./UserMenu.module.scss";
 import { UserInfo } from "./UserInfo";
 import { UserActions } from "./UserActions";
 import { LogoutButton } from "./LogoutButton";
-import { Separator } from "@/shared/ui/Separator";
+import { Separator } from "@/shared/ui/Separator/Separator";
 
 export const UserMenu = () => {
   return (

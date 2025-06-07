@@ -1,4 +1,4 @@
-import { Button } from "@/shared/ui/Button";
+import { Button } from "@/shared/ui/Button/Button";
 import { LogOut } from "lucide-react";
 import { useTranslation } from "react-i18next";
 

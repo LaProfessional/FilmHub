@@ -3,7 +3,7 @@ import cls from "@fvilers/cls";
 
 import { useCollapsible } from "@/widgets/sidebar/lib/useCollapsible.ts";
 
-import { SidebarSectionHeader } from "@/widgets/sidebar/ui/SidebarSectionHeader.tsx";
+import { SidebarSectionHeader } from "@/widgets/sidebar/ui/SidebarSectionHeader";
 
 interface CollapsibleSidebarSectionProps {
     children: React.ReactNode;

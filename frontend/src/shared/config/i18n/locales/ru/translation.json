@@ -17,5 +17,12 @@
   "YourCollections": "Ваши коллекции",
   "YourFlags": "Ваши флаги",
   "Settings": "Настройки",
-  "Logout": "Выйти"
+  "Logout": "Выйти",
+
+  "createCollection": "Создать коллекцию",
+  "name": "Название",
+  "collectionName": "Название коллекции...",
+  "publicCollection": "Публичная коллекция",
+  "cancel": "Отмена",
+  "create": "Создать"
 }

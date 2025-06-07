@@ -1,0 +1,59 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.modal {
+  background-color: var(--bg-primary);
+  border-radius: 1.2rem;
+  border: 1px solid var(--border);
+  padding: 2.4rem;
+  min-width: 360px;
+  max-width: 90vw;
+  position: relative;
+  transform: scale(0.96);
+  opacity: 0;
+  animation: zoomIn 0.2s ease-out forwards;
+}
+
+.close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  svg {
+    color: var(--color-primary);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
