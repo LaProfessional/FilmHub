@@ -17,5 +17,12 @@
   "YourCollections": "Your Collections",
   "YourFlags": "Your Flags",
   "Settings": "Settings",
-  "Logout": "Log Out"
+  "Logout": "Log Out",
+  
+  "createCollection": "Create collection",
+  "name": "Name",
+  "collectionName": "Collection name...",
+  "publicCollection": "Public collection",
+  "cancel": "Cancel",
+  "create": "Create"
 }

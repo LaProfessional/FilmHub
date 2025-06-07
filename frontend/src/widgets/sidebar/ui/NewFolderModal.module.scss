@@ -1,0 +1,39 @@
+@use "@/shared/styles/abstracts/text-styles" as text-styles;
+
+.title {
+  @include text-styles.text-medium-semibold;
+  margin-bottom: 2rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+  margin-bottom: 1.6rem;
+  min-width: 400px;
+  label {
+    @include text-styles.text-small-semibold;
+  }
+}
+
+.toggleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.4rem;
+
+  label {
+    @include text-styles.text-small-semibold;
+  }
+
+  input[type="checkbox"] {
+    cursor: pointer;
+    accent-color: var(--color-accent); // для стилизованной галочки
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}

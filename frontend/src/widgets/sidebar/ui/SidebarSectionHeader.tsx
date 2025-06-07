@@ -1,9 +1,9 @@
 import styles from "@/widgets/sidebar/ui/SidebarSectionHeader.module.scss";
 import cls from "@fvilers/cls";
 
-import { ReactComponent as ArrowSvg } from "@/shared/assets/sidebar/Arrow.svg";
+import { ChevronDown } from "lucide-react";
 
-import { Button } from "@/shared/ui/Button.tsx";
+import { Button } from "@/shared/ui/Button/Button";
 
 interface SidebarSectionHeaderProps {
     variant: string;
@@ -30,7 +30,7 @@ export const SidebarSectionHeader: React.FC<SidebarSectionHeaderProps> = ({
             ) }
 
             <Button variant={ "collapseExpandBtn" } onClick={ toggleMenu }>
-                <ArrowSvg className={ cls(styles.arrowSvg, isClose && styles.close) }/>
+                <ChevronDown  size={18} className={ cls(styles.arrowSvg, isClose && styles.close) }/>
             </Button>
         </div>
     );
