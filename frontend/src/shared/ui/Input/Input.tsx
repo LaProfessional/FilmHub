@@ -1,14 +1,20 @@
+import React, { forwardRef } from "react";
 import styles from "./Input.module.scss";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-    variant: string;
+  variant: string;
 }
 
-export const Input: React.FC<InputProps> = ({ variant, ...props }) => {
+export const Input = forwardRef<HTMLInputElement, InputProps>(
+  ({ variant, ...props }, ref) => {
     return (
-        <input
-            className={ styles[variant] }
-            { ...props }
-        />
+      <input
+        ref={ref}
+        className={styles[variant]}
+        {...props}
+      />
     );
-};
+  }
+);
+
+Input.displayName = "Input";

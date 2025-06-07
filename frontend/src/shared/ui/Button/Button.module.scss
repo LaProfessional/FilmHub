@@ -76,6 +76,19 @@
 
 //add new folder modal buttons
 
+.close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  svg {
+    color: var(--color-primary);
+  }
+}
+
 .cancelBtn {
   background-color: transparent;
   color: var(--color-muted);

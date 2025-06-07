@@ -1,7 +1,7 @@
-import { useEffect } from "react";
 import ReactDOM from "react-dom";
 import styles from "./Modal.module.scss";
 import { X } from "lucide-react";
+import { Button } from "@/shared/ui/Button/Button";
 
 interface ModalProps {
   isOpen: boolean;
@@ -10,32 +10,20 @@ interface ModalProps {
 }
 
 export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isOpen]);
-
   if (!isOpen) return null;
 
+  const portalRoot = document.getElementById("portal");
+  if (!portalRoot) return null;
+
   return ReactDOM.createPortal(
-    <div className={styles.overlay} onClick={onClose}>
-      <div
-        className={styles.modal}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button className={styles.close} onClick={onClose}>
+    <div className={styles.overlay}>
+      <div className={styles.modal}>
+        <Button variant="close" onClick={onClose}>
           <X size={20} />
-        </button>
+        </Button>
         {children}
       </div>
     </div>,
-    document.body
+    portalRoot
   );
 };

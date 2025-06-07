@@ -1,3 +1,4 @@
+import cls from "clsx";
 import styles from "./FolderItem.module.scss";
 
 export const FolderItem = ({ name, isActive, onClick }: {
@@ -6,7 +7,7 @@ export const FolderItem = ({ name, isActive, onClick }: {
   onClick: () => void;
 }) => (
   <li
-    className={`${styles.item} ${isActive ? styles.select : ""}`}
+    className={cls(styles.item, isActive && styles.select)}
     onClick={onClick}
   >
     {name}

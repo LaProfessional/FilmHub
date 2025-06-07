@@ -7,7 +7,7 @@ import { CollapsibleSidebarSection } from "@/widgets/sidebar/ui/CollapsibleSideb
 import { NewFolderModal } from "@/widgets/sidebar/ui/NewFolderModal";
 import { FolderItem } from "@/widgets/sidebar/ui/FolderItem"
 
-import { Button, Input } from "@/shared/ui/Index";
+import { Button, Input } from "@/shared/ui/index";
 
 import { Plus } from "lucide-react";
 import { useState } from "react";

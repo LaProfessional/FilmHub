@@ -10,7 +10,9 @@
   flex-direction: column;
   gap: .8rem;
   margin-bottom: 1.6rem;
-  min-width: 400px;
+  min-width: 270px;
+  width: 40vw;
+  max-width: 400px;
   label {
     @include text-styles.text-small-semibold;
   }
@@ -26,14 +28,16 @@
     @include text-styles.text-small-semibold;
   }
 
-  input[type="checkbox"] {
-    cursor: pointer;
-    accent-color: var(--color-accent); // для стилизованной галочки
-  }
 }
 
 .actions {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
+}
+
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
 }
