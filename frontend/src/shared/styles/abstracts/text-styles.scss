@@ -68,9 +68,9 @@
 }
 
 // Large text
-@mixin text-large-semibold-spaced {
-    color: var(--color-primary);
-    font-size: 2rem;
+@mixin text-muted-semibold-spaced {
+    color: var(--color-muted);
+    font-size: 1.8rem;
     font-weight: 600;
     letter-spacing: .1rem;
 }

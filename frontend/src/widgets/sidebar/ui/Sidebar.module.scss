@@ -53,7 +53,7 @@
 
     transition: background-color .1s linear;
 
-    &.filterWrapper {
+    &.select {
         background-color: var(--bg-accent-focus);
         border-radius: .8rem;
         border-left: .4rem solid;
@@ -61,7 +61,7 @@
         color: var(--color-accent);
     }
 
-    &:not(.filterWrapper):hover {
+    &:not(.select):hover {
         background-color: var(--bg-hover-primary);
     }
 }

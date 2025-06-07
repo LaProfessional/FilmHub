@@ -13,8 +13,6 @@
     border-radius: 0 .8rem .8rem 0;
     background-color: var(--button);
 
-    // Сюда svg +
-
     padding: 0 1.3rem;
 
     transition: background-color .1s ease-in-out;
@@ -87,4 +85,18 @@
     padding: .8rem;
 
     cursor: pointer;
+}
+
+.btnFiltersControl {
+    width: 100%;
+    text-align: start;
+
+    padding: 1rem 4.8rem 1rem 5.5rem;
+}
+
+.btnFilter {
+    width: 100%;
+    text-align: start;
+
+    padding: 1rem 3.2rem 1rem 1.6rem;
 }

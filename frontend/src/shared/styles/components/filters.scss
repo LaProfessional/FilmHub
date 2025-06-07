@@ -5,7 +5,7 @@
     border-radius: 1.2rem;
     cursor: pointer;
 
-    transition: border-color, box-shadow, stroke 0.3s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, stroke 0.2s ease;
 
     &:focus,
     &:focus-within {
@@ -23,7 +23,7 @@
         box-shadow: 0 0 0 3px var(--bg-accent-focus);
     }
 
-    .chevronDown {
+    .iconChevron {
         position: absolute;
         top: 8px;
         right: 10px;
@@ -37,15 +37,14 @@
         }
     }
 
-    .slidersHorizontal {
+    .iconSlidersHorizontal {
         position: absolute;
         left: 10px;
         top: 8px;
         stroke: var(--sliders-horizontal);
     }
 
-    .titleWrapper,
-    .title {
+    .filterTitle {
         @include text-styles.text-medium-semibold-spaced;
     }
 }
