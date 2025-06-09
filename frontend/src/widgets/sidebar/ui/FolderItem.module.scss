@@ -60,3 +60,17 @@
     opacity: 1;
   }
 }
+
+.iconTrashBtn {
+  background: none;
+  border: none;
+  padding: .4rem;
+  cursor: pointer;
+  opacity: 0.6;
+  color: var(--color-primary);
+  margin: -.4rem 0;
+  &:hover {
+    opacity: 1;
+    color: var(--color-danger);
+  }
+}

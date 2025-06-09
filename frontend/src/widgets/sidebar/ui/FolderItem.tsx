@@ -31,7 +31,7 @@ export const FolderItem = ({
           <button className={styles.iconBtn} onClick={onEdit}>
             <Pencil size={16} />
           </button>
-          <button className={styles.iconBtn} onClick={onDelete}>
+          <button className={styles.iconTrashBtn} onClick={onDelete}>
             <Trash2 size={16} />
           </button>
         </div>

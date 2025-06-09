@@ -97,7 +97,7 @@
   transition: background-color 0.15s ease-in-out;
 
   &:hover {
-    background-color: var(--color-danger);
+    background-color: var(--color-cancel-hover);
     color: var(--color-add-button);
     border: 1px solid transparent;
   }
