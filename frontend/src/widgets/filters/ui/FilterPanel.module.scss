@@ -10,7 +10,7 @@
     }
 }
 
-.fieldsList {
+.filtersList {
     @include dropdown.filterMenu;
     display: flex;
     flex-direction: column;

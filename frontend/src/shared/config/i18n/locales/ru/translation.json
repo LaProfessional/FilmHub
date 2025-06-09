@@ -14,7 +14,7 @@
   "literaryMasterpiece": "Литературный шедевр",
   "Manage and organize your personal movie library": "Управление и организация вашей личной библиотеки фильмов",
   "Any genre": "Любой жанр",
-  "Genre": "Жанр",
+  "Genre": "Жанр...",
   "Horror": "Ужасы",
   "Action": "Боевик",
   "Comedy": "Комедия",
@@ -33,12 +33,10 @@
   "By rating": "По рейтингу",
   "Newest first": "Сначала новые",
   "Oldest first": "Сначала старые",
-  "By name: A-Z": "По названию: A-Z",
-  "By name: Z-A": "По названию: Z-A",
-  "By name: А-Я": "По названию: А-Я",
-  "By name: Я-А": "По названию: Я-А",
-  "Year of release": "Год выпуска",
-  "Sorting": "Сортировка",
+  "By name: A-Z": "По названию: А-Я",
+  "By name: Z-A": "По названию: Я-А",
+  "Year of release": "Год выпуска...",
+  "Sorting": "Сортировка...",
   "Add movie": "Добавить фильм",
   "All": "Всe",
   "Movies": "Фильмы",
@@ -50,5 +48,6 @@
   "YourCollections": "Ваши коллекции",
   "YourFlags": "Ваши флаги",
   "Settings": "Настройки",
-  "Logout": "Выйти"
+  "Logout": "Выйти",
+  "Reset all": "Сбросить всё"
 }

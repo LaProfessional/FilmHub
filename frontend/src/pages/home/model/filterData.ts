@@ -32,8 +32,6 @@ export const dataFilter = (t: TFunction) => {
         { id: "oldest", htmlFor: "oldest", label: "Oldest first", value: "oldest" },
         { id: "az", htmlFor: "az", label: "By name: A-Z", value: "az" },
         { id: "za", htmlFor: "za", label: "By name: Z-A", value: "za" },
-        { id: "ay", htmlFor: "ay", label: "By name: А-Я", value: "ay" },
-        { id: "ya", htmlFor: "ya", label: "By name: Я-А", value: "ya" },
     ];
 
     return { dataGenre, dataYear, dataOptions };

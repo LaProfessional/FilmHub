@@ -3,9 +3,9 @@ $light-theme: (
     color-danger: #ef4444,
     color-muted: #71717a,
     color-accent: #9b56f0,
-    color-add-button: #fafafa,
     color-muted-hover: #2563eb,
     color-on-light: #0c0a09,
+    color-on-dark: #fafafa,
 
 
     bg-primary: #f9fafb,
@@ -38,7 +38,7 @@ $light-theme: (
     arrow: #71717a,
     arrow-hover: #09090b,
     control-layout: #ffffff,
-    control-layout-disabled: #ffffff,
+    control-layout-disabled: #a1a1aa,
     sliders-horizontal: #71717a,
 
 
@@ -52,9 +52,9 @@ $dark-theme: (
     color-danger: #ef4444,
     color-muted: #a1a1aa,
     color-accent: #9b56f0,
-    color-add-button: #fafafa,
     color-muted-hover: #60a5fa,
     color-on-light: #0c0a09,
+    color-on-dark: #fafafa,
 
     bg-primary: #09090b,
     bg-secondary: #202938,

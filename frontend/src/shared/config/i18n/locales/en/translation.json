@@ -14,7 +14,7 @@
   "literaryMasterpiece": "Literary masterpiece",
   "Manage and organize your personal movie library": "Manage and organize your personal movie library",
   "Any genre": "Any genre",
-  "Genre": "Genre",
+  "Genre": "Genre...",
   "Horror": "Horror",
   "Action": "Action",
   "Comedy": "Comedy",
@@ -35,10 +35,8 @@
   "Oldest first": "Oldest first",
   "By name: A-Z": "By name: A-Z",
   "By name: Z-A": "By name: Z-A",
-  "By name: А-Я": "By name: А-Я",
-  "By name: Я-А": "By name: Я-А",
-  "Year of release": "Year of release",
-  "Sorting": "Sorting",
+  "Year of release": "Year of release...",
+  "Sorting": "Sorting...",
   "Add movie": "Add movie",
   "All": "All",
   "Movies": "Movies",
@@ -50,5 +48,6 @@
   "YourCollections": "Your Collections",
   "YourFlags": "Your Flags",
   "Settings": "Settings",
-  "Logout": "Log Out"
+  "Logout": "Log Out",
+  "Reset all": "Reset all"
 }

@@ -7,8 +7,8 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 export const Input: React.FC<InputProps> = ({ variant, ...props }) => {
     return (
         <input
-            className={ styles[variant] }
             { ...props }
+            className={ styles[variant] }
         />
     );
 };

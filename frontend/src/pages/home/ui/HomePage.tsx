@@ -12,12 +12,18 @@ import { FilterPanel } from "@/widgets/filters/ui/FilterPanel.tsx";
 import { Button } from "@/shared/ui/Button.tsx";
 
 export const HomePage = () => {
-    const [ isActive, setIsActive ] = useState<boolean>(true);
-    const [ selectedIndex, setSelectedIndex ] = useState<number>(0);
     const { t } = useTranslation();
 
+    const [ isLayoutGrid, setIsLayoutGrid ] = useState<boolean>(true);
+    const [ isLayoutList, setIsLayoutList ] = useState<boolean>(false);
 
-    const toggleLayout = () => setIsActive(prev => !prev);
+    const [ selectedIndex, setSelectedIndex ] = useState<number>(0);
+
+    const toggleLayout = () => {
+        // isLayoutGrid ? setIsLayoutList(!isLayoutList) : setIsLayoutGrid(!isLayoutGrid);
+        if (isLayoutGrid) setIsLayoutGrid(prev => !prev);
+        if (isLayoutList) setIsLayoutList(prev => !prev);
+    };
 
     const handleSelect = (index: number) => setSelectedIndex(index);
 
@@ -30,55 +36,57 @@ export const HomePage = () => {
 
     return (
         <div className={ styles.container }>
-            <nav className={ styles.nav }>
-                <ul className={ styles.navItemWrapper }>
-                    { navItems.map((item, index) =>
-                        <li
-                            className={ cls(styles.navItem, selectedIndex === index && styles.select) }
-                            onClick={ () => handleSelect(index) }
-                            key={ index }
-                        >
-                            { item.label } { item.count }
-                        </li>
-                    ) }
-                </ul>
+            <nav className={ styles.navContainer }>
+                <section className={ styles.navSection }>
+                    <ul className={ styles.navItemWrapper }>
+                        { navItems.map((item, index) =>
+                            <li
+                                className={ cls(styles.navItem, selectedIndex === index && styles.select) }
+                                onClick={ () => handleSelect(index) }
+                                key={ index }
+                            >
+                                { item.label } { item.count }
+                            </li>
+                        ) }
+                    </ul>
 
-                <FilterPanel/>
-            </nav>
+                    <FilterPanel/>
+                </section>
 
-            <hr/>
+                <hr/>
 
-            <nav className={ styles.wrapper }>
-                <div className={ styles.controlsGroup }>
-                    <div className={ styles.layoutControls }>
-                        <Button
-                            variant={ "btnLayoutControls" }
-                            isActive={ !isActive }
-                            onClick={ toggleLayout }
-                        >
-                            <LayoutGrid
-                                size={ 18 }
-                                className={ cls(styles.iconLayoutGrid, isActive && styles.disabled) }
-                            />
-                        </Button>
+                <section className={ styles.controlsSection }>
+                    <div className={ styles.controlsGroup }>
+                        <div className={ styles.layoutControls }>
+                            <Button
+                                variant={ "btnLayoutControls" }
+                                isActive={ isLayoutGrid }
+                                onClick={ toggleLayout }
+                            >
+                                <LayoutGrid
+                                    size={ 18 }
+                                    className={ cls(styles.iconLayoutGrid, !isLayoutGrid && styles.disabled) }
+                                />
+                            </Button>
 
-                        <Button
-                            variant={ "btnLayoutControls" }
-                            isActive={ isActive }
-                            onClick={ toggleLayout }
-                        >
-                            <LayoutList
-                                size={ 18 }
-                                className={ cls(styles.iconLayoutList, !isActive && styles.disabled) }
-                            />
+                            <Button
+                                variant={ "btnLayoutControls" }
+                                isActive={ isLayoutList }
+                                onClick={ toggleLayout }
+                            >
+                                <LayoutList
+                                    size={ 18 }
+                                    className={ cls(styles.iconLayoutList, !isLayoutList && styles.disabled) }
+                                />
+                            </Button>
+                        </div>
+
+                        <Button variant={ "btnAddMovie" }>
+                            <Plus/>
+                            { t("Add movie") }
                         </Button>
                     </div>
-
-                    <Button variant={ "btnAddMovie" }>
-                        <Plus/>
-                        { t("Add movie") }
-                    </Button>
-                </div>
+                </section>
             </nav>
         </div>
     );

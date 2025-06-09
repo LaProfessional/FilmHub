@@ -23,6 +23,7 @@
         box-shadow: 0 0 0 3px var(--bg-accent-focus);
     }
 
+    .iconX,
     .iconChevron {
         position: absolute;
         top: 8px;
@@ -45,7 +46,11 @@
     }
 
     .filterTitle {
-        @include text-styles.text-medium-semibold-spaced;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        @include text-styles.text-medium-lighter;
     }
 }
 
@@ -60,6 +65,8 @@
     background-color: var(--bg-primary);
 
     visibility: hidden;
+
+    cursor: auto;
 
     &.open {
         visibility: visible;

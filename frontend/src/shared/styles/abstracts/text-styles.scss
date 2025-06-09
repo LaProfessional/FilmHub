@@ -9,6 +9,12 @@
     font-weight: 600;
 }
 
+@mixin text-label-dark {
+    color: var(--color-on-dark);
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
 @mixin text-small-semibold-uppercase {
     @include text-small-semibold;
     text-transform: uppercase;
@@ -36,6 +42,12 @@
 @mixin text-medium-primary {
     color: var(--color-primary);
     font-size: 1.6rem;
+}
+
+@mixin text-medium-lighter {
+    color: var(--color-primary);
+    font-size: 1.6rem;
+    font-weight: 400;
 }
 
 @mixin text-medium-semibold {
