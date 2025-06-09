@@ -4,11 +4,20 @@ import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect } from "react";
 
 interface NewFolderModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onCreate: (name: string) => void;
+  onCreate: (name: string, isPublic: boolean) => void;
+  onUpdate?: (id: string, name: string, isPublic: boolean) => void;
+folderToEdit?: {
+  id: string;
+  name: string;
+  isPublic?: boolean;
+  isSystem?: boolean;
+} | null;
+
 }
 
 const schema = z.object({
@@ -18,7 +27,7 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
-export const NewFolderModal = ({ isOpen, onClose, onCreate }: NewFolderModalProps) => {
+export const NewFolderModal = ({ isOpen, onClose, onCreate, onUpdate, folderToEdit }: NewFolderModalProps) => {
   const { t } = useTranslation();
 
   const {
@@ -34,11 +43,30 @@ export const NewFolderModal = ({ isOpen, onClose, onCreate }: NewFolderModalProp
     },
   });
 
-  const onSubmit = (data: FormData) => {
-    onCreate(data.name.trim());
-    reset();
-    onClose();
-  };
+    useEffect(() => {
+    if (folderToEdit) {
+      reset({
+        name: folderToEdit.name,
+        isPublic: folderToEdit.isPublic ?? false,
+      });
+    } else {
+      reset({
+        name: "",
+        isPublic: false,
+      });
+    }
+  }, [folderToEdit, reset]);
+
+const onSubmit = (data: FormData) => {
+  if (folderToEdit && onUpdate) {
+    onUpdate(folderToEdit.id, data.name.trim(), data.isPublic);
+  } else {
+    onCreate(data.name.trim(), data.isPublic);
+  }
+  reset();
+  onClose();
+};
+
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -71,7 +99,7 @@ export const NewFolderModal = ({ isOpen, onClose, onCreate }: NewFolderModalProp
             {t("cancel")}
           </Button>
           <Button variant="primaryBtn">
-            {t("create")}
+            {folderToEdit ? t("save") : t("create")}
           </Button>
         </div>
       </form>

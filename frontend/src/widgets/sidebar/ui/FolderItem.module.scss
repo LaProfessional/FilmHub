@@ -3,7 +3,9 @@
 .item {
     border-radius: .8rem;
 
-    @include text-styles.text-small-semibold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
     padding: 1rem 1.2rem;
     margin-bottom: .4rem;
@@ -23,4 +25,38 @@
     &:not(.select):hover {
         background-color: var(--bg-hover-primary);
     }
+
+      &:hover .actions {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.name {
+  @include text-styles.text-small-semibold;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.actions {
+  display: flex;
+  gap: .8rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.iconBtn {
+  background: none;
+  border: none;
+  padding: .4rem;
+  cursor: pointer;
+  opacity: 0.6;
+  color: var(--color-primary);
+  margin: -.4rem 0;
+  &:hover {
+    opacity: 1;
+  }
 }

@@ -18,7 +18,7 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
   return ReactDOM.createPortal(
     <div className={styles.overlay}>
       <div className={styles.modal}>
-        <Button variant="close" onClick={onClose}>
+        <Button variant="btnClose" onClick={onClose}>
           <X size={20} />
         </Button>
         {children}

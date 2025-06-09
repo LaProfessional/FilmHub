@@ -74,9 +74,7 @@
     }
 }
 
-//add new folder modal buttons
-
-.close {
+.btnClose {
   position: absolute;
   top: 1.2rem;
   right: 1.2rem;
@@ -91,24 +89,24 @@
 
 .cancelBtn {
   background-color: transparent;
+  @include text-styles.text-small-primary;
   color: var(--color-muted);
-  font-size: 1.4rem;
-  font-weight: 500;
   padding: 1rem 2rem;
   border-radius: 0.8rem;
   border: 1px solid var(--border);
   transition: background-color 0.15s ease-in-out;
 
   &:hover {
-    background-color: var(--bg-hover-primary);
+    background-color: var(--color-danger);
+    color: var(--color-add-button);
+    border: 1px solid transparent;
   }
 }
 
 .primaryBtn {
   background-color: var(--button);
+  @include text-styles.text-small-primary;
   color: var(--color-add-button);
-  font-size: 1.4rem;
-  font-weight: 500;
   padding: 1rem 2rem;
   border-radius: 0.8rem;
 

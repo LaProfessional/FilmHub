@@ -30,7 +30,7 @@ export const SidebarSectionHeader: React.FC<SidebarSectionHeaderProps> = ({
             ) }
 
             <Button variant={ "collapseExpandBtn" } onClick={ toggleMenu }>
-                <ChevronDown  size={18} className={ cls(styles.arrowSvg, isClose && styles.close) }/>
+                <ChevronDown  size={22} className={ cls(styles.arrowSvg, isClose && styles.close) }/>
             </Button>
         </div>
     );

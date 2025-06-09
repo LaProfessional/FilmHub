@@ -18,11 +18,11 @@
   "YourFlags": "Your Flags",
   "Settings": "Settings",
   "Logout": "Log Out",
-  
   "createCollection": "Create collection",
   "name": "Name",
   "collectionName": "Collection name...",
   "publicCollection": "Public collection",
   "cancel": "Cancel",
-  "create": "Create"
+  "create": "Create",
+  "save": "Save"
 }

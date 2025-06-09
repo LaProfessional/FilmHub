@@ -15,6 +15,8 @@ import { useState } from "react";
 type Folder = {
   id: string;
   name: string;
+  isPublic?: boolean;
+  isSystem?: boolean; 
 };
 
 const generateId = () => `${Date.now()}-${Math.random().toString(16).slice(2)}`;
@@ -24,22 +26,41 @@ export const Sidebar = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeFolderId, setActiveFolderId] = useState<string>("allMovies");
-  const [folders, setFolders] = useState<Folder[]>([]);
 
-  const handleAddFolder = (folderName: string) => {
+
+  const [editingFolder, setEditingFolder] = useState<Folder | null>(null);
+
+  const handleEditFolder = (folder: Folder) => {
+    const name = folder.isSystem ? t(folder.id) : folder.name;
+    setEditingFolder({ ...folder, name });
+    setIsModalOpen(true);
+  };
+
+  const handleUpdateFolder = (id: string, name: string, isPublic: boolean) => {
+    setFolders((prev) =>
+      prev.map((folder) =>
+        folder.id === id ? { ...folder, name, isPublic } : folder
+      )
+    );
+  };
+
+  const handleDeleteFolder = (id: string) => {
+    setFolders((prev) => prev.filter((folder) => folder.id !== id));
+  };
+
+  const handleAddFolder = (folderName: string, isPublic: boolean) => {
     const newFolder: Folder = {
       id: generateId(),
-      name: folderName
+      name: folderName,
+      isPublic,
     };
     setFolders((prev) => [...prev, newFolder]);
   };
 
-  const systemFolders: Folder[] = [
-    { id: "allMovies", name: t("allMovies") },
-    { id: "favourites", name: t("favourites") }
-  ];
-
-  const allFolders: Folder[] = [...systemFolders, ...folders];
+  const [folders, setFolders] = useState<Folder[]>([
+    { id: "allMovies", name: t("allMovies"), isPublic: false, isSystem: true },
+    { id: "favourites", name: t("favourites"), isPublic: false, isSystem: true }
+  ]);
 
   return (
     <aside className={styles.sidebar}>
@@ -62,14 +83,24 @@ export const Sidebar = () => {
             headingStyle="title"
           >
             <ul>
-              {allFolders.map(({ id, name }) => (
-                <FolderItem
-                  key={id}
-                  name={name}
-                  isActive={activeFolderId === id}
-                  onClick={() => setActiveFolderId(id)}
-                />
-              ))}
+{folders.map((folder) => {
+  const { id, isPublic = false, isSystem = false } = folder;
+  const name = isSystem ? t(id) : folder.name;
+
+  return (
+    <FolderItem
+      key={id}
+      name={name}
+      isActive={activeFolderId === id}
+      onClick={() => setActiveFolderId(id)}
+      onEdit={() => handleEditFolder({ id, name, isPublic, isSystem })}
+      onDelete={() => handleDeleteFolder(id)}
+      isPublic={isPublic}
+      isSystem={isSystem}
+    />
+  );
+})}
+
             </ul>
 
             <Button variant="addBtn" onClick={() => setIsModalOpen(true)}>
@@ -77,11 +108,17 @@ export const Sidebar = () => {
               {t("newFolder")}
             </Button>
 
-            <NewFolderModal
-              isOpen={isModalOpen}
-              onClose={() => setIsModalOpen(false)}
-              onCreate={handleAddFolder}
-            />
+          <NewFolderModal
+            isOpen={isModalOpen}
+            onClose={() => {
+              setIsModalOpen(false);
+              setEditingFolder(null);
+            }}
+            onCreate={handleAddFolder}
+            onUpdate={handleUpdateFolder}
+            folderToEdit={editingFolder}
+          />
+
           </CollapsibleSidebarSection>
         </section>
 
