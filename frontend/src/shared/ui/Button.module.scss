@@ -59,6 +59,10 @@
     border-radius: .5rem;
     padding: .5rem;
 
+    &:hover {
+        background-color: var(--bg-hover-secondary);
+    }
+
     &.active {
         background-color: var(--bg-accent);
     }
@@ -78,6 +82,12 @@
     white-space: nowrap;
 
     padding: .8rem;
+
+    transition: background-color .1s ease-in-out;
+
+    &:hover {
+        background-color: var(--button-hover);
+    }
 }
 
 .btnFiltersControl {

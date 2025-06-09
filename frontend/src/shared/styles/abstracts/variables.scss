@@ -11,6 +11,7 @@ $light-theme: (
     bg-primary: #f9fafb,
     bg-secondary: #ffffff,
     bg-hover-primary: #f5f4f4,
+    bg-hover-secondary: #f8f8f9,
     bg-accent-focus:  #f5eefd,
     bg-progress-bar: #f5f5f4,
     bg-amount-flag: #f3f4f6,
@@ -56,9 +57,11 @@ $dark-theme: (
     color-on-light: #0c0a09,
     color-on-dark: #fafafa,
 
+
     bg-primary: #09090b,
     bg-secondary: #202938,
     bg-hover-primary: #27272a,
+    bg-hover-secondary: #18181a,
     bg-accent-focus: #181122,
     bg-progress-bar: #27272a,
     bg-amount-flag: #1f2937,
