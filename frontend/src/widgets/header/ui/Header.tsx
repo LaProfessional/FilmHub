@@ -1,6 +1,8 @@
 import styles from "./Header.module.scss";
 import { UserMenu } from "./UserMenu/UserMenu";
+
 import { Button } from "@/shared/ui/Button/Button";
+import titleStyles from "@/shared/styles/components/TitleStyles.module.scss"
 
 import { ReactComponent as LogoSvg } from "@/shared/assets/header/Logo.svg";
 import { ReactComponent as SunSvg } from "@/shared/assets/header/Sun.svg";
@@ -21,37 +23,34 @@ export const Header = () => {
 
     return (
         <header className={ styles.header }>
+            <div className={ styles.titleWrapper }>
+                <LogoSvg className={ styles.logoSvg }/>
+                <h2 className={ titleStyles.titleGradient }>FilmHub</h2>
+            </div>
 
-                <div className={ styles.titleWrapper }>
-                    <LogoSvg className={ styles.logoSvg }/>
-                    <h2 className={ styles.title }>FilmHub</h2>
+            <nav className={ styles.nav }>
+                <div className={ styles.wrapper }>
+                    <Input
+                        variant={ "inputSearch" }
+                        type="text"
+                        placeholder={ t("SearchMovies") }
+                    />
+
+                    <SearchSvg className={ styles.searchSvg }></SearchSvg>
                 </div>
 
-                <nav className={ styles.nav }>
-                    <div className={ styles.wrapper }>
-                        <Input
-                            variant={ "inputSearch" }
-                            type="text"
-                            placeholder={ t("SearchMovies") }
-                        />
 
-                        <SearchSvg className={ styles.searchSvg }></SearchSvg>
-                    </div>
+                <Button variant="headerButton" onClick={ toggleTheme }>
+                    { theme === "dark" ? <SunSvg className={ styles.sunSvg }/> : <MoonSvg/> }
+                </Button>
+
+                <Button variant="headerButton" onClick={ () => changeLanguage(language === "en" ? "ru" : "en") }>
+                    <span className={ styles.language }>{ language === "en" ? "en" : "ru" }</span>
+                </Button>
 
 
-                    <Button variant="headerButton" onClick={toggleTheme}>
-                        {theme === "dark" ? <SunSvg className={ styles.sunSvg }/> : <MoonSvg />}
-                    </Button>
-
-                    <Button variant="headerButton" onClick={() => changeLanguage(language === "en" ? "ru" : "en")}>
-                        <span className={styles.language}>{language === "en" ? "en" : "ru"}</span>
-                    </Button>
-
-
-
-                    <UserMenu />
-                </nav>
-
+                <UserMenu/>
+            </nav>
         </header>
     );
 };

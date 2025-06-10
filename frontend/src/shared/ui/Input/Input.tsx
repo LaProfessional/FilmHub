@@ -1,18 +1,17 @@
-import React, { forwardRef } from "react";
 import styles from "./Input.module.scss";
+import cls from "@fvilers/cls";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  variant: string;
+    variant: string;
+    error?: string;
 }
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ variant, ...props }, ref) => {
+export const Input: React.FC<InputProps> = ({ variant, error, ...props }) => {
     return (
-      <input
-        ref={ref}
-        className={styles[variant]}
-        {...props}
-      />
+        <input
+            className={ cls(styles[variant], error && styles.error) }
+            { ...props }
+        />
     );
-  }
-);
+};
+
