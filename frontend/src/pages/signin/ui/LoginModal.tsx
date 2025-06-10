@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./LoginModal.module.scss";
 import titleStyles from "@/shared/styles/components/TitleStyles.module.scss"
 
-import { Button } from "@/shared/ui/Button.tsx";
+import { Button } from "@/shared/ui/Button/Button.tsx";
 import { SignInForm } from "@/features/login/api/SignInForm.tsx";
 import { SignUpForm } from "@/features/registration/ui/SignUpForm.tsx";
 

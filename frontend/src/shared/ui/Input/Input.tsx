@@ -14,3 +14,4 @@ export const Input: React.FC<InputProps> = ({ variant, error, ...props }) => {
         />
     );
 };
+

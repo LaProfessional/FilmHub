@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema } from "@/features/registration/model/validation.ts";
 
 import { FormField } from "@/features/login/ui/FormField.tsx";
-import { Button } from "@/shared/ui/Button.tsx";
+import { Button } from "@/shared/ui/Button/Button";
 
 export const SignUpForm = () => {
     const { signUp } = useSignUp();

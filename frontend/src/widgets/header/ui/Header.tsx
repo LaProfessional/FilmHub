@@ -1,6 +1,7 @@
 import styles from "./Header.module.scss";
 import { UserMenu } from "./UserMenu/UserMenu";
-import { Button } from "@/shared/ui/Button";
+
+import { Button } from "@/shared/ui/Button/Button";
 import titleStyles from "@/shared/styles/components/TitleStyles.module.scss"
 
 import { ReactComponent as LogoSvg } from "@/shared/assets/header/Logo.svg";
@@ -8,7 +9,7 @@ import { ReactComponent as SunSvg } from "@/shared/assets/header/Sun.svg";
 import { ReactComponent as MoonSvg } from "@/shared/assets/header/Moon.svg";
 import { ReactComponent as SearchSvg } from "@/shared/assets/header/Search.svg";
 
-import { Input } from "@/shared/ui/Input.tsx";
+import { Input } from "@/shared/ui/Input/Input";
 
 import { useTheme } from "@/app/providers/theme";
 import { useLanguage } from "@/app/providers/i18n/ui/LanguageProvider";

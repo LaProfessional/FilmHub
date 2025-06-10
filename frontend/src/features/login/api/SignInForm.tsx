@@ -5,7 +5,7 @@ import { signInSchema } from "@/features/login/model/validation.ts";
 import { useSignIn } from "@/features/login/model/services.ts";
 
 import { FormField } from "@/features/login/ui/FormField.tsx";
-import { Button } from "@/shared/ui/Button.tsx";
+import { Button } from "@/shared/ui/Button/Button";
 
 export const SignInForm = () => {
     const { signIn } = useSignIn();

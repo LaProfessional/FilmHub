@@ -1,0 +1,34 @@
+@mixin toggle {
+  position: relative;
+  appearance: none;
+  cursor: pointer;
+  background-color: var(--border);
+  transition: background-color 0.2s;
+  border-radius: 999px;
+  display: inline-block;
+  padding: 0;
+  border: none;
+
+  width: 42px;
+  height: 24px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: var(--bg-primary);
+    border-radius: 50%;
+    transition: transform 0.2s;
+    width: 18px;
+    height: 18px;
+    top: 3px;
+    left: 3px;
+  }
+
+  &:checked {
+    background-color: var(--color-accent);
+  }
+
+  &:checked::before {
+    transform: translateX(18px);
+  }
+}

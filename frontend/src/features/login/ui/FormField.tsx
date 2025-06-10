@@ -2,7 +2,7 @@ import styles from "./FormField.module.scss";
 import type { FieldError } from "react-hook-form";
 import cls from "@fvilers/cls";
 
-import { Input } from "@/shared/ui/Input.tsx";
+import { Input } from "@/shared/ui//Input/Input";
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
