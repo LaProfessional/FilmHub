@@ -11,6 +11,7 @@ import { useFilters } from "@/widgets/filters/model/useFilters.ts";
 
 import { Button } from "@/shared/ui/Button.tsx";
 import { Input } from "@/shared/ui/Input.tsx";
+import React from "react";
 
 type Item = {
     id: string,
@@ -29,11 +30,7 @@ interface FilterProps {
     isMulti?: boolean;
 }
 
-export const Filter = forwardRef<FilterHandle, FilterProps>(({
-                                                                 data,
-                                                                 dropdownTitle,
-                                                                 isMulti
-                                                             }, ref) => {
+export const Filter = React.memo((forwardRef<FilterHandle, FilterProps>(({ data, dropdownTitle, isMulti }, ref) => {
     const { t } = useTranslation();
     const [ isOpen, setIsOpen ] = useState(false);
     const wrapperRef = useRef<HTMLDivElement>(null);
@@ -98,4 +95,4 @@ export const Filter = forwardRef<FilterHandle, FilterProps>(({
             </div>
         </div>
     );
-});
+})));

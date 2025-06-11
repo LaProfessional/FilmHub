@@ -1,0 +1,27 @@
+.emptyMovieCard {
+    height: 440px;
+    max-height: 440px;
+
+    border: 1px dashed var(--border);
+    border-radius: 1.2rem;
+
+    cursor: pointer;
+
+    transition: border .2s ease, transform .3s ease;
+
+    &:hover {
+        border: 1px dashed var(--border-accent);
+        transform: translateY(-2%);
+    }
+
+    .titleMovieCard {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+        color: var(--color-primary);
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+}

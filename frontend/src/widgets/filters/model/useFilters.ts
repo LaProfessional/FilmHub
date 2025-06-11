@@ -25,6 +25,5 @@ export const useFilters = (isMulti?: boolean) => {
     const resetFilter = () => {
         setActiveIndexes([0]);
     };
-
     return { activeIndexes, handleSelectItem, resetFilter };
 };
