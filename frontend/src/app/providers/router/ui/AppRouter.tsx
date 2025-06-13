@@ -1,9 +1,4 @@
-import { useRoutes } from "react-router-dom";
 import { routeConfig } from "@/shared/config/router";
-import { Suspense } from "react";
+import { createBrowserRouter } from "react-router-dom";
 
-export const AppRouter = () => {
-  const routes = useRoutes(routeConfig);
-
-  return <Suspense fallback={<div>Loading...</div>}>{routes}</Suspense>;
-};
+export default createBrowserRouter(routeConfig);
