@@ -121,7 +121,7 @@
 
             .amountFlag {
                 align-self: center;
-                background-color: var(--bg-amount-flag);
+                background-color: var(--bg-neutral);
                 border-radius: .8rem;
 
                 @include text-styles.text-muted-semibold;

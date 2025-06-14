@@ -11,6 +11,8 @@
 }
 
 .filtersList {
+    z-index: 100;
+
     @include dropdown.filterMenu;
     display: flex;
     flex-direction: column;

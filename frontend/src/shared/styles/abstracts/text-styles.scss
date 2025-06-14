@@ -1,3 +1,16 @@
+// tiny text
+@mixin text-tiny-label-dark {
+    font-size: 1.2rem;
+    color: var(--color-on-dark);
+    font-weight: 500;
+}
+
+@mixin text-tiny-primary {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
 // Small text
 @mixin text-small-primary {
     color: var(--color-primary);
@@ -38,6 +51,18 @@
     text-transform: uppercase;
 }
 
+@mixin text-small-muted-semibold {
+    font-size: 1.4rem;
+    color: var(--color-muted);
+    font-weight: 600;
+}
+
+@mixin text-small-muted-lighter {
+    font-size: 1.4rem;
+    color: var(--color-muted);
+    font-weight: 400;
+}
+
 // Medium text
 @mixin text-medium-primary {
     color: var(--color-primary);
@@ -51,7 +76,8 @@
 }
 
 @mixin text-medium-semibold {
-    @include text-medium-primary;
+    font-size: 1.6rem;
+    color: var(--color-primary);
     font-weight: 600;
 }
 

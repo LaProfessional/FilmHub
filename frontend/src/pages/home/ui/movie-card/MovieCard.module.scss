@@ -1,77 +1,200 @@
 @use "../../../../shared/styles/abstracts/text-styles" as text-styles;
 
 .movieCard {
-    height: 600px;
-    max-height: 440px;
-
-    cursor: pointer;
+    max-height: fit-content;
+    height: auto;
+    max-width: 290px;
 }
 
 .cover {
     position: relative;
-
-    max-height: 440px;
+    aspect-ratio: 2 / 3;
 
     .cardImg {
+        display: block;
+
         width: 100%;
         height: 100%;
+        object-fit: cover;
+
+        border-radius: 1.2rem 1.2rem 0 0;
+        border: 1px solid var(--border);
+        border-bottom: none;
     }
 
     .rating {
         position: absolute;
-        right: 0;
+        right: 10px;
+        top: 10px;
 
-        color: yellow;
+        background-color: var(--bg-gold);
+        border-radius: .4rem;
+
+        @include text-styles.text-tiny-label-dark;
+
+        padding: .2rem .6rem;
     }
 }
 
 .cardDescription {
+    background-color: #1e1e1e;
     border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 1.2rem 1.2rem;
+
+    padding: 1.2rem;
 
     .wrapperTitle {
+        display: flex;
+        justify-content: space-between;
+
+        margin-bottom: .8rem;
 
         .cardTitle {
+            max-width: 200px;
 
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+
+            @include text-styles.text-medium-semibold;
         }
 
         .yearOfRelease {
-
+            @include text-styles.text-small-muted-semibold;
         }
     }
 
     .genresWrapper {
+        display: flex;
+        gap: .5rem;
+
+        margin-bottom: 1.2rem;
+
+        text-overflow: ellipsis;
+        overflow: hidden;
 
         .genres {
+            @include text-styles.text-tiny-primary;
+            line-height: 1;
+            white-space: nowrap;
 
+            background-color: var(--bg-neutral);
+            border-radius: 9999px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+
+            padding: .3rem .9rem;
         }
     }
 
     .description {
+        position: relative;
 
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        -webkit-line-clamp: 3;
+
+        @include text-styles.text-small-muted-lighter;
+
+        line-height: 1.5;
+
+        max-height: 60px;
+        margin-bottom: 1.2rem;
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            height: 12px;
+            width: 100%;
+            background: linear-gradient(to top, #1e1e1e, transparent);
+        }
     }
 
     .btnsContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        max-height: 50px;
+
+        &:hover {
+            .controlMovieCard {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
 
         .btnMore {
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+
+            @include text-styles.text-small-muted-semibold;
+
+            border-radius: .5rem;
+
+            padding: 1rem .6rem;
+
+            transition: all .2s ease;
+
+            &:hover {
+                background-color: var(--bg-hover-primary);
+
+                color: var(--color-muted-hover);
+
+                .iconEye {
+                    stroke: var(--color-muted-hover);
+                }
+            }
 
             .iconEye {
-
+                stroke: var(--color-muted);
             }
         }
 
-        .btnEditMovieCard {
+        .controlMovieCard {
+            display: flex;
+            align-items: center;
+            gap: .8rem;
 
-            .iconPencil {
+            visibility: hidden;
+            opacity: 0;
+            transition: all .2s ease-in-out;
 
-            }
-        }
+            .btnDeleteMovieCard,
+            .btnEditMovieCard {
+                width: 28px;
+                height: 28px;
 
-        .btnDeleteMovieCard {
+                border-radius: .5rem;
 
-            .iconTrash2 {
+                transition: all .2s ease;
 
+                &:hover {
+                    background-color: var(--bg-hover-primary);
+
+                    .iconTrash2 {
+                        stroke: var(--color-danger);
+                    }
+
+                    .iconPencil {
+                        stroke: var(--color-primary);
+                    }
+                }
+
+                .iconTrash2 {
+                    stroke: var(--color-muted);
+                }
+
+                .iconPencil {
+                    stroke: var(--color-muted);
+                }
             }
         }
     }
 }
-
