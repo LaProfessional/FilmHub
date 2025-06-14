@@ -1,0 +1,54 @@
+@use "../../../shared/styles/abstracts/text-styles.css" as text-styles;
+@use "../../../shared/styles/components/filters" as dropdown;
+
+.filterContainer {
+    position: relative;
+}
+
+.filterWrapper {
+    @include dropdown.filter;
+}
+
+.listItem {
+    @include dropdown.filterMenu;
+
+    position: absolute;
+    left: 0;
+    top: 45px;
+    z-index: 1000;
+
+    width: 100%;
+    max-height: 210px;
+    overflow: hidden;
+    overflow-y: auto;
+
+    background-color: var(--bg-primary);
+    border-radius: 1.2rem;
+    border: 1px solid var(--border);
+
+    visibility: hidden;
+
+    &.open {
+        visibility: visible;
+    }
+
+    .item {
+        color: var(--color-primary);
+        padding: .8rem;
+
+        &, .label {
+            cursor: pointer;
+        }
+
+        .label {
+            vertical-align: baseline;
+            font-size: 1.6rem;
+            padding-left: 1rem;
+        }
+
+        &:hover, .label:hover {
+            background-color: var(--bg-hover-select);
+            color: #ffffff;
+        }
+    }
+}

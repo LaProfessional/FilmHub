@@ -1,0 +1,74 @@
+@use "../abstracts/text-styles" as text-styles;
+
+@mixin filter {
+    border: 1px solid var(--border);
+    border-radius: 1.2rem;
+    cursor: pointer;
+
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, stroke 0.2s ease;
+
+    &:focus,
+    &:focus-within {
+        border-color: var(--border-accent);
+        box-shadow: 0 0 0 3px var(--bg-accent-focus);
+
+        .chevronDown,
+        .slidersHorizontal {
+            stroke: var(--color-accent);
+        }
+    }
+
+    &:hover {
+        border-color: var(--border-accent);
+        box-shadow: 0 0 0 3px var(--bg-accent-focus);
+    }
+
+    .iconX,
+    .iconChevron {
+        position: absolute;
+        top: 8px;
+        right: 10px;
+
+        stroke: var(--arrow);
+
+        transition: transform 0.2s ease;
+
+        &.open {
+            transform: rotate(180deg);
+        }
+    }
+
+    .iconSlidersHorizontal {
+        position: absolute;
+        left: 10px;
+        top: 8px;
+        stroke: var(--sliders-horizontal);
+    }
+
+    .filterTitle {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        @include text-styles.text-medium-lighter;
+    }
+}
+
+@mixin filterMenu {
+    position: absolute;
+    top: 45px;
+    left: 0;
+
+    width: 100%;
+    border-radius: 1.2rem;
+    border: 1px solid var(--border);
+    background-color: var(--bg-primary);
+
+    visibility: hidden;
+
+    cursor: auto;
+
+    &.open {
+        visibility: visible;
+    }
+}

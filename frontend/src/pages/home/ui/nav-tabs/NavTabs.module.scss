@@ -1,0 +1,33 @@
+@use "../../../../shared/styles/abstracts/text-styles" as text-styles;
+
+.navItemWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .navItem {
+        border-radius: 0.5rem;
+
+        @include text-styles.text-muted-semibold-spaced;
+
+        padding: .5rem 1.6rem;
+
+        cursor: pointer;
+
+        transition:
+                color .1s ease,
+                background-color .1s ease,
+                box-shadow .1s ease;
+
+        &:hover {
+            color: var(--color-muted-hover);
+            background-color: var(--bg-hover-primary);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        &.select {
+            background-color: #f2f2f2;
+            color: var(--color-on-light);
+        }
+    }
+}

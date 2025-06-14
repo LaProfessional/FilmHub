@@ -1,25 +1,30 @@
 $light-theme: (
     color-primary: #0c0a09,
-    color-muted: #6b7280,
     color-danger: #ef4444,
-    color-category: #71717a,
+    color-muted: #6b7280,
     color-accent: #9b56f0,
-    color-add-button: #fafafa,
     color-muted-hover: #2563eb,
+    color-on-light: #0c0a09,
+    color-on-dark: #fafafa,
 
 
     bg-primary: #f9fafb,
     bg-secondary: #ffffff,
     bg-hover-primary: #f5f4f4,
+    bg-hover-secondary: #f8f8f9,
     bg-accent-focus:  #f5eefd,
     bg-progress-bar: #f5f5f4,
-    bg-amount-flag: #f3f4f6,
-    bg-buttons-form: #27272a,
+    bg-neutral: #f3f4f6,
+    bg-hover-select: #1967d2,
     bg-accent: #9b56f0,
+    bg-gold: #f59e0b,
+
 
     card: #ffffff,
     input: #f4f5f5cc,
     input-focus: #9b56f0,
+    checkbox-checked: #ffffff,
+
 
     button: #9b56f0,
     button-hover: #8d4ed9,
@@ -28,13 +33,15 @@ $light-theme: (
 
     border: #e4e4e7,
     border-flag: #36404f,
-    border-reg-form: #27272a,
-    border-danger: #ef4444,
+    border-accent: #9b56f0,
 
 
     logo: #2094f3,
     arrow: #71717a,
     arrow-hover: #09090b,
+    control-layout: #ffffff,
+    control-layout-disabled: #a1a1aa,
+    sliders-horizontal: #71717a,
 
 
     scrollbar: #b69eeb,
@@ -44,27 +51,31 @@ $light-theme: (
 
 $dark-theme: (
     color-primary: #fafafa,
-    color-muted: #9ca3af,
     color-danger: #ef4444,
-    color-category: #a1a1aa,
+    color-muted: #a1a1aa,
     color-accent: #9b56f0,
-    color-add-button: #fafafa,
     color-muted-hover: #60a5fa,
+    color-on-light: #0c0a09,
+    color-on-dark: #fafafa,
 
 
     bg-primary: #09090b,
     bg-secondary: #202938,
     bg-hover-primary: #27272a,
+    bg-hover-secondary: #18181a,
     bg-accent-focus: #181122,
     bg-progress-bar: #27272a,
-    bg-amount-flag: #1f2937,
-    bg-buttons-form: #27272a,
+    bg-neutral: #1f2937,
+    bg-hover-select: #1967d2,
     bg-accent: #9b56f0,
+    bg-gold: #f59e0b,
 
 
     card: #09090b,
     input: #212124,
     input-focus: #9b56f0,
+    checkbox-checked: #ffffff,
+
 
     bg-button-primary: #1f94f3,
     button: #9b56f0,
@@ -73,12 +84,15 @@ $dark-theme: (
 
     border: #27272a,
     border-flag: #36404f,
-    border-reg-form: #27272a,
-    border-danger: #ef4444,
+    border-accent: #9b56f0,
+
 
     logo: #2094f3,
     arrow: #a1a1aa,
     arrow-hover: #fafafa,
+    control-layout: #ffffff,
+    control-layout-disabled: #a1a1aa,
+    sliders-horizontal: #ffffff,
 
 
     scrollbar: #4a3280,
