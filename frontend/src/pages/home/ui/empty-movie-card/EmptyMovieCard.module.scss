@@ -1,3 +1,5 @@
+@use "../../../../shared/styles/abstracts/text-styles" as text-styles;
+
 .emptyMovieCard {
     height: 440px;
     max-height: 440px;
@@ -20,8 +22,6 @@
         align-items: center;
         height: 100%;
 
-        color: var(--color-primary);
-        font-size: 1.6rem;
-        font-weight: 600;
+        @include text-styles.text-small-semibold;
     }
 }

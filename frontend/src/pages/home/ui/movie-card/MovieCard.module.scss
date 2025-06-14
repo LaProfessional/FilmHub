@@ -37,7 +37,6 @@
 }
 
 .cardDescription {
-    background-color: #1e1e1e;
     border: 1px solid var(--border);
     border-top: none;
     border-radius: 0 0 1.2rem 1.2rem;
@@ -111,7 +110,7 @@
 
             height: 12px;
             width: 100%;
-            background: linear-gradient(to top, #1e1e1e, transparent);
+            background: linear-gradient(to top, var(--bg-primary), transparent);
         }
     }
 
@@ -129,34 +128,6 @@
             }
         }
 
-        .btnMore {
-            display: flex;
-            align-items: center;
-            gap: .8rem;
-
-            @include text-styles.text-small-muted-semibold;
-
-            border-radius: .5rem;
-
-            padding: 1rem .6rem;
-
-            transition: all .2s ease;
-
-            &:hover {
-                background-color: var(--bg-hover-primary);
-
-                color: var(--color-muted-hover);
-
-                .iconEye {
-                    stroke: var(--color-muted-hover);
-                }
-            }
-
-            .iconEye {
-                stroke: var(--color-muted);
-            }
-        }
-
         .controlMovieCard {
             display: flex;
             align-items: center;
@@ -165,35 +136,21 @@
             visibility: hidden;
             opacity: 0;
             transition: all .2s ease-in-out;
+        }
 
-            .btnDeleteMovieCard,
-            .btnEditMovieCard {
-                width: 28px;
-                height: 28px;
+        .iconTrash2 {
+            stroke: var(--color-muted);
 
-                border-radius: .5rem;
+            &:hover {
+                stroke: var(--color-danger);
+            }
+        }
 
-                transition: all .2s ease;
+        .iconPencil {
+            stroke: var(--color-muted);
 
-                &:hover {
-                    background-color: var(--bg-hover-primary);
-
-                    .iconTrash2 {
-                        stroke: var(--color-danger);
-                    }
-
-                    .iconPencil {
-                        stroke: var(--color-primary);
-                    }
-                }
-
-                .iconTrash2 {
-                    stroke: var(--color-muted);
-                }
-
-                .iconPencil {
-                    stroke: var(--color-muted);
-                }
+            &:hover {
+                stroke: var(--color-primary);
             }
         }
     }

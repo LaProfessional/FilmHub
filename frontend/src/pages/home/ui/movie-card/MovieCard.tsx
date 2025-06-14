@@ -1,11 +1,11 @@
+import { useRef } from "react";
 import styles from "./MovieCard.module.scss";
-// import { useTranslation } from "react-i18next";
 
 import { Eye, Trash2, Pencil } from "lucide-react";
-import { useEffect, useRef } from "react";
+
+import { Button } from "@/shared/ui/Button.tsx";
 
 export const MovieCard = () => {
-    // const { t } = useTranslation();
     const genresRef = useRef<HTMLDivElement>(null);
 
     const dataMovies = [
@@ -75,12 +75,6 @@ export const MovieCard = () => {
         },
     ];
 
-    useEffect(() => handlerOverflowGenres(), []);
-
-    const handlerOverflowGenres = () => {
-        
-    };
-
     return (
         dataMovies.map((card, index) =>
             <article className={ styles.movieCard } key={ index }>
@@ -104,19 +98,20 @@ export const MovieCard = () => {
                     <p className={ styles.description }>{ card.description }</p>
 
                     <div className={ styles.btnsContainer }>
-                        <button className={ styles.btnMore }>
+
+                        <Button variant={ "btnMore" }>
                             <Eye className={ styles.iconEye } size={ 16 }/>
                             Подробнее
-                        </button>
+                        </Button>
 
                         <div className={ styles.controlMovieCard }>
-                            <button className={ styles.btnEditMovieCard }>
+                            <Button variant={ "btnEditMovieCard" }>
                                 <Pencil className={ styles.iconPencil } size={ 16 }/>
-                            </button>
+                            </Button>
 
-                            <button className={ styles.btnDeleteMovieCard }>
+                            <Button variant={ "btnDeleteMovieCard" }>
                                 <Trash2 className={ styles.iconTrash2 } size={ 16 }/>
-                            </button>
+                            </Button>
                         </div>
                     </div>
                 </div>
