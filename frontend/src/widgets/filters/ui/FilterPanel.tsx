@@ -12,7 +12,7 @@ import { useHandleClickOutside } from "@/shared/lib/useHandleClickOutside.ts"
 import type { FilterHandle } from "@/widgets/filters/ui/Filter.tsx"
 
 import { Filter } from "@/widgets/filters/ui/Filter.tsx"
-import { Button } from "@/shared/ui/Button.tsx"
+import { Button } from "@/shared/ui/Button/Button"
 
 export const FilterPanel = () => {
   const { t } = useTranslation()

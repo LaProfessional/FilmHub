@@ -1,5 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react"
-import * as React from "react"
+import { createContext, useContext, useLayoutEffect, useState } from "react"
 
 type Theme = "light" | "dark"
 
@@ -20,7 +19,7 @@ export const ThemeProvider: React.FC<ThemeContextProps> = ({ children }) => {
     return stored === "dark" || stored === "light" ? stored : "dark"
   })
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.body.classList.remove("light", "dark")
     document.body.classList.add(theme)
     localStorage.setItem("theme", theme)

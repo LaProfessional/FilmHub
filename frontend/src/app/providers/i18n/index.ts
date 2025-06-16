@@ -1,1 +1,1 @@
-export { LanguageProvider } from "./ui/LanguageProvider"
+export { LanguageProvider, useLanguage } from "./ui/LanguageProvider"

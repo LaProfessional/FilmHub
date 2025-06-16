@@ -3,7 +3,7 @@ import styles from "./MovieCard.module.scss"
 
 import { Eye, Trash2, Pencil } from "lucide-react"
 
-import { Button } from "@/shared/ui/Button.tsx"
+import { Button } from "@/shared/ui/Button/Button"
 
 export const MovieCard = () => {
   const genresRef = useRef<HTMLDivElement>(null)

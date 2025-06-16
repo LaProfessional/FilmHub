@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 
 import { Plus } from "lucide-react"
 
-import { Button } from "@/shared/ui/Button.tsx"
+import { Button } from "@/shared/ui/Button/Button"
 import { LayoutToggleButtons } from "@/pages/home/ui/layout-toggle-buttons/LayoutToggleButtons.tsx"
 import { MovieCard } from "@/pages/home/ui/movie-card/MovieCard.tsx"
 // import { EmptyMovieCard } from "@/pages/home/ui/empty-movie-card/EmptyMovieCard.tsx";

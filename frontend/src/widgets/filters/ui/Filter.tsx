@@ -9,8 +9,8 @@ import { X } from "lucide-react"
 import { useHandleClickOutside } from "@/shared/lib/useHandleClickOutside.ts"
 import { useFilters } from "@/widgets/filters/model/useFilters.ts"
 
-import { Button } from "@/shared/ui/Button.tsx"
-import { Input } from "@/shared/ui/Input.tsx"
+import { Button } from "@/shared/ui/Button/Button"
+import { Input } from "@/shared/ui/Input/Input"
 import React from "react"
 
 type Item = {

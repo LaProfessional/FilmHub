@@ -1,18 +1,18 @@
 import styles from "./Header.module.scss"
-import { UserMenu } from "./UserMenu/UserMenu"
-import { Button } from "@/shared/ui/Button"
-import titleStyles from "@/shared/styles/components/TitleStyles.module.scss"
 
+import { useTranslation } from "react-i18next"
+import { useLanguage } from "@/app/providers/i18n"
+import { useTheme } from "@/app/providers/theme"
+
+import { UserMenu } from "@/entities/user"
+
+import titleStyles from "@/shared/styles/components/TitleStyles.module.scss"
 import { ReactComponent as LogoSvg } from "@/shared/assets/header/Logo.svg"
 import { ReactComponent as SunSvg } from "@/shared/assets/header/Sun.svg"
 import { ReactComponent as MoonSvg } from "@/shared/assets/header/Moon.svg"
 import { ReactComponent as SearchSvg } from "@/shared/assets/header/Search.svg"
 
-import { Input } from "@/shared/ui/Input.tsx"
-
-import { useTheme } from "@/app/providers/theme"
-import { useLanguage } from "@/app/providers/i18n/ui/LanguageProvider"
-import { useTranslation } from "react-i18next"
+import { Button, Input } from "@/shared/ui"
 
 export const Header = () => {
   const { theme, toggleTheme } = useTheme()

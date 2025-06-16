@@ -3,7 +3,7 @@ import cls from "@fvilers/cls"
 
 import { ReactComponent as ArrowSvg } from "@/shared/assets/sidebar/Arrow.svg"
 
-import { Button } from "@/shared/ui/Button.tsx"
+import { Button } from "@/shared/ui/Button/Button"
 
 interface SidebarSectionHeaderProps {
   variant: string

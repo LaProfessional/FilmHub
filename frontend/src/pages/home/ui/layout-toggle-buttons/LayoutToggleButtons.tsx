@@ -3,7 +3,7 @@ import styles from "@/pages/home/ui/layout-toggle-buttons/LayoutToggleButtons.mo
 import { LayoutGrid, LayoutList } from "lucide-react"
 import cls from "@fvilers/cls"
 
-import { Button } from "@/shared/ui/Button.tsx"
+import { Button } from "@/shared/ui/Button/Button"
 
 export const LayoutToggleButtons = () => {
   const [layout, setLayout] = useState<string>("grid")
