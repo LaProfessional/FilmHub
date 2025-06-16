@@ -83,3 +83,16 @@
         border: 1px solid var(--border-danger);
     }
 }
+
+.inputAddMovie {
+    height: 40px;
+    width: 100%;
+
+    border: 1px solid var(--border);
+
+    color: var(--color-primary);
+    font-size: 1.6rem;
+    font-weight: 600;
+
+    padding: 1rem;
+}

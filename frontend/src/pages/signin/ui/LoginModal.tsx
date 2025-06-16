@@ -9,7 +9,7 @@ import { SignInForm } from "@/features/login/api/SignInForm.tsx";
 import { SignUpForm } from "@/features/registration/ui/SignUpForm.tsx";
 
 export const LoginModal = () => {
-    const [ isActive, setIsActive ] = useState<Boolean>(true);
+    const [ isActive, setIsActive ] = useState<boolean>(true);
     const navigate = useNavigate();
     const toggleModal = () => setIsActive(!isActive);
 

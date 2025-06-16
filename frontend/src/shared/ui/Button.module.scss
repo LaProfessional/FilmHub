@@ -205,3 +205,17 @@
         background-color: var(--bg-hover-primary);
     }
 }
+
+.btnDropdownToggle {
+    height: 40px;
+    width: 100%;
+
+    border: 1px solid var(--border);
+
+    text-align: start;
+    color: var(--color-primary);
+    font-size: 1.4rem;
+    font-weight: 600;
+
+    padding: 1rem;
+}
