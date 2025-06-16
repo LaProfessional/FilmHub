@@ -1,10 +1,10 @@
-import styles from "./Separator.module.scss";
-import clsx from "clsx";
+import styles from "./Separator.module.scss"
+import clsx from "clsx"
 
 interface Props {
-  className?: string;
+  className?: string
 }
 
 export const Separator = ({ className }: Props) => {
-  return <div className={clsx(styles.separator, className)} />;
-};
+  return <div className={clsx(styles.separator, className)} />
+}

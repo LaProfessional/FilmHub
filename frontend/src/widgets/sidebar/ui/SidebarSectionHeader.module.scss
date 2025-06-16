@@ -1,39 +1,39 @@
-@use  "../../../../src/shared/styles/abstracts/text-styles" as text-styles;
+@use "../../../../src/shared/styles/abstracts/text-styles" as text-styles;
 
 .wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    margin-bottom: .8rem;
+  margin-bottom: 0.8rem;
 
-    .title {
-        @include text-styles.text-small-category;
-    }
+  .title {
+    @include text-styles.text-small-category;
+  }
 }
 
 .arrowSvg {
-    stroke: var(--arrow);
+  stroke: var(--arrow);
 
-    transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 
-    &:hover {
-        stroke: var(--arrow-hover);
-    }
+  &:hover {
+    stroke: var(--arrow-hover);
+  }
 
-    &.close {
-        transform: rotate(-90deg);
-    }
+  &.close {
+    transform: rotate(-90deg);
+  }
 }
 
 .categoryGroup {
-    display: flex;
-    align-items: center;
-    gap: .8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 
-    padding: 1rem 1.2rem;
+  padding: 1rem 1.2rem;
 
-    .categoryGroupTitle {
-        @include text-styles.text-small-primary;
-    }
+  .categoryGroupTitle {
+    @include text-styles.text-small-primary;
+  }
 }

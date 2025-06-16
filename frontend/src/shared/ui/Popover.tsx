@@ -1,40 +1,40 @@
-import * as RadixPopover from "@radix-ui/react-popover";
-import { useState, useRef, type ReactNode } from "react";
-import { clsx } from "clsx";
-import styles from "./Popover.module.scss";
-import { useHandleClickOutside } from "@/shared/lib/useHandleClickOutside";
+import * as RadixPopover from "@radix-ui/react-popover"
+import { useState, useRef, type ReactNode } from "react"
+import { clsx } from "clsx"
+import styles from "./Popover.module.scss"
+import { useHandleClickOutside } from "@/shared/lib/useHandleClickOutside"
 
 interface PopoverProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export const Popover = ({ children }: PopoverProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const contentRef = useRef<HTMLDivElement | null>(null);
+  const [isOpen, setIsOpen] = useState(false)
+  const contentRef = useRef<HTMLDivElement | null>(null)
 
-  useHandleClickOutside(contentRef, isOpen, setIsOpen);
+  useHandleClickOutside(contentRef, isOpen, setIsOpen)
 
   return (
     <RadixPopover.Root open={isOpen} onOpenChange={setIsOpen}>
       {children}
     </RadixPopover.Root>
-  );
-};
+  )
+}
 
-Popover.Trigger = RadixPopover.Trigger;
-Popover.Portal = RadixPopover.Portal;
+Popover.Trigger = RadixPopover.Trigger
+Popover.Portal = RadixPopover.Portal
 
 interface PopoverContentProps {
-  children: ReactNode;
-  className?: string;
-  variant?: "userMenu";
-  align?: "start" | "center" | "end";
-  side?: "top" | "right" | "bottom" | "left";
+  children: ReactNode
+  className?: string
+  variant?: "userMenu"
+  align?: "start" | "center" | "end"
+  side?: "top" | "right" | "bottom" | "left"
 }
 
 const variantClassMap: Record<string, string> = {
-  userMenu: styles.popoverUserMenu
-};
+  userMenu: styles.popoverUserMenu,
+}
 
 Popover.Content = ({
   children,
@@ -43,23 +43,19 @@ Popover.Content = ({
   align = "end",
   side = "bottom",
 }: PopoverContentProps) => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null)
 
   return (
     <RadixPopover.Portal>
       <RadixPopover.Content
         ref={ref}
-        className={clsx(
-          styles.popoverContent,
-          variant && variantClassMap[variant],
-          className
-        )}
+        className={clsx(styles.popoverContent, variant && variantClassMap[variant], className)}
         align={align}
         side={side}
-        onOpenAutoFocus={(e) => e.preventDefault()}
+        onOpenAutoFocus={e => e.preventDefault()}
       >
         {children}
       </RadixPopover.Content>
     </RadixPopover.Portal>
-  );
-};
+  )
+}

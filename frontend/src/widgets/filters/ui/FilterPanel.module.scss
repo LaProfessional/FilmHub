@@ -2,21 +2,21 @@
 @use "../../../../src/shared/styles/components/filters" as dropdown;
 
 .filterContainer {
-    position: relative;
-    width: clamp(150px, 100%, 300px);
+  position: relative;
+  width: clamp(150px, 100%, 300px);
 
-    .filterWrapper {
-        @include dropdown.filter;
-    }
+  .filterWrapper {
+    @include dropdown.filter;
+  }
 }
 
 .filtersList {
-    z-index: 100;
+  z-index: 100;
 
-    @include dropdown.filterMenu;
-    display: flex;
-    flex-direction: column;
-    gap: 1.6rem;
+  @include dropdown.filterMenu;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
 
-    padding: 1.6rem;
+  padding: 1.6rem;
 }

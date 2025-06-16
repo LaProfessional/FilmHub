@@ -1,146 +1,145 @@
-@use  "../../../../src/shared/styles/abstracts/text-styles" as text-styles;
+@use "../../../../src/shared/styles/abstracts/text-styles" as text-styles;
 
 .sidebar {
-    height: calc(100vh - 63px);
+  height: calc(100vh - 63px);
 
-    .nav {
-        display: flex;
-        flex-direction: column;
-        gap: 2.4rem;
+  .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
 
-        height: 100%;
-        min-height: 100vh;
-        min-width: 288px;
-        max-width: 288px;
+    height: 100%;
+    min-height: 100vh;
+    min-width: 288px;
+    max-width: 288px;
 
-        overflow-y: auto;
-        scrollbar-gutter: stable;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
 
-        border-right: 1px solid var(--border);
+    border-right: 1px solid var(--border);
 
-        padding: 2.4rem 1.6rem 8rem 1.6rem;
+    padding: 2.4rem 1.6rem 8rem 1.6rem;
 
-        .plusIcon {
-            stroke-width: 3px;
-            color: #f2f2f2;
-        }
+    .plusIcon {
+      stroke-width: 3px;
+      color: #f2f2f2;
     }
+  }
 }
 
-
-
 .wrapperInput {
-    display: flex;
-    border-radius: .8rem;
+  display: flex;
+  border-radius: 0.8rem;
 
-    transition: outline-color .2s ease-in-out;
-    outline: 1px solid transparent;
+  transition: outline-color 0.2s ease-in-out;
+  outline: 1px solid transparent;
 
-    &:has(input:focus) {
-        outline: 1px solid var(--input-focus);
-    }
+  &:has(input:focus) {
+    outline: 1px solid var(--input-focus);
+  }
 }
 
 .item {
-    border-radius: .8rem;
+  border-radius: 0.8rem;
 
-    @include text-styles.text-small-semibold;
+  @include text-styles.text-small-semibold;
 
-    padding: 1rem 1.2rem;
-    margin-bottom: .4rem;
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.4rem;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition: background-color .1s linear;
+  transition: background-color 0.1s linear;
 
-    &.select {
-        background-color: var(--bg-accent-focus);
-        border-radius: .8rem;
-        border-left: .4rem solid;
+  &.select {
+    background-color: var(--bg-accent-focus);
+    border-radius: 0.8rem;
+    border-left: 0.4rem solid;
 
-        color: var(--color-accent);
-    }
+    color: var(--color-accent);
+  }
 
-    &:not(.select):hover {
-        background-color: var(--bg-hover-primary);
-    }
+  &:not(.select):hover {
+    background-color: var(--bg-hover-primary);
+  }
 }
 
 .wrapper {
-    display: flex;
-    align-items: center;
-    gap: .8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 
-    border-radius: .8rem;
+  border-radius: 0.8rem;
 
-    padding: 1rem 1.2rem;
+  padding: 1rem 1.2rem;
 
-    transition: background-color .1s linear;
+  transition: background-color 0.1s linear;
 
-    &, .addSvg {
-        cursor: pointer;
-    }
+  &,
+  .addSvg {
+    cursor: pointer;
+  }
 
-    &:hover {
-        background-color: var(--bg-hover-primary);
-    }
+  &:hover {
+    background-color: var(--bg-hover-primary);
+  }
 
-    .addSvg {
-        stroke: var(--color-accent);
-    }
+  .addSvg {
+    stroke: var(--color-accent);
+  }
 }
 
 .flagContainer {
-    max-width: 100%;
-    margin-left: 1.2rem;
+  max-width: 100%;
+  margin-left: 1.2rem;
 
-    .flagData {
-        margin-bottom: 1.2rem;
+  .flagData {
+    margin-bottom: 1.2rem;
 
-        .wrapperFlagStat {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1.6rem;
+    .wrapperFlagStat {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.6rem;
 
-            margin-bottom: 1.2rem;
+      margin-bottom: 1.2rem;
 
-            .flag {
-                max-width: fit-content;
-                border: 1px solid var(--border-flag);
-                border-radius: .6rem;
+      .flag {
+        max-width: fit-content;
+        border: 1px solid var(--border-flag);
+        border-radius: 0.6rem;
 
-                overflow: hidden;
+        overflow: hidden;
 
-                @include text-styles.text-small-semibold;
-                white-space: nowrap;
-                text-overflow: ellipsis;
+        @include text-styles.text-small-semibold;
+        white-space: nowrap;
+        text-overflow: ellipsis;
 
-                padding: .4rem .8rem;
-            }
+        padding: 0.4rem 0.8rem;
+      }
 
-            .amountFlag {
-                align-self: center;
-                background-color: var(--bg-neutral);
-                border-radius: .8rem;
+      .amountFlag {
+        align-self: center;
+        background-color: var(--bg-neutral);
+        border-radius: 0.8rem;
 
-                @include text-styles.text-muted-semibold;
+        @include text-styles.text-muted-semibold;
 
-                padding: .4rem .6rem;
-            }
-        }
-
-        .progressBar {
-            width: 100%;
-            height: 6px;
-            background-color: var(--bg-progress-bar);
-            border-radius: 1.6rem;
-
-            .progress {
-                height: 100%;
-                width: 30%;
-                border-radius: 1.6rem;
-            }
-        }
+        padding: 0.4rem 0.6rem;
+      }
     }
+
+    .progressBar {
+      width: 100%;
+      height: 6px;
+      background-color: var(--bg-progress-bar);
+      border-radius: 1.6rem;
+
+      .progress {
+        height: 100%;
+        width: 30%;
+        border-radius: 1.6rem;
+      }
+    }
+  }
 }

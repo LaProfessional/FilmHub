@@ -1,27 +1,29 @@
 @use "../../../../shared/styles/abstracts/text-styles" as text-styles;
 
 .emptyMovieCard {
-    height: 440px;
-    max-height: 440px;
+  height: 440px;
+  max-height: 440px;
 
-    border: 1px dashed var(--border);
-    border-radius: 1.2rem;
+  border: 1px dashed var(--border);
+  border-radius: 1.2rem;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition: border .2s ease, transform .3s ease;
+  transition:
+    border 0.2s ease,
+    transform 0.3s ease;
 
-    &:hover {
-        border: 1px dashed var(--border-accent);
-        transform: translateY(-2%);
-    }
+  &:hover {
+    border: 1px dashed var(--border-accent);
+    transform: translateY(-2%);
+  }
 
-    .titleMovieCard {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
+  .titleMovieCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 
-        @include text-styles.text-small-semibold;
-    }
+    @include text-styles.text-small-semibold;
+  }
 }

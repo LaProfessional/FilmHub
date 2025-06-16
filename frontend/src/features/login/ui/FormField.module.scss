@@ -1,21 +1,21 @@
 .wrapper {
-    text-align: start;
-    margin-bottom: 1.6rem;
+  text-align: start;
+  margin-bottom: 1.6rem;
 
-    .label {
-        display: block;
-        color: var(--color-primary);
-        font-size: 1.4rem;
-        font-weight: 600;
+  .label {
+    display: block;
+    color: var(--color-primary);
+    font-size: 1.4rem;
+    font-weight: 600;
 
-        margin-bottom: .8rem;
-    }
+    margin-bottom: 0.8rem;
+  }
 
-    .error {
-        color: var(--color-danger);
-        font-size: 1.4rem;
-        letter-spacing: .1rem;
+  .error {
+    color: var(--color-danger);
+    font-size: 1.4rem;
+    letter-spacing: 0.1rem;
 
-        padding-top: .8rem;
-    }
+    padding-top: 0.8rem;
+  }
 }
