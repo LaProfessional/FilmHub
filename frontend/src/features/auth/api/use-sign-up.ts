@@ -1,13 +1,12 @@
-import axios from "axios"
-
 import { useSignIn } from "./use-sign-in"
+import api from "@/shared/api"
 
 export const useSignUp = () => {
   const { signIn } = useSignIn()
 
   const signUp = (data: any, setError: any) => {
-    axios
-      .post(`${import.meta.env.VITE_API_URL}/auth/registration`, data)
+    api
+      .post(`/auth/registration`, data)
       .then(() => {
         signIn(data, setError)
       })

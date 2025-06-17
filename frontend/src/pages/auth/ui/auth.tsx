@@ -6,8 +6,7 @@ import titleStyles from "@/shared/styles/components/TitleStyles.module.scss"
 
 import { SignIn, SignUp } from "@/features/auth"
 import { Button } from "@/shared/ui"
-
-import { LOCAL_STORAGE_USER_TOKEN_KEY } from "@/shared/const/localStorage"
+import { getAccessToken } from "@/shared/lib/token-storage"
 
 export const Auth = () => {
   const [isActive, setIsActive] = useState<boolean>(true)
@@ -15,7 +14,7 @@ export const Auth = () => {
   const toggleModal = () => setIsActive(!isActive)
 
   useEffect(() => {
-    const token = localStorage.getItem(LOCAL_STORAGE_USER_TOKEN_KEY)
+    const token = getAccessToken()
     if (token) navigate("/home")
   }, [])
 

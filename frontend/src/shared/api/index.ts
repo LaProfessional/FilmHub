@@ -1,1 +1,3 @@
-export { $api } from "./instance"
+import api from "./instance"
+
+export default api
