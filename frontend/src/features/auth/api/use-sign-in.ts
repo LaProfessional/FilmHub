@@ -1,7 +1,7 @@
 import axios from "axios"
 
 import { useNavigate } from "react-router-dom"
-import { LOCAL_STORAGE_USER_TOKEN_KEY } from "@/shared/const/localStorage.ts"
+import { LOCAL_STORAGE_USER_TOKEN_KEY } from "@/shared/const/vars"
 
 export const useSignIn = () => {
   const navigate = useNavigate()
