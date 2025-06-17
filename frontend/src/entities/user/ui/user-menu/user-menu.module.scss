@@ -1,0 +1,41 @@
+@use "../../../../../src/shared/styles/abstracts/text-styles" as text-styles;
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.userInfo {
+  @include text-styles.text-small-primary;
+  padding: 1.4rem;
+
+  .username {
+    @include text-styles.text-small-primary;
+  }
+
+  .email {
+    color: var(--color-muted);
+  }
+}
+
+.menuList {
+  display: flex;
+  flex-direction: column;
+  @include text-styles.text-small-primary;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1.2rem 1.4rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 1.4rem;
+
+    &:hover {
+      background-color: var(--bg-hover-primary);
+    }
+  }
+}

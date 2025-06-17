@@ -1,24 +1,28 @@
-import { HomePage } from "@/pages/home";
-import { RootLayout } from "@/shared/layout/ui/RootLayout";
-import { Navigate, type RouteObject } from "react-router-dom";
+import { type RouteObject } from "react-router-dom"
+import { RoutePath } from "./routePaths"
+
+import { RootLayout } from "@/shared/layout"
+
+import { HomePage } from "@/pages/home"
+import { Auth } from "@/pages/auth"
 
 export const routeConfig: RouteObject[] = [
-    {
-        path: "/",
-        element: <Navigate to="/home" replace />,
-    },
-    // {
-    //     path: "/auth",
-    //     element: <LoginModal />,
-    // },
-    {
-        path: "/home",
-        element: <RootLayout />,
-        children: [
-            {
-                index: true,
-                element: <HomePage />,
-            },
-        ],
-    },
-];
+  {
+    path: RoutePath.AUTH,
+    element: <Auth />,
+  },
+  {
+    path: RoutePath.HOME,
+    element: <RootLayout />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+    ],
+  },
+  {
+    path: RoutePath.NOT_FOUND,
+    element: <div>404</div>,
+  },
+]

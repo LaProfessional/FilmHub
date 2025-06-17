@@ -1,1 +1,1 @@
-export { routeConfig } from "./routerConfig.tsx";
+export { routeConfig } from "./routerConfig.tsx"

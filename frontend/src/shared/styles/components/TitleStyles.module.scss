@@ -1,11 +1,6 @@
 .titleGradient {
-    background: linear-gradient(
-            to right,
-            hsl(267 84% 64%),
-            hsl(290 82% 62%),
-            hsl(330 81% 60%)
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  background: linear-gradient(to right, hsl(267 84% 64%), hsl(290 82% 62%), hsl(330 81% 60%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

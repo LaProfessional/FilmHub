@@ -1,40 +1,40 @@
-import { useRef, useState } from "react";
+import { useRef, useState } from "react"
 
 export const useCollapsible = () => {
-    const [ isClose, setIsClose ] = useState<boolean>(false);
-    const contentRef = useRef<HTMLDivElement>(null);
+  const [isClose, setIsClose] = useState<boolean>(false)
+  const contentRef = useRef<HTMLDivElement>(null)
 
-    const toggleMenu = () => {
-        const el = contentRef.current;
-        if (!el) return;
+  const toggleMenu = () => {
+    const el = contentRef.current
+    if (!el) return
 
-        const scrollHeight = el.scrollHeight;
+    const scrollHeight = el.scrollHeight
 
-        el.style.transition = "height 0.3s ease";
-        el.style.overflow = "hidden";
+    el.style.transition = "height 0.3s ease"
+    el.style.overflow = "hidden"
 
-        if (isClose) {
-            el.style.height = "0px";
+    if (isClose) {
+      el.style.height = "0px"
 
-            requestAnimationFrame(() => {
-                el.style.height = `${ scrollHeight }px`;
-            });
+      requestAnimationFrame(() => {
+        el.style.height = `${scrollHeight}px`
+      })
 
-            const handleTransitionEnd = () => {
-                el.style.height = "auto";
-                el.removeEventListener("transitionend", handleTransitionEnd);
-            };
+      const handleTransitionEnd = () => {
+        el.style.height = "auto"
+        el.removeEventListener("transitionend", handleTransitionEnd)
+      }
 
-            el.addEventListener("transitionend", handleTransitionEnd);
-        } else {
-            el.style.height = `${ el.scrollHeight }px`;
+      el.addEventListener("transitionend", handleTransitionEnd)
+    } else {
+      el.style.height = `${el.scrollHeight}px`
 
-            requestAnimationFrame(() => {
-                el.style.height = "0px";
-            });
-        }
-        setIsClose(!isClose);
-    };
+      requestAnimationFrame(() => {
+        el.style.height = "0px"
+      })
+    }
+    setIsClose(!isClose)
+  }
 
-    return { toggleMenu, isClose, contentRef };
-};
+  return { toggleMenu, isClose, contentRef }
+}
