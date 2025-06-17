@@ -9,10 +9,11 @@ import { ReactComponent as MoonSvg } from "@/shared/assets/header/Moon.svg";
 import { ReactComponent as SearchSvg } from "@/shared/assets/header/Search.svg";
 
 import { Input } from "@/shared/ui/Input.tsx";
-
 import { useTheme } from "@/app/providers/theme";
 import { useLanguage } from "@/app/providers/i18n/ui/LanguageProvider";
 import { useTranslation } from "react-i18next";
+
+import { Form } from "react-router-dom";
 
 export const Header = () => {
   const { theme, toggleTheme } = useTheme();
@@ -29,11 +30,13 @@ export const Header = () => {
 
       <nav className={styles.nav}>
         <div className={styles.wrapper}>
-          <Input
-            variant={"inputSearch"}
-            type="text"
-            placeholder={t("SearchMovies")}
-          />
+          <Form>
+            <Input
+              variant={"inputSearch"}
+              type="search"
+              placeholder={t("SearchMovies")}
+            />
+          </Form>
 
           <SearchSvg className={styles.searchSvg}></SearchSvg>
         </div>
