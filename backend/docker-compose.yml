@@ -20,11 +20,9 @@ services:
       - ${ADMINER_PORT}:8080
 
   web:
-    image: node:20.17.0
-    volumes:
-      - ./src:/home/node/app
-    working_dir: /home/node/app
-    command: "npm run dev"
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - ${SERVER_PORT}:3000
     depends_on:
