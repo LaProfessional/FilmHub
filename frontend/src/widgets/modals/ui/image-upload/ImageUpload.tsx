@@ -1,7 +1,7 @@
 import styles from './ImageUpload.module.scss'
 
 import { Input } from '@/shared/ui/Input.tsx'
-import { FormGroup } from '@/widgets/ui/form-group/FormGroup.tsx'
+import { FormGroup } from '@/widgets/modals/ui/form-group/FormGroup.tsx'
 
 export const ImageUpload = () => {
   return (
