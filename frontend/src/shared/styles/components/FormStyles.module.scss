@@ -1,7 +1,7 @@
-@use "@/shared/styles/abstracts/variables" as var;
+@use "../../../shared/styles/abstracts/variables" as var;
 
 .form {
-    border: 1px solid var(--border-reg-form);
+    border: 1px solid var(--border);
     border-radius: .8rem;
 
     padding: 2.4rem;
@@ -19,7 +19,7 @@
         }
 
         .subtitle {
-            color: var(--color-category);
+            color: var(--color-muted);
             font-size: 1.4rem;
         }
     }

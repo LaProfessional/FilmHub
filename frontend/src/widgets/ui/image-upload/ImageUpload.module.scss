@@ -1,0 +1,37 @@
+@use "../../../shared/styles/abstracts/text-styles" as text-styles;
+
+.imageUpload {
+    min-width: 100px;
+    width: 240px;
+
+    padding-right: 1rem;
+
+    .uploadPreview {
+        height: 100%;
+        width: 100%;
+        max-height: 300px;
+        border: 1px dashed var(--border);
+
+        border-radius: 1.2rem;
+
+        margin-bottom: 2rem;
+
+        cursor: pointer;
+
+        transition: border .2s ease, transform .3s ease;
+
+        &:hover {
+            border: 1px dashed var(--border-accent);
+            transform: translateY(-2%);
+        }
+    }
+
+    span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+        @include text-styles.text-small-semibold;
+    }
+}

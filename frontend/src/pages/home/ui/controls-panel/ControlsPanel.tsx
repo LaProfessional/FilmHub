@@ -15,6 +15,7 @@ import { useHandleClickOutside } from "@/shared/lib/useHandleClickOutside.ts";
 
 export const ControlsPanel = () => {
     const { t } = useTranslation();
+
     const [ isOpen, setIsOpen ] = useState<boolean>(false);
     const modalRef = useRef<HTMLDivElement | null>(null);
 
@@ -41,7 +42,7 @@ export const ControlsPanel = () => {
             </section>
 
             <Modal isOpen={ isOpen }>
-                <AddMovieModal modalRef={ modalRef }/>
+                <AddMovieModal modalRef={ modalRef } isOpen={isOpen} setIsOpen={setIsOpen}/>
             </Modal>
         </>
     );

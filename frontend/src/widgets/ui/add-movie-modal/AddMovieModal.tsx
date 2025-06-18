@@ -1,5 +1,5 @@
 import styles from './AddMovieModal.module.scss'
-import { useState } from 'react'
+import { type Dispatch, type SetStateAction, useEffect, useState } from 'react'
 
 import { X } from 'lucide-react'
 
@@ -7,12 +7,15 @@ import { Input } from '@/shared/ui/Input.tsx'
 import { Button } from '@/shared/ui/Button.tsx'
 import { DropdownSelector } from '@/widgets/ui/dropdown-selector/DropdownSelector.tsx'
 import { FormGroup } from '@/widgets/ui/form-group/FormGroup.tsx'
+import { ImageUpload } from '@/widgets/ui/image-upload/ImageUpload.tsx'
 
 interface AddMovieModalProps {
   modalRef: React.RefObject<HTMLDivElement | null>
+  isOpen: boolean
+  setIsOpen: Dispatch<SetStateAction<boolean>>
 }
 
-export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef }) => {
+export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, setIsOpen }) => {
   const [isMenuOpen, setIsMenuOpen] = useState<string>('')
 
   const genreOptions = [
@@ -48,62 +51,81 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef }) => {
     { value: 'other', label: 'Другая' },
   ]
 
+  useEffect(() => {
+    if (!isOpen) setIsMenuOpen('')
+  }, [isOpen])
+
   return (
     <div className={styles.modal} ref={modalRef}>
       <header className={styles.modalHeader}>
         <h2 className={styles.modalTitle}>Add new movie</h2>
-        <X className={styles.iconX} />
+        <Button onClick={() => setIsOpen(!isOpen)}>
+          <X className={styles.iconX} />
+        </Button>
       </header>
 
       <section className={styles.modalBody}>
-        <FormGroup label="Movie title">
-          <Input variant="inputAddMovie" placeholder="Enter movie title" />
-        </FormGroup>
+        <div className={styles.test1}>
+          <ImageUpload />
 
-        <FormGroup label="Release Year">
-          <Input variant="inputAddMovie" placeholder="2025" type="number" min={1895} max={2030} />
-        </FormGroup>
+          <div>
+            <FormGroup label="Movie title">
+              <Input variant="inputAddMovie" placeholder="Enter movie title" />
+            </FormGroup>
 
-        <FormGroup label="Runtime (minutes)">
-          <Input variant="inputAddMovie" placeholder="e.g. 120" type="number" min={0} />
-        </FormGroup>
+            <DropdownSelector
+              label="Genres"
+              options={genreOptions}
+              isOpen={isMenuOpen === 'modalGenres'}
+              onToggle={() => setIsMenuOpen(isMenuOpen === 'modalGenres' ? '' : 'modalGenres')}
+            />
 
-        <DropdownSelector
-          label="Genres"
-          options={genreOptions}
-          isOpen={isMenuOpen === 'modalGenres'}
-          onToggle={() => setIsMenuOpen(isMenuOpen === 'modalGenres' ? '' : 'modalGenres')}
-        />
+            <DropdownSelector
+              label="Country"
+              options={countryOptions}
+              isOpen={isMenuOpen === 'modalCountries'}
+              onToggle={() =>
+                setIsMenuOpen(isMenuOpen === 'modalCountries' ? '' : 'modalCountries')
+              }
+            />
 
-        <DropdownSelector
-          label="Country"
-          options={countryOptions}
-          isOpen={isMenuOpen === 'modalCountries'}
-          onToggle={() => setIsMenuOpen(isMenuOpen === 'modalCountries' ? '' : 'modalCountries')}
-        />
+            <FormGroup label="Release Year">
+              <Input
+                variant="inputAddMovie"
+                placeholder="2025"
+                type="number"
+                min={1895}
+                max={2030}
+              />
+            </FormGroup>
 
-        <FormGroup label="Description">
-          <textarea className={styles.textarea} placeholder="Enter movie description" />
-        </FormGroup>
+            <FormGroup label="Runtime (minutes)">
+              <Input variant="inputAddMovie" placeholder="e.g. 120" type="number" min={0} />
+            </FormGroup>
 
-        <FormGroup label="Rating (0–10)">
-          <Input
-            variant="inputAddMovie"
-            placeholder="e.g. 8.5"
-            type="number"
-            min={0}
-            max={10}
-            step={0.1}
-          />
-        </FormGroup>
+            <FormGroup label="Rating (0–10)">
+              <Input
+                variant="inputAddMovie"
+                placeholder="e.g. 8.5"
+                type="number"
+                min={0}
+                max={10}
+                step={0.1}
+              />
+            </FormGroup>
+          </div>
+        </div>
 
-        <FormGroup label="Director">
-          <Input variant="inputAddMovie" placeholder="Enter director's name" />
-        </FormGroup>
+        <div className={styles.descriptionContainer}>
+          <FormGroup label="Description movie">
+            <textarea className={styles.descriptionMovie} placeholder="Enter movie description" />
+          </FormGroup>
+        </div>
       </section>
 
       <footer className={styles.modalFooter}>
-        <Button variant={'btnAddMovie'}>Добавить фильм</Button>
+        <Button variant="btnCancel" onClick={() => setIsOpen(!isOpen)}>Отмена</Button>
+        <Button variant="btnAddMovie">Добавить фильм</Button>
       </footer>
     </div>
   )
