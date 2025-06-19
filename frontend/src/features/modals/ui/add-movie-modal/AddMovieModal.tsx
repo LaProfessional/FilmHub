@@ -1,5 +1,6 @@
 import styles from './AddMovieModal.module.scss'
 import { type Dispatch, type SetStateAction, useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { X } from 'lucide-react'
 
@@ -9,6 +10,8 @@ import { DropdownSelector } from '@/features/modals/ui/dropdown-selector/Dropdow
 import { FormGroup } from '@/features/modals/ui/form-group/FormGroup.tsx'
 import { ImageUpload } from '@/features/modals/ui/image-upload/ImageUpload.tsx'
 
+import { movieSelectOptions } from '@/features/modals/ui/model/movieSelectOptions.ts'
+
 interface AddMovieModalProps {
   modalRef: React.RefObject<HTMLDivElement | null>
   isOpen: boolean
@@ -16,40 +19,10 @@ interface AddMovieModalProps {
 }
 
 export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, setIsOpen }) => {
+  const { t } = useTranslation()
   const [isMenuOpen, setIsMenuOpen] = useState<string>('')
 
-  const genreOptions = [
-    { value: 'horror', label: 'Ужасы' },
-    { value: 'action', label: 'Боевик' },
-    { value: 'comedy', label: 'Комедия' },
-    { value: 'drama', label: 'Драма' },
-    { value: 'thriller', label: 'Триллер' },
-    { value: 'melodrama', label: 'Мелодрама' },
-    { value: 'sci-fi', label: 'Фантастика' },
-    { value: 'fantasy', label: 'Фэнтези' },
-    { value: 'animation', label: 'Анимация' },
-    { value: 'family', label: 'Семейный' },
-    { value: 'war', label: 'Военный' },
-    { value: 'biography', label: 'Биография' },
-    { value: 'detective', label: 'Детектив' },
-    { value: 'documentary', label: 'Документальный' },
-    { value: 'adventure', label: 'Приключения' },
-    { value: 'historical', label: 'Исторический' },
-  ]
-
-  const countryOptions = [
-    { value: 'usa', label: 'США' },
-    { value: 'russia', label: 'Россия' },
-    { value: 'uk', label: 'Великобритания' },
-    { value: 'france', label: 'Франция' },
-    { value: 'germany', label: 'Германия' },
-    { value: 'japan', label: 'Япония' },
-    { value: 'south-korea', label: 'Южная Корея' },
-    { value: 'china', label: 'Китай' },
-    { value: 'india', label: 'Индия' },
-    { value: 'canada', label: 'Канада' },
-    { value: 'other', label: 'Другая' },
-  ]
+  const { genreOptions, countryOptions } = movieSelectOptions()
 
   useEffect(() => {
     if (!isOpen) setIsMenuOpen('')
@@ -58,7 +31,7 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
   return (
     <div className={styles.modal} ref={modalRef}>
       <header className={styles.modalHeader}>
-        <h2 className={styles.modalTitle}>Add new movie</h2>
+        <h2 className={styles.modalTitle}>{t('Add new movie')}</h2>
         <Button onClick={() => setIsOpen(!isOpen)}>
           <X className={styles.iconX} />
         </Button>
@@ -69,19 +42,19 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
           <ImageUpload />
 
           <div>
-            <FormGroup label="Movie title">
-              <Input variant="inputAddMovie" placeholder="Enter movie title" />
+            <FormGroup label={t('Movie title')}>
+              <Input variant="inputAddMovie" placeholder={t('Enter movie title')} />
             </FormGroup>
 
             <DropdownSelector
-              label="Genres"
+              label={t('Genres')}
               options={genreOptions}
               isOpen={isMenuOpen === 'modalGenres'}
               onToggle={() => setIsMenuOpen(isMenuOpen === 'modalGenres' ? '' : 'modalGenres')}
             />
 
             <DropdownSelector
-              label="Country"
+              label={t('Countries')}
               options={countryOptions}
               isOpen={isMenuOpen === 'modalCountries'}
               onToggle={() =>
@@ -89,7 +62,7 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
               }
             />
 
-            <FormGroup label="Release Year">
+            <FormGroup label={t('Release year')}>
               <Input
                 variant="inputAddMovie"
                 placeholder="2025"
@@ -99,11 +72,11 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
               />
             </FormGroup>
 
-            <FormGroup label="Runtime (minutes)">
+            <FormGroup label={t('Runtime (minutes)')}>
               <Input variant="inputAddMovie" placeholder="e.g. 120" type="number" min={0} />
             </FormGroup>
 
-            <FormGroup label="Rating (0–10)">
+            <FormGroup label={t('Rating (0–10)')}>
               <Input
                 variant="inputAddMovie"
                 placeholder="e.g. 8.5"
@@ -117,15 +90,20 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
         </div>
 
         <div className={styles.descriptionContainer}>
-          <FormGroup label="Description movie">
-            <textarea className={styles.descriptionMovie} placeholder="Enter movie description" />
+          <FormGroup label={t('Description movie')}>
+            <textarea
+              className={styles.descriptionMovie}
+              placeholder={t('Enter movie description')}
+            />
           </FormGroup>
         </div>
       </section>
 
       <footer className={styles.modalFooter}>
-        <Button variant="btnCancel" onClick={() => setIsOpen(!isOpen)}>Отмена</Button>
-        <Button variant="btnAddMovie">Добавить фильм</Button>
+        <Button variant="btnCancel" onClick={() => setIsOpen(!isOpen)}>
+          Отмена
+        </Button>
+        <Button variant="btnAddMovie">{t('Add new movie')}</Button>
       </footer>
     </div>
   )

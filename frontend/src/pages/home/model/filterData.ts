@@ -1,6 +1,6 @@
 import { type TFunction } from "i18next";
 
-export const dataFilter = (t: TFunction) => {
+export const filterData = (t: TFunction) => {
     const genreFilters = [
         { label: "Any genre", value: "any" },
         { label: "Action", value: "action" },

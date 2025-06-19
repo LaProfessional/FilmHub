@@ -15,7 +15,7 @@
   "Filters": "Filters",
 
   "Any genre": "Any genre",
-  "Genre": "Genre...",
+  "Genres": "Genres",
   "Horror": "Horror",
   "Action": "Action",
   "Comedy": "Comedy",
@@ -32,6 +32,18 @@
   "Family": "Family",
   "War": "War",
   "Biography": "Biography",
+
+  "USA": "USA",
+  "Russia": "Russia",
+  "UK": "UK",
+  "France": "France",
+  "Germany": "Germany",
+  "Japan": "Japan",
+  "South Korea": "South Korea",
+  "China": "China",
+  "India": "India",
+  "Canada": "Canada",
+  "Other": "Other",
 
   "Year of release": "Year of release...",
   "All years": "All years",
@@ -58,5 +70,18 @@
   "Settings": "Settings",
   "Logout": "Log Out",
   "Reset all": "Reset all",
-  "Add new movie": "Add new movie"
+
+  "Add new movie": "Add new movie",
+  "Upload image": "Upload image",
+  "Movie title": "Movie title",
+  "Enter movie title": "Enter movie title",
+  "Countries": "Countries",
+  "Release year": "Release Year",
+  "Runtime (minutes)": "Runtime (minutes)",
+  "Rating (0–10)": "Rating (0–10)",
+  "--Select--": "--Select--",
+  "Link to the image": "Link to the image",
+  "Description movie": "Description movie",
+  "Enter movie description": "Enter movie description",
+  "Cancel": "Cancel"
 }

@@ -1,15 +1,18 @@
-import styles from "./FormGroup.module.scss";
+import styles from './FormGroup.module.scss'
+import { useTranslation } from 'react-i18next'
 
 interface FormGroupProps {
-    label: string;
-    children: React.ReactNode;
+  label: string
+  children: React.ReactNode
 }
 
 export const FormGroup: React.FC<FormGroupProps> = ({ label, children }) => {
-    return (
-        <div className={ styles.formGroup }>
-            <label className={ styles.label }>{ label }</label>
-            { children }
-        </div>
-    );
-};
+  const { t } = useTranslation()
+
+  return (
+    <div className={styles.formGroup}>
+      <label className={styles.label}>{t(label)}</label>
+      {children}
+    </div>
+  )
+}

@@ -7,7 +7,7 @@ import { SlidersHorizontal } from "lucide-react";
 import { ChevronDown } from "lucide-react";
 import { Delete } from "lucide-react";
 
-import { dataFilter } from "@/pages/home/model/filterData.ts";
+import { filterData } from "@/pages/home/model/filterData.ts";
 import { useHandleClickOutside } from "@/shared/lib/useHandleClickOutside.ts";
 import type { FilterHandle } from "@/widgets/filters/ui/Filter.tsx";
 
@@ -19,7 +19,7 @@ export const FilterPanel = () => {
     const [ isOpen, setIsOpen ] = useState<boolean>(false);
     const fieldsRef = useRef<HTMLDivElement>(null);
 
-    const { genreFilters, yearFilters, sortOptions } = dataFilter(t);
+    const { genreFilters, yearFilters, sortOptions } = filterData(t);
 
     const genreRef = useRef<FilterHandle>(null);
     const yearRef = useRef<FilterHandle>(null);

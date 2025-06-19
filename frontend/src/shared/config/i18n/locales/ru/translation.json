@@ -15,7 +15,7 @@
   "Filters": "Фильтры",
 
   "Any genre": "Любой жанр",
-  "Genre": "Жанр...",
+  "Genres": "Жанры",
   "Horror": "Ужасы",
   "Action": "Боевик",
   "Comedy": "Комедия",
@@ -32,6 +32,18 @@
   "Family": "Семейный",
   "War": "Военный",
   "Biography": "Биография",
+
+  "USA": "США",
+  "Russia": "Россия",
+  "UK": "Великобритания",
+  "France": "Франция",
+  "Germany": "Германия",
+  "Japan": "Япония",
+  "South Korea": "Южная Корея",
+  "China": "Китай",
+  "India": "Индия",
+  "Canada": "Канада",
+  "Other": "Другая",
 
   "Year of release": "Год выпуска...",
   "All years": "Все года",
@@ -58,5 +70,18 @@
   "Settings": "Настройки",
   "Logout": "Выйти",
   "Reset all": "Сбросить всё",
-  "Add new movie": "Добавить фильм"
+
+  "Add new movie": "Добавить новый фильм",
+  "Upload image": "Загрузить изображение",
+  "Movie title": "Название фильма",
+  "Enter movie title": "Введите название фильма",
+  "Countries": "Страны",
+  "Release year": "Год выхода",
+  "Runtime (minutes)": "Продолжительность (в минутах)",
+  "Rating (0–10)": "Рейтинг (0–10)",
+  "--Select--": "--Выбрать--",
+  "Link to the image": "Ссылка на изображение",
+  "Description movie": "Описание фильма",
+  "Enter movie description": "Введите описание фильма",
+  "Cancel": "Отмена"
 }

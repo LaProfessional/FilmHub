@@ -5,9 +5,9 @@ import styles from './DropdownSelector.module.scss'
 import { Button } from '@/shared/ui/Button.tsx'
 
 import { useHandleClickOutside } from '@/shared/lib/useHandleClickOutside.ts'
+import { useTranslation } from 'react-i18next'
 
 interface Option {
-  value: string
   label: string
 }
 
@@ -24,20 +24,21 @@ export const DropdownSelector: React.FC<DropdownSelectorProps> = ({
   isOpen,
   onToggle,
 }) => {
+  const { t } = useTranslation()
   const dropdownRef = useRef<HTMLDivElement>(null)
   useHandleClickOutside(dropdownRef, isOpen, onToggle)
 
   return (
     <div className={styles.formGroup} ref={dropdownRef}>
-      <label className={styles.label}>{label}</label>
+      <label className={styles.label}>{t(label)}</label>
       <Button variant="btnDropdownToggle" onClick={onToggle}>
-        --Select--
+        {t('--Select--')}
       </Button>
 
       <div className={cls(styles.dropdownMenu, isOpen && styles.open)}>
         {options.map((item, index) => (
           <div className={styles.dropdownItem} key={index}>
-            {item.label}
+            {t(item.label)}
           </div>
         ))}
       </div>
