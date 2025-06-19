@@ -22,25 +22,25 @@ export const Sidebar = () => {
                     <Input
                         variant={ "inputCategory" }
                         type={ "text" }
-                        placeholder={ t("createCategory") }
+                        placeholder={ t("Create category") }
                     />
                     <Button variant={ "addCategoryBtn" }><Plus size={22} className={styles.plusIcon} /></Button>
                 </div>
 
                 <section>
                     <CollapsibleSidebarSection
-                        heading={ t("yourCollections") }
+                        heading={ t("Your collections") }
                         variant="wrapper"
                         headingStyle="title"
                     >
                         <ul>
-                            <li className={ `${ styles.item } ${ styles.select }` }>{ t("allMovies") }</li>
-                            <li className={ styles.item }>{ t("favourites") }</li>
+                            <li className={ `${ styles.item } ${ styles.select }` }>{ t("All movies") }</li>
+                            <li className={ styles.item }>{ t("Favourites") }</li>
                         </ul>
 
                         <div className={ styles.wrapper }>
                             <AddSvg className={ styles.addSvg }/>
-                            <Button variant={ "addBtn" }>{ t("newFolder") }</Button>
+                            <Button variant={ "addBtn" }>{ t("New folder") }</Button>
                         </div>
 
                     </CollapsibleSidebarSection>
@@ -48,12 +48,12 @@ export const Sidebar = () => {
 
                 <section>
                     <CollapsibleSidebarSection
-                        heading={ t("categories") }
+                        heading={ t("Categories") }
                         variant="wrapper"
                         headingStyle="title"
                     >
                         <CollapsibleSidebarSection
-                            heading={ t("storyLevel") }
+                            heading={ t("Story level") }
                             variant="categoryGroup"
                             headingStyle="categoryGroupTitle"
                         >
@@ -87,7 +87,7 @@ export const Sidebar = () => {
 
                             <div className={ styles.wrapper }>
                                 <AddSvg className={ styles.addSvg }/>
-                                <Button variant={ "addBtn" }>{ t("addFlag") }</Button>
+                                <Button variant={ "addBtn" }>{ t("Add flag") }</Button>
                             </div>
 
                         </CollapsibleSidebarSection>

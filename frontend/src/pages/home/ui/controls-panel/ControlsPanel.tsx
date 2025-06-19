@@ -9,7 +9,7 @@ import { LayoutToggleButtons } from "@/pages/home/ui/layout-toggle-buttons/Layou
 import { MovieCard } from "@/pages/home/ui/movie-card/MovieCard.tsx";
 // import { EmptyMovieCard } from "@/pages/home/ui/empty-movie-card/EmptyMovieCard.tsx";
 import { Modal } from "@/shared/ui/Modal/Modal.tsx";
-import { AddMovieModal } from "@/widgets/modals/ui/add-movie-modal/AddMovieModal.tsx";
+import { AddMovieModal } from "@/features/modals/ui/add-movie-modal/AddMovieModal.tsx";
 
 import { useHandleClickOutside } from "@/shared/lib/useHandleClickOutside.ts";
 
@@ -24,7 +24,7 @@ export const ControlsPanel = () => {
     return (
         <>
             <section className={ styles.controlsSection }>
-                <h2 className={ styles.title }>{ t("allMovies") } (N)</h2>
+                <h2 className={ styles.title }>{ t("All movies") } (N)</h2>
 
                 <div className={ styles.controlsGroup }>
                     <LayoutToggleButtons/>

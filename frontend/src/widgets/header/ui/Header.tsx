@@ -32,7 +32,7 @@ export const Header = () => {
                     <Input
                         variant={ "inputSearch" }
                         type="text"
-                        placeholder={ t("SearchMovies") }
+                        placeholder={ t("Search movies") }
                     />
 
                     <SearchSvg className={ styles.searchSvg }></SearchSvg>

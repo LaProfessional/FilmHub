@@ -19,7 +19,7 @@ export const FilterPanel = () => {
     const [ isOpen, setIsOpen ] = useState<boolean>(false);
     const fieldsRef = useRef<HTMLDivElement>(null);
 
-    const { dataYear, dataGenre, dataOptions } = dataFilter(t);
+    const { genreFilters, yearFilters, sortOptions } = dataFilter(t);
 
     const genreRef = useRef<FilterHandle>(null);
     const yearRef = useRef<FilterHandle>(null);
@@ -47,18 +47,18 @@ export const FilterPanel = () => {
                 <section className={ cls(styles.filtersList, isOpen && styles.open) }>
                     <Filter
                         ref={ genreRef }
-                        data={ dataGenre }
+                        data={ genreFilters }
                         dropdownTitle={ "Genre" }
                         isMulti={ true }
                     />
                     <Filter
                         ref={ yearRef }
-                        data={ dataYear }
+                        data={ yearFilters }
                         dropdownTitle={ "Year of release" }
                     />
                     <Filter
                         ref={ sortRef }
-                        data={ dataOptions }
+                        data={ sortOptions }
                         dropdownTitle={ "Sorting" }
                     />
                     <Button variant={ "btnResetAll" } onClick={ resetFilters }>

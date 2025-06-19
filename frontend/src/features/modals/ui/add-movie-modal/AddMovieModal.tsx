@@ -5,9 +5,9 @@ import { X } from 'lucide-react'
 
 import { Input } from '@/shared/ui/Input.tsx'
 import { Button } from '@/shared/ui/Button.tsx'
-import { DropdownSelector } from '@/widgets/modals/ui/dropdown-selector/DropdownSelector.tsx'
-import { FormGroup } from '@/widgets/modals/ui/form-group/FormGroup.tsx'
-import { ImageUpload } from '@/widgets/modals/ui/image-upload/ImageUpload.tsx'
+import { DropdownSelector } from '@/features/modals/ui/dropdown-selector/DropdownSelector.tsx'
+import { FormGroup } from '@/features/modals/ui/form-group/FormGroup.tsx'
+import { ImageUpload } from '@/features/modals/ui/image-upload/ImageUpload.tsx'
 
 interface AddMovieModalProps {
   modalRef: React.RefObject<HTMLDivElement | null>

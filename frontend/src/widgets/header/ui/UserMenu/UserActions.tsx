@@ -12,9 +12,9 @@ export const UserActions = ({ className }: Props) => {
 
   return (
     <ul className={clsx(styles.menuList, className)}>
-      <li><User size={18} />{t("YourProfile")}</li>
-      <li><Folder size={18} />{t("YourCollections")}</li>
-      <li><Flag size={18} />{t("YourFlags")}</li>
+      <li><User size={18} />{t("Your profile")}</li>
+      <li><Folder size={18} />{t("Your collections")}</li>
+      <li><Flag size={18} />{t("Your flags")}</li>
       <li><Settings size={18} />{t("Settings")}</li>
     </ul>
   );
