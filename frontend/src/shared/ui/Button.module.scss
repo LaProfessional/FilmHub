@@ -28,3 +28,29 @@
         background-color: var(--button-hover);
     }
 }
+
+
+.tabBtn {
+  background: none;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: var(--text-color);
+  position: relative;
+  transition: var(--transition);
+
+  &:active {
+    color: var(--color-accent);
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--color-accent);
+    }
+  }
+}

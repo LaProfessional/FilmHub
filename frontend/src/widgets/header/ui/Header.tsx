@@ -12,6 +12,8 @@ import { useTheme } from "@/app/providers/theme";
 import { useLanguage } from "@/app/providers/i18n/ui/LanguageProvider";
 import { useTranslation } from "react-i18next";
 
+import { Link } from "react-router-dom";
+
 export const Header = () => {
     const { theme, toggleTheme } = useTheme();
     const { language, changeLanguage } = useLanguage();
@@ -48,8 +50,9 @@ export const Header = () => {
                     >
                         <span className={ styles.language }>{ language === "en" ? "en" : "ru" }</span>
                     </button>
-
-                    <img className={ styles.avatar } src={ Avatar } alt="Avatar"/>
+                    <Link to="/profile">
+                        <img className={ styles.avatar } src={ Avatar } alt="Avatar"/>
+                    </Link>
                 </nav>
             </div>
         </header>
