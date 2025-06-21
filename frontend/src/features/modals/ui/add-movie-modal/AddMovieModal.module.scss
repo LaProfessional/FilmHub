@@ -1,12 +1,13 @@
 @use "../../../../shared/styles/abstracts/text-styles" as text-styles;
 
 .modal {
-    display: grid;
-    grid-template-rows: 50px 1fr 60px;
+    display: flex;
+    flex-direction: column;
     max-height: 90vh;
+
     overflow: hidden;
 
-    width: clamp(200px, 100%, 550px);
+    width: clamp(200px, 100%, 600px);
 
     background-color: var(--bg-primary);
     border: 1px solid var(--border);
@@ -35,32 +36,22 @@
 
     padding: 1rem 2rem;
 
-    .test1 {
+    .formMain {
         display: flex;
         justify-content: space-between;
+
+        .formGroupWrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+
+            width: clamp(100px, 100%, 300px);
+        }
     }
-}
 
-.descriptionContainer {
-    width: 100%;
-    min-width: 100px;
-
-    .descriptionMovie {
-        display: block;
+    .wrapperTextarea {
         width: 100%;
-        min-height: 60px;
-        max-height: 130px;
-
-        border: 1px solid var(--border);
-        border-radius: .5rem;
-
-        color: var(--color-primary);
-        font-size: 1.4rem;
-        font-weight: 600;
-
-        padding: 0.5rem;
-
-        resize: vertical;
+        min-width: 100px;
     }
 }
 
@@ -70,6 +61,5 @@
     align-items: center;
     gap: 1.5rem;
 
-    padding: 0 2rem 1rem 2rem;
+    padding: 1rem 2rem 1rem 2rem;
 }
-

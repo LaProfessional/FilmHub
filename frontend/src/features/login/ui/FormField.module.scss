@@ -1,3 +1,5 @@
+@use "../../../shared/styles/components/ErrorMessage.module" as errorMes;
+
 .wrapper {
     text-align: start;
     margin-bottom: 1.6rem;
@@ -9,13 +11,5 @@
         font-weight: 600;
 
         margin-bottom: .8rem;
-    }
-
-    .error {
-        color: var(--color-danger);
-        font-size: 1.4rem;
-        letter-spacing: .1rem;
-
-        padding-top: .8rem;
     }
 }

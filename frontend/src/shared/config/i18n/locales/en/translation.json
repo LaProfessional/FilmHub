@@ -83,5 +83,15 @@
   "Link to the image": "Link to the image",
   "Description movie": "Description movie",
   "Enter movie description": "Enter movie description",
-  "Cancel": "Cancel"
+  "Cancel": "Cancel",
+
+  "Movie title is required": "Movie title is required",
+  "At least one genre is required": "At least one genre is required",
+  "At least one country is required": "At least one country is required",
+  "Year of release must be an integer": "Year of release must be an integer",
+  "Year of release must be a 4-digit number": "Year of release must be a 4-digit number",
+  "Runtime must be at least 10 minutes": "Runtime must be at least 10 minutes",
+  "Rating must be at least 0": "Rating must be at least 0",
+  "Rating cannot be more than 10": "Rating cannot be more than 10",
+  "The movie description must be at least 10 characters": "The movie description must be at least 10 characters"
 }

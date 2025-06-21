@@ -1,3 +1,4 @@
+import React from 'react'
 import { useRef } from 'react'
 import cls from '@fvilers/cls'
 import styles from './DropdownSelector.module.scss'
@@ -12,26 +13,31 @@ interface Option {
 }
 
 interface DropdownSelectorProps {
-  label: string
   options: Option[]
   isOpen: boolean
   onToggle: () => void
 }
 
 export const DropdownSelector: React.FC<DropdownSelectorProps> = ({
-  label,
   options,
   isOpen,
   onToggle,
 }) => {
   const { t } = useTranslation()
+
   const dropdownRef = useRef<HTMLDivElement>(null)
+
   useHandleClickOutside(dropdownRef, isOpen, onToggle)
 
   return (
-    <div className={styles.formGroup} ref={dropdownRef}>
-      <label className={styles.label}>{t(label)}</label>
-      <Button variant="btnDropdownToggle" onClick={onToggle}>
+    <div ref={dropdownRef}>
+      <Button
+        variant="btnDropdownToggle"
+        onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+          e.preventDefault()
+          onToggle()
+        }}
+      >
         {t('--Select--')}
       </Button>
 

@@ -83,5 +83,15 @@
   "Link to the image": "Ссылка на изображение",
   "Description movie": "Описание фильма",
   "Enter movie description": "Введите описание фильма",
-  "Cancel": "Отмена"
+  "Cancel": "Отмена",
+
+  "Movie title is required": "Название фильма обязательно",
+  "At least one genre is required": "Необходимо выбрать хотя бы один жанр",
+  "At least one country is required": "Необходимо выбрать хотя бы одну страну",
+  "Year of release must be an integer": "Год выпуска должен быть целым числом",
+  "Year of release must be a 4-digit number": "Год выпуска должен быть 4-x значным числом",
+  "Runtime must be at least 10 minutes": "Продолжительность должна быть не менее 10 минут",
+  "Rating must be at least 0": "Рейтинг не может быть меньше 0",
+  "Rating cannot be more than 10": "Рейтинг не может быть больше 10",
+  "The movie description must be at least 10 characters": "Описание фильма должно содержать не менее 10 символов"
 }

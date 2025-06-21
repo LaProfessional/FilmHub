@@ -1,7 +1,7 @@
 import styles from './Button.module.scss'
 import cls from '@fvilers/cls'
 
-interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode
   variant?: string
   isActive?: boolean
