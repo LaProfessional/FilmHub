@@ -1,10 +1,8 @@
-import { useNavigate } from "react-router-dom"
-
 import api from "@/shared/api"
-import { setAccessToken } from "@/shared/lib/token-storage"
+import { useAuth } from "@/app/providers/auth"
 
 export const useSignIn = () => {
-  const navigate = useNavigate()
+  const { login } = useAuth()
 
   const signIn = (data: any, setError: any) => {
     const { email, password } = data
@@ -13,8 +11,7 @@ export const useSignIn = () => {
       .post(`/auth/login`, { email, password })
       .then(response => {
         const token = response.data.dataValues.token
-        setAccessToken(token)
-        navigate("/")
+        login(token)
       })
       .catch((error: any) => {
         const detailMsg = error.response?.data?.detail

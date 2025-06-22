@@ -1,7 +1,6 @@
 import type { AxiosError, AxiosInstance, InternalAxiosRequestConfig } from "axios"
 
-import { getAccessToken, setAccessToken } from "@/shared/lib/token-storage"
-import { useLogout } from "@/features/auth"
+import { getAccessToken, removeAccessToken, setAccessToken } from "@/shared/lib/token-storage"
 
 interface CustomAxiosRequestConfig extends InternalAxiosRequestConfig {
   _retry?: boolean
@@ -53,7 +52,7 @@ export const setupInterceptors = (api: AxiosInstance): void => {
           processQueue()
           return api(originalRequest)
         } catch (error) {
-          useLogout()
+          removeAccessToken()
           return Promise.reject(error)
         } finally {
           isRefreshing = false
