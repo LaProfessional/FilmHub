@@ -32,7 +32,13 @@ export const setupInterceptors = (api: AxiosInstance): void => {
     response => response,
     async (error: AxiosError) => {
       const originalRequest = error.config as CustomAxiosRequestConfig
-      if (!originalRequest) return Promise.reject(error)
+      if (
+        !originalRequest ||
+        originalRequest.url === "/auth/login" ||
+        originalRequest.url === "/auth/registration"
+      ) {
+        return Promise.reject(error)
+      }
 
       if (error.response?.status === 401 && !originalRequest?._retry && !isRefreshing) {
         isRefreshing = true

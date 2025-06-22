@@ -16,15 +16,25 @@ export const useSignIn = () => {
         setAccessToken(token)
         navigate("/")
       })
-      .catch(error => {
-        const detailMsg = error.response.data.detail
+      .catch((error: any) => {
+        const detailMsg = error.response?.data?.detail
+        const dataConfig = JSON.parse(error.config?.data)
 
-        if (detailMsg.includes("Не верный пароль!")) {
-          setError("password", {
+        if (detailMsg.includes(`Пользователь с email '${dataConfig.email}' не найден!`)) {
+          return setError("email", {
             type: "server",
-            message: "Invalid password",
+            message: `Пользователь с email '${dataConfig.email}' не найден!`,
           })
         }
+
+        if (detailMsg.includes(`Не верный пароль!`)) {
+          return setError("password", {
+            type: "server",
+            message: `Не верный пароль!`,
+          })
+        }
+
+        return console.error("Login failed", error)
       })
   }
   return { signIn }

@@ -10,17 +10,18 @@ export const useSignUp = () => {
       .then(() => {
         signIn(data, setError)
       })
-      .catch(error => {
-        const detailMsg = error.response.data.detail
+      .catch((error: any) => {
+        const detailMsg = error.response?.data?.detail
+        const dataConfig = JSON.parse(error.config?.data)
 
-        if (detailMsg?.includes("уже существует")) {
-          setError("email", {
+        if (detailMsg.includes(`Пользователь с email '${dataConfig.email}' уже существует!`)) {
+          return setError("email", {
             type: "server",
-            message: "This email already exists",
+            message: `Пользователь с email '${dataConfig.email}' уже существует!`,
           })
-        } else {
-          console.error("Registration failed", error)
         }
+
+        return console.error("Registration failed", error)
       })
   }
   return { signUp }
