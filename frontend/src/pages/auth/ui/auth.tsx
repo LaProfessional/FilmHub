@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react"
-import { Navigate, useNavigate } from "react-router-dom"
+import { useState } from "react"
+import { Navigate } from "react-router-dom"
 
 import styles from "./auth.module.scss"
 import titleStyles from "@/shared/styles/components/TitleStyles.module.scss"
 
 import { SignIn, SignUp } from "@/features/auth"
 import { Button } from "@/shared/ui"
-import { getAccessToken } from "@/shared/lib/token-storage"
 import { useAuth } from "@/app/providers/auth"
 import { RoutePath } from "@/app/providers/router"
 
