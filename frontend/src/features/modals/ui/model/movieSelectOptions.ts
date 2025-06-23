@@ -1,4 +1,11 @@
 export const movieSelectOptions = () => {
+  const typeOptions = [
+    { label: 'Movie' },
+    { label: 'Serial' },
+    { label: 'Cartoon' },
+    { label: 'Animated series' },
+  ]
+
   const genreOptions = [
     { label: 'Horror' },
     { label: 'Action' },
@@ -31,5 +38,14 @@ export const movieSelectOptions = () => {
     { label: 'Canada' },
     { label: 'Other' },
   ]
-  return { genreOptions, countryOptions }
+
+  const ageOptions = [
+    { label: '0+' },
+    { label: '6+' },
+    { label: '12+' },
+    { label: '16+' },
+    { label: '18+' },
+  ]
+
+  return { typeOptions, genreOptions, countryOptions, ageOptions }
 }

@@ -2,7 +2,8 @@
 
 .imageUpload {
     min-width: 100px;
-    width: 240px;
+    max-width: 230px;
+    width: 100%;
 
     padding-right: 1rem;
 
@@ -28,10 +29,13 @@
 
     span {
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
         height: 100%;
 
+        text-align: center;
         @include text-styles.text-small-semibold;
+
+        padding: 0 1rem;
     }
 }

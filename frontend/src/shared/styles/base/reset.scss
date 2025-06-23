@@ -19,7 +19,8 @@ button {
     cursor: pointer;
 }
 
-input:focus {
+input:focus,
+textarea:focus {
     outline: none;
 }
 

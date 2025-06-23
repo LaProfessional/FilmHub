@@ -38,14 +38,20 @@
 
     .formMain {
         display: flex;
-        justify-content: space-between;
+        gap: 1.5rem;
+
+        margin-bottom: 2rem;
 
         .formGroupWrapper {
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
+            width: 100%;
 
-            width: clamp(100px, 100%, 300px);
+            .formGroupRow {
+                display: flex;
+                gap: 1rem;
+            }
         }
     }
 

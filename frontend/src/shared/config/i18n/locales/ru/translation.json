@@ -59,8 +59,12 @@
 
   "All": "Всe",
   "Movies": "Фильмы",
+  "Movie": "Фильм",
   "Serials": "Сериалы",
+  "Serial": "Сериал",
   "Cartoons": "Мультфильмы",
+  "Cartoon": "Мультфильм",
+  "Animated series": "Мультсериал",
 
   "Add movie": "Добавить фильм",
   "Add flag": "Добавить флаг",
@@ -72,18 +76,27 @@
   "Reset all": "Сбросить всё",
 
   "Add new movie": "Добавить новый фильм",
+  "Cancel": "Отмена",
+
+  "Type": "Тип",
   "Upload image": "Загрузить изображение",
   "Movie title": "Название фильма",
   "Enter movie title": "Введите название фильма",
   "Countries": "Страны",
   "Release year": "Год выхода",
-  "Runtime (minutes)": "Продолжительность (в минутах)",
+  "Runtime (minutes)": "Продолжительность",
   "Rating (0–10)": "Рейтинг (0–10)",
+  "Age": "Возраст",
+  "0+": "0+",
+  "6+": "6+",
+  "12+": "12+",
+  "16+": "16+",
+  "18+": "18+",
   "--Select--": "--Выбрать--",
   "Link to the image": "Ссылка на изображение",
   "Description movie": "Описание фильма",
   "Enter movie description": "Введите описание фильма",
-  "Cancel": "Отмена",
+  "In minutes": "В минутах",
 
   "Movie title is required": "Название фильма обязательно",
   "At least one genre is required": "Необходимо выбрать хотя бы один жанр",
@@ -93,5 +106,6 @@
   "Runtime must be at least 10 minutes": "Продолжительность должна быть не менее 10 минут",
   "Rating must be at least 0": "Рейтинг не может быть меньше 0",
   "Rating cannot be more than 10": "Рейтинг не может быть больше 10",
-  "The movie description must be at least 10 characters": "Описание фильма должно содержать не менее 10 символов"
+  "The movie description must be at least 10 characters": "Описание фильма должно содержать не менее 10 символов",
+  "Rating must have at most 1 digit after the decimal point": "Число должно содержать не больше одного знака после запятой"
 }

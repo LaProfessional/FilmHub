@@ -17,7 +17,7 @@ export const ControlsPanel = () => {
     const { t } = useTranslation();
 
     const [ isOpen, setIsOpen ] = useState<boolean>(false);
-    const modalRef = useRef<HTMLDivElement | null>(null);
+    const modalRef = useRef<HTMLFormElement | null>(null);
 
     useHandleClickOutside(modalRef, isOpen, setIsOpen);
 

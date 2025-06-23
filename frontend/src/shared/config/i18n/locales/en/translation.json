@@ -59,8 +59,12 @@
 
   "All": "All",
   "Movies": "Movies",
+  "Movie": "Movie",
   "Serials": "Serials",
+  "Serial": "Serial",
   "Cartoons": "Cartoons",
+  "Cartoon": "Cartoon",
+  "Animated series": "Animated series",
 
   "Add movie": "Add movie",
   "Add flag": "Add flag",
@@ -72,6 +76,9 @@
   "Reset all": "Reset all",
 
   "Add new movie": "Add new movie",
+  "Cancel": "Cancel",
+
+  "Type": "Type",
   "Upload image": "Upload image",
   "Movie title": "Movie title",
   "Enter movie title": "Enter movie title",
@@ -79,11 +86,17 @@
   "Release year": "Release Year",
   "Runtime (minutes)": "Runtime (minutes)",
   "Rating (0–10)": "Rating (0–10)",
+  "Age": "Age",
+  "0+": "G",
+  "6+": "PG",
+  "12+": "PG-13",
+  "16+": "R",
+  "18+": "NC-17",
   "--Select--": "--Select--",
   "Link to the image": "Link to the image",
   "Description movie": "Description movie",
   "Enter movie description": "Enter movie description",
-  "Cancel": "Cancel",
+  "In minutes": "In minutes",
 
   "Movie title is required": "Movie title is required",
   "At least one genre is required": "At least one genre is required",
@@ -93,5 +106,6 @@
   "Runtime must be at least 10 minutes": "Runtime must be at least 10 minutes",
   "Rating must be at least 0": "Rating must be at least 0",
   "Rating cannot be more than 10": "Rating cannot be more than 10",
-  "The movie description must be at least 10 characters": "The movie description must be at least 10 characters"
+  "The movie description must be at least 10 characters": "The movie description must be at least 10 characters",
+  "Rating must have at most 1 digit after the decimal point": "Rating must have at most 1 digit after the decimal point"
 }

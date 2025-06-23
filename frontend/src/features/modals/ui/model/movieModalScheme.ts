@@ -7,6 +7,11 @@ const numberField = (schema: z.ZodNumber) => {
   }, schema)
 }
 
+const oneDecimalRefinement = (val: number) => {
+  const decimalPart = val.toString().split('.')[1]
+  return !decimalPart || decimalPart.length === 1
+}
+
 export const movieModalScheme = z.object({
   movieTitle: z.string().min(1, 'Movie title is required'),
 
@@ -33,7 +38,9 @@ export const movieModalScheme = z.object({
       .number({ required_error: 'Rating must be at least 0' })
       .min(0, 'Rating must be at least 0')
       .max(10, 'Rating cannot be more than 10'),
-  ),
+  ).refine(oneDecimalRefinement, {
+    message: 'Rating must have at most 1 digit after the decimal point',
+  }),
 
   descriptionMovie: z.string().min(10, 'The movie description must be at least 10 characters'),
 })

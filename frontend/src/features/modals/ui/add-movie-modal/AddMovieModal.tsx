@@ -2,6 +2,7 @@ import styles from './AddMovieModal.module.scss'
 import { type Dispatch, type SetStateAction, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 import { X } from 'lucide-react'
 
@@ -14,7 +15,6 @@ import { ImageUpload } from '@/features/modals/ui/image-upload/ImageUpload.tsx'
 
 import { movieSelectOptions } from '@/features/modals/ui/model/movieSelectOptions.ts'
 import { movieModalScheme } from '@/features/modals/ui/model/movieModalScheme.ts'
-import { zodResolver } from '@hookform/resolvers/zod'
 
 interface AddMovieModalProps {
   modalRef: React.RefObject<HTMLFormElement | null>
@@ -26,7 +26,7 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
   const { t } = useTranslation()
   const [isMenuOpen, setIsMenuOpen] = useState<string>('')
 
-  const { genreOptions, countryOptions } = movieSelectOptions()
+  const { typeOptions, genreOptions, countryOptions, ageOptions } = movieSelectOptions()
 
   useEffect(() => {
     if (!isOpen) setIsMenuOpen('')
@@ -58,6 +58,14 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
           <ImageUpload />
 
           <div className={styles.formGroupWrapper}>
+            <FormGroup label={t('Type')}>
+              <DropdownSelector
+                options={typeOptions}
+                isOpen={isMenuOpen === 'modalTypes'}
+                onToggle={() => setIsMenuOpen(isMenuOpen === 'modalTypes' ? '' : 'modalTypes')}
+              />
+            </FormGroup>
+
             <FormGroup label={t('Movie title')} error={errors.movieTitle?.message}>
               <Input
                 variant="inputAddMovie"
@@ -85,41 +93,58 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
               />
             </FormGroup>
 
-            <FormGroup label={t('Release year')} error={errors.yearOfRelease?.message}>
-              <Input
-                variant="inputAddMovie"
-                placeholder="2025"
-                type="number"
-                {...register('yearOfRelease')}
-                error={errors.yearOfRelease?.message}
-              />
-            </FormGroup>
+            <div className={styles.formGroupRow}>
+              <FormGroup label={t('Rating (0–10)')} error={errors.rating?.message}>
+                <Input
+                  variant="inputAddMovie"
+                  placeholder="8.5"
+                  type="number"
+                  {...register('rating')}
+                  error={errors.rating?.message}
+                />
+              </FormGroup>
 
-            <FormGroup label={t('Runtime (minutes)')} error={errors.runtime?.message}>
-              <Input
-                variant="inputAddMovie"
-                placeholder="e.g. 120"
-                type="number"
-                {...register('runtime')}
-                error={errors.runtime?.message}
-              />
-            </FormGroup>
+              <FormGroup label={t('Age')} error={errors.rating?.message}>
+                <DropdownSelector
+                  options={ageOptions}
+                  isOpen={isMenuOpen === 'modalAges'}
+                  onToggle={() => setIsMenuOpen(isMenuOpen === 'modalAges' ? '' : 'modalAges')}
+                />
+              </FormGroup>
+            </div>
 
-            <FormGroup label={t('Rating (0–10)')} error={errors.rating?.message}>
-              <Input
-                variant="inputAddMovie"
-                placeholder="e.g. 8.5"
-                type="number"
-                {...register('rating')}
-                error={errors.rating?.message}
-              />
-            </FormGroup>
+            <div className={styles.formGroupRow}>
+              <FormGroup label={t('Release year')} error={errors.yearOfRelease?.message}>
+                <Input
+                  variant="inputAddMovie"
+                  placeholder="2025"
+                  type="number"
+                  {...register('yearOfRelease')}
+                  error={errors.yearOfRelease?.message}
+                />
+              </FormGroup>
+
+              <FormGroup label={t('Runtime (minutes)')} error={errors.runtime?.message}>
+                <Input
+                  variant="inputAddMovie"
+                  placeholder={t('In minutes')}
+                  type="number"
+                  {...register('runtime')}
+                  error={errors.runtime?.message}
+                />
+              </FormGroup>
+            </div>
           </div>
         </div>
 
         <div className={styles.wrapperTextarea}>
-          <FormGroup label={t('Description movie')}>
-            <Textarea variant="descriptionMovie" placeholder={t('Enter movie description')} />
+          <FormGroup label={t('Description movie')} error={errors.descriptionMovie?.message}>
+            <Textarea
+              variant="descriptionMovie"
+              placeholder={t('Enter movie description')}
+              {...register('descriptionMovie')}
+              error={errors.descriptionMovie?.message}
+            />
           </FormGroup>
         </div>
       </section>
@@ -128,6 +153,7 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
         <Button variant="btnCancel" onClick={() => setIsOpen(!isOpen)}>
           {t('Cancel')}
         </Button>
+
         <Button variant="btnAddMovie" type="submit">
           {t('Add new movie')}
         </Button>
