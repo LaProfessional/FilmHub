@@ -63,6 +63,7 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
                 options={typeOptions}
                 isOpen={isMenuOpen === 'modalTypes'}
                 onToggle={() => setIsMenuOpen(isMenuOpen === 'modalTypes' ? '' : 'modalTypes')}
+                isMulti={false}
               />
             </FormGroup>
 
@@ -80,6 +81,7 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
                 options={genreOptions}
                 isOpen={isMenuOpen === 'modalGenres'}
                 onToggle={() => setIsMenuOpen(isMenuOpen === 'modalGenres' ? '' : 'modalGenres')}
+                isMulti={true}
               />
             </FormGroup>
 
@@ -90,6 +92,7 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
                 onToggle={() =>
                   setIsMenuOpen(isMenuOpen === 'modalCountries' ? '' : 'modalCountries')
                 }
+                isMulti={true}
               />
             </FormGroup>
 
@@ -109,6 +112,7 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
                   options={ageOptions}
                   isOpen={isMenuOpen === 'modalAges'}
                   onToggle={() => setIsMenuOpen(isMenuOpen === 'modalAges' ? '' : 'modalAges')}
+                  isMulti={false}
                 />
               </FormGroup>
             </div>

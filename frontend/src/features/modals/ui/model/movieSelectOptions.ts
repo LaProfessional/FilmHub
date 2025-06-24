@@ -40,11 +40,11 @@ export const movieSelectOptions = () => {
   ]
 
   const ageOptions = [
-    { label: '0+' },
-    { label: '6+' },
-    { label: '12+' },
-    { label: '16+' },
-    { label: '18+' },
+    { label: 'G' },
+    { label: 'PG' },
+    { label: 'PG-13' },
+    { label: 'R' },
+    { label: 'NC-17' },
   ]
 
   return { typeOptions, genreOptions, countryOptions, ageOptions }

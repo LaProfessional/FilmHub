@@ -1,6 +1,16 @@
+.btnText {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    color: var(--color-primary);
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
 .dropdownMenu {
     position: absolute;
-    top: 60px;
+    top: 65px;
     z-index: 1000;
 
     width: 100%;
@@ -22,7 +32,12 @@
         font-weight: 500;
 
         padding: .8rem;
+
         cursor: pointer;
+
+        &.select {
+            background-color: var(--bg-hover-primary);
+        }
 
         &:hover {
             background-color: #21c45d;
