@@ -13,7 +13,7 @@ export const useSignUp = () => {
       .catch((error: any) => {
         const detailMsg = error.response?.data?.detail
         const dataConfig = JSON.parse(error.config?.data)
-
+        console.log(error.response); // data: ""
         if (detailMsg.includes(`Пользователь с email '${dataConfig.email}' уже существует!`)) {
           return setError("email", {
             type: "server",

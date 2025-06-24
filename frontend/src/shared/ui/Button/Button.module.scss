@@ -12,16 +12,22 @@
 .signInBtn {
   height: 40px;
   width: 100%;
+
   background-color: var(--bg-accent);
   border-radius: 0.5rem;
+
   color: var(--color-primary);
   font-size: 1.4rem;
   font-weight: 500;
+
   padding: 0.8rem 1.6rem;
   margin-top: 0.8rem;
-  cursor: pointer;
 
   transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: var(--button-hover);
+  }
 }
 
 .addCategoryBtn {
@@ -45,7 +51,7 @@
 
   font-size: 1.4rem;
   font-weight: 500;
-  color: var(--color-category);
+  color: var(--color-muted);
 
   padding: 0.6rem 1.2rem;
 

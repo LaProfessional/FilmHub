@@ -70,7 +70,7 @@
 .inputReg {
   height: 40px;
   width: 100%;
-  border: 1px solid var(--border-reg-form);
+  border: 1px solid var(--border);
   border-radius: 0.6rem;
 
   color: var(--color-primary);
@@ -80,6 +80,6 @@
   padding: 0.8rem 1.2rem;
 
   &.error {
-    border: 1px solid var(--border-danger);
+    border: 1px solid var(--color-danger);
   }
 }
