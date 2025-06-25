@@ -1,4 +1,4 @@
-import styles from './AddMovieModal.module.scss'
+import styles from './ManualAddMediaModal.module.scss'
 import { type Dispatch, type SetStateAction, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useForm, Controller } from 'react-hook-form'
@@ -9,7 +9,7 @@ import { X } from 'lucide-react'
 import { Input } from '@/shared/ui/Input.tsx'
 import { Button } from '@/shared/ui/Button.tsx'
 import { Textarea } from '@/shared/ui/Textarea/Textarea.tsx'
-import { DropdownSelector } from '@/features/modals/ui/dropdown-selector/DropdownSelector.tsx'
+import { SelectDropdown } from '@/features/modals/ui/select-dropdown/SelectDropdown.tsx'
 import { FormGroup } from '@/features/modals/ui/form-group/FormGroup.tsx'
 import { ImageUpload } from '@/features/modals/ui/image-upload/ImageUpload.tsx'
 
@@ -22,7 +22,7 @@ interface AddMovieModalProps {
   setIsOpen: Dispatch<SetStateAction<boolean>>
 }
 
-export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, setIsOpen }) => {
+export const ManualAddMediaModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, setIsOpen }) => {
   const { t } = useTranslation()
   const [isMenuOpen, setIsMenuOpen] = useState<string>('')
 
@@ -59,12 +59,12 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
           <ImageUpload />
 
           <div className={styles.formGroupWrapper}>
-            <FormGroup label={t('Type')} error={errors.type?.message}>
+            <FormGroup label='Type' error={errors.type?.message}>
               <Controller
                 name="type"
                 control={control}
                 render={({ field }) => (
-                  <DropdownSelector
+                  <SelectDropdown
                     {...field}
                     options={typeOptions}
                     isOpen={isMenuOpen === 'modalTypes'}
@@ -76,7 +76,7 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
               />
             </FormGroup>
 
-            <FormGroup label={t('Movie title')} error={errors.movieTitle?.message}>
+            <FormGroup label='Movie title' error={errors.movieTitle?.message}>
               <Input
                 variant="inputAddMovie"
                 placeholder={t('Enter movie title')}
@@ -85,12 +85,12 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
               />
             </FormGroup>
 
-            <FormGroup label={t('Genres')} error={errors.genres?.message}>
+            <FormGroup label='Genres' error={errors.genres?.message}>
               <Controller
                 name="genres"
                 control={control}
                 render={({ field }) => (
-                  <DropdownSelector
+                  <SelectDropdown
                     {...field}
                     options={genreOptions}
                     isOpen={isMenuOpen === 'modalGenres'}
@@ -104,12 +104,12 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
               />
             </FormGroup>
 
-            <FormGroup label={t('Countries')} error={errors.countries?.message}>
+            <FormGroup label='Countries' error={errors.countries?.message}>
               <Controller
                 name="countries"
                 control={control}
                 render={({ field }) => (
-                  <DropdownSelector
+                  <SelectDropdown
                     {...field}
                     options={countryOptions}
                     isOpen={isMenuOpen === 'modalCountries'}
@@ -124,7 +124,7 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
             </FormGroup>
 
             <div className={styles.formGroupRow}>
-              <FormGroup label={t('Rating (0–10)')} error={errors.rating?.message}>
+              <FormGroup label='Rating (0–10)' error={errors.rating?.message}>
                 <Input
                   variant="inputAddMovie"
                   placeholder="8.5"
@@ -134,12 +134,12 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
                 />
               </FormGroup>
 
-              <FormGroup label={t('Age')} error={errors.age?.message}>
+              <FormGroup label='Age' error={errors.age?.message}>
                 <Controller
                   name="age"
                   control={control}
                   render={({ field }) => (
-                    <DropdownSelector
+                    <SelectDropdown
                       {...field}
                       options={ageOptions}
                       isOpen={isMenuOpen === 'modalAges'}
@@ -153,7 +153,7 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
             </div>
 
             <div className={styles.formGroupRow}>
-              <FormGroup label={t('Release year')} error={errors.yearOfRelease?.message}>
+              <FormGroup label='Release year' error={errors.yearOfRelease?.message}>
                 <Input
                   variant="inputAddMovie"
                   placeholder="2025"
@@ -163,7 +163,7 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
                 />
               </FormGroup>
 
-              <FormGroup label={t('Runtime (minutes)')} error={errors.runtime?.message}>
+              <FormGroup label='Runtime (minutes)' error={errors.runtime?.message}>
                 <Input
                   variant="inputAddMovie"
                   placeholder={t('In minutes')}
@@ -177,7 +177,7 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
         </div>
 
         <div className={styles.wrapperTextarea}>
-          <FormGroup label={t('Description movie')} error={errors.descriptionMovie?.message}>
+          <FormGroup label='Description movie' error={errors.descriptionMovie?.message}>
             <Textarea
               variant="descriptionMovie"
               placeholder={t('Enter movie description')}

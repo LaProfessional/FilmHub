@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import cls from '@fvilers/cls'
-import styles from './DropdownSelector.module.scss'
+import styles from './SelectDropdown.module.scss'
 
 import { Button } from '@/shared/ui/Button.tsx'
 
@@ -21,7 +21,7 @@ interface DropdownSelectorProps {
   onChange: (value: string | string[]) => void
 }
 
-export const DropdownSelector: React.FC<DropdownSelectorProps> = ({
+export const SelectDropdown: React.FC<DropdownSelectorProps> = ({
   options,
   isOpen,
   onToggle,
