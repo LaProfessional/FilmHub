@@ -25,6 +25,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - ${SERVER_PORT}:3000
+    volumes:
+      - ./src:/app
     depends_on:
       - db
     restart: on-failure
