@@ -9,7 +9,7 @@ export const useDB = event => {
   const sequelize = new Sequelize(config.name, config.user, config.password, {
     port: config.port,
     host: config.host,
-    dialect: config.dialect,
+    dialect: 'postgres',
   })
 
   const modelCategory = createCategory(sequelize, DataTypes)
