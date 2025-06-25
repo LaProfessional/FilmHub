@@ -107,5 +107,7 @@
   "Rating must be at least 0": "Rating must be at least 0",
   "Rating cannot be more than 10": "Rating cannot be more than 10",
   "The movie description must be at least 10 characters": "The movie description must be at least 10 characters",
-  "Rating must have at most 1 digit after the decimal point": "Rating must have at most 1 digit after the decimal point"
+  "Rating must have at most 1 digit after the decimal point": "Rating must have at most 1 digit after the decimal point",
+  "Type is required": "Type is required",
+  "Age is required": "Age is required"
 }

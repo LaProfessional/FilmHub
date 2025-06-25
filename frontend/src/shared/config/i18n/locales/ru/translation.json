@@ -107,5 +107,7 @@
   "Rating must be at least 0": "Рейтинг не может быть меньше 0",
   "Rating cannot be more than 10": "Рейтинг не может быть больше 10",
   "The movie description must be at least 10 characters": "Описание фильма должно содержать не менее 10 символов",
-  "Rating must have at most 1 digit after the decimal point": "Число должно содержать не больше одного знака после запятой"
+  "Rating must have at most 1 digit after the decimal point": "Число должно содержать не больше одного знака после запятой",
+  "Type is required": "Тип обязателен",
+  "Age is required": "Возраст обязателен"
 }

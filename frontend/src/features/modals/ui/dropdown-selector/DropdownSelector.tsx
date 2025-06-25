@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useRef } from 'react'
 import cls from '@fvilers/cls'
 import styles from './DropdownSelector.module.scss'
 
@@ -16,6 +16,9 @@ interface DropdownSelectorProps {
   isOpen: boolean
   onToggle: () => void
   isMulti: boolean
+  error: string | undefined
+  value: string | string[]
+  onChange: (value: string | string[]) => void
 }
 
 export const DropdownSelector: React.FC<DropdownSelectorProps> = ({
@@ -23,42 +26,55 @@ export const DropdownSelector: React.FC<DropdownSelectorProps> = ({
   isOpen,
   onToggle,
   isMulti,
+  error,
+  value,
+  onChange,
 }) => {
   const { t } = useTranslation()
 
-  const [items, setItems] = useState<string[]>([])
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   useHandleClickOutside(dropdownRef, isOpen, onToggle)
 
+  const selectedItems = Array.isArray(value) ? value : value ? [value] : []
+
   const handleSelectItem = (item: string) => {
-    setItems(prev => {
-      if (isMulti) {
-        return prev.includes(item) ? prev.filter(i => i !== item) : [...prev, item]
+    if (isMulti) {
+      if (selectedItems.includes(item)) {
+        onChange(selectedItems.filter(i => i !== item))
       } else {
-        return [item]
+        onChange([...selectedItems, item])
       }
-    })
+    } else {
+      onChange(item)
+      onToggle()
+    }
   }
 
   return (
     <div ref={dropdownRef}>
       <Button
         variant="btnDropdownToggle"
+        error={error}
         onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
           e.preventDefault()
           onToggle()
         }}
       >
         <div className={styles.btnText}>
-          {items.length === 0 ? t('--Select--') : items.map(item => t(item)).join(', ')}
+          {selectedItems.length === 0
+            ? t('--Select--')
+            : selectedItems.map(item => t(item)).join(', ')}
         </div>
       </Button>
 
       <div className={cls(styles.dropdownMenu, isOpen && styles.open)}>
         {options.map((item, index) => (
           <div
-            className={cls(styles.dropdownItem, items.includes(item.label) && styles.select)}
+            className={cls(
+              styles.dropdownItem,
+              selectedItems.includes(item.label) && styles.select,
+            )}
             key={index}
             onClick={() => handleSelectItem(item.label)}
           >

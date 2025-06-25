@@ -13,11 +13,19 @@ const oneDecimalRefinement = (val: number) => {
 }
 
 export const movieModalScheme = z.object({
+  type: z.string({ required_error: 'Type is required' }).min(1, 'Type is required'),
+
   movieTitle: z.string().min(1, 'Movie title is required'),
 
-  genres: z.string().min(1, 'At least one genre is required'),
+  genres: z
+    .array(z.string(), { required_error: 'At least one genre is required' })
+    .min(1, 'At least one genre is required'),
 
-  countries: z.string().min(1, 'At least one country is required'),
+  countries: z
+    .array(z.string(), { required_error: 'At least one country is required' })
+    .min(1, 'At least one country is required'),
+
+  age: z.string({ required_error: 'Age is required' }).min(1),
 
   yearOfRelease: numberField(
     z

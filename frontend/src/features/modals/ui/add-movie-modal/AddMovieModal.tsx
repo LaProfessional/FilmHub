@@ -1,7 +1,7 @@
 import styles from './AddMovieModal.module.scss'
 import { type Dispatch, type SetStateAction, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { X } from 'lucide-react'
@@ -35,6 +35,7 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(movieModalScheme),
@@ -58,12 +59,20 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
           <ImageUpload />
 
           <div className={styles.formGroupWrapper}>
-            <FormGroup label={t('Type')}>
-              <DropdownSelector
-                options={typeOptions}
-                isOpen={isMenuOpen === 'modalTypes'}
-                onToggle={() => setIsMenuOpen(isMenuOpen === 'modalTypes' ? '' : 'modalTypes')}
-                isMulti={false}
+            <FormGroup label={t('Type')} error={errors.type?.message}>
+              <Controller
+                name="type"
+                control={control}
+                render={({ field }) => (
+                  <DropdownSelector
+                    {...field}
+                    options={typeOptions}
+                    isOpen={isMenuOpen === 'modalTypes'}
+                    onToggle={() => setIsMenuOpen(isMenuOpen === 'modalTypes' ? '' : 'modalTypes')}
+                    isMulti={false}
+                    error={errors.type?.message}
+                  />
+                )}
               />
             </FormGroup>
 
@@ -76,23 +85,41 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
               />
             </FormGroup>
 
-            <FormGroup label={t('Genres')}>
-              <DropdownSelector
-                options={genreOptions}
-                isOpen={isMenuOpen === 'modalGenres'}
-                onToggle={() => setIsMenuOpen(isMenuOpen === 'modalGenres' ? '' : 'modalGenres')}
-                isMulti={true}
+            <FormGroup label={t('Genres')} error={errors.genres?.message}>
+              <Controller
+                name="genres"
+                control={control}
+                render={({ field }) => (
+                  <DropdownSelector
+                    {...field}
+                    options={genreOptions}
+                    isOpen={isMenuOpen === 'modalGenres'}
+                    onToggle={() =>
+                      setIsMenuOpen(isMenuOpen === 'modalGenres' ? '' : 'modalGenres')
+                    }
+                    isMulti={true}
+                    error={errors.genres?.message}
+                  />
+                )}
               />
             </FormGroup>
 
-            <FormGroup label={t('Countries')}>
-              <DropdownSelector
-                options={countryOptions}
-                isOpen={isMenuOpen === 'modalCountries'}
-                onToggle={() =>
-                  setIsMenuOpen(isMenuOpen === 'modalCountries' ? '' : 'modalCountries')
-                }
-                isMulti={true}
+            <FormGroup label={t('Countries')} error={errors.countries?.message}>
+              <Controller
+                name="countries"
+                control={control}
+                render={({ field }) => (
+                  <DropdownSelector
+                    {...field}
+                    options={countryOptions}
+                    isOpen={isMenuOpen === 'modalCountries'}
+                    onToggle={() =>
+                      setIsMenuOpen(isMenuOpen === 'modalCountries' ? '' : 'modalCountries')
+                    }
+                    isMulti={true}
+                    error={errors.countries?.message}
+                  />
+                )}
               />
             </FormGroup>
 
@@ -107,12 +134,20 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ modalRef, isOpen, 
                 />
               </FormGroup>
 
-              <FormGroup label={t('Age')} error={errors.rating?.message}>
-                <DropdownSelector
-                  options={ageOptions}
-                  isOpen={isMenuOpen === 'modalAges'}
-                  onToggle={() => setIsMenuOpen(isMenuOpen === 'modalAges' ? '' : 'modalAges')}
-                  isMulti={false}
+              <FormGroup label={t('Age')} error={errors.age?.message}>
+                <Controller
+                  name="age"
+                  control={control}
+                  render={({ field }) => (
+                    <DropdownSelector
+                      {...field}
+                      options={ageOptions}
+                      isOpen={isMenuOpen === 'modalAges'}
+                      onToggle={() => setIsMenuOpen(isMenuOpen === 'modalAges' ? '' : 'modalAges')}
+                      isMulti={false}
+                      error={errors.age?.message}
+                    />
+                  )}
                 />
               </FormGroup>
             </div>
