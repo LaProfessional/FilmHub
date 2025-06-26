@@ -1,7 +1,7 @@
 import { HomePage } from "@/pages/home";
 import { RootLayout } from "@/shared/layout/ui/RootLayout";
 import { Navigate, type RouteObject } from "react-router-dom";
-
+import { ProfilePage } from "@/pages/profile";
 export const routeConfig: RouteObject[] = [
     {
         path: "/",
@@ -11,6 +11,10 @@ export const routeConfig: RouteObject[] = [
     //     path: "/auth",
     //     element: <LoginModal />,
     // },
+    {
+        path: "/profile",
+        element: <ProfilePage />
+    },
     {
         path: "/home",
         element: <RootLayout />,
