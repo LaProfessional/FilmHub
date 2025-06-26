@@ -14,6 +14,7 @@ import {
   type MovieModalFormValues,
   movieModalScheme,
 } from '@/features/modals/ui/model/movieModalScheme.ts'
+
 import { MediaFormFields } from '@/features/modals/ui/media-form-fields/MediaFormFields.tsx'
 
 interface AddMovieModalProps {

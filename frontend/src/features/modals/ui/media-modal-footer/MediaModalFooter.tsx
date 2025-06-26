@@ -14,11 +14,11 @@ export const MediaModalFooter: React.FC<MediaModalFooterProps> = ({ isOpen, setI
 
   return (
     <footer className={styles.modalFooter}>
-      <Button variant="btnCancel" onClick={() => setIsOpen(!isOpen)}>
+      <Button type="button" variant="btnCancel" onClick={() => setIsOpen(!isOpen)}>
         {t('Cancel')}
       </Button>
 
-      <Button variant="btnAddMovie" type="submit">
+      <Button variant="btnAddMovie">
         {t('Add new movie')}
       </Button>
     </footer>

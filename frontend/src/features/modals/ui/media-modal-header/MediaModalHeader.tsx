@@ -17,7 +17,7 @@ export const MediaModalHeader: React.FC<MediaModalHeaderProps> = ({ isOpen, setI
   return (
     <header className={styles.modalHeader}>
       <h2 className={styles.modalTitle}>{t('Add new movie')}</h2>
-      <Button onClick={() => setIsOpen(!isOpen)}>
+      <Button type="button" onClick={() => setIsOpen(!isOpen)}>
         <X className={styles.iconX} />
       </Button>
     </header>
