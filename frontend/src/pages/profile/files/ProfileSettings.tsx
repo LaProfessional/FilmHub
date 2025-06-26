@@ -1,5 +1,5 @@
 import type { FormData } from './ProfilePage';
-
+import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
 import styles from './ProfilePage.module.scss';
 import React from 'react';
@@ -8,17 +8,18 @@ interface Props {
   formData: FormData;
   handleChangeTextData: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   handleAvatarChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  triggerFileInput: () => void;
-  fileInputRef: React.RefObject<HTMLInputElement|null>;
   handleSubmit: (e: React.FormEvent) => void;
 }
+
+const handleTriggerAvatarChange = () => {
+  const input = document.getElementById('avatarUpload') as HTMLInputElement | null;
+  input?.click();
+};
 
 export const ProfileSettingsTab: React.FC<Props> = ({
   formData,
   handleChangeTextData,
   handleAvatarChange,
-  triggerFileInput,
-  fileInputRef,
   handleSubmit
 }) => (
   <div className={styles.tabContent}>
@@ -91,20 +92,21 @@ export const ProfileSettingsTab: React.FC<Props> = ({
       <div className={styles.formGroup}>
         <label>Аватар профиля</label>
         <div className={styles.avatarUpload}>
-          <input
-            type="file"
-            accept="image/*"
-            ref={fileInputRef}
-            onChange={handleAvatarChange}
-            style={{ display: 'none' }}
-          />
-          <button
-            type="button"
-            className={styles.uploadButton}
-            onClick={triggerFileInput}
-          >
-            <span> Изменить фото </span>
-          </button>
+
+
+      <input
+        type="file"
+        id="avatarUpload"
+        accept="image/*"
+        onChange={handleAvatarChange}
+        style={{ display: 'none' }}
+      />
+      <Button variant='' children={<span>Изменить фото</span>} onClick={handleTriggerAvatarChange}/>
+        
+
+
+
+
         </div>
       </div>
       <div className={styles.formGroup}>

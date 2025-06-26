@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import styles from './ProfilePage.module.scss';
 
 import { Button } from '@/shared/ui/Button';
@@ -41,19 +41,12 @@ export const ProfilePage = () => {
 
   const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
 
-  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const handleChangeTextData = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-    // для кнопки выбора аватара
-  const triggerFileInput = () => {
-    if (fileInputRef.current) {
-      fileInputRef.current.click();
-    }
-  };
 
 
     // для  инпта выбора аватара
@@ -137,8 +130,6 @@ export const ProfilePage = () => {
                 formData={formData}
                 handleChangeTextData={handleChangeTextData}
                 handleAvatarChange={handleAvatarChange}
-                triggerFileInput={triggerFileInput}
-                fileInputRef={fileInputRef}
                 handleSubmit={handleSubmit}
               />
             )}

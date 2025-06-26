@@ -13,7 +13,13 @@ export const routeConfig: RouteObject[] = [
     // },
     {
         path: "/profile",
-        element: <ProfilePage />
+        element: <RootLayout />,
+        children: [
+            {
+                index: true,
+                element: <ProfilePage />,
+            },
+        ],
     },
     {
         path: "/home",
