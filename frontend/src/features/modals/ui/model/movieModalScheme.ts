@@ -52,3 +52,5 @@ export const movieModalScheme = z.object({
 
   descriptionMovie: z.string().min(10, 'The movie description must be at least 10 characters'),
 })
+
+export type MovieModalFormValues = z.infer<typeof movieModalScheme>

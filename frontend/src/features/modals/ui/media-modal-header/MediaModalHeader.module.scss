@@ -1,0 +1,16 @@
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1rem 2rem;
+
+    .modalTitle {
+        color: var(--color-primary);
+        font-size: 1.8rem;
+    }
+
+    .iconX {
+        stroke: var(--color-primary);
+    }
+}
