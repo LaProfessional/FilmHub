@@ -2,9 +2,10 @@ import { type RouteObject } from "react-router-dom"
 import { RoutePath } from "./routePaths"
 
 import { RootLayout } from "@/shared/layout"
-
 import { HomePage } from "@/pages/home"
+
 import { Auth } from "@/pages/auth"
+import homeLoader from "@/app/route-loaders/homeLoader"
 
 export const routeConfig: RouteObject[] = [
   {
@@ -18,6 +19,7 @@ export const routeConfig: RouteObject[] = [
       {
         index: true,
         element: <HomePage />,
+        loader: homeLoader
       },
     ],
   },
