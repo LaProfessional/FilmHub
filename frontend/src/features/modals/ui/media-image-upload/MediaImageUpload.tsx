@@ -1,10 +1,10 @@
-import styles from './ImageUpload.module.scss'
+import styles from './MediaImageUpload.module.scss'
 import { useTranslation } from 'react-i18next'
 
 import { Input } from '@/shared/ui/Input.tsx'
 import { FormGroup } from '@/features/modals/ui/form-group/FormGroup.tsx'
 
-export const ImageUpload = () => {
+export const MediaImageUpload = () => {
   const { t } = useTranslation()
 
   return (

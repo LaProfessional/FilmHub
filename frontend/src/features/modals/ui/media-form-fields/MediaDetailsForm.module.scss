@@ -1,0 +1,11 @@
+.formMain {
+    display: flex;
+    margin-bottom: 2rem;
+
+    .formGroupWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 100%;
+    }
+}
