@@ -10,7 +10,7 @@ import { useHandleClickOutside } from "@/shared/lib/useHandleClickOutside.ts"
 import { useFilters } from "@/widgets/filters/model/useFilters.ts"
 
 import { Button } from "@/shared/ui/Button/Button"
-import { Input } from "@/shared/ui/Input/Input"
+import { Input } from "@/shared/ui/Input"
 import React from "react"
 
 type Item = {
