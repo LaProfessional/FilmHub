@@ -1,18 +1,19 @@
 import styles from "./Header.module.scss"
-
 import { useTranslation } from "react-i18next"
 import { useLanguage } from "@/app/providers/i18n"
+
 import { useTheme } from "@/app/providers/theme"
-
 import { UserMenu } from "@/entities/user"
-
 import titleStyles from "@/shared/styles/components/TitleStyles.module.scss"
+
 import { ReactComponent as LogoSvg } from "@/shared/assets/header/Logo.svg"
 import { ReactComponent as SunSvg } from "@/shared/assets/header/Sun.svg"
 import { ReactComponent as MoonSvg } from "@/shared/assets/header/Moon.svg"
-import { ReactComponent as SearchSvg } from "@/shared/assets/header/Search.svg"
 
+import { ReactComponent as SearchSvg } from "@/shared/assets/header/Search.svg"
 import { Button, Input } from "@/shared/ui"
+import { Form } from "react-router-dom"
+
 
 export const Header = () => {
   const { theme, toggleTheme } = useTheme();
@@ -20,12 +21,6 @@ export const Header = () => {
 
   const { t } = useTranslation();
 
-  return (
-    <header className={styles.header}>
-      <div className={styles.titleWrapper}>
-        <LogoSvg className={styles.logoSvg} />
-        <h2 className={titleStyles.titleGradient}>FilmHub</h2>
-      </div>
   return (
     <header className={styles.header}>
       <div className={styles.titleWrapper}>
@@ -43,8 +38,6 @@ export const Header = () => {
             />
           </Form>
 
-          <SearchSvg className={styles.searchSvg}></SearchSvg>
-        </div>
           <SearchSvg className={styles.searchSvg}></SearchSvg>
         </div>
 
