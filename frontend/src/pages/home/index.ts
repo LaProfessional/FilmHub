@@ -1,2 +1,1 @@
-export { HomePage } from "./ui/HomePage";
-export { LoginModal } from "@/pages/signin/ui/LoginModal.tsx";
+export { HomePage } from "./ui/home-page/HomePage.tsx"

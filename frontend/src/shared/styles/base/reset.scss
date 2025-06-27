@@ -2,57 +2,57 @@
 @use "../abstracts/theme-vars" as theme;
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 
-    box-sizing: border-box;
-    background-color: transparent;
-    border: none;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: none;
 
-    list-style: none;
+  list-style: none;
 
-    font-family: "Montserrat", sans-serif;
-    font-size: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 input:focus {
-    outline: none;
+  outline: none;
 }
 
 body.light {
-    @include theme.theme-vars(var.$light-theme);
+  @include theme.theme-vars(var.$light-theme);
 }
 
 body.dark {
-    @include theme.theme-vars(var.$dark-theme);;
+  @include theme.theme-vars(var.$dark-theme);
 }
 
-body, html {
-    //overflow-y: hidden;
-    background-color: var(--bg-primary);
-    transition: background-color .2s ease-in-out;
+body,
+html {
+  overflow-y: hidden;
+  background-color: var(--bg-primary);
+  transition: background-color 0.2s ease-in-out;
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--scrollbar-track);
-    border-radius: 1rem;
+  background: var(--scrollbar-track);
+  border-radius: 1rem;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--scrollbar);
-    border-radius: 1rem;
+  background-color: var(--scrollbar);
+  border-radius: 1rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: var(--scrollbar-hover);
+  background-color: var(--scrollbar-hover);
 }
-

@@ -3,23 +3,23 @@ export default defineNitroConfig({
   srcDir: 'server',
   runtimeConfig: {
     db: {
-      name: 'la-professional',
-      user: 'la-professional-user',
-      password: 'la-professional-password',
-      port: 5432,
+      name: '',
+      user: '',
+      password: '',
+      port: null,
+      host: '',
       dialect: 'postgres',
-      host: 'db',
     },
     auth: {
-      saltRounds: 10,
-      tokenHashLong: 'asdfjhqweiunhwieurcn23r',
-      tokenHash: 'TruLaLaLa',
+      saltRounds: null,
+      tokenHashLong: '',
+      tokenHash: '',
       refresh: {
-        maxAge: 60 * 60 * 24 * 7,
+        maxAge: null,
       },
     },
     kinopoisk: {
-      key: '89e47a16-4d5e-436f-8e3d-2c764f44051c',
+      key: '',
     },
   },
 })

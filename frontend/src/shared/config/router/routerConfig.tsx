@@ -1,21 +1,19 @@
-import homeLoader from "@/app/route-loaders/homeLoader";
-import { HomePage } from "@/pages/home";
-import { RootLayout } from "@/shared/layout/ui/RootLayout";
-import { Navigate, type RouteObject } from "react-router-dom";
+import { type RouteObject } from "react-router-dom"
+import { RoutePath } from "./routePaths"
+
+import { RootLayout } from "@/shared/layout"
+
+import { HomePage } from "@/pages/home"
+import { Auth } from "@/pages/auth"
 
 export const routeConfig: RouteObject[] = [
   {
-    path: "/",
-    element: <Navigate to="/home" replace />,
+    path: RoutePath.AUTH,
+    element: <Auth />,
   },
-  // {
-  //     path: "/auth",
-  //     element: <LoginModal />,
-  // },
   {
-    path: "/home",
+    path: RoutePath.HOME,
     element: <RootLayout />,
-    loader: homeLoader,
     children: [
       {
         index: true,
@@ -23,4 +21,8 @@ export const routeConfig: RouteObject[] = [
       },
     ],
   },
-];
+  {
+    path: RoutePath.NOT_FOUND,
+    element: <div>404</div>,
+  },
+]

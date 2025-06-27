@@ -1,26 +1,26 @@
 @use "@/shared/styles/abstracts/variables" as var;
 
 .form {
-    border: 1px solid var(--border-reg-form);
-    border-radius: .8rem;
+  border: 1px solid var(--border-reg-form);
+  border-radius: 0.8rem;
 
-    padding: 2.4rem;
+  padding: 2.4rem;
 
-    .header {
-        text-align: start;
+  .header {
+    text-align: start;
 
-        margin-bottom: 2.4rem;
+    margin-bottom: 2.4rem;
 
-        .title {
-            color: var(--color-primary);
-            font-size: 2.4rem;
+    .title {
+      color: var(--color-primary);
+      font-size: 2.4rem;
 
-            margin-bottom: .6rem;
-        }
-
-        .subtitle {
-            color: var(--color-category);
-            font-size: 1.4rem;
-        }
+      margin-bottom: 0.6rem;
     }
+
+    .subtitle {
+      color: var(--color-category);
+      font-size: 1.4rem;
+    }
+  }
 }
