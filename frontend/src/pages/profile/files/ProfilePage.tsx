@@ -3,6 +3,7 @@ import styles from './ProfilePage.module.scss';
 
 import { Button } from '@/shared/ui/Button';
 
+import { useTranslation } from "react-i18next";
 
 import { ProfileSettingsTab } from './ProfileSettings';
 /* при надобности создать и использовать
@@ -11,7 +12,7 @@ import { CollectionsTab } from './CollectionsTab';
 import { AchievementsTab } from './AchievementsTab';
 import { SettingsTab } from './SettingsTab'; */
 
-// по хорошему надо бы запихнуть в интерфейсы
+
 export interface FormData {
   username: string;
   email: string;
@@ -20,15 +21,12 @@ export interface FormData {
   newPassword: string;
   confirmPassword: string;
   socialLinks: string[];
-  city?: string;
-  country?: string;
-  tel?: string;
 }
 
 
 export const ProfilePage = () => {
   const [activeTab, setActiveTab] = useState('profile-settings');
-
+  const { t } = useTranslation();
   const [formData, setFormData] = useState<FormData>({
     username: '',
     email: '',
@@ -72,11 +70,11 @@ export const ProfilePage = () => {
 
   
   const tabs = [
-    { id: 'profile-settings', label: 'Настройка профиля' },
-    { id: 'flags', label: 'Флаги' },
-    { id: 'collections', label: 'Коллекции' },
-    { id: 'achievements', label: 'Достижения' },
-    { id: 'settings', label: 'Настройки' },
+  { id: 'profile-settings', label: t('ProfileSettings') },
+  { id: 'flags', label: t('Flags') },
+  { id: 'collections', label: t('Collections') },
+  { id: 'achievements', label: t('Achievements') },
+  { id: 'settings', label: t('Settings') },
   ];
 
   return (
@@ -91,11 +89,6 @@ export const ProfilePage = () => {
         </div>
         <div className={styles.profileNavInfo}>
           <span className={styles.userName}>{formData.username}</span>
-{/*          Доп инфа в шапке профиля опционально 
-            <div className={styles.address}>
-            <p className={styles.state}>{formData.city}</p>
-            <span className={styles.country}>{formData.country}</span>
-          </div> */}
         </div>
       </div>
 
@@ -105,7 +98,7 @@ export const ProfilePage = () => {
             {/* <p className={styles.mobileNo}><span>{formData.tel}</span></p> */}
             <p className={styles.userMail}><span> {formData.email}</span></p>
             <div className={styles.userBio}>
-              <h3>О себе</h3>
+              <h3>{t("AboutMe")}</h3>
               <p className={styles.bio}>{formData.bio}</p>
             </div>
           </div>

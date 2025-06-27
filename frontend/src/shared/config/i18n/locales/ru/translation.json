@@ -17,5 +17,26 @@
   "YourCollections": "Ваши коллекции",
   "YourFlags": "Ваши флаги",
   "Settings": "Настройки",
-  "Logout": "Выйти"
+  "Logout": "Выйти",
+
+  "ProfileSettings": "Настройка профиля",
+  "Flags": "Флаги",
+  "Collections": "Коллекции",
+  "Achievements": "Достижения",
+  "Username": "Имя пользователя",
+  "EnterUsername": "Введите имя пользователя",
+  "Email": "Электронная почта",
+  "EnterYourEmail": "Введите вашу почту",
+  "CurrentPassword": "Текущий пароль",
+  "EnterCurrentPassword": "Введите текущий пароль",
+  "NewPassword": "Новый пароль",
+  "EnterNewPassword": "Введите новый пароль",
+  "ConfirmPassword": "Подтвердите пароль",
+  "RepeatNewPassword": "Повторите новый пароль",
+  "AboutMe": "О себе",
+  "ProfileAvatar": "Аватар профиля",
+  "ChangePhoto": "Изменить фото",
+  "LinkedAccounts": "Привязанные аккаунты",
+  "Connect": "Привязать",
+  "SaveChanges": "Сохранить изменения"
 }
