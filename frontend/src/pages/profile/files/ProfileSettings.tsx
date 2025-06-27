@@ -103,12 +103,12 @@ export const ProfileSettingsTab: React.FC<Props> = ({
               onChange={handleAvatarChange}
               style={{ display: 'none' }}
             />
-            <Button variant='' children={<span>{t("ChangePhoto")}</span>} onClick={handleTriggerAvatarChange} />
+            <Button variant='uploadButton' children={<span>{t("ChangePhoto")}</span>} onClick={handleTriggerAvatarChange} />
           </div>
         </div>
         <div className={styles.formGroup}>
       <h3>Привязанные аккаунты</h3>
-      <div className="flex flex-row justify-between">
+      <div>
         <a href="#" title="Google">
           <img width={20} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google" />
         </a>
@@ -120,9 +120,9 @@ export const ProfileSettingsTab: React.FC<Props> = ({
         </a>
       </div>
         </div>
-        <button type="submit" className={styles.saveButton}>
+        <Button variant='uploadButton'>
           {t("SaveChanges")}
-        </button>
+        </Button>
       </form>
     </div>
   );
