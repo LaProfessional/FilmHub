@@ -107,27 +107,18 @@ export const ProfileSettingsTab: React.FC<Props> = ({
           </div>
         </div>
         <div className={styles.formGroup}>
-          <label>{t("LinkedAccounts")}</label>
-          <div className={styles.connectedAccounts}>
-            <div className={styles.accountItem}>
-              <span>Google</span>
-              <button onClick={() => alert('hehe')} className={styles.connectBtn} type="button">
-                {t("Connect")}
-              </button>
-            </div>
-            <div className={styles.accountItem}>
-              <span>Facebook</span>
-              <button onClick={() => alert('not hehe')} className={styles.connectBtn} type="button">
-                {t("Connect")}
-              </button>
-            </div>
-            <div className={styles.accountItem}>
-              <span>ВКонтакте</span>
-              <button onClick={() => alert('hehe')} className={styles.connectBtn} type="button">
-                {t("Connect")}
-              </button>
-            </div>
-          </div>
+      <h3>Привязанные аккаунты</h3>
+      <div className="flex flex-row justify-between">
+        <a href="#" title="Google">
+          <img width={20} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google" />
+        </a>
+        <a href="#" title="VK">
+          <img width={20} src="https://upload.wikimedia.org/wikipedia/commons/2/21/VK.com-logo.svg" alt="VK" />
+        </a>
+        <a href="#" title="Facebook">
+          <img width={20} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg" alt="Facebook" />
+        </a>
+      </div>
         </div>
         <button type="submit" className={styles.saveButton}>
           {t("SaveChanges")}
