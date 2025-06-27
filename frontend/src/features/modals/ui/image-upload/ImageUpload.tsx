@@ -11,7 +11,7 @@ export const ImageUpload = () => {
     <div className={styles.imageUpload}>
       <label>
         <div className={styles.uploadPreview}>
-          <span>{t('Upload image')}</span>
+          <span>{t('Upload cover')}</span>
           <Input variant="hiddenInput" type="file" accept="image"></Input>
         </div>
       </label>

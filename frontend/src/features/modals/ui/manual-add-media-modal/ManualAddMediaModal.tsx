@@ -9,13 +9,14 @@ import { FormGroup } from '@/features/modals/ui/form-group/FormGroup.tsx'
 import { ImageUpload } from '@/features/modals/ui/image-upload/ImageUpload.tsx'
 import { MediaModalFooter } from '@/features/modals/ui/media-modal-footer/MediaModalFooter.tsx'
 import { MediaModalHeader } from '@/features/modals/ui/media-modal-header/MediaModalHeader.tsx'
+import { MediaFormFields } from '@/features/modals/ui/media-form-fields/MediaFormFields.tsx'
 
 import {
   type MovieModalFormValues,
   movieModalScheme,
-} from '@/features/modals/ui/model/movieModalScheme.ts'
-
-import { MediaFormFields } from '@/features/modals/ui/media-form-fields/MediaFormFields.tsx'
+} from '@/features/modals/model/movieModalScheme.ts'
+import { getMediaTypeData } from '@/features/modals/lib/mediaTypeMap.ts'
+import type { MediaType } from '@/features/modals/lib/types.ts'
 
 interface AddMovieModalProps {
   modalRef: React.RefObject<HTMLFormElement | null>
@@ -29,7 +30,11 @@ export const ManualAddMediaModal: React.FC<AddMovieModalProps> = ({
   setIsOpen,
 }) => {
   const { t } = useTranslation()
+
   const [isMenuOpen, setIsMenuOpen] = useState<string>('')
+  const [typeKey, setTypeKey] = useState<MediaType>('Movie')
+
+  const dataType = getMediaTypeData(typeKey)
 
   useEffect(() => {
     if (!isOpen) setIsMenuOpen('')
@@ -39,6 +44,7 @@ export const ManualAddMediaModal: React.FC<AddMovieModalProps> = ({
     register,
     handleSubmit,
     control,
+    watch,
     formState: { errors },
   } = useForm<MovieModalFormValues>({
     resolver: zodResolver(movieModalScheme) as Resolver<MovieModalFormValues>,
@@ -50,7 +56,7 @@ export const ManualAddMediaModal: React.FC<AddMovieModalProps> = ({
 
   return (
     <form className={styles.modal} ref={modalRef} onSubmit={handleSubmit(handleAddMovie)}>
-      <MediaModalHeader isOpen={isOpen} setIsOpen={setIsOpen} />
+      <MediaModalHeader isOpen={isOpen} setIsOpen={setIsOpen} dataType={dataType} />
 
       <section className={styles.modalBody}>
         <div className={styles.formMain}>
@@ -58,18 +64,21 @@ export const ManualAddMediaModal: React.FC<AddMovieModalProps> = ({
 
           <MediaFormFields
             control={control}
+            watch={watch}
             register={register}
             errors={errors}
             isMenuOpen={isMenuOpen}
             setIsMenuOpen={setIsMenuOpen}
+            setTypeKey={setTypeKey}
+            dataType={dataType}
           />
         </div>
 
         <div className={styles.wrapperTextarea}>
-          <FormGroup label="Description movie" error={errors.descriptionMovie?.message}>
+          <FormGroup label={dataType.description} error={errors.descriptionMovie?.message}>
             <Textarea
               variant="descriptionMovie"
-              placeholder={t('Enter movie description')}
+              placeholder={t(dataType.enterDescription)}
               {...register('descriptionMovie')}
               error={errors.descriptionMovie?.message}
             />
@@ -77,7 +86,7 @@ export const ManualAddMediaModal: React.FC<AddMovieModalProps> = ({
         </div>
       </section>
 
-      <MediaModalFooter isOpen={isOpen} setIsOpen={setIsOpen} />
+      <MediaModalFooter isOpen={isOpen} setIsOpen={setIsOpen} dataType={dataType} />
     </form>
   )
 }

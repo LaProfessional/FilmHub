@@ -15,7 +15,7 @@ const oneDecimalRefinement = (val: number) => {
 export const movieModalScheme = z.object({
   type: z.string({ required_error: 'Type is required' }).min(1, 'Type is required'),
 
-  movieTitle: z.string().min(1, 'Movie title is required'),
+  movieTitle: z.string().min(1, 'Title is required'),
 
   genres: z
     .array(z.string(), { required_error: 'At least one genre is required' })
@@ -38,7 +38,15 @@ export const movieModalScheme = z.object({
   runtime: numberField(
     z
       .number({ required_error: 'Runtime must be at least 10 minutes' })
-      .min(10, 'Runtime must be at least 10 minutes'),
+      .min(10, 'Runtime must be at least 10 minutes')
+      .max(900, 'Runtime must not exceed 900 minutes'),
+  ),
+
+  numberOfSeasons: numberField(
+    z
+      .number({ required_error: 'The number of seasons must not be less than 1' })
+      .min(1, 'The number of seasons must not be less than 1')
+      .max(1000, 'Too many seasons'),
   ),
 
   rating: numberField(
@@ -50,7 +58,7 @@ export const movieModalScheme = z.object({
     message: 'Rating must have at most 1 digit after the decimal point',
   }),
 
-  descriptionMovie: z.string().min(10, 'The movie description must be at least 10 characters'),
+  descriptionMovie: z.string().min(10, 'Description must be at least 10 characters'),
 })
 
 export type MovieModalFormValues = z.infer<typeof movieModalScheme>

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { type Dispatch, type SetStateAction, useRef } from 'react'
 import cls from '@fvilers/cls'
 import styles from './SelectDropdown.module.scss'
 
@@ -6,6 +6,7 @@ import { Button } from '@/shared/ui/Button.tsx'
 
 import { useHandleClickOutside } from '@/shared/lib/useHandleClickOutside.ts'
 import { useTranslation } from 'react-i18next'
+import type { MediaType } from '@/features/modals/lib/types.ts'
 
 interface Option {
   label: string
@@ -19,6 +20,7 @@ interface DropdownSelectorProps {
   error: string | undefined
   value: string | string[]
   onChange: (value: string | string[]) => void
+  setTypeKey?: Dispatch<SetStateAction<MediaType>>
 }
 
 export const SelectDropdown: React.FC<DropdownSelectorProps> = ({
@@ -29,6 +31,7 @@ export const SelectDropdown: React.FC<DropdownSelectorProps> = ({
   error,
   value,
   onChange,
+  setTypeKey,
 }) => {
   const { t } = useTranslation()
 
@@ -37,8 +40,11 @@ export const SelectDropdown: React.FC<DropdownSelectorProps> = ({
   useHandleClickOutside(dropdownRef, isOpen, onToggle)
 
   const selectedItems = Array.isArray(value) ? value : value ? [value] : []
+  const typeKeys = new Set(['Movie', 'Serial', 'Cartoon', 'Animated series'])
 
   const handleSelectItem = (item: string) => {
+    if (typeKeys.has(item)) setTypeKey!(item as MediaType)
+
     if (isMulti) {
       if (selectedItems.includes(item)) {
         onChange(selectedItems.filter(i => i !== item))

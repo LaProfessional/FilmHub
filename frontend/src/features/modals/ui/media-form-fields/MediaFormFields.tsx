@@ -1,32 +1,50 @@
 import styles from '@/features/modals/ui/media-form-fields/MediaFormFields.module.scss'
-import { Controller, type Control, type FieldErrors, type UseFormRegister } from 'react-hook-form'
+import type { Dispatch, SetStateAction } from 'react'
+import {
+  Controller,
+  type Control,
+  type FieldErrors,
+  type UseFormRegister,
+  type WatchInternal,
+} from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
 import { FormGroup } from '@/features/modals/ui/form-group/FormGroup.tsx'
 import { SelectDropdown } from '@/features/modals/ui/select-dropdown/SelectDropdown.tsx'
 import { Input } from '@/shared/ui/Input.tsx'
 
-import { movieSelectOptions } from '@/features/modals/ui/model/movieSelectOptions.ts'
-import { type MovieModalFormValues } from '@/features/modals/ui/model/movieModalScheme.ts'
+import { movieSelectOptions } from '@/features/modals/model/movieSelectOptions.ts'
+import { type MovieModalFormValues } from '@/features/modals/model/movieModalScheme.ts'
+import type { MediaType, MovieData } from '@/features/modals/lib/types.ts'
 
 interface MediaFormFieldsProps {
   control: Control<MovieModalFormValues>
+  watch: WatchInternal<MovieModalFormValues>
   register: UseFormRegister<MovieModalFormValues>
   errors: FieldErrors<MovieModalFormValues>
   isMenuOpen: string
   setIsMenuOpen: (menu: string) => void
+  setTypeKey?: Dispatch<SetStateAction<MediaType>>
+  dataType: MovieData
 }
 
 export const MediaFormFields: React.FC<MediaFormFieldsProps> = ({
   control,
+  watch,
   register,
   errors,
   isMenuOpen,
   setIsMenuOpen,
+  setTypeKey,
+  dataType,
 }) => {
   const { t } = useTranslation()
 
   const { typeOptions, genreOptions, countryOptions, ageOptions } = movieSelectOptions()
+
+  const seasons = new Set(['Serial', 'Animated series'])
+
+  const selectedType = watch('type')
 
   return (
     <div className={styles.formGroupWrapper}>
@@ -42,15 +60,16 @@ export const MediaFormFields: React.FC<MediaFormFieldsProps> = ({
               onToggle={() => setIsMenuOpen(isMenuOpen === 'modalTypes' ? '' : 'modalTypes')}
               isMulti={false}
               error={errors.type?.message}
+              setTypeKey={setTypeKey}
             />
           )}
         />
       </FormGroup>
 
-      <FormGroup label="Movie title" error={errors.movieTitle?.message}>
+      <FormGroup label={dataType.title} error={errors.movieTitle?.message}>
         <Input
           variant="inputAddMovie"
-          placeholder={t('Enter movie title')}
+          placeholder={t(dataType.enterTitle)}
           {...register('movieTitle')}
           error={errors.movieTitle?.message}
         />
@@ -132,13 +151,20 @@ export const MediaFormFields: React.FC<MediaFormFieldsProps> = ({
           />
         </FormGroup>
 
-        <FormGroup label="Runtime (minutes)" error={errors.runtime?.message}>
+        <FormGroup
+          label={dataType.durationInfo}
+          error={
+            seasons.has(selectedType) ? errors.numberOfSeasons?.message : errors.runtime?.message
+          }
+        >
           <Input
             variant="inputAddMovie"
-            placeholder={t('In minutes')}
+            placeholder={t(dataType.info)}
             type="number"
-            {...register('runtime')}
-            error={errors.runtime?.message}
+            {...(seasons.has(selectedType) ? register('numberOfSeasons') : register('runtime'))}
+            error={
+              seasons.has(selectedType) ? errors.numberOfSeasons?.message : errors.runtime?.message
+            }
           />
         </FormGroup>
       </div>
