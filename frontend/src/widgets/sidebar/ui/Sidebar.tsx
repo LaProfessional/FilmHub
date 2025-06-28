@@ -7,7 +7,7 @@ import { ReactComponent as AddSvg } from "@/shared/assets/sidebar/Add.svg"
 
 import { CollapsibleSidebarSection } from "@/widgets/sidebar/ui/CollapsibleSidebarSection.tsx"
 import { Button } from "@/shared/ui/Button/Button"
-import { Input } from "@/shared/ui/Input/Input"
+import { Input } from "@/shared/ui/Input"
 
 import { Plus } from "lucide-react"
 

@@ -4,9 +4,10 @@ import { RoutePath } from "../const/routePaths"
 
 import { PrivateRoute } from "../ui/PrivateRoute"
 import { RootLayout } from "@/shared/layout"
-
 import { HomePage } from "@/pages/home"
+
 import { Auth } from "@/pages/auth"
+import homeLoader from "@/app/route-loaders/homeLoader"
 
 export const routerConfig: RouteObject[] = [
   {
@@ -23,6 +24,7 @@ export const routerConfig: RouteObject[] = [
           {
             index: true,
             element: <HomePage />,
+            loader: homeLoader
           },
         ],
       },
