@@ -1,23 +1,25 @@
-import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useState } from "react"
+import { Navigate } from "react-router-dom"
 
 import styles from "./auth.module.scss"
 import titleStyles from "@/shared/styles/components/TitleStyles.module.scss"
 
 import { SignIn, SignUp } from "@/features/auth"
 import { Button } from "@/shared/ui"
-
-import { LOCAL_STORAGE_USER_TOKEN_KEY } from "@/shared/const/localStorage"
+import { useAuth } from "@/app/providers/auth"
+import { RoutePath } from "@/app/providers/router"
 
 export const Auth = () => {
   const [isActive, setIsActive] = useState<boolean>(true)
-  const navigate = useNavigate()
-  const toggleModal = () => setIsActive(!isActive)
+  const { isAuth } = useAuth()
 
-  useEffect(() => {
-    const token = localStorage.getItem(LOCAL_STORAGE_USER_TOKEN_KEY)
-    if (token) navigate("/home")
-  }, [])
+  const toggleModal = () => {
+    setIsActive(!isActive)
+  }
+
+  if (isAuth) {
+    return <Navigate to={RoutePath.ROOT} />
+  }
 
   return (
     <div className={styles.modal}>

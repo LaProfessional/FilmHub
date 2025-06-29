@@ -1,30 +1,37 @@
-import axios from "axios"
-
-import { useNavigate } from "react-router-dom"
-import { LOCAL_STORAGE_USER_TOKEN_KEY } from "@/shared/const/localStorage.ts"
+import api from "@/shared/api"
+import { useAuth } from "@/app/providers/auth"
 
 export const useSignIn = () => {
-  const navigate = useNavigate()
+  const { login } = useAuth()
 
   const signIn = (data: any, setError: any) => {
     const { email, password } = data
 
-    axios
-      .post(`${import.meta.env.VITE_API_URL}/auth/login`, { email, password })
+    api
+      .post(`/auth/login`, { email, password })
       .then(response => {
         const token = response.data.dataValues.token
-        localStorage.setItem(LOCAL_STORAGE_USER_TOKEN_KEY, token)
-        navigate("/")
+        login(token)
       })
-      .catch(error => {
-        const detailMsg = error.response.data.detail
+      .catch((error: any) => {
+        const detailMsg = error.response?.data?.detail
+        const dataConfig = JSON.parse(error.config?.data)
 
-        if (detailMsg.includes("Не верный пароль!")) {
-          setError("password", {
+        if (detailMsg.includes(`Пользователь с email '${dataConfig.email}' не найден!`)) {
+          return setError("email", {
             type: "server",
-            message: "Invalid password",
+            message: `Пользователь с email '${dataConfig.email}' не найден!`,
           })
         }
+
+        if (detailMsg.includes(`Не верный пароль!`)) {
+          return setError("password", {
+            type: "server",
+            message: `Не верный пароль!`,
+          })
+        }
+
+        return console.error("Login failed", error)
       })
   }
   return { signIn }

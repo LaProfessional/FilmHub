@@ -1,11 +1,14 @@
-import { useRoutes } from "react-router-dom"
-import { routeConfig } from "@/shared/config/router"
+import { RouterProvider } from "react-router-dom"
 import { Suspense } from "react"
 
 import { Loading } from "@/widgets/loading"
 
-export const AppRouter = () => {
-  const routes = useRoutes(routeConfig)
+import { route } from "../model/route"
 
-  return <Suspense fallback={<Loading />}>{routes}</Suspense>
+export const AppRouter = () => {
+  return (
+    <Suspense fallback={<Loading />}>
+      <RouterProvider router={route} />
+    </Suspense>
+  )
 }
