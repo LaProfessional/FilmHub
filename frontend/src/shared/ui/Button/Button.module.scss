@@ -5,10 +5,6 @@
   height: 16px;
 }
 
-.addBtn {
-  @include text-styles.text-small-accent;
-}
-
 .signInBtn {
   height: 40px;
   width: 100%;
@@ -24,7 +20,7 @@
   transition: background-color 0.2s ease-in-out;
 }
 
-.addCategoryBtn {
+.confirmInputBtn {
   border-radius: 0 0.8rem 0.8rem 0;
   background-color: var(--button);
 
@@ -202,5 +198,49 @@
 
   &:hover {
     background-color: var(--bg-hover-primary);
+  }
+}
+
+.btnAdd{
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  width: 100%;
+  border-radius: .8rem;
+  padding: .8rem 1.3rem;
+  @include text-styles.text-small-accent;
+  font-size: 1.4rem;
+  border: 1px solid transparent;
+  transition: background-color 0.1s linear;
+
+  &:hover {
+    background-color: var(--bg-hover-primary);
+  }
+
+  svg {
+    stroke: var(--color-accent);
+  }
+}
+
+.btnDeleteFolder,
+.btnEditFolder {
+  display: flex;
+  align-items: center;
+  margin: -10px 0;
+  transition: all 0.2s ease;
+
+  svg {
+    stroke: var(--color-muted);
+    transition: stroke 0.2s;
+
+    &:hover {
+      stroke: var(--color-danger);
+    }
+  }
+}
+
+.btnEditFolder {
+  svg:hover {
+    stroke: var(--color-primary);
   }
 }

@@ -1,15 +1,13 @@
 @use "../../styles/abstracts/text-styles" as text-styles;
 
-.inputCategory {
+.inputWithAction {
   width: 100%;
-  border-radius: 0.8rem 0 0 0.8rem;
-
+  border-radius: .8rem 0 0 .8rem;
   border: 1px solid var(--border);
   border-right: none;
-
   @include text-styles.text-medium-semibold-oblique;
-
-  padding: 0.8rem 1.3rem;
+  font-size: 1.4rem;
+  padding: .8rem 1.3rem;
 }
 
 .inputSearch {

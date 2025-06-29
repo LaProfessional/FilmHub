@@ -1,0 +1,10 @@
+.wrapperInput {
+  display: flex;
+  border-radius: .8rem;
+  transition: outline-color 0.2s ease-in-out;
+  outline: 1px solid transparent;
+
+  &:has(input:focus) {
+    outline: 1px solid var(--input-focus);
+  }
+}
