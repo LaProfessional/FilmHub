@@ -83,6 +83,7 @@
 
   "Type": "Тип",
   "Upload cover": "Загрузить обложку",
+  "Drop image here": "Перетащите сюда",
   "Movie title": "Название фильма",
   "Serial title": "Название сериала",
   "Cartoon title": "Название мультфильма",
@@ -129,5 +130,7 @@
   "Type is required": "Тип обязателен",
   "Age is required": "Возраст обязателен",
   "The number of seasons must not be less than 1": "Количество сезонов не должно быть меньше 1",
-  "Too many seasons": "Слишком много сезонов"
+  "Too many seasons": "Слишком много сезонов",
+  "Invalid URL format": "Неверный формат URL",
+  "Image is not accessible or not a valid image": "Изображение недоступно или не является действительным"
 }

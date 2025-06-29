@@ -24,7 +24,7 @@ export const MediaModalFooter: React.FC<MediaModalFooterProps> = ({
         {t('Cancel')}
       </Button>
 
-      <Button variant="btnAddMovie">{t(dataType.add)}</Button>
+      <Button type="submit" variant="btnAddMovie">{t(dataType.add)}</Button>
     </footer>
   )
 }

@@ -83,6 +83,7 @@
 
   "Type": "Type",
   "Upload cover": "Upload cover",
+  "Drop image here": "Drop image here",
   "Movie title": "Movie title",
   "Serial title": "Serial title",
   "Cartoon title": "Cartoon title",
@@ -129,5 +130,7 @@
   "Type is required": "Type is required",
   "Age is required": "Age is required",
   "The number of seasons must not be less than 1": "The number of seasons must not be less than 1",
-  "Too many seasons": "Too many seasons"
+  "Too many seasons": "Too many seasons",
+  "Invalid URL format": "Invalid URL",
+  "Image is not accessible or not a valid image": "Image is not accessible or not a valid image"
 }

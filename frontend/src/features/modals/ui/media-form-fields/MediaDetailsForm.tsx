@@ -39,7 +39,10 @@ export const MediaDetailsForm: React.FC<MediaFormFieldsProps> = ({
   return (
     <>
       <div className={styles.formMain}>
-        <MediaImageUpload />
+        <MediaImageUpload
+          register={register}
+          errors={errors}
+        />
 
         <div className={styles.formGroupWrapper}>
           <MediaBasicInfoFields

@@ -1,4 +1,5 @@
 import z from 'zod'
+import axios from 'axios'
 
 const numberField = (schema: z.ZodNumber) => {
   return z.preprocess(val => {
@@ -10,6 +11,20 @@ const numberField = (schema: z.ZodNumber) => {
 const oneDecimalRefinement = (val: number) => {
   const decimalPart = val.toString().split('.')[1]
   return !decimalPart || decimalPart.length === 1
+}
+
+const isImageUrlAccessible = async (url: string): Promise<boolean> => {
+  try {
+    const response = await axios.get(url, {
+      headers: { Range: 'bytes=0-0' },
+      validateStatus: status => status < 500,
+    })
+
+    const contentType = response.headers['content-type']
+    return response.status === 200 || (response.status === 206 && contentType?.startsWith('image/'))
+  } catch {
+    return false
+  }
 }
 
 export const movieModalScheme = z.object({
@@ -59,6 +74,15 @@ export const movieModalScheme = z.object({
   }),
 
   descriptionMovie: z.string().min(10, 'Description must be at least 10 characters'),
+
+  urlImage: z
+    .string()
+    .url({ message: 'Invalid URL format' })
+    .refine(async url => await isImageUrlAccessible(url), {
+      message: 'Image is not accessible or not a valid image',
+    })
+    .optional()
+    .or(z.literal('')),
 })
 
 export type MovieModalFormValues = z.infer<typeof movieModalScheme>
