@@ -8,8 +8,8 @@ import { MediaModalHeader } from '@/features/modals/ui/media-modal-header/MediaM
 import { MediaDetailsForm } from '@/features/modals/ui/media-form-fields/MediaDetailsForm.tsx'
 
 import {
+  getMovieModalSchema,
   type MovieModalFormValues,
-  movieModalScheme,
 } from '@/features/modals/model/movieModalScheme.ts'
 import { getMediaTypeData } from '@/features/modals/lib/mediaTypeMap.ts'
 import type { MediaType } from '@/features/modals/lib/types.ts'
@@ -34,14 +34,17 @@ export const ManualAddMediaModal: React.FC<AddMovieModalProps> = ({
     if (!isOpen) setIsMenuOpen('')
   }, [isOpen])
 
+  const movieModalSchema = getMovieModalSchema(typeKey)
+
   const {
     register,
+    unregister,
     handleSubmit,
     control,
     watch,
     formState: { errors },
   } = useForm<MovieModalFormValues>({
-    resolver: zodResolver(movieModalScheme) as Resolver<MovieModalFormValues>,
+    resolver: zodResolver(movieModalSchema) as Resolver<MovieModalFormValues>,
   })
 
   const handleAddMovie = (data: MovieModalFormValues) => {
@@ -62,6 +65,7 @@ export const ManualAddMediaModal: React.FC<AddMovieModalProps> = ({
           setIsMenuOpen={setIsMenuOpen}
           setTypeKey={setTypeKey}
           dataType={dataType}
+          unregister={unregister}
         />
       </section>
 

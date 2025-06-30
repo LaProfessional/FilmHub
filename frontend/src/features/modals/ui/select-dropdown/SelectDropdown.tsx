@@ -40,10 +40,9 @@ export const SelectDropdown: React.FC<DropdownSelectorProps> = ({
   useHandleClickOutside(dropdownRef, isOpen, onToggle)
 
   const selectedItems = Array.isArray(value) ? value : value ? [value] : []
-  const typeKeys = new Set(['Movie', 'Serial', 'Cartoon', 'Animated series'])
 
   const handleSelectItem = (item: string) => {
-    if (typeKeys.has(item)) setTypeKey!(item as MediaType)
+    setTypeKey?.(item as MediaType)
 
     if (isMulti) {
       if (selectedItems.includes(item)) {

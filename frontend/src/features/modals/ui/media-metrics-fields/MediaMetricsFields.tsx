@@ -1,11 +1,13 @@
 import styles from '@/features/modals/ui/media-metrics-fields/MediaMetricsFields.module.scss'
 import { FormGroup } from '@/features/modals/ui/form-group/FormGroup.tsx'
 import { Input } from '@/shared/ui/Input.tsx'
+import { useEffect } from 'react'
 import {
   type Control,
   Controller,
   type FieldErrors,
   type UseFormRegister,
+  type UseFormUnregister,
   type WatchInternal,
 } from 'react-hook-form'
 import { SelectDropdown } from '@/features/modals/ui/select-dropdown/SelectDropdown.tsx'
@@ -17,6 +19,7 @@ import { movieSelectOptions } from '@/features/modals/model/movieSelectOptions.t
 interface MediaMetricsFieldsProps {
   watch: WatchInternal<MovieModalFormValues>
   register: UseFormRegister<MovieModalFormValues>
+  unregister: UseFormUnregister<MovieModalFormValues>
   control: Control<MovieModalFormValues>
   errors: FieldErrors<MovieModalFormValues>
   isMenuOpen: string
@@ -27,6 +30,7 @@ interface MediaMetricsFieldsProps {
 export const MediaMetricsFields: React.FC<MediaMetricsFieldsProps> = ({
   watch,
   register,
+  unregister,
   control,
   errors,
   isMenuOpen,
@@ -39,6 +43,10 @@ export const MediaMetricsFields: React.FC<MediaMetricsFieldsProps> = ({
 
   const seasons = new Set(['Serial', 'Animated series'])
   const selectedType = watch('type')
+
+  useEffect(() => {
+    seasons.has(selectedType) ? unregister('runtime') : unregister('numberOfSeasons')
+  }, [selectedType, unregister])
 
   return (
     <>

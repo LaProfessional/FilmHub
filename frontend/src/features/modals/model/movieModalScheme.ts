@@ -27,7 +27,9 @@ const isImageUrlAccessible = async (url: string): Promise<boolean> => {
   }
 }
 
-export const movieModalScheme = z.object({
+const seasons = new Set(['Serial', 'Animated series'])
+
+const baseSchema = z.object({
   type: z.string({ required_error: 'Type is required' }).min(1, 'Type is required'),
 
   movieTitle: z.string().min(1, 'Title is required'),
@@ -48,20 +50,6 @@ export const movieModalScheme = z.object({
       .int('Year of release must be an integer')
       .gte(1000, 'Year of release must be a 4-digit number')
       .lte(9999, 'Year of release must be a 4-digit number'),
-  ),
-
-  runtime: numberField(
-    z
-      .number({ required_error: 'Runtime must be at least 10 minutes' })
-      .min(10, 'Runtime must be at least 10 minutes')
-      .max(900, 'Runtime must not exceed 900 minutes'),
-  ),
-
-  numberOfSeasons: numberField(
-    z
-      .number({ required_error: 'The number of seasons must not be less than 1' })
-      .min(1, 'The number of seasons must not be less than 1')
-      .max(1000, 'Too many seasons'),
   ),
 
   rating: numberField(
@@ -85,4 +73,31 @@ export const movieModalScheme = z.object({
     .or(z.literal('')),
 })
 
-export type MovieModalFormValues = z.infer<typeof movieModalScheme>
+const runtimeSchema = baseSchema.extend({
+  runtime: numberField(
+    z
+      .number({ required_error: 'Runtime must be at least 10 minutes' })
+      .min(10, 'Runtime must be at least 10 minutes')
+      .max(900, 'Runtime must not exceed 900 minutes'),
+  ),
+  numberOfSeasons: numberField(z.number()).optional(),
+})
+
+const seasonsSchema = baseSchema.extend({
+  numberOfSeasons: numberField(
+    z
+      .number({ required_error: 'The number of seasons must not be less than 1' })
+      .min(1, 'The number of seasons must not be less than 1')
+      .max(1000, 'Too many seasons'),
+  ).optional(),
+  runtime: numberField(z.number()).optional(),
+})
+
+export const getMovieModalSchema = (type: string) => {
+  return seasons.has(type) ? seasonsSchema : runtimeSchema
+}
+
+export type MovieModalFormValues = z.infer<typeof baseSchema> & {
+  runtime?: number
+  numberOfSeasons?: number
+}

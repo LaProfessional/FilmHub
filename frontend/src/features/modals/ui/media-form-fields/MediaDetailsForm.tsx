@@ -3,7 +3,7 @@ import { type Dispatch, type SetStateAction } from 'react'
 import {
   type Control,
   type FieldErrors,
-  type UseFormRegister,
+  type UseFormRegister, type UseFormUnregister,
   type WatchInternal,
 } from 'react-hook-form'
 
@@ -19,6 +19,7 @@ interface MediaFormFieldsProps {
   control: Control<MovieModalFormValues>
   watch: WatchInternal<MovieModalFormValues>
   register: UseFormRegister<MovieModalFormValues>
+  unregister: UseFormUnregister<MovieModalFormValues>
   errors: FieldErrors<MovieModalFormValues>
   isMenuOpen: string
   setIsMenuOpen: (menu: string) => void
@@ -30,6 +31,7 @@ export const MediaDetailsForm: React.FC<MediaFormFieldsProps> = ({
   control,
   watch,
   register,
+  unregister,
   errors,
   isMenuOpen,
   setIsMenuOpen,
@@ -39,10 +41,7 @@ export const MediaDetailsForm: React.FC<MediaFormFieldsProps> = ({
   return (
     <>
       <div className={styles.formMain}>
-        <MediaImageUpload
-          register={register}
-          errors={errors}
-        />
+        <MediaImageUpload register={register} errors={errors} />
 
         <div className={styles.formGroupWrapper}>
           <MediaBasicInfoFields
@@ -66,6 +65,7 @@ export const MediaDetailsForm: React.FC<MediaFormFieldsProps> = ({
             watch={watch}
             control={control}
             register={register}
+            unregister={unregister}
             isMenuOpen={isMenuOpen}
             setIsMenuOpen={setIsMenuOpen}
             dataType={dataType}
