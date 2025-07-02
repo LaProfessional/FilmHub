@@ -9,7 +9,7 @@ import { LayoutToggleButtons } from "@/pages/home/ui/layout-toggle-buttons/Layou
 import { MovieCard } from "@/pages/home/ui/movie-card/MovieCard.tsx";
 // import { EmptyMovieCard } from "@/pages/home/ui/empty-movie-card/EmptyMovieCard.tsx";
 import { Modal } from "@/shared/ui/Modal/Modal.tsx";
-import { ManualAddMediaModal } from "@/features/modals/ui/manual-add-media-modal/ManualAddMediaModal.tsx";
+import { ManualAddMediaModal } from "@/widgets/modals/ui/manual-add-media-modal/ManualAddMediaModal.tsx";
 
 import { useHandleClickOutside } from "@/shared/lib/useHandleClickOutside.ts";
 

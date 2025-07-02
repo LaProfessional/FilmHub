@@ -72,7 +72,7 @@ const baseSchema = z.object({
     .optional()
     .or(z.literal('')),
 
-  image: z.any().refine(file => file !== undefined && file !== null, {
+  image: z.any().refine(file => file != null, {
     message: 'Image must not be empty',
   }),
 })

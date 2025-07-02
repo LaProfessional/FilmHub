@@ -9,6 +9,7 @@ import type { MovieModalFormValues } from '@/features/modals/model/movieModalSch
 import { Input } from '@/shared/ui/Input.tsx'
 import { FormGroup } from '@/features/modals/ui/form-group/FormGroup.tsx'
 import cls from '@fvilers/cls'
+import { usePageDragging } from '@/shared/lib/usePageDragging.ts'
 
 interface MediaImageUploadProps {
   register: UseFormRegister<MovieModalFormValues>
@@ -26,16 +27,7 @@ export const MediaImageUpload: React.FC<MediaImageUploadProps> = ({
   const [preview, setPreview] = useState<string | null>(null)
   const [url, setUrl] = useState<string>('')
 
-  const onDrop = useCallback((acceptedFiles: File[]) => {
-    const file = acceptedFiles[0]
-    if (file) setPreview(URL.createObjectURL(file))
-  }, [])
-
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop,
-    accept: { 'image/*': [] },
-    multiple: false,
-  })
+  const isPageDragging = usePageDragging()
 
   // Url test image: https://fastly.picsum.photos/id/59/600/400.jpg?hmac=hCS_vJsQfuK1hUlwEUlGbUAnb_pFljGkD-2jdYxB1y8
 
@@ -49,31 +41,49 @@ export const MediaImageUpload: React.FC<MediaImageUploadProps> = ({
             if (url) field.onChange(url)
           }, [url])
 
+          const onDrop = useCallback((acceptedFiles: File[]) => {
+            const file = acceptedFiles[0]
+            if (file) {
+              setPreview(URL.createObjectURL(file))
+              field.onChange(file)
+            }
+          }, [])
+
+          const { getRootProps, getInputProps } = useDropzone({
+            onDrop,
+            accept: { 'image/*': [] },
+            multiple: false,
+          })
+
           return (
             <div
               {...field}
               className={cls(styles.uploadPreview, errors.image?.message && styles.error)}
               {...getRootProps()}
             >
+              {isPageDragging ? <span className={styles.testBgc}>{t('Drop image here')}</span> : ''}
+
               <Input {...getInputProps()} />
 
               {url ? (
                 <img className={styles.picture} src={url} alt="preview" />
               ) : preview ? (
                 <img className={styles.picture} src={preview} alt="preview" />
+              ) : isPageDragging ? (
+                ''
               ) : (
-                <span>{isDragActive ? t('Drop image here') : t('Upload cover')}</span>
+                <span>{t('Upload cover')}</span>
+              )}
+
+              {errors.image?.message ? (
+                <p className={errorMessage.error}>{t(String(errors.image?.message))}</p>
+              ) : (
+                ''
               )}
             </div>
           )
         }}
       />
-
-      {errors.image?.message ? (
-        <p className={errorMessage.error}>{t(String(errors.image?.message))}</p>
-      ) : (
-        ''
-      )}
 
       <FormGroup label={t('Link to the image')} error={errors.urlImage?.message}>
         <Input
