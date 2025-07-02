@@ -10,7 +10,7 @@ const numberField = (schema: z.ZodNumber) => {
 
 const oneDecimalRefinement = (val: number) => {
   const decimalPart = val.toString().split('.')[1]
-  return !decimalPart || decimalPart.length === 1
+  return !decimalPart || decimalPart.length <= 1
 }
 
 const isImageUrlAccessible = async (url: string): Promise<boolean> => {
@@ -71,6 +71,10 @@ const baseSchema = z.object({
     })
     .optional()
     .or(z.literal('')),
+
+  image: z.any().refine(file => file !== undefined && file !== null, {
+    message: 'Image must not be empty',
+  }),
 })
 
 const runtimeSchema = baseSchema.extend({

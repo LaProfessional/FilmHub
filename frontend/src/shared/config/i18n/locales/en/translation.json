@@ -132,5 +132,6 @@
   "The number of seasons must not be less than 1": "The number of seasons must not be less than 1",
   "Too many seasons": "Too many seasons",
   "Invalid URL format": "Invalid URL",
-  "Image is not accessible or not a valid image": "Image is not accessible or not a valid image"
+  "Image is not accessible or not a valid image": "Image is not accessible or not a valid image",
+  "Image must not be empty": "Image must not be empty"
 }

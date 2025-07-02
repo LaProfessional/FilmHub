@@ -3,7 +3,8 @@ import { type Dispatch, type SetStateAction } from 'react'
 import {
   type Control,
   type FieldErrors,
-  type UseFormRegister, type UseFormUnregister,
+  type UseFormRegister,
+  type UseFormUnregister,
   type WatchInternal,
 } from 'react-hook-form'
 
@@ -41,7 +42,7 @@ export const MediaDetailsForm: React.FC<MediaFormFieldsProps> = ({
   return (
     <>
       <div className={styles.formMain}>
-        <MediaImageUpload register={register} errors={errors} />
+        <MediaImageUpload register={register} errors={errors} control={control} />
 
         <div className={styles.formGroupWrapper}>
           <MediaBasicInfoFields

@@ -55,7 +55,7 @@ export const MediaMetricsFields: React.FC<MediaMetricsFieldsProps> = ({
           <Input
             variant="inputAddMovie"
             placeholder="8.5"
-            type="number"
+            step="0.1"
             {...register('rating')}
             error={errors.rating?.message}
           />
