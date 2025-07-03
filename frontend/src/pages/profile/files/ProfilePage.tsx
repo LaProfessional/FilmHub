@@ -29,7 +29,7 @@ export const ProfilePage = () => {
   const { t } = useTranslation();
   const [formData, setFormData] = useState<FormData>({
     username: 'UserName',
-    email: '',
+    email: 'gdetytposhta@asdasd.okay',
     bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     currentPassword: '',
     newPassword: '',
@@ -79,45 +79,49 @@ export const ProfilePage = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.profileHeader}>
-        <div className={styles.profileImg}>
-          {avatarPreview ? (
-            <img src={avatarPreview} width="150" alt="Preview" />
-          ) : (
-            <img src="./bg.jpg" width="150" alt="Profile" />
-          )}
-        </div>
-        <div className={styles.profileNavInfo}>
+      <section className={styles.profileHeader}>
+
+        <h2 className={styles.hidden}>{t("UserProfileHeader")}</h2>
+        
+        <figure className={styles.profileImg}>
+          <img
+            src={avatarPreview || "./bg.jpg"}
+            width="150"
+            alt={t("ProfilePicture")}
+          />
+        </figure>
+        <div className={styles.profileUserName}>
           <span className={styles.userName}>{formData.username}</span>
         </div>
-      </div>
+      </section>
 
       <div className={styles.mainBd}>
-        <div className={styles.leftSide}>
+        <aside className={styles.leftSide}>
           <div className={styles.profileSide}>
-            {/* <p className={styles.mobileNo}><span>{formData.tel}</span></p> */}
-            <p className={styles.userMail}><span> {formData.email}</span></p>
-            <div className={styles.userBio}>
+            <p className={styles.userMail}>
+              <span>{formData.email}</span>
+            </p>
+            <section className={styles.userBio}>
               <h3>{t("AboutMe")}</h3>
               <p className={styles.bio}>{formData.bio}</p>
-            </div>
+            </section>
           </div>
-        </div>
+        </aside>
 
         <div className={styles.rightSide}>
-          <div className={styles.tabNavigation}>
+          <nav className={styles.tabNavigation} aria-label="Profile Tabs">
             {tabs.map(tab => (
               <Button
-                variant='tabBtn'
+                variant="tabBtn"
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
               >
                 {tab.label}
               </Button>
             ))}
-          </div>
+          </nav>
 
-          <div className={styles.profileBody}>
+          <section className={styles.tabContent}>
             {activeTab === 'profile-settings' && (
               <ProfileSettingsTab
                 formData={formData}
@@ -126,14 +130,14 @@ export const ProfilePage = () => {
                 handleSubmit={handleSubmit}
               />
             )}
-{/*         
+            {/*         
             отсальные вкладки отдельными файлами сделать и импортиировать
   
             {activeTab === 'flags' && <FlagsTab />}
             {activeTab === 'collections' && <CollectionsTab />}
             {activeTab === 'achievements' && <AchievementsTab />}
             {activeTab === 'settings' && <SettingsTab />} */}
-          </div>
+          </section>
         </div>
       </div>
     </div>

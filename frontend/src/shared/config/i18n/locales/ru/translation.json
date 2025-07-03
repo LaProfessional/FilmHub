@@ -38,5 +38,6 @@
   "ChangePhoto": "Изменить фото",
   "LinkedAccounts": "Привязанные аккаунты",
   "Connect": "Привязать",
-  "SaveChanges": "Сохранить изменения"
+  "SaveChanges": "Сохранить изменения",
+  "UserProfileHeader": "Профиль пользователя"
 }

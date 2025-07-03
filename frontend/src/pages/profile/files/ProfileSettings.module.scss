@@ -1,0 +1,66 @@
+@use "../../../shared/styles/abstracts/variables" as vars;
+
+
+
+
+.profileForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
+
+  .profileSettingsContentCell {
+    flex: 1 1 calc(50% - 0.625rem); 
+    min-width: 250px; 
+    margin-bottom: 0.9rem;
+
+    @media (max-width: 900px) {
+      flex: 1 1 100%;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      font-size: 1.2rem;
+    }
+  }
+
+  .avatarUpload {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+// textArea заменить на кастомный надо бы
+.textareaField {
+  width: 100%;
+  resize: vertical;
+  min-height: 6.25rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  color: var(--color-muted);
+}
+
+
+.hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+
+.LinkedIconsContainer {
+    display: flex;
+    flex-direction: row;
+    a {
+        padding-right: 2rem;
+        margin-top: .5rem;
+    }
+}

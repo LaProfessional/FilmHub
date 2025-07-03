@@ -1,9 +1,13 @@
 import type { FormData } from './ProfilePage';
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
-import styles from './ProfilePage.module.scss';
+import styles from './ProfileSettings.module.scss';
 import React from 'react';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
+
+import { ReactComponent as VkIcon} from '@/shared/assets/profile/vk.svg';
+import { ReactComponent as FacebookIcon} from '@/shared/assets/profile/facebook.svg';
+import { ReactComponent as GoogleIcon} from '@/shared/assets/profile/google.svg';
 
 interface Props {
   formData: FormData;
@@ -16,7 +20,8 @@ export const ProfileSettingsTab: React.FC<Props> = ({
   formData,
   handleChangeTextData,
   handleAvatarChange,
-  handleSubmit
+  handleSubmit,
+
 }) => {
   const { t } = useTranslation();
 
@@ -26,65 +31,72 @@ export const ProfileSettingsTab: React.FC<Props> = ({
   };
 
   return (
-    <div className={styles.tabContent}>
+    <section className={styles.tabContent}>
+      <h3 className={styles.hidden}>{t('ProfileSettings')}</h3>
       <form onSubmit={handleSubmit} className={styles.profileForm}>
-        <div className={styles.formGroup}>
-          <label>{t("Username")}</label>
+        <div className={styles.profileSettingsContentCell}>
+          <label>{t('Username')}</label>
           <Input
             type="text"
             name="username"
             value={formData.username}
             onChange={handleChangeTextData}
-            placeholder={t("EnterUsername")}
+            placeholder={t('EnterUsername')}
             variant={'inputCategory'}
           />
         </div>
-        <div className={styles.formGroup}>
-          <label>{t("Email")}</label>
+
+        <div className={styles.profileSettingsContentCell}>
+          <label>{t('Email')}</label>
           <Input
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChangeTextData}
-            placeholder={t("EnterYourEmail")}
+            placeholder={t('EnterYourEmail')}
             variant={'inputCategory'}
           />
+
         </div>
-        <div className={styles.formGroup}>
-          <label>{t("CurrentPassword")}</label>
+
+        <div className={styles.profileSettingsContentCell}>
+          <label>{t('CurrentPassword')}</label>
           <Input
             type="password"
             name="currentPassword"
             value={formData.currentPassword}
             onChange={handleChangeTextData}
-            placeholder={t("EnterCurrentPassword")}
+            placeholder={t('EnterCurrentPassword')}
             variant={'inputCategory'}
           />
         </div>
-        <div className={styles.formGroup}>
-          <label>{t("NewPassword")}</label>
+
+        <div className={styles.profileSettingsContentCell}>
+          <label>{t('NewPassword')}</label>
           <Input
             type="password"
             name="newPassword"
             value={formData.newPassword}
             onChange={handleChangeTextData}
-            placeholder={t("EnterNewPassword")}
+            placeholder={t('EnterNewPassword')}
             variant={'inputCategory'}
           />
         </div>
-        <div className={styles.formGroup}>
-          <label>{t("ConfirmPassword")}</label>
+
+        <div className={styles.profileSettingsContentCell}>
+          <label>{t('ConfirmPassword')}</label>
           <Input
             type="password"
             name="confirmPassword"
             value={formData.confirmPassword}
             onChange={handleChangeTextData}
-            placeholder={t("RepeatNewPassword")}
+            placeholder={t('RepeatNewPassword')}
             variant={'inputCategory'}
           />
         </div>
-        <div className={styles.formGroup}>
-          <label>{t("AboutMe")}</label>
+
+        <div className={styles.profileSettingsContentCell}>
+          <label>{t('AboutMe')}</label>
           <textarea
             name="bio"
             value={formData.bio}
@@ -93,8 +105,9 @@ export const ProfileSettingsTab: React.FC<Props> = ({
             className={styles.textareaField}
           />
         </div>
-        <div className={styles.formGroup}>
-          <label>{t("ProfileAvatar")}</label>
+
+        <div className={styles.profileSettingsContentCell}>
+          <label>{t('ProfileAvatar')}</label>
           <div className={styles.avatarUpload}>
             <input
               type="file"
@@ -103,27 +116,32 @@ export const ProfileSettingsTab: React.FC<Props> = ({
               onChange={handleAvatarChange}
               style={{ display: 'none' }}
             />
-            <Button variant='uploadButton' children={<span>{t("ChangePhoto")}</span>} onClick={handleTriggerAvatarChange} />
+            <Button variant="uploadButton" onClick={handleTriggerAvatarChange}>
+              <span>{t('ChangePhoto')}</span>
+            </Button>
           </div>
         </div>
-        <div className={styles.formGroup}>
-      <h3>Привязанные аккаунты</h3>
-      <div>
-        <a href="#" title="Google">
-          <img width={20} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google" />
-        </a>
-        <a href="#" title="VK">
-          <img width={20} src="https://upload.wikimedia.org/wikipedia/commons/2/21/VK.com-logo.svg" alt="VK" />
-        </a>
-        <a href="#" title="Facebook">
-          <img width={20} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg" alt="Facebook" />
-        </a>
-      </div>
+
+        <div className={styles.profileSettingsContentCell}>
+          <label>{t("LinkedAccounts")}</label>
+          <div className={styles.LinkedIconsContainer}>
+            <a href="#" title="Google">
+               <GoogleIcon width={30} style={{ filter:'grayscale(100%) brightness(0.7)' }} />
+            </a>
+            <a href="#" title="VK">
+              <VkIcon width={30} height={30} style={{ filter:'grayscale(100%) brightness(0.7)' }} />
+            </a>
+            <a href="#" title="Facebook">
+              <FacebookIcon width={30} style={{ filter:'grayscale(100%) brightness(0.7)' }}/>
+            </a>
+            
+          </div>
         </div>
-        <Button variant='uploadButton'>
-          {t("SaveChanges")}
+
+        <Button variant="uploadButton">
+          {t('SaveChanges')}
         </Button>
       </form>
-    </div>
+    </section>
   );
 };
