@@ -1,9 +1,9 @@
 import { Input } from "@/shared/ui/Input/Input"
 import { Button } from "@/shared/ui/Button/Button"
-import styles from "./InputWithAction.module.scss"
+import styles from "./SidebarInput.module.scss"
 import { forwardRef } from "react"
 
-interface InputWithActionProps {
+interface SidebarInputProps {
   value: string
   onChange: (value: string) => void
   onClick: () => void
@@ -16,7 +16,7 @@ interface InputWithActionProps {
   className?: string
 }
 
-export const InputWithAction = forwardRef<HTMLDivElement, InputWithActionProps>(({
+export const SidebarInput = forwardRef<HTMLDivElement, SidebarInputProps>(({
   value,
   onChange,
   onClick,
@@ -24,7 +24,7 @@ export const InputWithAction = forwardRef<HTMLDivElement, InputWithActionProps>(
   inputRef,
   buttonTitle,
   icon,
-  inputVariant = "inputWithAction",
+  inputVariant = "SidebarInput",
   buttonVariant = "confirmInputBtn",
   className = "",
 }, ref) => {
@@ -36,9 +36,15 @@ export const InputWithAction = forwardRef<HTMLDivElement, InputWithActionProps>(
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            e.preventDefault()
+            onClick()
+          }
+        }}
         // @ts-expect-error
         ref={inputRef}
-        spellCheck={false} 
+        spellCheck={false}
       />
       <Button
         variant={buttonVariant}

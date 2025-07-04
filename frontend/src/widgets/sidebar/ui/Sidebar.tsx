@@ -8,7 +8,7 @@ import { ReactComponent as AddSvg } from "@/shared/assets/sidebar/Add.svg"
 
 import { CollapsibleSidebarSection } from "@/widgets/sidebar/ui/CollapsibleSidebarSection.tsx"
 import { UserFolders } from "./UserFolders"
-import { InputWithAction } from "@/shared/ui/InputWithAction/InputWithAction"
+import { SidebarInput } from "@/shared/ui/SidebarInput/SidebarInput"
 import { Button } from "@/shared/ui/Button/Button"
 import { Plus } from "lucide-react"
 
@@ -33,7 +33,7 @@ export const Sidebar = () => {
   return (
     <aside className={styles.sidebar}>
       <nav className={styles.nav}>
-      <InputWithAction
+      <SidebarInput
         value={folderName}
         onChange={setFolderName}
         onClick={handleCreateFolder}

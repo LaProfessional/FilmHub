@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react"
 import { useHandleClickOutside } from "@/shared/lib/useHandleClickOutside"
-import { InputWithAction } from "@/shared/ui/InputWithAction/InputWithAction"
+import { SidebarInput } from "@/shared/ui/SidebarInput/SidebarInput"
 import { Button } from "@/shared/ui/Button/Button"
 import { Trash2, Plus, Pencil, Check } from "lucide-react"
 import styles from "../ui/UserFolders.module.scss"
@@ -101,7 +101,7 @@ export const UserFolders: React.FC<UserFoldersProps> = ({ selectedId, onSelect }
               }}
             >
               {isEditing ? (
-                <InputWithAction
+                <SidebarInput
                   value={editedName}
                   onChange={setEditedName}
                   onClick={handleConfirmEdit}
@@ -147,7 +147,7 @@ export const UserFolders: React.FC<UserFoldersProps> = ({ selectedId, onSelect }
 
       {isAdding ? (
         <div ref={inputWrapperRef}>
-          <InputWithAction
+          <SidebarInput
             value={newFolderName}
             onChange={setNewFolderName}
             onClick={handleConfirmAdd}
