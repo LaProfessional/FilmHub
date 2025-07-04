@@ -4,6 +4,7 @@ import { Input } from '@/shared/ui/Input';
 import styles from './ProfileSettings.module.scss';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Textarea } from '@/shared/ui/Textarea';
 
 import { ReactComponent as VkIcon} from '@/shared/assets/profile/vk.svg';
 import { ReactComponent as FacebookIcon} from '@/shared/assets/profile/facebook.svg';
@@ -97,12 +98,11 @@ export const ProfileSettingsTab: React.FC<Props> = ({
 
         <div className={styles.profileSettingsContentCell}>
           <label>{t('AboutMe')}</label>
-          <textarea
-            name="bio"
+          <Textarea
+            variant='descriptionMovie'
             value={formData.bio}
             onChange={handleChangeTextData}
-            rows={4}
-            className={styles.textareaField}
+            rows={4} 
           />
         </div>
 
