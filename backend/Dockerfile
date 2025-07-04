@@ -4,4 +4,4 @@ WORKDIR /app
 COPY src/package*.json ./
 RUN npm install
 COPY src .
-CMD ["sh", "-c", "npm run migration && npm run dev"]
+CMD ["sh", "-c", "npm i && npm run migration && npm run dev"]
