@@ -7,9 +7,10 @@ import { Navigate } from "react-router";
 import { SignIn, SignUp } from "@/features/auth";
 import { Button } from "@/shared/ui";
 import { useAuth } from "@/app/providers/auth";
-import { RoutePath } from "@/app/providers/router";
 
-export const Auth = () => {
+import { AppRoute } from "@/shared/config";
+
+export const AuthPage = () => {
   const [isActive, setIsActive] = useState<boolean>(true);
   const { isAuth } = useAuth();
 
@@ -18,7 +19,7 @@ export const Auth = () => {
   };
 
   if (isAuth) {
-    return <Navigate to={RoutePath.ROOT} />;
+    return <Navigate to={AppRoute.ROOT} />;
   }
 
   return (

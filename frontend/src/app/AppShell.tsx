@@ -3,7 +3,7 @@ import { Outlet } from "react-router";
 import { Header } from "@/widgets/header";
 import { Sidebar } from "@/widgets/sidebar";
 
-export const RootLayout = () => {
+export const AppShell = () => {
   return (
     <div className="flex flex-col h-[100vh] bg-primary text-primary-foreground">
       <Header />

@@ -1,12 +1,11 @@
 import { Navigate, Outlet } from "react-router";
-
 import { useAuth } from "@/app/providers/auth";
-import { RoutePath } from "../const/routePaths";
+import { AppRoute } from "@/shared/config";
 
 export const PrivateRoute = () => {
   const { isAuth } = useAuth();
 
-  if (!isAuth) return <Navigate to={RoutePath.AUTH} />;
+  if (!isAuth) return <Navigate to={AppRoute.AUTH} />;
 
   return <Outlet />;
 };

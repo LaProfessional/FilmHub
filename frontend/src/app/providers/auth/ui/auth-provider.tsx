@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { AuthContext } from "../model/auth-context";
 import { getAccessToken, removeAccessToken, setAccessToken } from "@/shared/lib/token-storage";
 import { useNavigate } from "react-router";
-import { RoutePath } from "@/app/providers/router";
 
 interface AuthProviderProps {
   children: React.ReactNode;
@@ -22,13 +21,13 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const login = (token: string): void => {
     setAccessToken(token);
     setIsAuth(true);
-    navigate(RoutePath.ROOT);
+    navigate("/");
   };
 
   const logout = (): void => {
     setIsAuth(false);
     removeAccessToken();
-    navigate(RoutePath.AUTH);
+    navigate("/auth");
   };
 
   return <AuthContext.Provider value={{ isAuth, login, logout }}>{children}</AuthContext.Provider>;

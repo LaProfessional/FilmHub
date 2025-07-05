@@ -1,8 +1,8 @@
 import "@/shared/config/i18n";
 
 import { ThemeProvider } from "@/shared/theme";
-import { LanguageProvider } from "@/app/providers/i18n/";
-import { AppRouter } from "@/app/providers/router";
+import { LanguageProvider } from "@/app/providers/i18n";
+import { AppRouter } from "./router";
 
 import "./index.css";
 
