@@ -5,7 +5,7 @@ import { Sidebar } from "@/widgets/sidebar";
 
 export const RootLayout = () => {
   return (
-    <div className="flex flex-col h-[100vh]">
+    <div className="flex flex-col h-[100vh] bg-primary text-primary-foreground">
       <Header />
       <div className="flex flex-1/2">
         <Sidebar />
