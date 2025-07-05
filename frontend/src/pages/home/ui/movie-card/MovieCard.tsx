@@ -1,12 +1,12 @@
-import { useRef } from "react"
-import styles from "./MovieCard.module.scss"
+import { useRef } from "react";
+import styles from "./MovieCard.module.scss";
 
-import { Eye, Trash2, Pencil } from "lucide-react"
+import { Eye, Trash2, Pencil } from "lucide-react";
 
-import { Button } from "@/shared/ui/Button/Button"
+import { Button } from "@/shared/ui";
 
 export const MovieCard = () => {
-  const genresRef = useRef<HTMLDivElement>(null)
+  const genresRef = useRef<HTMLDivElement>(null);
 
   const dataMovies = [
     {
@@ -80,7 +80,7 @@ export const MovieCard = () => {
       yearOfRelease: 2019,
       rating: 7.9,
     },
-  ]
+  ];
 
   return dataMovies.map((card, index) => (
     <article className={styles.movieCard} key={index}>
@@ -106,22 +106,22 @@ export const MovieCard = () => {
         <p className={styles.description}>{card.description}</p>
 
         <div className={styles.btnsContainer}>
-          <Button variant={"btnMore"}>
+          <Button>
             <Eye className={styles.iconEye} size={16} />
             Подробнее
           </Button>
 
           <div className={styles.controlMovieCard}>
-            <Button variant={"btnEditMovieCard"}>
+            <Button>
               <Pencil className={styles.iconPencil} size={16} />
             </Button>
 
-            <Button variant={"btnDeleteMovieCard"}>
+            <Button>
               <Trash2 className={styles.iconTrash2} size={16} />
             </Button>
           </div>
         </div>
       </div>
     </article>
-  ))
-}
+  ));
+};

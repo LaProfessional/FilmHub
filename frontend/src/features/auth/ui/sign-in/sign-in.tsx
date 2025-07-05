@@ -1,16 +1,16 @@
-import formStyles from "@/shared/styles/components/FormStyles.module.scss"
+import formStyles from "@/shared/styles/components/FormStyles.module.scss";
 
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-import { signInSchema, type TSignInSchema } from "../../model/validation.ts"
-import { useSignIn } from "../../api/use-sign-in.ts"
+import { signInSchema, type TSignInSchema } from "../../model/validation";
+import { useSignIn } from "../../api/use-sign-in";
 
-import { FormField } from "../form-field/form-field"
-import { Button } from "@/shared/ui"
+import { FormField } from "../form-field/form-field";
+import { Button } from "@/shared/ui";
 
 export const SignIn = () => {
-  const { signIn } = useSignIn()
+  const { signIn } = useSignIn();
 
   const {
     register,
@@ -19,9 +19,9 @@ export const SignIn = () => {
     formState: { errors },
   } = useForm<TSignInSchema>({
     resolver: zodResolver(signInSchema),
-  })
+  });
 
-  const onSubmit = (data: TSignInSchema) => signIn(data, setError)
+  const onSubmit = (data: TSignInSchema) => signIn(data, setError);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={formStyles.form}>
@@ -50,7 +50,7 @@ export const SignIn = () => {
         type="text"
       />
 
-      <Button variant={"signInBtn"}>Login</Button>
+      <Button>Login</Button>
     </form>
-  )
-}
+  );
+};

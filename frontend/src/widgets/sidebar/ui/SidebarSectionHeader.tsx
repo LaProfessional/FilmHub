@@ -1,17 +1,16 @@
-import styles from "@/widgets/sidebar/ui/SidebarSectionHeader.module.scss"
-import cls from "@fvilers/cls"
+import styles from "@/widgets/sidebar/ui/SidebarSectionHeader.module.scss";
+import { cn } from "@/shared/lib/utils";
+import { ReactComponent as ArrowSvg } from "@/shared/assets/sidebar/Arrow.svg";
 
-import { ReactComponent as ArrowSvg } from "@/shared/assets/sidebar/Arrow.svg"
-
-import { Button } from "@/shared/ui/Button/Button"
+import { Button } from "@/shared/ui";
 
 interface SidebarSectionHeaderProps {
-  variant: string
-  headingStyle: string
-  heading: string
+  variant: string;
+  headingStyle: string;
+  heading: string;
 
-  toggleMenu: () => void
-  isClose: Boolean
+  toggleMenu: () => void;
+  isClose: boolean;
 }
 
 export const SidebarSectionHeader: React.FC<SidebarSectionHeaderProps> = ({
@@ -23,15 +22,13 @@ export const SidebarSectionHeader: React.FC<SidebarSectionHeaderProps> = ({
 }) => {
   return (
     <div className={styles[variant]}>
-      {headingStyle === "title" ? (
+      {headingStyle === "title" ?
         <h2 className={styles[headingStyle]}>{heading}</h2>
-      ) : (
-        <h3 className={styles[headingStyle]}>{heading}</h3>
-      )}
+      : <h3 className={styles[headingStyle]}>{heading}</h3>}
 
-      <Button variant={"collapseExpandBtn"} onClick={toggleMenu}>
-        <ArrowSvg className={cls(styles.arrowSvg, isClose && styles.close)} />
+      <Button onClick={toggleMenu}>
+        <ArrowSvg className={cn(styles.arrowSvg, isClose && styles.close)} />
       </Button>
     </div>
-  )
-}
+  );
+};

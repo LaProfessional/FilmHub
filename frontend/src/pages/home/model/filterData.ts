@@ -1,4 +1,4 @@
-import { type TFunction } from "i18next"
+import { type TFunction } from "i18next";
 
 export const dataFilter = (t: TFunction) => {
   const dataGenre = [
@@ -15,7 +15,7 @@ export const dataFilter = (t: TFunction) => {
     { id: "Animation", htmlFor: "Animation", label: "Animation", value: "animation" },
     { id: "Adventure", htmlFor: "Adventure", label: "Adventure", value: "adventure" },
     { id: "Historical", htmlFor: "Historical", label: "Historical", value: "historical" },
-  ]
+  ];
 
   const dataYear = [
     { id: "All years", htmlFor: "All years", label: "All years", value: "all" },
@@ -34,7 +34,7 @@ export const dataFilter = (t: TFunction) => {
       label: t("Today", { year: 2020 }),
       value: "2020-today",
     },
-  ]
+  ];
 
   const dataOptions = [
     { id: "rating", htmlFor: "rating", label: "By rating", value: "rating" },
@@ -42,7 +42,7 @@ export const dataFilter = (t: TFunction) => {
     { id: "oldest", htmlFor: "oldest", label: "Oldest first", value: "oldest" },
     { id: "az", htmlFor: "az", label: "By name: A-Z", value: "az" },
     { id: "za", htmlFor: "za", label: "By name: Z-A", value: "za" },
-  ]
+  ];
 
-  return { dataGenre, dataYear, dataOptions }
-}
+  return { dataGenre, dataYear, dataOptions };
+};

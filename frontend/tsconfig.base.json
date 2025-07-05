@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true,
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "noUncheckedSideEffectImports": true,
+    "removeComments": true,
+    "esModuleInterop": true,
+    "verbatimModuleSyntax": true,
+    "lib": ["ESNext"],
+    "target": "esnext",
+    "skipLibCheck": true
+  }
+}

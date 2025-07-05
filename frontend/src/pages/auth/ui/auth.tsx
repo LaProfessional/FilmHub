@@ -1,24 +1,24 @@
-import { useState } from "react"
-import { Navigate } from "react-router-dom"
+import { useState } from "react";
+import { Navigate } from "react-router";
 
-import styles from "./auth.module.scss"
-import titleStyles from "@/shared/styles/components/TitleStyles.module.scss"
+import styles from "./auth.module.scss";
+import titleStyles from "@/shared/styles/components/TitleStyles.module.scss";
 
-import { SignIn, SignUp } from "@/features/auth"
-import { Button } from "@/shared/ui"
-import { useAuth } from "@/app/providers/auth"
-import { RoutePath } from "@/app/providers/router"
+import { SignIn, SignUp } from "@/features/auth";
+import { Button } from "@/shared/ui";
+import { useAuth } from "@/app/providers/auth";
+import { RoutePath } from "@/app/providers/router";
 
 export const Auth = () => {
-  const [isActive, setIsActive] = useState<boolean>(true)
-  const { isAuth } = useAuth()
+  const [isActive, setIsActive] = useState<boolean>(true);
+  const { isAuth } = useAuth();
 
   const toggleModal = () => {
-    setIsActive(!isActive)
-  }
+    setIsActive(!isActive);
+  };
 
   if (isAuth) {
-    return <Navigate to={RoutePath.ROOT} />
+    return <Navigate to={RoutePath.ROOT} />;
   }
 
   return (
@@ -28,17 +28,15 @@ export const Auth = () => {
         <p className={styles.subtitle}>Your personal movie platform</p>
 
         <div className={styles.containerBtns}>
-          <Button onClick={toggleModal} isActive={isActive} variant={"regBtn"}>
-            Login
-          </Button>
+          <Button onClick={toggleModal}>Login</Button>
 
-          <Button onClick={toggleModal} isActive={!isActive} variant={"regBtn"}>
-            Register
-          </Button>
+          <Button onClick={toggleModal}>Register</Button>
         </div>
 
-        {isActive ? <SignIn /> : <SignUp />}
+        {isActive ?
+          <SignIn />
+        : <SignUp />}
       </div>
     </div>
-  )
-}
+  );
+};

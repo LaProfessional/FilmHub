@@ -1,9 +1,9 @@
-import styles from "./HomePage.module.scss"
+import styles from "./HomePage.module.scss";
 
-import { FilterPanel } from "@/widgets/filters/ui/FilterPanel.tsx"
+import { FilterPanel } from "@/widgets/filters/ui/FilterPanel";
 
-import { ControlsPanel } from "@/pages/home/ui/controls-panel/ControlsPanel.tsx"
-import { NavTabs } from "@/pages/home/ui/nav-tabs/NavTabs.tsx"
+import { ControlsPanel } from "@/pages/home/ui/controls-panel/ControlsPanel";
+import { NavTabs } from "@/pages/home/ui/nav-tabs/NavTabs";
 
 export const HomePage = () => {
   return (
@@ -19,5 +19,5 @@ export const HomePage = () => {
         <ControlsPanel />
       </nav>
     </div>
-  )
-}
+  );
+};

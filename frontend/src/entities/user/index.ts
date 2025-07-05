@@ -1,1 +1,1 @@
-export { UserMenu } from "./ui/user-menu/user-menu"
+export { UserMenu } from "./ui/user-menu/user-menu";

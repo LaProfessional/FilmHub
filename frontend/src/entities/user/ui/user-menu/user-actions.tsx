@@ -1,11 +1,11 @@
-import styles from "./user-menu.module.scss"
-import { User, Folder, Flag, Settings } from "lucide-react"
+import styles from "./user-menu.module.scss";
+import { User, Folder, Flag, Settings } from "lucide-react";
 
-import { useTranslation } from "react-i18next"
-import clsx from "clsx"
+import { useTranslation } from "react-i18next";
+import clsx from "clsx";
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
 const userActionsButtons: { icon: React.ReactNode; text: string }[] = [
@@ -25,10 +25,10 @@ const userActionsButtons: { icon: React.ReactNode; text: string }[] = [
     icon: <Settings size={18} />,
     text: "Settings",
   },
-]
+];
 
 export const UserActions = ({ className }: Props) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <ul className={clsx(styles.menuList, className)}>
@@ -39,5 +39,5 @@ export const UserActions = ({ className }: Props) => {
         </li>
       ))}
     </ul>
-  )
-}
+  );
+};

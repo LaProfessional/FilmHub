@@ -1,9 +1,9 @@
-import styles from "./RootLayout.module.scss"
+import styles from "./RootLayout.module.scss";
 
-import { Outlet } from "react-router-dom"
+import { Outlet } from "react-router";
 
-import { Header } from "@/widgets/header"
-import { Sidebar } from "@/widgets/sidebar"
+import { Header } from "@/widgets/header";
+import { Sidebar } from "@/widgets/sidebar";
 
 export const RootLayout = () => {
   return (
@@ -16,5 +16,5 @@ export const RootLayout = () => {
         </main>
       </div>
     </div>
-  )
-}
+  );
+};

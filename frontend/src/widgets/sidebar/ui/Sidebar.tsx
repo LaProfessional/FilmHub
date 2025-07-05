@@ -1,25 +1,24 @@
-import styles from "./Sidebar.module.scss"
-import { useTranslation } from "react-i18next"
+import styles from "./Sidebar.module.scss";
+import { useTranslation } from "react-i18next";
 
-import { dataFlags } from "@/widgets/sidebar/model/dataFlags.ts"
+import { dataFlags } from "@/widgets/sidebar/model/dataFlags";
 
-import { ReactComponent as AddSvg } from "@/shared/assets/sidebar/Add.svg"
+// import { ReactComponent as AddSvg } from "@/shared/assets/sidebar/Add.svg";
 
-import { CollapsibleSidebarSection } from "@/widgets/sidebar/ui/CollapsibleSidebarSection.tsx"
-import { Button } from "@/shared/ui/Button/Button"
-import { Input } from "@/shared/ui/Input"
+import { CollapsibleSidebarSection } from "@/widgets/sidebar/ui/CollapsibleSidebarSection";
+import { Button, Input } from "@/shared/ui";
 
-import { Plus } from "lucide-react"
+import { Plus } from "lucide-react";
 
 export const Sidebar = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <aside className={styles.sidebar}>
       <nav className={styles.nav}>
         <div className={styles.wrapperInput}>
-          <Input variant={"inputCategory"} type={"text"} placeholder={t("createCategory")} />
-          <Button variant={"addCategoryBtn"}>
+          <Input type={"text"} placeholder={t("createCategory")} />
+          <Button>
             <Plus size={22} className={styles.plusIcon} />
           </Button>
         </div>
@@ -36,8 +35,8 @@ export const Sidebar = () => {
             </ul>
 
             <div className={styles.wrapper}>
-              <AddSvg className={styles.addSvg} />
-              <Button variant={"addBtn"}>{t("newFolder")}</Button>
+              {/* <AddSvg className={styles.addSvg} /> */}
+              <Button>{t("newFolder")}</Button>
             </div>
           </CollapsibleSidebarSection>
         </section>
@@ -82,13 +81,13 @@ export const Sidebar = () => {
               </ul>
 
               <div className={styles.wrapper}>
-                <AddSvg className={styles.addSvg} />
-                <Button variant={"addBtn"}>{t("addFlag")}</Button>
+                {/* <AddSvg className={styles.addSvg} /> */}
+                <Button>{t("addFlag")}</Button>
               </div>
             </CollapsibleSidebarSection>
           </CollapsibleSidebarSection>
         </section>
       </nav>
     </aside>
-  )
-}
+  );
+};
