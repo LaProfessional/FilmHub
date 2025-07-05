@@ -1,8 +1,8 @@
 import { useState } from "react";
-import styles from "@/pages/home/ui/nav-tabs/NavTabs.module.scss";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/shared/lib/utils";
 
+// TODO: это нужно выделить в фичу фильтрации, которая потом пойдет в виджет галереи
 export const NavTabs = () => {
   const { t } = useTranslation();
 
@@ -18,10 +18,13 @@ export const NavTabs = () => {
   ];
 
   return (
-    <ul className={styles.navItemWrapper}>
+    <ul className="flex flex-wrap gap-3">
       {navItems.map((item, index) => (
         <li
-          className={cn(styles.navItem, selectedIndex === index && styles.select)}
+          className={cn(
+            "rounded-2 cursor-pointer p-4 hover:bg-blue-100 hover:shadow-2xl",
+            selectedIndex === index && "bg-blue-300",
+          )}
           onClick={() => handleSelect(index)}
           key={index}
         >

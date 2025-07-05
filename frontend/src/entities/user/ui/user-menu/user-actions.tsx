@@ -1,8 +1,6 @@
-import styles from "./user-menu.module.scss";
 import { User, Folder, Flag, Settings } from "lucide-react";
 
 import { useTranslation } from "react-i18next";
-import clsx from "clsx";
 
 interface Props {
   className?: string;
@@ -31,7 +29,7 @@ export const UserActions = ({ className }: Props) => {
   const { t } = useTranslation();
 
   return (
-    <ul className={clsx(styles.menuList, className)}>
+    <ul className="">
       {userActionsButtons.map((item, index) => (
         <li key={index}>
           {item.icon}

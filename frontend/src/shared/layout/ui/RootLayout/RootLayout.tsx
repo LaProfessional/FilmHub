@@ -1,5 +1,3 @@
-import styles from "./RootLayout.module.scss";
-
 import { Outlet } from "react-router";
 
 import { Header } from "@/widgets/header";
@@ -7,11 +5,11 @@ import { Sidebar } from "@/widgets/sidebar";
 
 export const RootLayout = () => {
   return (
-    <div className={styles["main-layout"]}>
+    <div className="flex flex-col h-[100vh]">
       <Header />
-      <div className={styles["layout-content"]}>
+      <div className="flex flex-1/2">
         <Sidebar />
-        <main className={styles["page-content"]}>
+        <main className="flex-1/2">
           <Outlet />
         </main>
       </div>

@@ -1,4 +1,4 @@
-@use "../../../../shared/styles/abstracts/text-styles" as text-styles;
+// @use "../../../../shared/styles/abstracts/text-styles" as text-styles;
 
 .movieCard {
   max-height: fit-content;
@@ -30,7 +30,7 @@
     background-color: var(--bg-gold);
     border-radius: 0.4rem;
 
-    @include text-styles.text-tiny-label-dark;
+    // @include text-styles.text-tiny-label-dark;
 
     padding: 0.2rem 0.6rem;
   }
@@ -56,11 +56,11 @@
       white-space: nowrap;
       overflow: hidden;
 
-      @include text-styles.text-medium-semibold;
+      // @include text-styles.text-medium-semibold;
     }
 
     .yearOfRelease {
-      @include text-styles.text-small-muted-semibold;
+      // @include text-styles.text-small-muted-semibold;
     }
   }
 
@@ -74,7 +74,7 @@
     overflow: hidden;
 
     .genres {
-      @include text-styles.text-tiny-primary;
+      // @include text-styles.text-tiny-primary;
       line-height: 1;
       white-space: nowrap;
 
@@ -95,7 +95,7 @@
     overflow: hidden;
     -webkit-line-clamp: 3;
 
-    @include text-styles.text-small-muted-lighter;
+    // @include text-styles.text-small-muted-lighter;
 
     line-height: 1.5;
 

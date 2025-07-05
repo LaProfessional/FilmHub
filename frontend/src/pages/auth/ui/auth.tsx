@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Navigate } from "react-router";
 
-import styles from "./auth.module.scss";
-import titleStyles from "@/shared/styles/components/TitleStyles.module.scss";
+// import styles from "./auth.module.scss";
+// import titleStyles from "@/shared/styles/components/TitleStyles.module.scss";
 
 import { SignIn, SignUp } from "@/features/auth";
 import { Button } from "@/shared/ui";
@@ -22,12 +22,12 @@ export const Auth = () => {
   }
 
   return (
-    <div className={styles.modal}>
-      <div className={styles.modalWrapper}>
-        <h2 className={titleStyles.titleGradient}>FilmHub</h2>
-        <p className={styles.subtitle}>Your personal movie platform</p>
+    <div className="">
+      <div className="">
+        <h2 className="">FilmHub</h2>
+        <p className="">Your personal movie platform</p>
 
-        <div className={styles.containerBtns}>
+        <div className="">
           <Button onClick={toggleModal}>Login</Button>
 
           <Button onClick={toggleModal}>Register</Button>

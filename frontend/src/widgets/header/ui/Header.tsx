@@ -1,10 +1,8 @@
-import styles from "./Header.module.scss";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "@/app/providers/i18n";
 
 import { useTheme } from "@/app/providers/theme";
 import { UserMenu } from "@/entities/user";
-import titleStyles from "@/shared/styles/components/TitleStyles.module.scss";
 
 import { ReactComponent as LogoSvg } from "@/shared/assets/header/Logo.svg";
 import { ReactComponent as SunSvg } from "@/shared/assets/header/Sun.svg";
@@ -21,29 +19,29 @@ export const Header = () => {
   const { t } = useTranslation();
 
   return (
-    <header className={styles.header}>
-      <div className={styles.titleWrapper}>
-        <LogoSvg className={styles.logoSvg} />
-        <h2 className={titleStyles.titleGradient}>FilmHub</h2>
+    <header className="sticky top-0 bg-blue-50 p-3 flex justify-between items-center w-full border-b-gray-500 border">
+      <div className="">
+        <LogoSvg className="" />
+        <h2 className="">FilmHub</h2>
       </div>
 
-      <nav className={styles.nav}>
-        <div className={styles.wrapper}>
+      <nav className="flex">
+        <div className="flex">
           <Form>
             <Input type="search" placeholder={t("SearchMovies")} />
           </Form>
 
-          <SearchSvg className={styles.searchSvg}></SearchSvg>
+          <SearchSvg className=""></SearchSvg>
         </div>
 
         <Button onClick={toggleTheme}>
           {theme === "dark" ?
-            <SunSvg className={styles.sunSvg} />
+            <SunSvg className="" />
           : <MoonSvg />}
         </Button>
 
         <Button onClick={() => changeLanguage(language === "en" ? "ru" : "en")}>
-          <span className={styles.language}>{language === "en" ? "en" : "ru"}</span>
+          <span className="">{language === "en" ? "en" : "ru"}</span>
         </Button>
 
         <UserMenu />

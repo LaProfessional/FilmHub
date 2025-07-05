@@ -1,5 +1,3 @@
-import styles from "./HomePage.module.scss";
-
 import { FilterPanel } from "@/widgets/filters/ui/FilterPanel";
 
 import { ControlsPanel } from "@/pages/home/ui/controls-panel/ControlsPanel";
@@ -7,9 +5,9 @@ import { NavTabs } from "@/pages/home/ui/nav-tabs/NavTabs";
 
 export const HomePage = () => {
   return (
-    <div className={styles.container}>
-      <nav className={styles.navContainer}>
-        <section className={styles.navSection}>
+    <div className="h-[100vh] overflow-y-scroll">
+      <nav className="m-auto p-6">
+        <section className="flex justify-between items-center flex-wrap w-full">
           <NavTabs />
           <FilterPanel />
         </section>

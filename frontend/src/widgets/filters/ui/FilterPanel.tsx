@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import styles from "./FilterPanel.module.scss";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/shared/lib/utils";
 import { SlidersHorizontal } from "lucide-react";
@@ -11,7 +10,7 @@ import { useHandleClickOutside } from "@/shared/lib/useHandleClickOutside";
 import type { FilterHandle } from "@/widgets/filters/ui/Filter";
 
 import { Filter } from "@/widgets/filters/ui/Filter";
-import { Button } from "@/shared/ui";
+import { Button, Popover, PopoverTrigger, PopoverContent } from "@/shared/ui";
 
 export const FilterPanel = () => {
   const { t } = useTranslation();
@@ -35,23 +34,29 @@ export const FilterPanel = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <div className={styles.filterContainer} ref={fieldsRef}>
-      <div className={styles.filterWrapper} tabIndex={0}>
-        <Button onClick={toggleMenu}>
-          <SlidersHorizontal className={styles.iconSlidersHorizontal} />
-          <span className={styles.filterTitle}>{t("Filters")}</span>
-          <ChevronDown className={cn(styles.iconChevron, isOpen && styles.open)} />
-        </Button>
-
-        <section className={cn(styles.filtersList, isOpen && styles.open)}>
-          <Filter ref={genreRef} data={dataGenre} dropdownTitle={"Genre"} isMulti={true} />
-          <Filter ref={yearRef} data={dataYear} dropdownTitle={"Year of release"} />
-          <Filter ref={sortRef} data={dataOptions} dropdownTitle={"Sorting"} />
-          <Button onClick={resetFilters}>
-            <Delete className={styles.iconDelete} />
-            {t("Reset all")}
-          </Button>
-        </section>
+    <div className="" ref={fieldsRef}>
+      <div className="" tabIndex={0}>
+        <Popover>
+          <PopoverTrigger>
+            <Button className="flex border-2 border-gray-500 p-2" onClick={toggleMenu}>
+              <SlidersHorizontal className="" />
+              <span className="">{t("Filters")}</span>
+              <ChevronDown className={cn("", isOpen && "")} />
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent>
+            {/* TODO: это должны быть форма (или часть формы) с селектами */}
+            <section className={cn("", isOpen && "")}>
+              <Filter ref={genreRef} data={dataGenre} dropdownTitle={"Genre"} isMulti={true} />
+              <Filter ref={yearRef} data={dataYear} dropdownTitle={"Year of release"} />
+              <Filter ref={sortRef} data={dataOptions} dropdownTitle={"Sorting"} />
+              <Button onClick={resetFilters}>
+                <Delete className="" />
+                {t("Reset all")}
+              </Button>
+            </section>
+          </PopoverContent>
+        </Popover>
       </div>
     </div>
   );

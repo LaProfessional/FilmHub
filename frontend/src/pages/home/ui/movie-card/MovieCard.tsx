@@ -5,9 +5,11 @@ import { Eye, Trash2, Pencil } from "lucide-react";
 
 import { Button } from "@/shared/ui";
 
+// TODO: выделить этот компонент в entities/movie/ui/movie-card
 export const MovieCard = () => {
   const genresRef = useRef<HTMLDivElement>(null);
 
+  // TODO: выделить это в моки
   const dataMovies = [
     {
       imgUrl:
@@ -82,6 +84,7 @@ export const MovieCard = () => {
     },
   ];
 
+  // TODO: 🚬 -_- переделать под компонент, возможно разделить
   return dataMovies.map((card, index) => (
     <article className={styles.movieCard} key={index}>
       <div className={styles.cover}>

@@ -1,9 +1,8 @@
-import styles from "./Sidebar.module.scss";
 import { useTranslation } from "react-i18next";
 
 import { dataFlags } from "@/widgets/sidebar/model/dataFlags";
 
-// import { ReactComponent as AddSvg } from "@/shared/assets/sidebar/Add.svg";
+import { ReactComponent as AddSvg } from "@/shared/assets/sidebar/Add.svg";
 
 import { CollapsibleSidebarSection } from "@/widgets/sidebar/ui/CollapsibleSidebarSection";
 import { Button, Input } from "@/shared/ui";
@@ -14,12 +13,12 @@ export const Sidebar = () => {
   const { t } = useTranslation();
 
   return (
-    <aside className={styles.sidebar}>
-      <nav className={styles.nav}>
-        <div className={styles.wrapperInput}>
+    <aside className="h-full">
+      <nav className="flex flex-col gap-2 h-full w-[400px]">
+        <div className="">
           <Input type={"text"} placeholder={t("createCategory")} />
           <Button>
-            <Plus size={22} className={styles.plusIcon} />
+            <Plus size={22} className="" />
           </Button>
         </div>
 
@@ -30,12 +29,12 @@ export const Sidebar = () => {
             headingStyle="title"
           >
             <ul>
-              <li className={`${styles.item} ${styles.select}`}>{t("allMovies")}</li>
-              <li className={styles.item}>{t("favourites")}</li>
+              <li className="">{t("allMovies")}</li>
+              <li className="">{t("favourites")}</li>
             </ul>
 
-            <div className={styles.wrapper}>
-              {/* <AddSvg className={styles.addSvg} /> */}
+            <div className="">
+              <AddSvg className="" />
               <Button>{t("newFolder")}</Button>
             </div>
           </CollapsibleSidebarSection>
@@ -52,12 +51,12 @@ export const Sidebar = () => {
               variant="categoryGroup"
               headingStyle="categoryGroupTitle"
             >
-              <ul className={styles.flagContainer}>
+              <ul className="">
                 {dataFlags.map((flag, index) => (
-                  <li className={styles.flagData} key={index}>
-                    <div className={styles.wrapperFlagStat}>
+                  <li className="" key={index}>
+                    <div className="">
                       <span
-                        className={styles.flag}
+                        className=""
                         title={t(flag.flagName)}
                         style={{
                           color: flag.color,
@@ -67,21 +66,18 @@ export const Sidebar = () => {
                       >
                         {t(flag.flagName)}
                       </span>
-                      <div className={styles.amountFlag}>3</div>
+                      <div className="">3</div>
                     </div>
 
-                    <div className={styles.progressBar}>
-                      <div
-                        className={styles.progress}
-                        style={{ backgroundColor: flag.progress }}
-                      ></div>
+                    <div className="">
+                      <div className="" style={{ backgroundColor: flag.progress }}></div>
                     </div>
                   </li>
                 ))}
               </ul>
 
-              <div className={styles.wrapper}>
-                {/* <AddSvg className={styles.addSvg} /> */}
+              <div className="">
+                <AddSvg className="" />
                 <Button>{t("addFlag")}</Button>
               </div>
             </CollapsibleSidebarSection>

@@ -1,5 +1,3 @@
-import formStyles from "@/shared/styles/components/FormStyles.module.scss";
-
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -24,10 +22,10 @@ export const SignUp = () => {
   const onSubmit = (data: TSignUpSchema) => signUp(data, setError);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={formStyles.form}>
-      <header className={formStyles.header}>
-        <h2 className={formStyles.title}>Register</h2>
-        <p className={formStyles.subtitle}>Enter your details to create a new account</p>
+    <form onSubmit={handleSubmit(onSubmit)} className="">
+      <header className="">
+        <h2 className="">Register</h2>
+        <p className="">Enter your details to create a new account</p>
       </header>
 
       <FormField

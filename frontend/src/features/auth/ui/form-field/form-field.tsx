@@ -1,6 +1,4 @@
-import styles from "./form-field.module.scss";
 import type { FieldError } from "react-hook-form";
-import { cn } from "@/shared/lib/utils";
 
 import { Input } from "@/shared/ui";
 
@@ -14,13 +12,13 @@ interface FormFieldProps extends InputProps {
 
 export const FormField: React.FC<FormFieldProps> = ({ label, error, ...props }) => {
   return (
-    <div className={styles.wrapper}>
-      <label className={styles.label} htmlFor={label}>
+    <div className="">
+      <label className="" htmlFor={label}>
         {label}
       </label>
 
       <Input {...props} />
-      <p className={cn(error?.message && styles.error)}>{error?.message}</p>
+      <p className="">{error?.message}</p>
     </div>
   );
 };

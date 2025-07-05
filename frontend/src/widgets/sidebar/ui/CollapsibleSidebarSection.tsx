@@ -11,7 +11,7 @@ interface CollapsibleSidebarSectionProps {
 
 export const CollapsibleSidebarSection: React.FC<CollapsibleSidebarSectionProps> = ({
   children,
-  variant,
+  // variant,
   headingStyle,
   heading,
 }) => {
@@ -20,7 +20,7 @@ export const CollapsibleSidebarSection: React.FC<CollapsibleSidebarSectionProps>
   return (
     <>
       <SidebarSectionHeader
-        variant={variant}
+        // variant={variant}
         headingStyle={headingStyle}
         heading={heading}
         toggleMenu={toggleMenu}
