@@ -1,1 +1,1 @@
-export { Loading } from "./ui/loading"
+export { Loading } from "./ui/loading";

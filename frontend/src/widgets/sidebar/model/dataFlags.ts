@@ -1,4 +1,4 @@
-import type { SidebarFlag } from "@/widgets/sidebar/model/types.ts"
+import type { SidebarFlag } from "@/widgets/sidebar/model/types";
 
 export const dataFlags: SidebarFlag[] = [
   {
@@ -36,4 +36,4 @@ export const dataFlags: SidebarFlag[] = [
     border: "4px solid #008a73",
     progress: "#008a73",
   },
-]
+];

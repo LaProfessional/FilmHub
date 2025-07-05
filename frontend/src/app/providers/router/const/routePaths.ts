@@ -8,4 +8,4 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.ROOT]: "/",
   [AppRoutes.AUTH]: "/auth",
   [AppRoutes.NOT_FOUND]: "*",
-}
+};

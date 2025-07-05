@@ -1,4 +1,4 @@
-import { type LoaderFunctionArgs } from "react-router-dom";
+import { type LoaderFunctionArgs } from "react-router";
 
 export default async ({ request }: LoaderFunctionArgs) => {
   const url = new URL(request.url);

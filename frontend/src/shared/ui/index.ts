@@ -1,4 +1,5 @@
-export { Button } from "./Button"
-export { Input } from "./Input"
-export { Popover } from "./Popover"
-export { Separator } from "./Separator"
+export * from "./button";
+export * from "./input";
+export * from "./popover";
+export * from "./scroll-area";
+export * from "./separator";

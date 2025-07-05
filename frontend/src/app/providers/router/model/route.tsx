@@ -1,15 +1,15 @@
-import { createBrowserRouter } from "react-router-dom"
+import { createBrowserRouter } from "react-router";
 
-import { RoutePath } from "../const/routePaths"
+import { RoutePath } from "../const/routePaths";
 
-import { PrivateRoute } from "../ui/PrivateRoute"
-import { RootLayout } from "@/shared/layout"
-import { HomePage } from "@/pages/home"
+import { PrivateRoute } from "../ui/PrivateRoute";
+import { RootLayout } from "@/shared/layout";
+import { HomePage } from "@/pages/home";
 
-import { Auth } from "@/pages/auth"
+import { Auth } from "@/pages/auth";
 
-import homeLoader from "@/app/route-loaders/homeLoader"
-import { AuthProvider } from "@/app/providers/auth"
+import homeLoader from "@/app/route-loaders/homeLoader";
+import { AuthProvider } from "@/app/providers/auth";
 
 export const route = createBrowserRouter([
   {
@@ -44,4 +44,4 @@ export const route = createBrowserRouter([
     path: RoutePath.NOT_FOUND,
     element: <div>404</div>,
   },
-])
+]);

@@ -1,16 +1,16 @@
-import formStyles from "@/shared/styles/components/FormStyles.module.scss"
+import formStyles from "@/shared/styles/components/FormStyles.module.scss";
 
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-import { useSignUp } from "../../api/use-sign-up.ts"
-import { signUpSchema, type TSignUpSchema } from "../../model/validation.ts"
+import { useSignUp } from "../../api/use-sign-up";
+import { signUpSchema, type TSignUpSchema } from "../../model/validation";
 
-import { FormField } from "../form-field/form-field.tsx"
-import { Button } from "@/shared/ui/Button/Button"
+import { FormField } from "../form-field/form-field";
+import { Button } from "@/shared/ui";
 
 export const SignUp = () => {
-  const { signUp } = useSignUp()
+  const { signUp } = useSignUp();
 
   const {
     register,
@@ -19,9 +19,9 @@ export const SignUp = () => {
     formState: { errors },
   } = useForm<TSignUpSchema>({
     resolver: zodResolver(signUpSchema),
-  })
+  });
 
-  const onSubmit = (data: TSignUpSchema) => signUp(data, setError)
+  const onSubmit = (data: TSignUpSchema) => signUp(data, setError);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={formStyles.form}>
@@ -73,7 +73,7 @@ export const SignUp = () => {
         type="password"
       />
 
-      <Button variant="signInBtn">Register</Button>
+      <Button>Register</Button>
     </form>
-  )
-}
+  );
+};
