@@ -1,10 +1,7 @@
+import { Button } from "@/shared/ui";
 import { User, Folder, Flag, Settings } from "lucide-react";
 
 import { useTranslation } from "react-i18next";
-
-interface Props {
-  className?: string;
-}
 
 const userActionsButtons: { icon: React.ReactNode; text: string }[] = [
   {
@@ -25,15 +22,18 @@ const userActionsButtons: { icon: React.ReactNode; text: string }[] = [
   },
 ];
 
-export const UserActions = ({ className }: Props) => {
+export const UserActions = () => {
   const { t } = useTranslation();
 
   return (
-    <ul className="">
+    <ul className="flex flex-col gap-2">
       {userActionsButtons.map((item, index) => (
-        <li key={index}>
-          {item.icon}
-          <span>{t(item.text)}</span>
+        <li className="flex gap-1" key={index}>
+          {/* TODO: эти кнопки должны стать навигационными ссылка */}
+          <Button>
+            {item.icon}
+            <span>{t(item.text)}</span>
+          </Button>
         </li>
       ))}
     </ul>

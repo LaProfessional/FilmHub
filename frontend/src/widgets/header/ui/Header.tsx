@@ -2,7 +2,8 @@ import { useTranslation } from "react-i18next";
 import { useLanguage } from "@/app/providers/i18n";
 
 import { useTheme } from "@/app/providers/theme";
-import { UserMenu } from "@/entities/user";
+// FIXME: нельзя использовать модули, которые находятся на одном уровне
+import { UserMenu } from "@/widgets/user-menu";
 
 import { ReactComponent as LogoSvg } from "@/shared/assets/header/Logo.svg";
 import { ReactComponent as SunSvg } from "@/shared/assets/header/Sun.svg";
