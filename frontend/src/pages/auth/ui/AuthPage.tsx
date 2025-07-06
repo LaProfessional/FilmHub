@@ -5,7 +5,7 @@ import { useAuth } from "@/features/auth";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/ui";
 
 import { AppRoute } from "@/shared/config";
-import { ThemeSwitcher } from "@/shared/theme";
+import { ThemeSwitcher} from "@/shared/theme";
 
 // TODO: нужно добавить на эту страничку переключатель темы и языка
 // TODO: добавить i18n
