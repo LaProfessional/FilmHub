@@ -12,121 +12,127 @@ import { ChevronDown, Settings } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useSettings } from "./SettingsContext";
 
+type SettingKey = keyof ReturnType<typeof useSettings>['settings'];
+
 export function SettingsToggler() {
-  const { settings, setSettings } = useSettings();
+  const { settings, updateSettings } = useSettings();
   const [open, setOpen] = useState(false);
-  const [mainPage, setMainPage] = useState(false);
+  const [expandedSections, setExpandedSections] = useState({
+    mainPage: false,
+    flags: false,
+  });
   const { t } = useTranslation();
+
+  const toggleSection = (section: keyof typeof expandedSections) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
+  };
+
+  const toggleSetting = (setting: SettingKey) => {
+    updateSettings({
+      [setting]: !settings[setting],
+    });
+  };
 
   const settingsButton = {
     icon: <Settings size={18} />,
     text: t("Settings"),
   };
 
+  const renderToggleButton = (setting: SettingKey, label: string) => (
+    <div className="flex flex-row gap-2 mb-4 w-full justify-between items-center">
+      <label className="text-sm font-medium">{label}</label>
+      <Button
+        variant={settings[setting] ? "default" : "outline"}
+        size="sm"
+        onClick={() => toggleSetting(setting)}
+      >
+        {settings[setting] ? t("On") : t("Off")}
+      </Button>
+    </div>
+  );
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline" style={{ cursor: "pointer" }}>
+        <Button variant="outline" className="cursor-pointer">
           {settingsButton.icon}
           {settingsButton.text}
         </Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="max-h-[80vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>Settings</DialogTitle>
+          <DialogTitle>{t("Settings")}</DialogTitle>
         </DialogHeader>
-        <div className="space-y-4">
-          <div className="flex items-center flex-col justify-between">
-            {/* <label htmlFor="theme-toggle" className="text-sm font-medium">
-              Dark Theme
-            </label>
-            <Button
-              id="theme-toggle"
-              variant={settings ? "default" : "outline"}
-              size="sm"
-              onClick={() => setSettings(!settings)}
-            >
-              {settings ? "On" : "Off"}
-            </Button> */}
-            <p className="text-sm font-medium mb-8">Sidebar</p>
-            <div className="flex flex-row gap-2 mb-2 w-full justify-between">
-              <label className="text-sm font-medium">
-                Включить/отключить progress bar у флагов
-              </label>
-              <Button variant={settings ? "default" : "outline"} size="sm">
-                {settings ? "On" : "Off"}
-              </Button>
-            </div>
-            <div className="flex flex-row gap-2 mb-8 w-full justify-between">
-              <label className="text-sm font-medium">Включить/отключить статистику флагов</label>
-              <Button variant={settings ? "default" : "outline"} size="sm">
-                {settings ? "On" : "Off"}
-              </Button>
-            </div>
-            <Button
-              style={{ cursor: "pointer" }}
-              variant="ghost"
-              className="text-sm font-medium flex items-center gap-1 p-0 hover:bg-transparent"
-              onClick={() => setMainPage(!mainPage)}
-            >
-              Main page
-              <ChevronDown size={14} className="mt-[0.1rem]" />
-            </Button>
-            {mainPage && (
-              <>
-                <div className="flex flex-row gap-2 mb-8 w-full justify-between">
-                  <label className="text-sm font-medium">Только карточка</label>
-                  <Button variant={settings ? "default" : "outline"} size="sm">
-                    {settings ? "On" : "Off"}
-                  </Button>
-                </div>
-                <div className="flex flex-row gap-2 mb-8 w-full justify-between">
-                  <label className="text-sm font-medium">Без отступов по краям</label>
-                  <Button variant={settings ? "default" : "outline"} size="sm">
-                    {settings ? "On" : "Off"}
-                  </Button>
-                </div>
-                <div className="flex flex-row gap-2 mb-8 w-full justify-between">
-                  <label className="text-sm font-medium">Для 4к мониторов</label>
-                  <Button variant={settings ? "default" : "outline"} size="sm">
-                    {settings ? "On" : "Off"}
-                  </Button>
-                </div>
-                <div className="flex flex-row gap-2 mb-8 w-full justify-between">
-                  <label className="text-sm font-medium">Слайдер</label>
-                  <Button variant={settings ? "default" : "outline"} size="sm">
-                    {settings ? "On" : "Off"}
-                  </Button>
-                </div>
-                <div className="flex flex-row gap-2 mb-8 w-full justify-between">
-                  <label className="text-sm font-medium">Список</label>
-                  <Button variant={settings ? "default" : "outline"} size="sm">
-                    {settings ? "On" : "Off"}
-                  </Button>
-                </div>
-                <div className="flex flex-row gap-2 mb-8 w-full justify-between">
-                  <label className="text-sm font-medium">Сетка</label>
-                  <Button variant={settings ? "default" : "outline"} size="sm">
-                    {settings ? "On" : "Off"}
-                  </Button>
-                </div>
-                <div className="flex flex-row gap-2 mb-8 w-full justify-between">
-                  <label className="text-sm font-medium">Большие</label>
-                  <Button variant={settings ? "default" : "outline"} size="sm">
-                    {settings ? "On" : "Off"}
-                  </Button>
-                </div>
-              </>
+        <div className="space-y-6 py-4">
+          {/* Sidebar Section */}
+          <div className="space-y-2">
+            <h3 className="text-sm font-semibold">{t("Sidebar")}</h3>
+            {renderToggleButton(
+              "sidebarProgressBar",
+              t("Enable/disable progress bar for flags")
             )}
-                        <Button
-              style={{ cursor: "pointer" }}
+            {renderToggleButton(
+              "sidebarFlagsStats",
+              t("Enable/disable flags statistics")
+            )}
+          </div>
+
+          {/* Main Page Section */}
+          <div className="space-y-2">
+            <Button
               variant="ghost"
-              className="text-sm font-medium flex items-center gap-1 p-0 hover:bg-transparent"
-              onClick={() => setMainPage(!mainPage)}
+              className="w-full flex justify-between items-center p-0 hover:bg-transparent"
+              onClick={() => toggleSection("mainPage")}
             >
-              Main page
-              <ChevronDown size={14} className="mt-[0.1rem]" />
+              <h3 className="text-sm font-semibold">{t("Main Page")}</h3>
+              <ChevronDown
+                size={16}
+                className={`transition-transform ${
+                  expandedSections.mainPage ? "rotate-180" : ""
+                }`}
+              />
             </Button>
+
+            {expandedSections.mainPage && (
+              <div className="pl-4 space-y-2">
+                {renderToggleButton("mainPageCardOnly", t("Card only"))}
+                {renderToggleButton("mainPageNoMargins", t("No edge margins"))}
+                {renderToggleButton("mainPageFor4K", t("For 4K monitors"))}
+                {renderToggleButton("mainPageSlider", t("Slider view"))}
+                {renderToggleButton("mainPageList", t("List view"))}
+                {renderToggleButton("mainPageGrid", t("Grid view"))}
+                {renderToggleButton("mainPageLarge", t("Large cards"))}
+              </div>
+            )}
+          </div>
+
+          {/* Flags Section */}
+          <div className="space-y-2">
+            <Button
+              variant="ghost"
+              className="w-full flex justify-between items-center p-0 hover:bg-transparent"
+              onClick={() => toggleSection("flags")}
+            >
+              <h3 className="text-sm font-semibold">{t("Flags")}</h3>
+              <ChevronDown
+                size={16}
+                className={`transition-transform ${
+                  expandedSections.flags ? "rotate-180" : ""
+                }`}
+              />
+            </Button>
+
+            {expandedSections.flags && (
+              <div className="pl-4 space-y-2">
+                {renderToggleButton(
+                  "flagsVisibility",
+                  t("Enable/disable flags display on movies")
+                )}
+              </div>
+            )}
           </div>
         </div>
       </DialogContent>

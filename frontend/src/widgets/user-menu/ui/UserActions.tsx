@@ -1,7 +1,7 @@
 import { useSettings } from "@/shared/theme/SettingsContext";
 import { SettingsToggler } from "@/shared/theme/SettingsToggler";
 import { Button } from "@/shared/ui";
-import { User, Folder, Flag, Settings } from "lucide-react";
+import { User, Folder, Flag } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import s from "./UserActions.module.scss";
 
@@ -22,11 +22,13 @@ const userActionsButtons: { icon: React.ReactNode; text: string }[] = [
 
 export const UserActions = () => {
   const { t } = useTranslation();
-  const { setSettings, settings } = useSettings();
+  const { updateSettings } = useSettings();
 
   const toggleButton = (button: string) => {
-    if (button === "Settings") {
-      setSettings(settings ? false : true);
+    if (button === "YourFlags") {
+      updateSettings({
+        flagsVisibility: false,
+      });
     }
   };
 
@@ -35,7 +37,6 @@ export const UserActions = () => {
       <ul className="flex flex-col gap-2">
         {userActionsButtons.map((item, index) => (
           <li className="flex gap-1" key={index}>
-            {/* TODO: эти кнопки должны стать навигационными ссылка */}
             <Button className={s.button} onClick={() => toggleButton(item.text)}>
               {item.icon}
               <span>{t(item.text)}</span>
