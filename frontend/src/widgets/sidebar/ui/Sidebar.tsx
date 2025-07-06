@@ -1,89 +1,51 @@
 import { useTranslation } from "react-i18next";
+import { Accordion, AccordionContent, AccordionItem, Separator } from "@/shared/ui";
 
-import { dataFlags } from "@/widgets/sidebar/model/dataFlags";
+import { ChevronDown } from "lucide-react";
+import { AddCategory } from "./AddCategory";
+import { UserCollections } from "./UserCollections";
+import { AccordionTrigger } from "@radix-ui/react-accordion";
+import { StoryLevel } from "./StoryLevel";
 
-import { ReactComponent as AddSvg } from "@/shared/assets/sidebar/Add.svg";
-
-import { CollapsibleSidebarSection } from "@/widgets/sidebar/ui/CollapsibleSidebarSection";
-import { Button, Input } from "@/shared/ui";
-
-import { Plus } from "lucide-react";
+// TODO: попытаться переделать используя Sidebar коспонент из Shardcn
 
 export const Sidebar = () => {
   const { t } = useTranslation();
 
   return (
-    <aside className="h-full">
-      <nav className="flex flex-col gap-2 h-full w-[400px]">
-        <div className="">
-          <Input type={"text"} placeholder={t("createCategory")} />
-          <Button>
-            <Plus size={22} className="" />
-          </Button>
+    <aside className="h-full flex flex-col gap-4 border-r border-r-primary p-6">
+      <AddCategory />
+      <Separator orientation="horizontal" />
+      <Accordion type="multiple">
+        <div className="flex flex-col gap-3">
+          <AccordionItem value="collections">
+            <AccordionTrigger className="flex justify-between items-center w-full cursor-pointer p-2">
+              {t("yourCollections")}
+              <ChevronDown />
+            </AccordionTrigger>
+            <AccordionContent className="pl-3">
+              <UserCollections />
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="flags">
+            <AccordionTrigger className="flex justify-between items-center w-full cursor-pointer p-2">
+              {t("categories")} <ChevronDown />
+            </AccordionTrigger>
+            <AccordionContent className="pl-3">
+              <Accordion type="multiple">
+                <AccordionItem value="story">
+                  <AccordionTrigger className="flex justify-between items-center w-full cursor-pointe p-2">
+                    {t("storyLevel")} <ChevronDown />
+                  </AccordionTrigger>
+                  <AccordionContent className="px-3 pt-3">
+                    <StoryLevel />
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </AccordionContent>
+          </AccordionItem>
         </div>
-
-        <section>
-          <CollapsibleSidebarSection
-            heading={t("yourCollections")}
-            variant="wrapper"
-            headingStyle="title"
-          >
-            <ul>
-              <li className="">{t("allMovies")}</li>
-              <li className="">{t("favourites")}</li>
-            </ul>
-
-            <div className="">
-              <AddSvg className="" />
-              <Button>{t("newFolder")}</Button>
-            </div>
-          </CollapsibleSidebarSection>
-        </section>
-
-        <section>
-          <CollapsibleSidebarSection
-            heading={t("categories")}
-            variant="wrapper"
-            headingStyle="title"
-          >
-            <CollapsibleSidebarSection
-              heading={t("storyLevel")}
-              variant="categoryGroup"
-              headingStyle="categoryGroupTitle"
-            >
-              <ul className="">
-                {dataFlags.map((flag, index) => (
-                  <li className="" key={index}>
-                    <div className="">
-                      <span
-                        className=""
-                        title={t(flag.flagName)}
-                        style={{
-                          color: flag.color,
-                          backgroundColor: flag.bg,
-                          borderLeft: flag.border,
-                        }}
-                      >
-                        {t(flag.flagName)}
-                      </span>
-                      <div className="">3</div>
-                    </div>
-
-                    <div className="">
-                      <div className="" style={{ backgroundColor: flag.progress }}></div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="">
-                <AddSvg className="" />
-                <Button>{t("addFlag")}</Button>
-              </div>
-            </CollapsibleSidebarSection>
-          </CollapsibleSidebarSection>
-        </section>
-      </nav>
+      </Accordion>
     </aside>
   );
 };
