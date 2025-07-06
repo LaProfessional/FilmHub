@@ -11,7 +11,7 @@ import {
 } from "@/shared/ui";
 
 import { UserActions } from "./UserActions";
-import { LogoutBtn } from "@/features/auth";
+import { LogoutButton } from "@/features/auth";
 
 export const UserMenu = () => {
   return (
@@ -28,7 +28,7 @@ export const UserMenu = () => {
         <Separator decorative orientation="horizontal" />
         <UserActions />
         <Separator decorative orientation="horizontal" />
-        <LogoutBtn />
+        <LogoutButton />
       </PopoverContent>
     </Popover>
   );

@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import { PrivateRoute } from "./PrivateRoute";
 
-import { AuthProvider } from "@/app/providers/auth";
+import { AuthProvider } from "@/features/auth";
 
 import { AuthPage } from "@/pages/auth";
 import { HomePage } from "@/pages/home";

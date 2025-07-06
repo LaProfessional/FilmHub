@@ -1,5 +1,5 @@
 import api from "@/shared/api";
-import { useAuth } from "@/app/providers/auth";
+import { useAuth } from "../model/AuthContext";
 
 export const useSignIn = () => {
   const { login } = useAuth();

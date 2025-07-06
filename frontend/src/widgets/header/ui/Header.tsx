@@ -2,7 +2,7 @@
 import { UserMenu } from "@/widgets/user-menu";
 
 import { MovieSearch } from "./MovieSearch";
-import { ThemeToggler } from "./ThemeToggler";
+import { ThemeToggler } from "@/shared/theme";
 import { LangToggler } from "./LangToggler";
 import { Logo } from "./Logo";
 

@@ -1,43 +1,49 @@
-import { useState } from "react";
 import { Navigate } from "react-router";
-
-// import styles from "./auth.module.scss";
-// import titleStyles from "@/shared/styles/components/TitleStyles.module.scss";
-
-import { SignIn, SignUp } from "@/features/auth";
-import { Button } from "@/shared/ui";
-import { useAuth } from "@/app/providers/auth";
+import { SignInForm } from "@/features/auth/ui/SignInForm";
+import { SignUpForm } from "@/features/auth/ui/SignUpForm";
+import { useAuth } from "@/features/auth";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/ui";
 
 import { AppRoute } from "@/shared/config";
+import { ThemeToggler } from "@/shared/theme";
+
+// TODO: нужно добавить на эту страничку переключатель темы и языка
+// TODO: добавить i18n
 
 export const AuthPage = () => {
-  const [isActive, setIsActive] = useState<boolean>(true);
   const { isAuth } = useAuth();
-
-  const toggleModal = () => {
-    setIsActive(!isActive);
-  };
 
   if (isAuth) {
     return <Navigate to={AppRoute.ROOT} />;
   }
 
   return (
-    <div className="">
-      <div className="">
-        <h2 className="">FilmHub</h2>
-        <p className="">Your personal movie platform</p>
-
-        <div className="">
-          <Button onClick={toggleModal}>Login</Button>
-
-          <Button onClick={toggleModal}>Register</Button>
+    <div className="flex flex-col items-center">
+      <header className="flex justify-between items-center md:w-1/2 w-full p-4">
+        <div className="flex flex-col justify-between items-start">
+          <p className="text-lg">FilmHub</p>
+          <p className="text-sm">Your personal movie platform</p>
         </div>
-
-        {isActive ?
-          <SignIn />
-        : <SignUp />}
-      </div>
+        <div>
+          <ThemeToggler />
+        </div>
+      </header>
+      <main className="flex justify-center items-center m-10">
+        <div className="border rounded-2xl p-8">
+          <Tabs className="w-[400px] gap-6" defaultValue="signup">
+            <TabsList className="w-full">
+              <TabsTrigger value="signup">Sign up</TabsTrigger>
+              <TabsTrigger value="signin">Sign in</TabsTrigger>
+            </TabsList>
+            <TabsContent value="signup">
+              <SignUpForm />
+            </TabsContent>
+            <TabsContent value="signin">
+              <SignInForm />
+            </TabsContent>
+          </Tabs>
+        </div>
+      </main>
     </div>
   );
 };

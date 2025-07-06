@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
-import { AuthContext } from "../model/auth-context";
-import { getAccessToken, removeAccessToken, setAccessToken } from "@/shared/lib/token-storage";
+import { useEffect, useState, type ReactNode } from "react";
 import { useNavigate } from "react-router";
+// TODO: возможно это должно быть моделью `shared/model/token`, так, например
+import { getAccessToken, removeAccessToken, setAccessToken } from "@/shared/lib/token-storage";
+import { AuthContext } from "../model";
 
-interface AuthProviderProps {
-  children: React.ReactNode;
-}
+export type AuthProviderProps = {
+  children: ReactNode;
+};
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const navigate = useNavigate();
