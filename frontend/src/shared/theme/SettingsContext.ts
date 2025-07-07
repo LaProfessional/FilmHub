@@ -19,12 +19,29 @@ export type SettingsProviderState = {
   settings: Settings;
   setSettings: (settings: Settings) => void;
   updateSettings: (newSettings: Partial<Settings>) => void;
+  open: boolean;
+  setOpen: (open: boolean) => void;
+  expandedSections: {
+    mainPage: boolean;
+    flags: boolean;
+  };
+  setExpandedSections: (expandedSections: {
+    mainPage: boolean;
+    flags: boolean;
+  }) => void;
 };
 
 const initialState: SettingsProviderState = {
   settings: defaultSettings,
   setSettings: () => {},
   updateSettings: () => {},
+  open: false,
+  setOpen: () => {},
+  expandedSections: {
+    mainPage: false,
+    flags: false,
+  },
+  setExpandedSections: () => {},
 };
 
 export const SettingsContext = createContext<SettingsProviderState>(initialState);

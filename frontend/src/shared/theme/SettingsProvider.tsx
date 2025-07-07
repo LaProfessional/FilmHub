@@ -35,10 +35,21 @@ export function SettingsProvider({
     setSettings(prev => ({ ...prev, ...newSettings }));
   };
 
+  const [open, setOpen] = useState(false);
+
+  const [expandedSections, setExpandedSections] = useState({
+    mainPage: false,
+    flags: false,
+  });
+
   const value = {
     settings,
     setSettings,
     updateSettings,
+    open,
+    setOpen,
+    expandedSections,
+    setExpandedSections,
   };
 
   return (
