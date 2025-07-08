@@ -8,7 +8,7 @@ export function FlagBage(props: Flag) {
     <div className="flex flex-col">
       <div className="flex justify-between align-baseline">
         <span
-          className="text-base p-2 rounded"
+          className="text-base px-2 py-1 rounded whitespace-nowrap overflow-ellipsis overflow-hidden w-fit h-fit"
           title={t(props.flagName)}
           style={{
             color: props.color,

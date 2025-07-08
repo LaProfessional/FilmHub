@@ -49,13 +49,11 @@ export const Filter = React.memo(
     // FIXME: Массив `data` может быть пустым? Нужно убедиться что значение по индексу есть
     const activeLabels = activeIndexes.map((index) => t(data[index]?.label || ""));
 
-    // const toggleMenu = () => setIsOpen(!isOpen);
-
     return (
       <div className="relative" ref={wrapperRef}>
         <div className="">
           <Popover>
-            <PopoverTrigger>
+            <PopoverTrigger asChild>
               <Button>
                 <span className="">
                   {activeLabels.length ? activeLabels.join(", ") : t(dropdownTitle)}
@@ -65,6 +63,7 @@ export const Filter = React.memo(
                 : <X className="" onClick={resetFilter} />}
               </Button>
             </PopoverTrigger>
+
             <PopoverContent>
               <ul className={cn("", isOpen && "")}>
                 {data.map((item, index) => (

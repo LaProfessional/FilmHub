@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router";
-import { PrivateRoute } from "./PrivateRoute";
+// import { PrivateRoute } from "./PrivateRoute";
 
 import { AuthProvider } from "@/features/auth";
 
@@ -21,12 +21,12 @@ export const router = createBrowserRouter([
     ),
   },
   {
-    path: AppRoute.ROOT,
-    element: (
-      <AuthProvider>
-        <PrivateRoute />
-      </AuthProvider>
-    ),
+    // path: AppRoute.ROOT,
+    // element: (
+    //   <AuthProvider>
+    //     <PrivateRoute />
+    //   </AuthProvider>
+    // ),
     children: [
       {
         element: <AppShell />,

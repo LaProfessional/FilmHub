@@ -31,19 +31,18 @@ export const FilterPanel = () => {
 
   useHandleClickOutside(fieldsRef, isOpen, setIsOpen);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-
   return (
     <div className="" ref={fieldsRef}>
       <div className="" tabIndex={0}>
         <Popover>
-          <PopoverTrigger>
-            <Button className="flex border-2 border-gray-500 p-2" onClick={toggleMenu}>
+          <PopoverTrigger asChild>
+            <Button className="flex border-2 border-gray-500 p-2">
               <SlidersHorizontal className="" />
               <span className="">{t("Filters")}</span>
               <ChevronDown className={cn("", isOpen && "")} />
             </Button>
           </PopoverTrigger>
+
           <PopoverContent>
             {/* TODO: это должны быть форма (или часть формы) с селектами */}
             <section className={cn("", isOpen && "")}>

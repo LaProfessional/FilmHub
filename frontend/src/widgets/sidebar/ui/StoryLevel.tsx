@@ -18,7 +18,7 @@ export function StoryLevel() {
         ))}
       </ul>
 
-      <Button className="w-full">{t("addFlag")}</Button>
+      <Button className="w-full">{t("Add flag")}</Button>
     </div>
   );
 }
