@@ -16,17 +16,18 @@ export function UserCollections() {
         <ul className="flex flex-col gap-2">
           <li className="">
             <NavLink className="p-2 cursor-pointer text-base" to="/">
-              {t("allMovies")}
+              {t("All movies")}
             </NavLink>
           </li>
           <li className="p-2 cursor-pointer text-base">
-            <NavLink to="/">{t("favourites")}</NavLink>
+            <NavLink to="/">{t("Favourites")}</NavLink>
           </li>
         </ul>
       </nav>
+
       <div className="">
         <Button className="w-full" onClick={onAddCollection}>
-          {t("newFolder")}
+          {t("New folder")}
         </Button>
       </div>
     </div>

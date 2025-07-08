@@ -11,15 +11,18 @@ import { Logo } from "./Logo";
 
 export const Header = () => {
   return (
-    <header className="top-0 p-3 flex justify-between items-center gap-3 w-full border-b-primary border-b px-20">
+    <header className="top-0 p-3 flex items-center gap-3 w-full border-b-primary border-b px-[210px]">
       <Logo />
-      <MovieSearch />
-      <div className="flex gap-2">
-        <div className="flex gap-1">
-          <ThemeSwitcher />
-          <LangToggler />
+
+      <div className="flex justify-end w-full gap-1.5">
+        <MovieSearch />
+        <div className="flex gap-2">
+          <div className="flex gap-1">
+            <ThemeSwitcher />
+            <LangToggler />
+          </div>
+          <UserMenu />
         </div>
-        <UserMenu />
       </div>
     </header>
   );
