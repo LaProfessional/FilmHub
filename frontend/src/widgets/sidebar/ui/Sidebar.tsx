@@ -7,13 +7,13 @@ import { UserCollections } from "./UserCollections";
 import { AccordionTrigger } from "@radix-ui/react-accordion";
 import { StoryLevel } from "./StoryLevel";
 
-// TODO: попытаться переделать используя Sidebar коспонент из Shardcn
+// TODO: попытаться переделать используя Sidebar компонент из shadcn
 
 export const Sidebar = () => {
   const { t } = useTranslation();
 
   return (
-    <aside className="h-full flex flex-col gap-4 border-r border-r-primary p-6">
+    <aside className="h-full flex flex-col gap-4 border-r border-r-primary py-6 px-4 max-w-[288px] min-w-[288px]">
       <AddCategory />
       <Separator orientation="horizontal" />
       <Accordion type="multiple">

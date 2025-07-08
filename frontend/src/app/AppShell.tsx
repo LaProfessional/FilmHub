@@ -4,7 +4,7 @@ import { Sidebar } from "@/widgets/sidebar";
 
 export const AppShell = () => {
   return (
-    <div className="grid grid-cols-5 grid-rows-[60px,1fr] h-[100vh]">
+    <div className="grid grid-cols-[288px_1fr_1fr_1fr_1fr] grid-rows-[60px,1fr] h-[100vh]">
       <div className="col-span-full row-start-1 row-end-2">
         <Header />
       </div>

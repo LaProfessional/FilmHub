@@ -1,9 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { Plus } from "lucide-react";
 import { Button } from "@/shared/ui";
-import { LayoutToggleButtons } from "@/pages/home/ui/layout-toggle-buttons/LayoutToggleButtons";
-import { MovieCard } from "@/pages/home/ui/movie-card/MovieCard";
-import { EmptyMovieCard } from "../empty-movie-card/EmptyMovieCard";
+import { LayoutToggleButtons } from "@/pages/home/ui/LayoutToggleButtons";
+import { MovieCard } from "@/pages/home/ui/MovieCard";
 
 export const ControlsPanel = () => {
   const { t } = useTranslation();
@@ -25,7 +24,6 @@ export const ControlsPanel = () => {
 
       <section className="grid grid-cols-4 gap-6">
         <MovieCard />
-        <EmptyMovieCard></EmptyMovieCard>
       </section>
     </>
   );
