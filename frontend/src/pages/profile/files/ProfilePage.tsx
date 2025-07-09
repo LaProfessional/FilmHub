@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from './ProfilePage.module.scss';
 
-import { Button } from '@/shared/ui/Button';
+import { Button } from '@/shared/ui/button';
 
 import { useTranslation } from "react-i18next";
 
@@ -112,7 +112,7 @@ export const ProfilePage = () => {
           <nav className={styles.tabNavigation} aria-label="Profile Tabs">
             {tabs.map(tab => (
               <Button
-                variant="tabBtn"
+                /* variant="tabBtn" */
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
               >

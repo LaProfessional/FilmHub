@@ -1,11 +1,14 @@
-import styles from './Textarea.module.scss'
-import cls from '@fvilers/cls'
+import * as React from "react";
 
 interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
-  variant: string
-  error?: string
+  error?: string;
 }
 
-export const Textarea: React.FC<TextareaProps> = ({ variant, error, ...props }) => {
-  return <textarea className={cls(styles[variant], error && styles.error)} {...props}></textarea>
-}
+export const Textarea: React.FC<TextareaProps> = ({ error, className = "", ...props }) => {
+  const baseClasses =
+    "w-full min-h-[60px] max-h-[130px] border rounded-md p-2 text-primary text-sm font-semibold resize-vertical";
+  const errorClass = error ? "border-red-500" : "border-border";
+  const combinedClasses = `${baseClasses} ${errorClass} ${className}`.trim();
+
+  return <textarea className={combinedClasses} {...props} />;
+};

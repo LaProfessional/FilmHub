@@ -1,6 +1,6 @@
 import type { FormData } from './ProfilePage';
-import { Button } from '@/shared/ui/Button';
-import { Input } from '@/shared/ui/Input';
+import { Button } from '@/shared/ui/button';
+import { Input } from '@/shared/ui/input';
 import styles from './ProfileSettings.module.scss';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -43,7 +43,7 @@ export const ProfileSettingsTab: React.FC<Props> = ({
             value={formData.username}
             onChange={handleChangeTextData}
             placeholder={t('EnterUsername')}
-            variant={'inputCategory'}
+           /*  variant={'inputCategory'} */
           />
         </div>
 
@@ -55,7 +55,7 @@ export const ProfileSettingsTab: React.FC<Props> = ({
             value={formData.email}
             onChange={handleChangeTextData}
             placeholder={t('EnterYourEmail')}
-            variant={'inputCategory'}
+           /*  variant={'inputCategory'} */
           />
 
         </div>
@@ -68,7 +68,7 @@ export const ProfileSettingsTab: React.FC<Props> = ({
             value={formData.currentPassword}
             onChange={handleChangeTextData}
             placeholder={t('EnterCurrentPassword')}
-            variant={'inputCategory'}
+           /*  variant={'inputCategory'} */
           />
         </div>
 
@@ -80,7 +80,7 @@ export const ProfileSettingsTab: React.FC<Props> = ({
             value={formData.newPassword}
             onChange={handleChangeTextData}
             placeholder={t('EnterNewPassword')}
-            variant={'inputCategory'}
+          /*   variant={'inputCategory'} */
           />
         </div>
 
@@ -92,14 +92,14 @@ export const ProfileSettingsTab: React.FC<Props> = ({
             value={formData.confirmPassword}
             onChange={handleChangeTextData}
             placeholder={t('RepeatNewPassword')}
-            variant={'inputCategory'}
+          /*   variant={'inputCategory'} */
           />
         </div>
 
         <div className={styles.profileSettingsContentCell}>
           <label>{t('AboutMe')}</label>
           <Textarea
-            variant='descriptionMovie'
+           /*  variant='descriptionMovie' */
             value={formData.bio}
             onChange={handleChangeTextData}
             rows={4} 
@@ -116,7 +116,7 @@ export const ProfileSettingsTab: React.FC<Props> = ({
               onChange={handleAvatarChange}
               style={{ display: 'none' }}
             />
-            <Button variant="uploadButton" onClick={handleTriggerAvatarChange}>
+            <Button /* variant="uploadButton"  */onClick={handleTriggerAvatarChange}>
               <span>{t('ChangePhoto')}</span>
             </Button>
           </div>
@@ -138,7 +138,7 @@ export const ProfileSettingsTab: React.FC<Props> = ({
           </div>
         </div>
 
-        <Button variant="uploadButton">
+        <Button /* variant="uploadButton" */>
           {t('SaveChanges')}
         </Button>
       </form>
