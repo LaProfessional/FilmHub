@@ -1,15 +1,11 @@
 import { createBrowserRouter } from "react-router";
-// import { PrivateRoute } from "./PrivateRoute";
-
-import { AuthProvider } from "@/features/auth";
-
 import { AuthPage } from "@/pages/auth";
 import { HomePage } from "@/pages/home";
 import { NotFoundPage } from "@/pages/404";
-
 import { AppShell } from "@/app/AppShell";
-
+import { AuthProvider } from "@/features/auth";
 import { AppRoute } from "@/shared/config";
+import { PrivateRoute } from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -21,12 +17,12 @@ export const router = createBrowserRouter([
     ),
   },
   {
-    // path: AppRoute.ROOT,
-    // element: (
-    //   <AuthProvider>
-    //     <PrivateRoute />
-    //   </AuthProvider>
-    // ),
+    path: AppRoute.ROOT,
+    element: (
+      <AuthProvider>
+        <PrivateRoute />
+      </AuthProvider>
+    ),
     children: [
       {
         element: <AppShell />,

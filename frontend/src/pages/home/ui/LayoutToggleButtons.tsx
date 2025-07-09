@@ -9,7 +9,7 @@ export const LayoutToggleButtons = () => {
 
   // TODO: переделать на ToggleGroup
   return (
-    <div className="flex items-center gap-3 max-h-[35px] border-2 border-gray-500 p-4">
+    <div className="flex items-center gap-3 max-h-[35px] p-4">
       <Button onClick={() => setLayout("grid")}>
         {/* TODO: повторяющиеся элементы */}
         <LayoutGrid size={18} className={cn("stroke-2", layout === "grid" && "stroke-3")} />

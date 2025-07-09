@@ -26,7 +26,6 @@ export function SignInForm() {
 
   const onSubmit = (values: SignInFormSchema) => {
     signIn(values, form.setError);
-    console.dir(values);
   };
 
   return (
