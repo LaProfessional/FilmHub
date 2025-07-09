@@ -1,15 +1,16 @@
 import { H3Event } from 'h3'
-const PATH = 'https://kinopoiskapiunofficial.tech/api/v2.2'
+const PATH = 'https://kinopoiskapiunofficial.tech/api'
+const TOKEN = `eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2NDgxOTYwMWUxNjQ3NjIzMjM1ZTU0ODQzNDE5YjMyNyIsIm5iZiI6MTc1MTYzNTY2Ni4wNzUsInN1YiI6IjY4NjdkNmQyY2RjY2NiYWQzZTk5MjExOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4VBrit-MhTmCalkaDJuUs3cKVoaWsWbKE8IuDS8NUjo`
 
 export const useMovieApi = (event: H3Event) => {
   const config = useRuntimeConfig(event)
 
-  const getList = () => {
-    return $fetch(`${PATH}/films`, {
+  const getList = (search: string, page = 0) => {
+    return $fetch(`https://api.themoviedb.org/3/search/movie?query=${search}&page=${page}`, {
       method: 'GET',
       headers: {
-        'X-API-KEY': config.kinopoisk.key,
-        'Content-Type': 'application/json',
+        Authorization: `Bearer ${TOKEN}`,
+        accept: 'application/json',
       },
     })
   }

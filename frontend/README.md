@@ -1,54 +1,34 @@
-# React + TypeScript + Vite
+# FilmHub Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Установка, конфигурация и запуск
 
-Currently, two official plugins are available:
+1. Установить пакеты: `npm i`
+2. Установить для запуска тестов: `npx playwright istall`
+3. Создать `.env` в дериктории `frontend`. В переменной `VITE_API_URL` указать URL по которому доступен сервер. В случае разработки это будет `http://localhost:$PORT`, где `$PORT` зависит от переменной `SERVER_PORT` в файле `backend/.env` в случае если вы зпускаете через Docker
+4. Запустить сервер. Для этого перейти в `backend` и запустить `docker compose up`
+5. Запустить dev-сервер фронтенда: `npm run dev`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> На данный момент это все неудобно и нуждается в переделке, если возникли проблемы, обращайтесь @paveda
 
-## Expanding the ESLint configuration
+## Библиотека компонентов
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Используется [shadcn](https://ui.shadcn.com/)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Если при работе появляется необходимость в базовом компоненте
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. Проследуйте [сюда](https://ui.shadcn.com/docs/components)
+2. После установки (он установиться в `src/shared/ui`) экспортируйте этот компонент наружу в файле `src/shared/ui/index.ts`
+3. Забирайте его из `@/shared/ui` в любой части приложения
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Тестирование
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+Для тестирования используется [vitest](https://vitest.dev/). Он настроен наботать в двух режимах: в браузерном окружение через [Browser Mode](https://vitest.dev/guide/browser/) для тестирования компонентов и в окружении Node.js для остального.
+
+- Для того чтобы тест запускался в браузере его имя должно быть с суфиксом `browser.test`, например `SomePretty.browser.test.tsx`
+- Для запуска в окружении Node.js суффикс `unit.test`
+
+Для запуска тестов:
+
+```ts
+npm run test
 ```
