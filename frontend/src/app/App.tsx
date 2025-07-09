@@ -1,16 +1,15 @@
 import "@/shared/config/i18n";
-import "@/shared/styles/base/reset.scss";
 
-import { ThemeProvider } from "@/app/providers/theme";
-import { LanguageProvider } from "@/app/providers/i18n/";
-import { AppRouter } from "@/app/providers/router";
+import { ThemeProvider } from "@/shared/theme";
+import { LanguageProvider } from "@/app/providers/i18n";
+import { AppRouter } from "./router";
 
 import "./index.css";
 
 export function App() {
   return (
     <LanguageProvider>
-      <ThemeProvider>
+      <ThemeProvider defaultTheme="system">
         <AppRouter />
       </ThemeProvider>
     </LanguageProvider>
