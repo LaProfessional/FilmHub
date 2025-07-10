@@ -1,0 +1,12 @@
+.formGroup {
+  position: relative;
+  width: 100%;
+}
+.formGroup .label {
+  display: block;
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+/*# sourceMappingURL=FormGroup.module.css.map */

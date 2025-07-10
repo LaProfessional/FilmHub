@@ -1,0 +1,19 @@
+.layoutControls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-height: 35px;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.4rem;
+}
+.layoutControls .iconLayoutList,
+.layoutControls .iconLayoutGrid {
+  stroke: var(--control-layout-disabled);
+}
+.layoutControls .iconLayoutList.active,
+.layoutControls .iconLayoutGrid.active {
+  stroke: var(--control-layout);
+}
+
+/*# sourceMappingURL=LayoutToggleButtons.module.css.map */

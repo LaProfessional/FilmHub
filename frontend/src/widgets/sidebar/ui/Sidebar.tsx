@@ -1,100 +1,57 @@
-import styles from "./Sidebar.module.scss";
 import { useTranslation } from "react-i18next";
+import { Accordion, AccordionContent, AccordionItem, Separator } from "@/shared/ui";
 
-import { dataFlags } from "@/widgets/sidebar/model/dataFlags.ts";
+import { ChevronDown } from "lucide-react";
+import { AddCategory } from "./AddCategory";
+import { UserCollections } from "./UserCollections";
+import { AccordionTrigger } from "@radix-ui/react-accordion";
+import { StoryLevel } from "./StoryLevel";
 
-import { ReactComponent as AddSvg } from "@/shared/assets/sidebar/Add.svg";
-
-import { CollapsibleSidebarSection } from "@/widgets/sidebar/ui/CollapsibleSidebarSection.tsx";
-import { Button } from "@/shared/ui/Button.tsx";
-import { Input } from "@/shared/ui/Input.tsx";
-
-import { Plus } from "lucide-react";
+// TODO: попытаться переделать используя Sidebar компонент из shadcn
 
 export const Sidebar = () => {
+  const { t } = useTranslation();
 
-    const { t } = useTranslation();
+  return (
+    <aside className="h-full flex flex-col gap-4 border-r border-r-primary py-6 px-4 max-w-[288px]">
+      <AddCategory />
 
-    return (
-        <aside className={ styles.sidebar }>
-            <nav className={ styles.nav }>
-                <div className={ styles.wrapperInput }>
-                    <Input
-                        variant={ "inputCategory" }
-                        type={ "text" }
-                        placeholder={ t("Create category") }
-                    />
-                    <Button variant={ "addCategoryBtn" }><Plus size={22} className={styles.plusIcon} /></Button>
-                </div>
+      <Separator orientation="horizontal" />
 
-                <section>
-                    <CollapsibleSidebarSection
-                        heading={ t("Your collections") }
-                        variant="wrapper"
-                        headingStyle="title"
-                    >
-                        <ul>
-                            <li className={ `${ styles.item } ${ styles.select }` }>{ t("All movies") }</li>
-                            <li className={ styles.item }>{ t("Favourites") }</li>
-                        </ul>
+      <Accordion type="multiple" defaultValue={["collections", "flags"]}>
+        <div className="flex flex-col gap-3">
+          <AccordionItem value="collections">
+            <AccordionTrigger className="flex justify-between items-center w-full cursor-pointer p-2 uppercase">
+              {t("Your collections")}
+              <ChevronDown />
+            </AccordionTrigger>
 
-                        <div className={ styles.wrapper }>
-                            <AddSvg className={ styles.addSvg }/>
-                            <Button variant={ "addBtn" }>{ t("New folder") }</Button>
-                        </div>
+            <AccordionContent className="pl-3">
+              <UserCollections />
+            </AccordionContent>
+          </AccordionItem>
 
-                    </CollapsibleSidebarSection>
-                </section>
+          <AccordionItem value="flags">
+            <AccordionTrigger className="flex justify-between items-center w-full cursor-pointer p-2 uppercase">
+              {t("Categories")} <ChevronDown />
+            </AccordionTrigger>
 
-                <section>
-                    <CollapsibleSidebarSection
-                        heading={ t("Categories") }
-                        variant="wrapper"
-                        headingStyle="title"
-                    >
-                        <CollapsibleSidebarSection
-                            heading={ t("Story level") }
-                            variant="categoryGroup"
-                            headingStyle="categoryGroupTitle"
-                        >
+            <AccordionContent className="pl-3">
+              <Accordion type="multiple" defaultValue={["story"]}>
+                <AccordionItem value="story">
+                  <AccordionTrigger className="flex justify-between items-center w-full cursor-pointer p-2">
+                    {t("Story level")} <ChevronDown />
+                  </AccordionTrigger>
 
-                            <ul className={ styles.flagContainer }>
-                                { dataFlags.map((flag, index) => (
-                                    <li className={ styles.flagData } key={ index }>
-                                        <div className={ styles.wrapperFlagStat }>
-                                    <span
-                                        className={ styles.flag }
-                                        title={ t(flag.flagName) }
-                                        style={ {
-                                            color: flag.color,
-                                            backgroundColor: flag.bg,
-                                            borderLeft: flag.border
-                                        } }
-                                    >{ t(flag.flagName) }
-                                    </span>
-                                            <div className={ styles.amountFlag }>3</div>
-                                        </div>
-
-                                        <div className={ styles.progressBar }>
-                                            <div
-                                                className={ styles.progress }
-                                                style={ { backgroundColor: flag.progress } }
-                                            ></div>
-                                        </div>
-                                    </li>
-                                )) }
-                            </ul>
-
-                            <div className={ styles.wrapper }>
-                                <AddSvg className={ styles.addSvg }/>
-                                <Button variant={ "addBtn" }>{ t("Add flag") }</Button>
-                            </div>
-
-                        </CollapsibleSidebarSection>
-
-                    </CollapsibleSidebarSection>
-                </section>
-            </nav>
-        </aside>
-    );
+                  <AccordionContent className="px-3 pt-3">
+                    <StoryLevel />
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </AccordionContent>
+          </AccordionItem>
+        </div>
+      </Accordion>
+    </aside>
+  );
 };

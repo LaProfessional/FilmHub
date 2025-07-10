@@ -1,0 +1,23 @@
+.emptyMovieCard {
+  height: 440px;
+  max-height: 440px;
+  border: 1px dashed var(--border);
+  border-radius: 1.2rem;
+  cursor: pointer;
+  transition: border 0.2s ease, transform 0.3s ease;
+}
+.emptyMovieCard:hover {
+  border: 1px dashed var(--border-accent);
+  transform: translateY(-2%);
+}
+.emptyMovieCard .titleMovieCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: var(--color-primary);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+/*# sourceMappingURL=EmptyMovieCard.module.css.map */

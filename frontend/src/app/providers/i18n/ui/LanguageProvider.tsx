@@ -1,5 +1,5 @@
 import { createContext, useState, useContext } from "react";
-import i18n from "@/shared/config/i18n/i18n.ts";
+import i18n from "@/shared/config/i18n";
 
 interface LanguageContextType {
   language: string;

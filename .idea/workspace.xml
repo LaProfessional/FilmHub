@@ -1,0 +1,862 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a4a3b07a-46b8-4a94-9364-668648e08fad" name="Changes" comment="- Удалены не используемые файлы, а именно CollapsibleSidebarSection.tsx SidebarSectionHeader.tsx useCollapsible.ts&#10;- Исправлена ошибка вложенных кнопок у Filter.tsx">
+      <change afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/server/routes/movie/search.get.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/prettier.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/frontend_chan_170.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/AppShell.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/router/AppRouter.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/router/PrivateRoute.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/router/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/router/router.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/entities/category/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/entities/category/model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/entities/collection/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/entities/collection/model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/entities/flag/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/entities/flag/model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/entities/flag/ui/FlagBage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/entities/flag/ui/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/entities/user/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/entities/user/ui/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/entities/user/ui/user-info-short/UserInfoShort.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/entities/user/ui/user-info-short/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/auth/api/use-sign-in.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/auth/api/use-sign-up.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/auth/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/AuthContext.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/validation.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/AuthProvider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/SignInForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/SignUpForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/404/NotFoundPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/404/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/auth/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/auth/ui/AuthPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/home/ui/ControlsPanel.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/home/ui/HomePage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/home/ui/LayoutToggleButtons.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/home/ui/MovieCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/home/ui/NavTabs.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/api/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/api/instance.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/api/interceptors.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/config/appRoute.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/config/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/const/vars.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/lib/hooks/use-mobile.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/lib/token-storage.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/lib/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/lib/utils.unit.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/theme/ThemeContext.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/theme/ThemeProvider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/theme/ThemeToggler.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/theme/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/theme/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/ui/accordion.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/ui/avatar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/ui/button.browser.test.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/ui/button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/ui/dropdown-menu.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/ui/form.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/ui/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/ui/input.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/ui/label.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/ui/popover.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/ui/scroll-area.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/ui/separator.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/ui/sheet.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/ui/sidebar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/ui/skeleton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/ui/tabs.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/ui/tooltip.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/widgets/header/ui/LangToggler.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/widgets/header/ui/Logo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/widgets/header/ui/MovieSearch.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/widgets/header/ui/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/widgets/loading/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/widgets/loading/ui/loading.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/widgets/sidebar/ui/AddCategory.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/widgets/sidebar/ui/StoryLevel.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/widgets/sidebar/ui/UserCollections.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/widgets/user-menu/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/widgets/user-menu/ui/UserActions.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/widgets/user-menu/ui/UserMenu.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/widgets/user-menu/ui/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/tailwind.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/tsconfig.base.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/nitro.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/nitro.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/server/config/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/server/config/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/server/helpers/movie.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/server/helpers/movie.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/server/routes/movie/index.get.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/server/utils/db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/server/utils/db.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/eslint.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/eslint.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/providers/i18n/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/providers/i18n/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/providers/i18n/ui/LanguageProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/providers/i18n/ui/LanguageProvider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/providers/router/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/providers/router/ui/AppRouter.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/providers/router/ui/router.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/providers/theme/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/providers/theme/ui/ThemeProvider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/login/api/SignInForm.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/login/model/services.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/login/model/validation.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/login/ui/FormField.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/login/ui/FormField.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/registration/model/services.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/registration/model/validation.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/registration/ui/SignUpForm.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/home/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/home/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/home/model/filterData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/home/model/filterData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/home/ui/controls-panel/ControlsPanel.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/home/ui/controls-panel/ControlsPanel.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/home/ui/empty-movie-card/EmptyMovieCard.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/home/ui/empty-movie-card/EmptyMovieCard.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/home/ui/home-page/HomePage.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/home/ui/home-page/HomePage.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/home/ui/layout-toggle-buttons/LayoutToggleButtons.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/home/ui/layout-toggle-buttons/LayoutToggleButtons.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/home/ui/movie-card/MovieCard.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/home/ui/movie-card/MovieCard.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/home/ui/nav-tabs/NavTabs.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/home/ui/nav-tabs/NavTabs.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/signin/ui/LoginModal.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/signin/ui/LoginModal.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/assets/header/Avatar.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/frontend_chan.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/config/i18n/i18n.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/config/i18n/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/config/i18n/locales/en/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/config/i18n/locales/en/translation.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/config/i18n/locales/ru/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/config/i18n/locales/ru/translation.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/config/router/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/config/router/routeConfig.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/config/router/routerConfig.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/const/localStorage.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/layout/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/layout/ui/RootLayout.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/layout/ui/RootLayout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/lib/useHandleClickOutside.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/lib/useHandleClickOutside.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/styles/abstracts/text-styles.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/styles/abstracts/theme-vars.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/styles/abstracts/variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/styles/base/reset.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/styles/components/FormStyles.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/styles/components/TitleStyles.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/styles/components/filters.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/types/declaration.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/types/declaration.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Button.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Input.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Input.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Popover.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Popover.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Separator.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Separator.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/vite-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/vite-env.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/filters/model/useFilters.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/filters/model/useFilters.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/filters/ui/Filter.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/filters/ui/Filter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/filters/ui/Filter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/filters/ui/FilterPanel.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/filters/ui/FilterPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/filters/ui/FilterPanel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/header/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/header/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/header/ui/Header.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/header/ui/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/header/ui/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/header/ui/UserMenu/LogoutButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/LogoutButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/header/ui/UserMenu/UserActions.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/header/ui/UserMenu/UserInfo.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/header/ui/UserMenu/UserMenu.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/header/ui/UserMenu/UserMenu.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/sidebar/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/sidebar/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/sidebar/lib/useCollapsible.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/sidebar/model/dataFlags.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/sidebar/model/types.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/sidebar/ui/CollapsibleSidebarSection.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/sidebar/ui/CollapsibleSidebarSection.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/sidebar/ui/Sidebar.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/sidebar/ui/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/sidebar/ui/Sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/sidebar/ui/SidebarSectionHeader.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/sidebar/ui/SidebarSectionHeader.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.node.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite.config.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="SCSS File" />
+        <option value="TypeScript File" />
+        <option value="JavaScript File" />
+        <option value="TypeScript JSX File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="refactor/frontend/normalize" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="221a10de-3d47-4d98-aabe-2db2f155de5e" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2xBHUjHloS1ItQHmWPxa1VqtJph" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Merging widgets/frontend/add-movie-modal",
+    "ignore.virus.scanning.warn.message": "true",
+    "js.linters.configure.manually.selectedeslint": "true",
+    "last_opened_file_path": "C:/Users/pavel/WebstormProjects/FilmHub",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "C:\\Users\\pavel\\WebstormProjects\\FilmHub\\backend\\src\\node_modules\\eslint",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Run",
+    "prettier.import.notification.dismissed": "true",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\pavel\\WebstormProjects\\FilmHub\\backend\\src\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2025.1.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\pavel\WebstormProjects\FilmHub\frontend\src\pages\HomePage" />
+      <recent name="C:\Users\pavel\WebstormProjects\FilmHub\frontend\src\widgets\header" />
+      <recent name="C:\Users\pavel\WebstormProjects\FilmHub\frontend\src\features\login" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\pavel\WebstormProjects\FilmHub\frontend\src\pages\home\ui" />
+      <recent name="C:\Users\pavel\WebstormProjects\FilmHub\frontend\src\widgets\modals\ui" />
+      <recent name="C:\Users\pavel\WebstormProjects\FilmHub\frontend\src\features\modals\ui" />
+      <recent name="C:\Users\pavel\WebstormProjects\FilmHub\frontend\src\features\modals" />
+      <recent name="C:\Users\pavel\WebstormProjects\FilmHub\frontend\src\features" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/backend/src/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+        <item itemvalue="npm.dev" />
+        <item itemvalue="npm.dev" />
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-WS-251.26927.40" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a4a3b07a-46b8-4a94-9364-668648e08fad" name="Changes" comment="" />
+      <created>1747404563707</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1747404563707</updated>
+      <workItem from="1747404565176" duration="2956000" />
+      <workItem from="1747408144146" duration="11040000" />
+      <workItem from="1747456142807" duration="225000" />
+      <workItem from="1747487852427" duration="1696000" />
+      <workItem from="1747549834931" duration="465000" />
+      <workItem from="1747552884329" duration="18000" />
+      <workItem from="1747556394848" duration="19072000" />
+      <workItem from="1747627286645" duration="2103000" />
+      <workItem from="1747642169975" duration="26142000" />
+      <workItem from="1747722790849" duration="581000" />
+      <workItem from="1747752207630" duration="6719000" />
+      <workItem from="1747801731972" duration="1401000" />
+      <workItem from="1747834485771" duration="12193000" />
+      <workItem from="1747890290071" duration="17443000" />
+      <workItem from="1747975475286" duration="1499000" />
+      <workItem from="1748150502971" duration="621000" />
+      <workItem from="1748156325616" duration="15505000" />
+      <workItem from="1748184136415" duration="12939000" />
+      <workItem from="1748235157358" duration="1209000" />
+      <workItem from="1748250188141" duration="24911000" />
+      <workItem from="1748324527776" duration="27914000" />
+      <workItem from="1748409305947" duration="2089000" />
+      <workItem from="1748420082722" duration="25922000" />
+      <workItem from="1748494238956" duration="2353000" />
+      <workItem from="1748513789109" duration="6924000" />
+      <workItem from="1748523123142" duration="18418000" />
+      <workItem from="1748587851761" duration="1134000" />
+      <workItem from="1748589894412" duration="35334000" />
+      <workItem from="1748659963765" duration="933000" />
+      <workItem from="1748680955441" duration="24437000" />
+      <workItem from="1748753690213" duration="1811000" />
+      <workItem from="1748774048191" duration="21670000" />
+      <workItem from="1748842213357" duration="1066000" />
+      <workItem from="1748845887926" duration="19738000" />
+      <workItem from="1748922612047" duration="126000" />
+      <workItem from="1748945425437" duration="7812000" />
+      <workItem from="1749009736126" duration="33730000" />
+      <workItem from="1749098401575" duration="15009000" />
+      <workItem from="1749130393405" duration="784000" />
+      <workItem from="1749131198407" duration="17102000" />
+      <workItem from="1749191290910" duration="75000" />
+      <workItem from="1749196164880" duration="21577000" />
+      <workItem from="1749269722994" duration="33570000" />
+      <workItem from="1749357554045" duration="32407000" />
+      <workItem from="1749445382854" duration="29646000" />
+      <workItem from="1749534115607" duration="684000" />
+      <workItem from="1749538774810" duration="1509000" />
+      <workItem from="1749549041529" duration="22071000" />
+      <workItem from="1749616046543" duration="28301000" />
+      <workItem from="1749700527414" duration="4919000" />
+      <workItem from="1749723302090" duration="9759000" />
+      <workItem from="1749805603961" duration="6550000" />
+      <workItem from="1749822169047" duration="11346000" />
+      <workItem from="1749875866903" duration="19809000" />
+      <workItem from="1749967592636" duration="29891000" />
+      <workItem from="1750047142902" duration="23461000" />
+      <workItem from="1750139086121" duration="26974000" />
+      <workItem from="1750223627733" duration="23772000" />
+      <workItem from="1750310645317" duration="4388000" />
+      <workItem from="1750332599363" duration="7269000" />
+      <workItem from="1750344413146" duration="8263000" />
+      <workItem from="1750399231248" duration="881000" />
+      <workItem from="1750418795323" duration="14055000" />
+      <workItem from="1750483733715" duration="968000" />
+      <workItem from="1750506568002" duration="22242000" />
+      <workItem from="1750564137747" duration="34000" />
+      <workItem from="1750576573547" duration="1114000" />
+      <workItem from="1750580065597" duration="12401000" />
+      <workItem from="1750653544660" duration="603000" />
+      <workItem from="1750680170122" duration="16120000" />
+      <workItem from="1750741399588" duration="600000" />
+      <workItem from="1750758668712" duration="25850000" />
+      <workItem from="1750827367477" duration="17157000" />
+      <workItem from="1750867377381" duration="8785000" />
+      <workItem from="1750913951497" duration="28421000" />
+      <workItem from="1751001780333" duration="38867000" />
+      <workItem from="1751086921028" duration="112000" />
+      <workItem from="1751121718427" duration="1953000" />
+      <workItem from="1751171878197" duration="27200000" />
+      <workItem from="1751262120392" duration="3093000" />
+      <workItem from="1751273452420" duration="21751000" />
+      <workItem from="1751348859627" duration="789000" />
+      <workItem from="1751361525353" duration="19455000" />
+      <workItem from="1751434562726" duration="8499000" />
+      <workItem from="1751450935460" duration="4654000" />
+      <workItem from="1751459990455" duration="14578000" />
+      <workItem from="1751522729212" duration="1240000" />
+      <workItem from="1751538883952" duration="9824000" />
+      <workItem from="1751555152291" duration="9175000" />
+      <workItem from="1751607693657" duration="1967000" />
+      <workItem from="1751618702807" duration="3186000" />
+      <workItem from="1751629737920" duration="8795000" />
+      <workItem from="1751690985700" duration="1090000" />
+      <workItem from="1751692642517" duration="104000" />
+      <workItem from="1751703209861" duration="471000" />
+      <workItem from="1751703709022" duration="1077000" />
+      <workItem from="1751723040238" duration="17464000" />
+      <workItem from="1751781051665" duration="19611000" />
+      <workItem from="1751866708807" duration="11489000" />
+      <workItem from="1751888538300" duration="7709000" />
+      <workItem from="1751952523812" duration="2960000" />
+      <workItem from="1751956761850" duration="24744000" />
+      <workItem from="1751990920541" duration="3479000" />
+      <workItem from="1752044050647" duration="11804000" />
+      <workItem from="1752123543791" duration="2284000" />
+    </task>
+    <task id="LOCAL-00012" summary="Added collapsible menus">
+      <option name="closed" value="true" />
+      <created>1748195909008</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1748195909008</updated>
+    </task>
+    <task id="LOCAL-00013" summary="-- Removed AddBtnWrapper.tsx component&#10;-- Changed props system&#10;-- Added switch for button styles">
+      <option name="closed" value="true" />
+      <created>1748257227529</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1748257227529</updated>
+    </task>
+    <task id="LOCAL-00014" summary="All additional buttons and inputs are merged into one component">
+      <option name="closed" value="true" />
+      <created>1748271122508</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1748271122508</updated>
+    </task>
+    <task id="LOCAL-00015" summary="wip">
+      <option name="closed" value="true" />
+      <created>1748370036692</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1748370036692</updated>
+    </task>
+    <task id="LOCAL-00016" summary="wip">
+      <option name="closed" value="true" />
+      <created>1748420096675</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1748420096675</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Рефакторинг пропсов&#10;Вынос массива dataFlags в отдельный файл&#10;Добавлены типы к dataFlags &#10;Переработаны участки классов с использованием библиотеки cls">
+      <option name="closed" value="true" />
+      <created>1748428125260</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1748428125260</updated>
+    </task>
+    <task id="LOCAL-00018" summary="wip">
+      <option name="closed" value="true" />
+      <created>1748449842839</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1748449842839</updated>
+    </task>
+    <task id="LOCAL-00019" summary="wip">
+      <option name="closed" value="true" />
+      <created>1748455630873</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1748455630873</updated>
+    </task>
+    <task id="LOCAL-00020" summary="wip">
+      <option name="closed" value="true" />
+      <created>1748543433409</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1748543433409</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Added registration">
+      <option name="closed" value="true" />
+      <created>1748601714745</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1748601714745</updated>
+    </task>
+    <task id="LOCAL-00022" summary="fix rem">
+      <option name="closed" value="true" />
+      <created>1748614783906</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1748614783906</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Fixed pop-up menu bug">
+      <option name="closed" value="true" />
+      <created>1748629285702</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1748629285702</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Added 3 select">
+      <option name="closed" value="true" />
+      <created>1748713566167</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1748713566167</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Added useHandleClickOutside">
+      <option name="closed" value="true" />
+      <created>1748879496254</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1748879496254</updated>
+    </task>
+    <task id="LOCAL-00026" summary="add filters select">
+      <option name="closed" value="true" />
+      <created>1749122285082</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1749122285082</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Added text-styles and route-config">
+      <option name="closed" value="true" />
+      <created>1749148786440</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1749148786440</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Filter refactoring">
+      <option name="closed" value="true" />
+      <created>1749231565725</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1749231565725</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Added animations for navigation">
+      <option name="closed" value="true" />
+      <created>1749295233133</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1749295233133</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Fix auth">
+      <option name="closed" value="true" />
+      <created>1749300227827</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1749300227827</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Fix auth">
+      <option name="closed" value="true" />
+      <created>1749301595201</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1749301595201</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Filter perfected">
+      <option name="closed" value="true" />
+      <created>1749487362411</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1749487362411</updated>
+    </task>
+    <task id="LOCAL-00033" summary="- Added folders for each component and style&#10;- Improved UI buttons&#10;- Improved logic of switching buttons controlling the layout">
+      <option name="closed" value="true" />
+      <created>1749492552953</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1749492552953</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Added movie card markup">
+      <option name="closed" value="true" />
+      <created>1749616607310</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1749616607310</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Added movie card markup">
+      <option name="closed" value="true" />
+      <created>1749876162470</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1749876162470</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Added movie card markup">
+      <option name="closed" value="true" />
+      <created>1749884213095</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1749884213095</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Added a modal window AddMovieModal for adding movies manually">
+      <option name="closed" value="true" />
+      <created>1750093314207</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1750093314208</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Modded addMovieModal window">
+      <option name="closed" value="true" />
+      <created>1750269294892</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1750269294892</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Created modals folder, moved to ui with files">
+      <option name="closed" value="true" />
+      <created>1750270109700</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1750270109700</updated>
+    </task>
+    <task id="LOCAL-00040" summary="- Папка modal с содержимым addMovieModal перемещена в features&#10;- Изменёны файлы translation.json, добавлены отступы для читаемости и часть ключей была изменена с AnyWord в Any word &#10;- Убраны id и htmlFor у объектов genreFilters, yearFilters, sortOptions&#10;- Добавлен font-size 2.4rem у логотипа">
+      <option name="closed" value="true" />
+      <created>1750345497273</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1750345497273</updated>
+    </task>
+    <task id="LOCAL-00041" summary="- Вынесены 2 массива genreOptions и countryOptions в папку models&#10;- Добавлены все переводы в модальное окно AddMovieModal.tsx&#10;- Изменено название функции dataFilter.ts -&gt; filterData.ts">
+      <option name="closed" value="true" />
+      <created>1750348762537</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1750348762537</updated>
+    </task>
+    <task id="LOCAL-00042" summary="- Скорректированы стили модального окна AddMovieModal.tsx&#10;- Добавлены переводы для ошибок&#10;- Отформатирован filterData.ts файл&#10;- Добавлен компонент Textarea.tsx (shared/ui)&#10;- Добавлен ErrorMessage.module.scss компонент&#10;- Изменена movieModalScheme.ts, устранён баг обработки чисел&#10;- Добавлена валидация для части полей в AddMovieModal.tsx">
+      <option name="closed" value="true" />
+      <created>1750529188393</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1750529188393</updated>
+    </task>
+    <task id="LOCAL-00043" summary="- Добавлены поля в модальное окно AddMovieModal.tsx: Тип, Возраст&#10;- Изменён интерфейс AddMovieModal.tsx&#10;- Добавлены новые переводы&#10;- Добавлена проверка в movieModalScheme.ts на проверку количества знаков после запятой, для инпута &quot;Рейтинг&quot;&#10;- Изменены reset стили, в частности убран outline у textarea тега&#10;- Изменена часть стилей">
+      <option name="closed" value="true" />
+      <created>1750697632156</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1750697632156</updated>
+    </task>
+    <task id="LOCAL-00044" summary="- Убран alias у Header.module.scss, что приводило к ошибке&#10;- Исправлены стили окна регистрации и входа">
+      <option name="closed" value="true" />
+      <created>1750772241846</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1750772241846</updated>
+    </task>
+    <task id="LOCAL-00045" summary="- Добавлен выбор пунктов для DropdownSelector.tsx&#10;- Исправлен перевод возрастов&#10;- Скорректированы стили">
+      <option name="closed" value="true" />
+      <created>1750787947094</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1750787947094</updated>
+    </task>
+    <task id="LOCAL-00046" summary="- Добавлена валидация для полей Type, Genres, Countries, Age в AddMovieModal.tsx&#10;- Добавлены переводы новых ошибок&#10;- Переработана логика выбора item`ов у DropdownSelector.tsx&#10;- Добавлен класс error и стили для Button.tsx&#10;- Изменена логика обработки ошибок для мультивыбора item`ов из DropdownSelector.tsx">
+      <option name="closed" value="true" />
+      <created>1750838763728</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1750838763728</updated>
+    </task>
+    <task id="LOCAL-00047" summary="- Изменены названия файлов и папок. AddMovieModal.tsx -&gt; ManualAddMediaModal.tsx и DropdownSelector.tsx -&gt; SelectDropdown.tsx&#10;- Убран избыточный перевод передаваемый в FormGroup.tsx из ManualAddMediaModal.tsx">
+      <option name="closed" value="true" />
+      <created>1750839895457</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1750839895457</updated>
+    </task>
+    <task id="LOCAL-00048" summary="- Декомпозировал компонент ManualAddMediaModal.tsx. Теперь он включает себя компоненты MediaFormFields.tsx / MediaModalFooter.tsx / MediaModalHeader.tsx&#10;- Добавил автоматическое приведение типов в movieModalScheme.ts">
+      <option name="closed" value="true" />
+      <created>1750923322400</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1750923322400</updated>
+    </task>
+    <task id="LOCAL-00049" summary="- Исправлен баг, при переполнении SelectDropdown.tsx тексом, он слегка прыгал в ширине&#10;- Исправлен баг запуска валидации формы при закрытии ManualAddMediaModal.tsx по кнопкам X и Cancel&#10;- Добавлен отступ справа у блока в ImageUpload.module.scss">
+      <option name="closed" value="true" />
+      <created>1750927907631</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1750927907631</updated>
+    </task>
+    <task id="LOCAL-00050" summary="- Изменено название загрузки картинки с Upload image на Upload cover&#10;- Увеличена ширина модального окна ManualAddMediaModal.tsx до 620px&#10;- Добавлена смена типа, при добавлении сериала, мультфильма, фильма или мультсериала изменяется интерфейс модального окна ManualAddMediaModal.tsx&#10;- Добавлены новые валидации ошибок&#10;- Для мультсериалов и сериалов добавлено поле для ввода количества сезонов&#10;-">
+      <option name="closed" value="true" />
+      <created>1751027647175</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1751027647175</updated>
+    </task>
+    <task id="LOCAL-00051" summary="- Декомпозировал модальное окно ManualAddMediaModal.tsx. Добавлены новые файлы: MediaBasicInfoFields.tsx, MediaDescriptionField.tsx, MediaDetailsForm.tsx, MediaMetricsFields.tsx, MediaSelectionFields.tsx и соответствующие стили им&#10;- Изменено название файла MediaFormFields.tsx на MediaDetailsForm.tsx">
+      <option name="closed" value="true" />
+      <created>1751041003200</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1751041003200</updated>
+    </task>
+    <task id="LOCAL-00052" summary="- Исправлен баг, при котором переполнение текстом кнопки btnDropdownToggle приводило к маленькому скачку интерфейса">
+      <option name="closed" value="true" />
+      <created>1751046107672</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1751046107672</updated>
+    </task>
+    <task id="LOCAL-00053" summary="- Добавлена валидация для загрузки изображения&#10;- Добавлена библиотека react-dropzone &#10;- Добавлены новые переводы ошибок">
+      <option name="closed" value="true" />
+      <created>1751214350442</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1751214350443</updated>
+    </task>
+    <task id="LOCAL-00054" summary="- Исправлен баг добавления фильма вручную. При переключении типа добавляемого кина - валидировался скрытый Input, что делало отправку формы невозможным&#10;- Переработана movieModalScheme.ts&#10;- Переработан выбор item`ов у SelectDropdown.tsx. Убрана лишняя коллекция Set">
+      <option name="closed" value="true" />
+      <created>1751300733134</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1751300733135</updated>
+    </task>
+    <task id="LOCAL-00055" summary="- Добавлена валидация для загрузки обложки фильма&#10;- Исправлен баг с рейтингом. При котором дробные числа не проходили проверку валидности&#10;- Добавлен новый перевод для ошибки">
+      <option name="closed" value="true" />
+      <created>1751456605736</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1751456605741</updated>
+    </task>
+    <task id="LOCAL-00056" summary="- Каркас модального окна ManualAddMediaModal.tsx перенесён в папку widgets/modals/ui&#10;- Немного отредактирована схема movieModalScheme.ts&#10;- Добавлен usePageDragging.ts для подсвечивания области бросания картинки в случае перемещения её мышкой по видимости страницы&#10;- Рефактор стилей">
+      <option name="closed" value="true" />
+      <created>1751477812246</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1751477812247</updated>
+    </task>
+    <task id="LOCAL-00057" summary="- Обновлена CMD для установки зависимостей, миграций и запуска dev-сервера">
+      <option name="closed" value="true" />
+      <created>1751621907173</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1751621907174</updated>
+    </task>
+    <task id="LOCAL-00058" summary="- Изменена ширина Sidebar.tsx, добавлены стили grid-cols-[288px_1fr_1fr_1fr_1fr]&#10;- Убран компонент пустой карточки EmptyMovieCard.tsx&#10;- Удалён неиспользуемый ts файл dataFlags.ts&#10;- Добавлена ширина для галереи фильмов 1280px&#10;- Переработан компонент MovieCard.tsx содержащий стили scss. Стилевой файл удалён&#10;- Компоненты папки home-page вынесены в общий ui&#10;- Исправлена опечатка TODO&#10;- Убран неиспользуемый ts файл types.ts">
+      <option name="closed" value="true" />
+      <created>1751969738410</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1751969738411</updated>
+    </task>
+    <task id="LOCAL-00059" summary="- Исправлены все переводы&#10;- Sidebar.tsx теперь развёрнут по умолчанию&#10;- Header.tsx теперь расположен параллельно галерее фильмов">
+      <option name="closed" value="true" />
+      <created>1751983288557</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1751983288557</updated>
+    </task>
+    <task id="LOCAL-00060" summary="- Удалены не используемые файлы, а именно CollapsibleSidebarSection.tsx SidebarSectionHeader.tsx useCollapsible.ts&#10;- Исправлена ошибка вложенных кнопок у Filter.tsx">
+      <option name="closed" value="true" />
+      <created>1751988935402</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1751988935402</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added movie card markup" />
+    <MESSAGE value="Added a modal window AddMovieModal for adding movies manually" />
+    <MESSAGE value="Modded addMovieModal window" />
+    <MESSAGE value="Created modals folder, moved to ui with files" />
+    <MESSAGE value="- Папка modal с содержимым addMovieModal перемещена в features&#10;- Изменёны файлы translation.json, добавлены отступы для читаемости и часть ключей была изменена с AnyWord в Any word &#10;- Убраны id и htmlFor у объектов genreFilters, yearFilters, sortOptions&#10;- Добавлен font-size 2.4rem у логотипа" />
+    <MESSAGE value="- Вынесены 2 массива genreOptions и countryOptions в папку models&#10;- Добавлены все переводы в модальное окно AddMovieModal.tsx&#10;- Изменено название функции dataFilter.ts -&gt; filterData.ts" />
+    <MESSAGE value="- Скорректированы стили модального окна AddMovieModal.tsx&#10;- Добавлены переводы для ошибок&#10;- Отформатирован filterData.ts файл&#10;- Добавлен компонент Textarea.tsx (shared/ui)&#10;- Добавлен ErrorMessage.module.scss компонент&#10;- Изменена movieModalScheme.ts, устранён баг обработки чисел&#10;- Добавлена валидация для части полей в AddMovieModal.tsx" />
+    <MESSAGE value="- Добавлены поля в модальное окно AddMovieModal.tsx: Тип, Возраст&#10;- Изменён интерфейс AddMovieModal.tsx&#10;- Добавлены новые переводы&#10;- Добавлена проверка в movieModalScheme.ts на проверку количества знаков после запятой, для инпута &quot;Рейтинг&quot;&#10;- Изменены reset стили, в частности убран outline у textarea тега&#10;- Изменена часть стилей" />
+    <MESSAGE value="- Убран alias у Header.module.scss, что приводило к ошибке&#10;- Исправлены стили окна регистрации и входа" />
+    <MESSAGE value="- Добавлен выбор пунктов для DropdownSelector.tsx&#10;- Исправлен перевод возрастов&#10;- Скорректированы стили" />
+    <MESSAGE value="- Добавлена валидация для полей Type, Genres, Countries, Age в AddMovieModal.tsx&#10;- Добавлены переводы новых ошибок&#10;- Переработана логика выбора item`ов у DropdownSelector.tsx&#10;- Добавлен класс error и стили для Button.tsx&#10;- Изменена логика обработки ошибок для мультивыбора item`ов из DropdownSelector.tsx" />
+    <MESSAGE value="- Изменены названия файлов и папок. AddMovieModal.tsx -&gt; ManualAddMediaModal.tsx и DropdownSelector.tsx -&gt; SelectDropdown.tsx&#10;- Убран избыточный перевод передаваемый в FormGroup.tsx из ManualAddMediaModal.tsx" />
+    <MESSAGE value="- Декомпозировал компонент ManualAddMediaModal.tsx. Теперь он включает себя компоненты MediaFormFields.tsx / MediaModalFooter.tsx / MediaModalHeader.tsx&#10;- Добавил автоматическое приведение типов в movieModalScheme.ts" />
+    <MESSAGE value="- Исправлен баг, при переполнении SelectDropdown.tsx тексом, он слегка прыгал в ширине&#10;- Исправлен баг запуска валидации формы при закрытии ManualAddMediaModal.tsx по кнопкам X и Cancel&#10;- Добавлен отступ справа у блока в ImageUpload.module.scss" />
+    <MESSAGE value="- Изменено название загрузки картинки с Upload image на Upload cover&#10;- Увеличена ширина модального окна ManualAddMediaModal.tsx до 620px&#10;- Добавлена смена типа, при добавлении сериала, мультфильма, фильма или мультсериала изменяется интерфейс модального окна ManualAddMediaModal.tsx&#10;- Добавлены новые валидации ошибок&#10;- Для мультсериалов и сериалов добавлено поле для ввода количества сезонов&#10;-" />
+    <MESSAGE value="- Декомпозировал модальное окно ManualAddMediaModal.tsx. Добавлены новые файлы: MediaBasicInfoFields.tsx, MediaDescriptionField.tsx, MediaDetailsForm.tsx, MediaMetricsFields.tsx, MediaSelectionFields.tsx и соответствующие стили им&#10;- Изменено название файла MediaFormFields.tsx на MediaDetailsForm.tsx" />
+    <MESSAGE value="- Исправлен баг, при котором переполнение текстом кнопки btnDropdownToggle приводило к маленькому скачку интерфейса" />
+    <MESSAGE value="- Добавлена валидация для загрузки изображения&#10;- Добавлена библиотека react-dropzone &#10;- Добавлены новые переводы ошибок" />
+    <MESSAGE value="- Исправлен баг добавления фильма вручную. При переключении типа добавляемого кина - валидировался скрытый Input, что делало отправку формы невозможным&#10;- Переработана movieModalScheme.ts&#10;- Переработан выбор item`ов у SelectDropdown.tsx. Убрана лишняя коллекция Set" />
+    <MESSAGE value="- Добавлена валидация для загрузки обложки фильма&#10;- Исправлен баг с рейтингом. При котором дробные числа не проходили проверку валидности&#10;- Добавлен новый перевод для ошибки" />
+    <MESSAGE value="- Каркас модального окна ManualAddMediaModal.tsx перенесён в папку widgets/modals/ui&#10;- Немного отредактирована схема movieModalScheme.ts&#10;- Добавлен usePageDragging.ts для подсвечивания области бросания картинки в случае перемещения её мышкой по видимости страницы&#10;- Рефактор стилей" />
+    <MESSAGE value="- Обновлена CMD для установки зависимостей, миграций и запуска dev-сервера" />
+    <MESSAGE value="- Изменена ширина Sidebar.tsx, добавлены стили grid-cols-[288px_1fr_1fr_1fr_1fr]&#10;- Убран компонент пустой карточки EmptyMovieCard.tsx&#10;- Удалён неиспользуемый ts файл dataFlags.ts&#10;- Добавлена ширина для галереи фильмов 1280px&#10;- Переработан компонент MovieCard.tsx содержащий стили scss. Стилевой файл удалён&#10;- Компоненты папки home-page вынесены в общий ui&#10;- Исправлена опечатка TODO&#10;- Убран неиспользуемый ts файл types.ts" />
+    <MESSAGE value="- Исправлены все переводы&#10;- Sidebar.tsx теперь развёрнут по умолчанию&#10;- Header.tsx теперь расположен параллельно галерее фильмов" />
+    <MESSAGE value="- Удалены не используемые файлы, а именно CollapsibleSidebarSection.tsx SidebarSectionHeader.tsx useCollapsible.ts&#10;- Исправлена ошибка вложенных кнопок у Filter.tsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Удалены не используемые файлы, а именно CollapsibleSidebarSection.tsx SidebarSectionHeader.tsx useCollapsible.ts&#10;- Исправлена ошибка вложенных кнопок у Filter.tsx" />
+  </component>
+</project>

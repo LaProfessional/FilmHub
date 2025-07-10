@@ -1,0 +1,33 @@
+.wrapper {
+  display: flex;
+  border-radius: 0.5rem;
+  transition: outline-color 0.2s ease-in-out;
+  outline: 1px solid transparent;
+}
+.wrapper:has(.input:focus-within) {
+  outline: 1px solid var(--input-focus);
+}
+.wrapper .input {
+  width: 100%;
+  border-radius: 0.5rem 0 0 0.5rem;
+  border: 1px solid var(--border);
+  border-right: none;
+  color: var(--color-primary);
+  font-weight: bold;
+  font-style: oblique;
+  padding: 0.5rem 0.8rem;
+}
+.wrapper .add {
+  border-radius: 0 0.5rem 0.5rem 0;
+  background-color: var(--button);
+  font-size: 1.5rem;
+  color: var(--color-add-button);
+  padding: 0 0.8rem;
+  transition: background-color 0.1s ease-in-out;
+  cursor: pointer;
+}
+.wrapper .add:hover {
+  background-color: var(--button-hover);
+}
+
+/*# sourceMappingURL=AddCategoryInput.module.css.map */

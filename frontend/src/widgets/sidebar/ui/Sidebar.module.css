@@ -1,0 +1,117 @@
+.sidebar {
+  height: calc(100vh - 63px);
+}
+.sidebar .nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  height: 100%;
+  min-height: 100vh;
+  min-width: 288px;
+  max-width: 288px;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  border-right: 1px solid var(--border);
+  padding: 2.4rem 1.6rem 8rem 1.6rem;
+}
+.sidebar .nav .plusIcon {
+  stroke-width: 3px;
+  color: #f2f2f2;
+}
+
+.wrapperInput {
+  display: flex;
+  border-radius: 0.8rem;
+  transition: outline-color 0.2s ease-in-out;
+  outline: 1px solid transparent;
+}
+.wrapperInput:has(input:focus) {
+  outline: 1px solid var(--input-focus);
+}
+
+.item {
+  border-radius: 0.8rem;
+  color: var(--color-primary);
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.4rem;
+  cursor: pointer;
+  transition: background-color 0.1s linear;
+}
+.item.select {
+  background-color: var(--bg-accent-focus);
+  border-radius: 0.8rem;
+  border-left: 0.4rem solid;
+  color: var(--color-accent);
+}
+.item:not(.select):hover {
+  background-color: var(--bg-hover-primary);
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  border-radius: 0.8rem;
+  padding: 1rem 1.2rem;
+  transition: background-color 0.1s linear;
+}
+.wrapper, .wrapper .addSvg {
+  cursor: pointer;
+}
+.wrapper:hover {
+  background-color: var(--bg-hover-primary);
+}
+.wrapper .addSvg {
+  stroke: var(--color-accent);
+}
+
+.flagContainer {
+  max-width: 100%;
+  margin-left: 1.2rem;
+}
+.flagContainer .flagData {
+  margin-bottom: 1.2rem;
+}
+.flagContainer .flagData .wrapperFlagStat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem;
+  margin-bottom: 1.2rem;
+}
+.flagContainer .flagData .wrapperFlagStat .flag {
+  max-width: fit-content;
+  border: 1px solid var(--border-flag);
+  border-radius: 0.6rem;
+  overflow: hidden;
+  color: var(--color-primary);
+  font-size: 1.4rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 0.4rem 0.8rem;
+}
+.flagContainer .flagData .wrapperFlagStat .amountFlag {
+  align-self: center;
+  background-color: var(--bg-neutral);
+  border-radius: 0.8rem;
+  color: var(--color-muted);
+  font-weight: 600;
+  font-size: 1.6rem;
+  padding: 0.4rem 0.6rem;
+}
+.flagContainer .flagData .progressBar {
+  width: 100%;
+  height: 6px;
+  background-color: var(--bg-progress-bar);
+  border-radius: 1.6rem;
+}
+.flagContainer .flagData .progressBar .progress {
+  height: 100%;
+  width: 30%;
+  border-radius: 1.6rem;
+}
+
+/*# sourceMappingURL=Sidebar.module.css.map */

@@ -29,6 +29,7 @@
     "pg": "^8.16.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.7",
+    "swagger-ui": "^5.24.2",
     "validator": "^13.15.0"
   }
 }

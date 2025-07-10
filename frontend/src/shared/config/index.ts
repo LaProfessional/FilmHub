@@ -1,0 +1,1 @@
+export { AppRoute } from "./appRoute";

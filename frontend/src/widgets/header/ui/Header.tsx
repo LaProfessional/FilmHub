@@ -1,55 +1,29 @@
-import styles from "./Header.module.scss";
-import { UserMenu } from "./UserMenu/UserMenu";
-import { Button } from "@/shared/ui/Button";
-import titleStyles from "@/shared/styles/components/TitleStyles.module.scss"
+// FIXME: нельзя использовать модули, которые находятся на одном уровне
+import { UserMenu } from "@/widgets/user-menu";
 
-import { ReactComponent as LogoSvg } from "@/shared/assets/header/Logo.svg";
-import { ReactComponent as SunSvg } from "@/shared/assets/header/Sun.svg";
-import { ReactComponent as MoonSvg } from "@/shared/assets/header/Moon.svg";
-import { ReactComponent as SearchSvg } from "@/shared/assets/header/Search.svg";
+import { MovieSearch } from "./MovieSearch";
+import { ThemeSwitcher } from "@/shared/theme";
+import { LangToggler } from "./LangToggler";
+import { Logo } from "./Logo";
 
-import { Input } from "@/shared/ui/Input.tsx";
-
-import { useTheme } from "@/app/providers/theme";
-import { useLanguage } from "@/app/providers/i18n/ui/LanguageProvider";
-import { useTranslation } from "react-i18next";
+// все компоненты в этой композиции можно вынести
+// TODO: Header нужно сделать адаптивным
 
 export const Header = () => {
-    const { theme, toggleTheme } = useTheme();
-    const { language, changeLanguage } = useLanguage();
+  return (
+    <header className="top-0 p-3 flex items-center gap-3 w-full border-b-primary border-b px-[210px]">
+      <Logo />
 
-    const { t } = useTranslation();
-
-    return (
-        <header className={ styles.header }>
-            <div className={ styles.titleWrapper }>
-                <LogoSvg className={ styles.logoSvg }/>
-                <h2 className={ titleStyles.titleGradient }>FilmHub</h2>
-            </div>
-
-            <nav className={ styles.nav }>
-                <div className={ styles.wrapper }>
-                    <Input
-                        variant={ "inputSearch" }
-                        type="text"
-                        placeholder={ t("Search movies") }
-                    />
-
-                    <SearchSvg className={ styles.searchSvg }></SearchSvg>
-                </div>
-
-
-                <Button variant="headerButton" onClick={ toggleTheme }>
-                    { theme === "dark" ? <SunSvg className={ styles.sunSvg }/> : <MoonSvg/> }
-                </Button>
-
-                <Button variant="headerButton" onClick={ () => changeLanguage(language === "en" ? "ru" : "en") }>
-                    <span className={ styles.language }>{ language === "en" ? "en" : "ru" }</span>
-                </Button>
-
-
-                <UserMenu/>
-            </nav>
-        </header>
-    );
+      <div className="flex justify-end w-full gap-1.5">
+        <MovieSearch />
+        <div className="flex gap-2">
+          <div className="flex gap-1">
+            <ThemeSwitcher />
+            <LangToggler />
+          </div>
+          <UserMenu />
+        </div>
+      </div>
+    </header>
+  );
 };

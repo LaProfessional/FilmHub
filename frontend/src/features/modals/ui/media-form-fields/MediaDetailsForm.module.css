@@ -1,0 +1,13 @@
+.formMain {
+  display: flex;
+  margin-bottom: 2rem;
+}
+.formMain .formGroupWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 323px;
+  min-width: 100px;
+}
+
+/*# sourceMappingURL=MediaDetailsForm.module.css.map */
