@@ -1,12 +1,12 @@
 import React, { type Dispatch, type SetStateAction, useRef } from 'react'
-import cls from '@fvilers/cls'
 import styles from './SelectDropdown.module.scss'
 
-import { Button } from '@/shared/ui/Button.tsx'
+import { Button } from '@/shared/ui/button'
 
-import { useHandleClickOutside } from '@/shared/lib/useHandleClickOutside.ts'
+import { useHandleClickOutside } from '@/shared/lib/useHandleClickOutside'
 import { useTranslation } from 'react-i18next'
 import type { MediaType } from '@/features/modals/lib/types.ts'
+import { clsx } from 'clsx'
 
 interface Option {
   label: string
@@ -20,7 +20,7 @@ interface DropdownSelectorProps {
   error: string | undefined
   value: string | string[]
   onChange: (value: string | string[]) => void
-  setTypeKey?: Dispatch<SetStateAction<MediaType>>
+  setTypeKey?: Dispatch<SetStateAction<MediaType>> | undefined
 }
 
 export const SelectDropdown: React.FC<DropdownSelectorProps> = ({
@@ -59,7 +59,6 @@ export const SelectDropdown: React.FC<DropdownSelectorProps> = ({
   return (
     <div ref={dropdownRef}>
       <Button
-        variant="btnDropdownToggle"
         error={error}
         onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
           e.preventDefault()
@@ -73,10 +72,10 @@ export const SelectDropdown: React.FC<DropdownSelectorProps> = ({
         </div>
       </Button>
 
-      <div className={cls(styles.dropdownMenu, isOpen && styles.open)}>
+      <div className={clsx(styles.dropdownMenu, isOpen && styles.open)}>
         {options.map((item, index) => (
           <div
-            className={cls(
+            className={clsx(
               styles.dropdownItem,
               selectedItems.includes(item.label) && styles.select,
             )}

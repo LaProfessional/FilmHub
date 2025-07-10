@@ -8,13 +8,13 @@ import {
   type WatchInternal,
 } from 'react-hook-form'
 
-import { type MovieModalFormValues } from '@/features/modals/model/movieModalScheme.ts'
+import { type MovieModalFormValues } from '@/features/modals/model/movieModalScheme'
 import type { MediaType, MovieData } from '@/features/modals/lib/types.ts'
-import { MediaImageUpload } from '@/features/modals/ui/media-image-upload/MediaImageUpload.tsx'
-import { MediaBasicInfoFields } from '@/features/modals/ui/media-basic-info-fields/MediaBasicInfoFields.tsx'
-import { MediaSelectionFields } from '@/features/modals/ui/media-selection-fields/MediaSelectionFields.tsx'
-import { MediaMetricsFields } from '@/features/modals/ui/media-metrics-fields/MediaMetricsFields.tsx'
-import { MediaDescriptionField } from '@/features/modals/ui/media-description-field/MediaDescriptionField.tsx'
+import { MediaImageUpload } from '@/features/modals/ui/media-image-upload/MediaImageUpload'
+import { MediaBasicInfoFields } from '@/features/modals/ui/media-basic-info-fields/MediaBasicInfoFields'
+import { MediaSelectionFields } from '@/features/modals/ui/media-selection-fields/MediaSelectionFields'
+import { MediaMetricsFields } from '@/features/modals/ui/media-metrics-fields/MediaMetricsFields'
+import { MediaDescriptionField } from '@/features/modals/ui/media-description-field/MediaDescriptionField'
 
 interface MediaFormFieldsProps {
   control: Control<MovieModalFormValues>

@@ -6,10 +6,10 @@ import { useCallback, useEffect, useState } from 'react'
 import { Controller, type Control, type FieldErrors, type UseFormRegister } from 'react-hook-form'
 import type { MovieModalFormValues } from '@/features/modals/model/movieModalScheme.ts'
 
-import { Input } from '@/shared/ui/Input.tsx'
-import { FormGroup } from '@/features/modals/ui/form-group/FormGroup.tsx'
-import cls from '@fvilers/cls'
-import { usePageDragging } from '@/shared/lib/usePageDragging.ts'
+import { Input } from '@/shared/ui/input'
+import { FormGroup } from '@/features/modals/ui/form-group/FormGroup'
+import { usePageDragging } from '@/shared/lib/usePageDragging'
+import { clsx } from 'clsx'
 
 interface MediaImageUploadProps {
   register: UseFormRegister<MovieModalFormValues>
@@ -58,7 +58,7 @@ export const MediaImageUpload: React.FC<MediaImageUploadProps> = ({
           return (
             <div
               {...field}
-              className={cls(styles.uploadPreview, errors.image?.message && styles.error)}
+              className={clsx(styles.uploadPreview, errors.image?.message && styles.error)}
               {...getRootProps()}
             >
               {isPageDragging ? <span className={styles.testBgc}>{t('Drop image here')}</span> : ''}
@@ -87,7 +87,6 @@ export const MediaImageUpload: React.FC<MediaImageUploadProps> = ({
 
       <FormGroup label={t('Link to the image')} error={errors.urlImage?.message}>
         <Input
-          variant="imageInput"
           placeholder="https://example.com/image.jpg"
           {...register('urlImage')}
           error={errors.urlImage?.message}

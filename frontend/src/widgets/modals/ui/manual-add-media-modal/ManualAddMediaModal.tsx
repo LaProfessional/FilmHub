@@ -3,15 +3,15 @@ import { type Dispatch, type SetStateAction, useEffect, useState } from 'react'
 import { type Resolver, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
-import { MediaModalFooter } from '@/features/modals/ui/media-modal-footer/MediaModalFooter.tsx'
-import { MediaModalHeader } from '@/features/modals/ui/media-modal-header/MediaModalHeader.tsx'
-import { MediaDetailsForm } from '@/features/modals/ui/media-form-fields/MediaDetailsForm.tsx'
+import { MediaModalFooter } from '@/features/modals/ui/media-modal-footer/MediaModalFooter'
+import { MediaModalHeader } from '@/features/modals/ui/media-modal-header/MediaModalHeader'
+import { MediaDetailsForm } from '@/features/modals/ui/media-form-fields/MediaDetailsForm'
 
 import {
   getMovieModalSchema,
   type MovieModalFormValues,
-} from '@/features/modals/model/movieModalScheme.ts'
-import { getMediaTypeData } from '@/features/modals/lib/mediaTypeMap.ts'
+} from '@/features/modals/model/movieModalScheme'
+import { getMediaTypeData } from '@/features/modals/lib/mediaTypeMap'
 import type { MediaType } from '@/features/modals/lib/types.ts'
 
 interface AddMovieModalProps {

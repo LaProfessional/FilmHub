@@ -1,8 +1,8 @@
-import { FormGroup } from '@/features/modals/ui/form-group/FormGroup.tsx'
+import { FormGroup } from '@/features/modals/ui/form-group/FormGroup'
 import { type Control, Controller, type FieldErrors } from 'react-hook-form'
-import { SelectDropdown } from '@/features/modals/ui/select-dropdown/SelectDropdown.tsx'
+import { SelectDropdown } from '@/features/modals/ui/select-dropdown/SelectDropdown'
 import type { MovieModalFormValues } from '@/features/modals/model/movieModalScheme.ts'
-import { movieSelectOptions } from '@/features/modals/model/movieSelectOptions.ts'
+import { movieSelectOptions } from '@/features/modals/model/movieSelectOptions'
 
 interface MediaSelectionFieldsProps {
   control: Control<MovieModalFormValues>
@@ -18,7 +18,7 @@ export const MediaSelectionFields: React.FC<MediaSelectionFieldsProps> = ({
   setIsMenuOpen,
 }) => {
   const { genreOptions, countryOptions } = movieSelectOptions()
-    
+
   return (
     <>
       <FormGroup label="Genres" error={errors.genres?.message}>

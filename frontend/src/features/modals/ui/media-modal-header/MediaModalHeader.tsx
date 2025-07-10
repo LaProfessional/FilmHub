@@ -2,7 +2,7 @@ import styles from '@/features/modals/ui/media-modal-header/MediaModalHeader.mod
 import { useTranslation } from 'react-i18next'
 import type { SetStateAction } from 'react'
 
-import { Button } from '@/shared/ui/Button.tsx'
+import { Button } from '@/shared/ui/button'
 
 import { X } from 'lucide-react'
 
@@ -14,7 +14,11 @@ interface MediaModalHeaderProps {
   dataType: MovieData
 }
 
-export const MediaModalHeader: React.FC<MediaModalHeaderProps> = ({ isOpen, setIsOpen, dataType }) => {
+export const MediaModalHeader: React.FC<MediaModalHeaderProps> = ({
+  isOpen,
+  setIsOpen,
+  dataType,
+}) => {
   const { t } = useTranslation()
 
   return (

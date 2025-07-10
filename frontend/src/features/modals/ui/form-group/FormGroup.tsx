@@ -1,11 +1,11 @@
 import styles from './FormGroup.module.scss'
 import errorMessage from '@/shared/styles/components/ErrorMessage.module.scss'
 import { useTranslation } from 'react-i18next'
-import cls from '@fvilers/cls'
+import { clsx } from 'clsx'
 
 interface FormGroupProps {
-  label: string
-  error?: string
+  label: string | undefined
+  error?: string | undefined
   children: React.ReactNode
 }
 
@@ -14,12 +14,10 @@ export const FormGroup: React.FC<FormGroupProps> = ({ label, error, children }) 
 
   return (
     <div className={styles.formGroup}>
-      <label className={styles.label}>{t(label)}</label>
+      <label className={styles.label}>{t(label || '')}</label>
       {children}
 
-      {error && (
-        <p className={cls(error && errorMessage.error)}>{t(error)}</p>
-      )}
+      {error && <p className={clsx(error && errorMessage.error)}>{t(error)}</p>}
     </div>
   )
 }

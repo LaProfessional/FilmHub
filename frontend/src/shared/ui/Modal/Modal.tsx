@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom'
 import styles from './Modal.module.scss'
-import cls from '@fvilers/cls'
+import { clsx } from 'clsx'
 
 interface ModalProps {
   children: React.ReactNode
@@ -13,7 +13,7 @@ export const Modal: React.FC<ModalProps> = ({ children, isOpen }) => {
   if (!portalRoot) return null
 
   return ReactDOM.createPortal(
-    <div className={cls(styles.overlay, isOpen && styles.open)}>{children}</div>,
+    <div className={clsx(styles.overlay, isOpen && styles.open)}>{children}</div>,
     portalRoot,
   )
 }

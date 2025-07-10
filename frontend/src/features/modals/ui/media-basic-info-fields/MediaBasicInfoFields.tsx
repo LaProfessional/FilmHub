@@ -1,10 +1,10 @@
-import { Input } from '@/shared/ui/Input.tsx'
-import { FormGroup } from '@/features/modals/ui/form-group/FormGroup.tsx'
+import { Input } from '@/shared/ui/input'
+import { FormGroup } from '@/features/modals/ui/form-group/FormGroup'
 import { type Control, Controller, type FieldErrors, type UseFormRegister } from 'react-hook-form'
-import { SelectDropdown } from '@/features/modals/ui/select-dropdown/SelectDropdown.tsx'
+import { SelectDropdown } from '@/features/modals/ui/select-dropdown/SelectDropdown'
 import { useTranslation } from 'react-i18next'
 import type { MovieModalFormValues } from '@/features/modals/model/movieModalScheme.ts'
-import { movieSelectOptions } from '@/features/modals/model/movieSelectOptions.ts'
+import { movieSelectOptions } from '@/features/modals/model/movieSelectOptions'
 import type { Dispatch, SetStateAction } from 'react'
 import type { MediaType, MovieData } from '@/features/modals/lib/types.ts'
 
@@ -14,7 +14,7 @@ interface MediaBasicInfoFieldsProps {
   errors: FieldErrors<MovieModalFormValues>
   isMenuOpen: string
   setIsMenuOpen: (menu: string) => void
-  setTypeKey?: Dispatch<SetStateAction<MediaType>>
+  setTypeKey?: Dispatch<SetStateAction<MediaType>> | undefined
   dataType: MovieData
 }
 
@@ -52,7 +52,6 @@ export const MediaBasicInfoFields: React.FC<MediaBasicInfoFieldsProps> = ({
 
       <FormGroup label={dataType.title} error={errors.movieTitle?.message}>
         <Input
-          variant="inputAddMovie"
           placeholder={t(dataType.enterTitle)}
           {...register('movieTitle')}
           error={errors.movieTitle?.message}

@@ -1,5 +1,5 @@
-import { FormGroup } from '@/features/modals/ui/form-group/FormGroup.tsx'
-import { Textarea } from '@/shared/ui/Textarea/Textarea.tsx'
+import { FormGroup } from '@/features/modals/ui/form-group/FormGroup'
+import { Textarea } from '@/shared/ui/Textarea/Textarea'
 import { useTranslation } from 'react-i18next'
 import type { FieldErrors, UseFormRegister } from 'react-hook-form'
 import type { MovieModalFormValues } from '@/features/modals/model/movieModalScheme.ts'

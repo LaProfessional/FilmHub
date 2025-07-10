@@ -2,7 +2,7 @@ import styles from '@/features/modals/ui/media-modal-footer/MediaModalFooter.mod
 import { useTranslation } from 'react-i18next'
 import type { SetStateAction } from 'react'
 
-import { Button } from '@/shared/ui/Button.tsx'
+import { Button } from '@/shared/ui/button'
 import type { MovieData } from '@/features/modals/lib/types.ts'
 
 interface MediaModalFooterProps {
@@ -20,13 +20,11 @@ export const MediaModalFooter: React.FC<MediaModalFooterProps> = ({
 
   return (
     <footer className={styles.modalFooter}>
-      <Button type="button" variant="btnCancel" onClick={() => setIsOpen(!isOpen)}>
+      <Button type="button" onClick={() => setIsOpen(!isOpen)}>
         {t('Cancel')}
       </Button>
 
-      <Button type="submit" variant="btnAddMovie">
-        {t(dataType.add)}
-      </Button>
+      <Button type="submit">{t(dataType.add)}</Button>
     </footer>
   )
 }
