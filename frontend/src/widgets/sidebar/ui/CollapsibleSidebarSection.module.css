@@ -1,9 +1,0 @@
-.section {
-  overflow: hidden;
-  transition: height 0.2s ease-in-out;
-}
-.section.close {
-  height: 0;
-}
-
-/*# sourceMappingURL=CollapsibleSidebarSection.module.css.map */
