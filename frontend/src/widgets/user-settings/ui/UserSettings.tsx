@@ -4,7 +4,7 @@ import type { NavItemKey } from "../model/types";
 import { SettingsOptions } from "./SettingsOptions";
 import { SettingsSidebar } from "./SettingsSidebar";
 
-export const SettingsModal = () => {
+export const UserSettings = () => {
   const [activeTab, setActiveTab] = useState<NavItemKey>("gallery");
   const { settings } = getSettingsData();
 
