@@ -6,7 +6,7 @@ export const SettingsOptions = ({ settings }: { settings: SettingsItem }) => {
   const { options, title, desc } = settings;
 
   return (
-    <section className="p-5 lg:pr-30 w-full">
+    <section className="p-5 lg:pr-30 w-full overflow-y-auto">
       <h1 className="lg:text-3xl text-xl">{title}</h1>
       {!!desc && (
         <p className="lg:text-lg text-[16px] font-extralight">
@@ -14,7 +14,7 @@ export const SettingsOptions = ({ settings }: { settings: SettingsItem }) => {
         </p>
       )}
 
-      <div className="mt-10">
+      <div className="mt-10 flex flex-col gap-4 ">
         {options.map(({ type, value }) =>
           type === "checkbox" ? <CheckboxOption value={value} /> : <SwitchOption value={value} />,
         )}
