@@ -16,4 +16,8 @@ export type SettingsItem = {
   options: Option[];
 };
 
+export type ActiveOptions = {
+  [key in NavItemKey]: Record<string, boolean>;
+};
+
 export type Settings = Record<NavItemKey, SettingsItem>;

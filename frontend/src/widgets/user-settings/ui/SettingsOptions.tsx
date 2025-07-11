@@ -2,7 +2,13 @@ import type { SettingsItem } from "../model/types";
 import { CheckboxOption } from "./CheckboxOption";
 import { SwitchOption } from "./SwitchOption";
 
-export const SettingsOptions = ({ settings }: { settings: SettingsItem }) => {
+type Props = {
+  settings: SettingsItem;
+  savedOptions: Record<string, boolean>;
+  handleChange: (key: string, value: boolean) => void;
+};
+
+export const SettingsOptions = ({ settings, savedOptions, handleChange }: Props) => {
   const { options, title, desc } = settings;
 
   return (
@@ -16,7 +22,17 @@ export const SettingsOptions = ({ settings }: { settings: SettingsItem }) => {
 
       <div className="mt-10 flex flex-col gap-4 ">
         {options.map(({ type, value }) =>
-          type === "checkbox" ? <CheckboxOption value={value} /> : <SwitchOption value={value} />,
+          type === "checkbox" ?
+            <CheckboxOption
+              value={value}
+              checked={savedOptions[value] || false}
+              onChange={(bool) => handleChange(value, bool)}
+            />
+          : <SwitchOption
+              value={value}
+              checked={savedOptions[value] || false}
+              onChange={(bool) => handleChange(value, bool)}
+            />,
         )}
       </div>
     </section>

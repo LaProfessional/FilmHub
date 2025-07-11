@@ -1,25 +1,16 @@
 import { Checkbox } from "@/shared/ui";
-import { useState } from "react";
 
-export const CheckboxOption = ({
-  value,
-  // checked,
-  // onChange,
-}: {
+type Props = {
   value: string;
-  // checked: boolean;
-  // onChange: () => void;
-}) => {
-  const [checked, setChecked] = useState(false);
+  checked: boolean;
+  onChange: (val: boolean) => void;
+};
 
-  const handleChange = () => {
-    setChecked((prev) => !prev);
-  };
-
+export const CheckboxOption = ({ value, checked, onChange }: Props) => {
   return (
     <label className="flex items-center justify-between lg:text-lg text-[16px]">
       {value}
-      <Checkbox checked={checked} onCheckedChange={handleChange} />
+      <Checkbox checked={checked} onCheckedChange={onChange} />
     </label>
   );
 };

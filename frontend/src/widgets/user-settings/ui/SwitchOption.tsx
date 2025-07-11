@@ -1,17 +1,16 @@
 import { Switch } from "@/shared/ui";
-import { useState } from "react";
 
-export const SwitchOption = ({ value }: { value: string }) => {
-  const [checked, setChecked] = useState(false);
+type Props = {
+  value: string;
+  checked: boolean;
+  onChange: (val: boolean) => void;
+};
 
-  const handleChange = () => {
-    setChecked((prev) => !prev);
-  };
-
+export const SwitchOption = ({ value, checked, onChange }: Props) => {
   return (
     <label className="flex items-center justify-between lg:text-lg text-[16px]">
       {value}
-      <Switch checked={checked} onCheckedChange={handleChange} />
+      <Switch checked={checked} onCheckedChange={onChange} />
     </label>
   );
 };
