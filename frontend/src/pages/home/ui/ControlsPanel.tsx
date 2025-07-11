@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 
 import { LayoutToggleButtons } from '@/pages/home/ui/LayoutToggleButtons'
 import { MovieCard } from '@/pages/home/ui/MovieCard'
-import { ManualAddMediaModal } from '@/widgets/modals/ui/manual-add-media-modal/ManualAddMediaModal'
+import { ManualAddMediaModal } from '@/widgets/modals/ui/ManualAddMediaModal'
 
 export const ControlsPanel = () => {
   const { t } = useTranslation()

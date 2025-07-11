@@ -3,8 +3,8 @@ import { type Resolver, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Plus, X } from 'lucide-react'
 import { Button } from '@/shared/ui'
-import { MediaModalFooter } from '@/features/modals/ui/media-modal-footer/MediaModalFooter'
-import { MediaDetailsForm } from '@/features/modals/ui/media-form-fields/MediaDetailsForm'
+import { MediaModalFooter } from '@/features/modals/ui/MediaModalFooter'
+import { MediaDetailsForm } from '@/features/modals/ui/MediaDetailsForm'
 
 import {
   getMovieModalSchema,
