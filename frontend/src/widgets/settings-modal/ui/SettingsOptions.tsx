@@ -1,8 +1,8 @@
-import type { Settings } from "../model/types";
+import type { SettingsItem } from "../model/types";
 import { CheckboxOption } from "./CheckboxOption";
 import { SwitchOption } from "./SwitchOption";
 
-export const SettingsOptions = ({ settings }: { settings: Settings }) => {
+export const SettingsOptions = ({ settings }: { settings: SettingsItem }) => {
   const { options, title, desc } = settings;
 
   return (

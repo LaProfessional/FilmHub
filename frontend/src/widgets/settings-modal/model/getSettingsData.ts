@@ -1,10 +1,23 @@
-import type { Settings } from "./types";
+import type { NavItem, Settings } from "./types";
 
 export const getSettingsData = () => {
-  const navItems = ["Gallery", "Sidebar", "Main Page"];
-
-  const settings: Settings[] = [
+  const navItems: NavItem[] = [
     {
+      text: "Gallery",
+      key: "gallery",
+    },
+    {
+      text: "Sidebar",
+      key: "sidebar",
+    },
+    {
+      text: "Main Page",
+      key: "mainPage",
+    },
+  ];
+
+  const settings: Settings = {
+    gallery: {
       title: "Gallery",
       desc: "Настройте отображения карточек с фильмами",
       options: [
@@ -18,20 +31,20 @@ export const getSettingsData = () => {
         },
       ],
     },
-    {
+    sidebar: {
       title: "Sidebar",
       options: [
         {
-          value: "Показывать progress bar флагов",
+          value: "Описание под карточкой",
           type: "checkbox",
         },
         {
-          value: "Показывать количество флагов",
-          type: "checkbox",
+          value: "Для 4к мониторов",
+          type: "switch",
         },
       ],
     },
-    {
+    mainPage: {
       title: "Main Page",
       options: [
         {
@@ -44,9 +57,7 @@ export const getSettingsData = () => {
         },
       ],
     },
-  ];
+  };
 
-  const stub = { title: "", options: [] };
-
-  return { navItems, settings, stub };
+  return { navItems, settings };
 };
