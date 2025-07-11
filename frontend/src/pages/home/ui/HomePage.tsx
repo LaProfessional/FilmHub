@@ -1,9 +1,10 @@
 import { FilterPanel } from "@/widgets/filters/ui/FilterPanel";
+import { SettingsModal } from "@/widgets/settings-modal";
 
 import { ControlsPanel } from "@/pages/home/ui/ControlsPanel";
 import { NavTabs } from "@/pages/home/ui/NavTabs";
+
 import { Separator } from "@/shared/ui";
-import { SettingsModal } from "@/widgets/settings-modal";
 
 export const HomePage = () => {
   return (
