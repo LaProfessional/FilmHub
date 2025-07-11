@@ -10,7 +10,7 @@ import { Settings } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { getSettingsData } from "../model/getSettingsData";
-import type { ActiveOptions, NavItemKey } from "../model/types";
+import type { NavItemKey, SavedOptions } from "../model/types";
 import { SettingsOptions } from "./SettingsOptions";
 import { SettingsSidebar } from "./SettingsSidebar";
 
@@ -19,7 +19,7 @@ export const UserSettings = () => {
   const { settings } = getSettingsData();
 
   const [activeTab, setActiveTab] = useState<NavItemKey>("gallery");
-  const [options, setOptions] = useState<ActiveOptions>({
+  const [options, setOptions] = useState<SavedOptions>({
     gallery: {},
     sidebar: {},
     mainPage: {},

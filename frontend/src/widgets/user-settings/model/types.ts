@@ -18,7 +18,7 @@ export type SettingsItem = {
   options: Option[];
 };
 
-export type ActiveOptions = {
+export type SavedOptions = {
   [key in NavItemKey]: Record<string, boolean>;
 };
 
