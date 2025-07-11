@@ -1,7 +1,7 @@
 import { cn } from "@/shared/lib/utils";
 import { Button } from "@/shared/ui";
 import { ArrowLeft } from "lucide-react";
-import { navItems } from "../model/consts";
+import { getSettingsData } from "../model/getSettingsData";
 
 export const SettingsSidebar = ({
   setActiveIndex,
@@ -10,6 +10,8 @@ export const SettingsSidebar = ({
   setActiveIndex: (i: number) => void;
   activeIndex: number;
 }) => {
+  const { navItems } = getSettingsData();
+
   return (
     <aside className="h-full max-w-[325px] w-full p-4 border-r border-r-primary">
       <Button className="w-fit">
