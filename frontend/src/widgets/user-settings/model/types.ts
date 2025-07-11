@@ -1,6 +1,8 @@
+export type OptionType = "checkbox" | "switch";
+
 export type Option = {
   value: string;
-  type: "checkbox" | "switch";
+  type: OptionType;
 };
 
 export type NavItemKey = "gallery" | "sidebar" | "mainPage";

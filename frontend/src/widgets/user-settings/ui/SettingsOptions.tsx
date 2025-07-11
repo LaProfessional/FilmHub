@@ -1,6 +1,5 @@
 import type { SettingsItem } from "../model/types";
-import { CheckboxOption } from "./CheckboxOption";
-import { SwitchOption } from "./SwitchOption";
+import { OptionToggle } from "./OptionToggle";
 
 type Props = {
   settings: SettingsItem;
@@ -21,19 +20,14 @@ export const SettingsOptions = ({ settings, savedOptions, handleChange }: Props)
       )}
 
       <div className="mt-10 flex flex-col gap-4 ">
-        {options.map(({ type, value }) =>
-          type === "checkbox" ?
-            <CheckboxOption
-              value={value}
-              checked={savedOptions[value] || false}
-              onChange={(bool) => handleChange(value, bool)}
-            />
-          : <SwitchOption
-              value={value}
-              checked={savedOptions[value] || false}
-              onChange={(bool) => handleChange(value, bool)}
-            />,
-        )}
+        {options.map(({ type, value }) => (
+          <OptionToggle
+            value={value}
+            checked={savedOptions[value] || false}
+            onChange={(bool) => handleChange(value, bool)}
+            type={type}
+          />
+        ))}
       </div>
     </section>
   );
