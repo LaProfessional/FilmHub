@@ -1,4 +1,4 @@
-import { FormGroup } from '@/features/modals/ui/form-group/FormGroup'
+import { FormGroup } from '@/features/modals/ui/FormGroup'
 import { type Control, Controller, type FieldErrors } from 'react-hook-form'
 import { SelectDropdown } from '@/features/modals/ui/select-dropdown/SelectDropdown'
 import type { MovieModalFormValues } from '@/features/modals/model/movieModalScheme.ts'

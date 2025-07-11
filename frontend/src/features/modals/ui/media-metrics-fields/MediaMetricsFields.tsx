@@ -1,5 +1,5 @@
 import styles from '@/features/modals/ui/media-metrics-fields/MediaMetricsFields.module.scss'
-import { FormGroup } from '@/features/modals/ui/form-group/FormGroup'
+import { FormGroup } from '@/features/modals/ui/FormGroup'
 import { Input } from '@/shared/ui/input'
 import { useEffect } from 'react'
 import {

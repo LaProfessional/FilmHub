@@ -10,10 +10,10 @@ import {
 import { type MovieModalFormValues } from '@/features/modals/model/movieModalScheme'
 import type { MediaType, MovieData } from '@/features/modals/lib/types.ts'
 import { MediaImageUpload } from '@/features/modals/ui/MediaImageUpload'
-import { MediaBasicInfoFields } from '@/features/modals/ui/media-basic-info-fields/MediaBasicInfoFields'
+import { MediaBasicInfoFields } from '@/features/modals/ui/MediaBasicInfoFields'
 import { MediaSelectionFields } from '@/features/modals/ui/media-selection-fields/MediaSelectionFields'
 import { MediaMetricsFields } from '@/features/modals/ui/media-metrics-fields/MediaMetricsFields'
-import { MediaDescriptionField } from '@/features/modals/ui/media-description-field/MediaDescriptionField'
+import { MediaDescriptionField } from '@/features/modals/ui/MediaDescriptionField'
 
 interface MediaFormFieldsProps {
   control: Control<MovieModalFormValues>

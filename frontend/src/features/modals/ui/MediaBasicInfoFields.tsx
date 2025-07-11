@@ -1,5 +1,5 @@
 import { Input } from '@/shared/ui/input'
-import { FormGroup } from '@/features/modals/ui/form-group/FormGroup'
+import { FormGroup } from '@/features/modals/ui/FormGroup'
 import { type Control, Controller, type FieldErrors, type UseFormRegister } from 'react-hook-form'
 import { SelectDropdown } from '@/features/modals/ui/select-dropdown/SelectDropdown'
 import { useTranslation } from 'react-i18next'

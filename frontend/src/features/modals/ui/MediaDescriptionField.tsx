@@ -1,4 +1,4 @@
-import { FormGroup } from '@/features/modals/ui/form-group/FormGroup'
+import { FormGroup } from '@/features/modals/ui/FormGroup'
 import { Textarea } from '@/shared/ui/Textarea/Textarea'
 import { useTranslation } from 'react-i18next'
 import type { FieldErrors, UseFormRegister } from 'react-hook-form'

@@ -1,5 +1,3 @@
-import styles from './FormGroup.module.scss'
-import errorMessage from '@/shared/styles/components/ErrorMessage.module.scss'
 import { useTranslation } from 'react-i18next'
 import { clsx } from 'clsx'
 
@@ -13,11 +11,11 @@ export const FormGroup: React.FC<FormGroupProps> = ({ label, error, children }) 
   const { t } = useTranslation()
 
   return (
-    <div className={styles.formGroup}>
-      <label className={styles.label}>{t(label || '')}</label>
+    <div className="relative w-full">
+      <label className="block text-[14px] text-[#FAFAFAFF] mb-[5px]">{t(label || '')}</label>
       {children}
 
-      {error && <p className={clsx(error && errorMessage.error)}>{t(error)}</p>}
+      {error && <p className={clsx(error && 'text-[#EF4444FF] text-[12px] pt-1')}>{t(error)}</p>}
     </div>
   )
 }

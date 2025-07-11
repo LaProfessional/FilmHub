@@ -11,7 +11,7 @@ import {
 import type { MovieModalFormValues } from '@/features/modals/model/movieModalScheme.ts'
 
 import { Input } from '@/shared/ui/input'
-import { FormGroup } from '@/features/modals/ui/form-group/FormGroup'
+import { FormGroup } from '@/features/modals/ui/FormGroup'
 import { usePageDragging } from '@/shared/lib/usePageDragging'
 import { clsx } from 'clsx'
 
