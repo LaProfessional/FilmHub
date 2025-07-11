@@ -1,3 +1,4 @@
+import { SettingsOptions } from "./SettingsOptions";
 import { SettingsSidebar } from "./SettingsSidebar";
 
 export const SettingsModal = () => {
@@ -5,7 +6,7 @@ export const SettingsModal = () => {
     <div className="bg-background text-foreground w-full h-screen fixed top-0 left-0">
       <div className="h-full flex">
         <SettingsSidebar />
-        <section className="p-4">Section</section>
+        <SettingsOptions />
       </div>
     </div>
   );
