@@ -6,7 +6,7 @@ export const SettingsModal = () => {
     <div className="bg-background text-foreground w-full h-screen fixed top-0 left-0">
       <div className="h-full flex">
         <SettingsSidebar />
-        <SettingsOptions />
+        <SettingsOptions title="Gallery" />
       </div>
     </div>
   );
