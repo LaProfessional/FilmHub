@@ -104,7 +104,7 @@ export const getSettingsData = () => {
       title: "Main Page",
       options: [
         {
-          value: "Показывать progress bar флагов",
+          value: "Параметр",
           type: "checkbox",
         },
         {
