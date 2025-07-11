@@ -13,11 +13,7 @@ export const SettingsOptions = ({ settings, savedOptions, handleChange }: Props)
   return (
     <section className="p-5 lg:pr-30 w-full overflow-y-auto">
       <h1 className="lg:text-3xl text-xl">{title}</h1>
-      {!!desc && (
-        <p className="lg:text-lg text-[16px] font-extralight">
-          Настройте отображения карточек с фильмами
-        </p>
-      )}
+      {!!desc && <p className="lg:text-lg text-[16px] font-extralight">{desc}</p>}
 
       <div className="mt-10 flex flex-col gap-4 ">
         {options.map(({ type, value }) => (
