@@ -1,6 +1,5 @@
 import { cn } from "@/shared/lib/utils";
 import { Button } from "@/shared/ui";
-import { ArrowLeft } from "lucide-react";
 import { getSettingsData } from "../model/getSettingsData";
 import type { NavItemKey } from "../model/types";
 
@@ -17,11 +16,7 @@ export const SettingsSidebar = ({
 
   return (
     <aside className="h-full max-w-[325px] w-full p-4 border-r border-r-primary">
-      <Button className="w-fit">
-        <ArrowLeft /> Back
-      </Button>
-
-      <div className="flex flex-col gap-4 mt-10">
+      <div className="flex flex-col gap-4">
         {navItems.map((item) => (
           <Button
             onClick={() => setActiveTab(item.key)}
