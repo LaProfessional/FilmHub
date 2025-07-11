@@ -15,13 +15,16 @@ export const SettingsSidebar = ({
   console.log("tab", activeTab);
 
   return (
-    <aside className="h-full max-w-[325px] w-full p-4 border-r border-r-primary">
+    <aside className="h-full lg:max-w-[325px] lg:w-full p-4 border-r border-r-primary">
       <div className="flex flex-col gap-4">
         {navItems.map((item) => (
           <Button
             onClick={() => setActiveTab(item.key)}
             key={item.key}
-            className={cn("justify-start text-lg py-5", activeTab === item.key && "dark:bg-accent")}
+            className={cn(
+              "justify-start lg:text-lg text-[16px] py-5",
+              activeTab === item.key && "dark:bg-accent",
+            )}
           >
             {item.text}
           </Button>

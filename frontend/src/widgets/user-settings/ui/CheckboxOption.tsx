@@ -17,7 +17,7 @@ export const CheckboxOption = ({
   };
 
   return (
-    <label className="flex items-center justify-between">
+    <label className="flex items-center justify-between lg:text-lg text-[16px]">
       {value}
       <Checkbox checked={checked} onCheckedChange={handleChange} />
     </label>

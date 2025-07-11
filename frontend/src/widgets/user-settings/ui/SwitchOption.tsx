@@ -9,7 +9,7 @@ export const SwitchOption = ({ value }: { value: string }) => {
   };
 
   return (
-    <label className="flex items-center justify-between">
+    <label className="flex items-center justify-between lg:text-lg text-[16px]">
       {value}
       <Switch checked={checked} onCheckedChange={handleChange} />
     </label>

@@ -6,10 +6,12 @@ export const SettingsOptions = ({ settings }: { settings: SettingsItem }) => {
   const { options, title, desc } = settings;
 
   return (
-    <section className="p-5 pr-30 w-full">
-      <h1 className="text-3xl">{title}</h1>
+    <section className="p-5 lg:pr-30 w-full">
+      <h1 className="lg:text-3xl text-xl">{title}</h1>
       {!!desc && (
-        <p className="text-lg font-extralight">Настройте отображения карточек с фильмами</p>
+        <p className="lg:text-lg text-[16px] font-extralight">
+          Настройте отображения карточек с фильмами
+        </p>
       )}
 
       <div className="mt-10">
