@@ -17,8 +17,6 @@ export const HomePage = () => {
         <Separator orientation="horizontal" />
 
         <ControlsPanel />
-
-        {/* <SettingsModal /> */}
       </nav>
     </div>
   );
