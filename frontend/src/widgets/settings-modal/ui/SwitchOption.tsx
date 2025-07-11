@@ -1,4 +1,4 @@
-import { Switch } from "@/shared/ui/switch";
+import { Switch } from "@/shared/ui";
 import { useState } from "react";
 
 export const SwitchOption = ({ value }: { value: string }) => {

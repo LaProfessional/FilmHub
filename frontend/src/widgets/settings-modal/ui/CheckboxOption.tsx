@@ -1,4 +1,4 @@
-import { Checkbox } from "@/shared/ui/checkbox";
+import { Checkbox } from "@/shared/ui";
 import { useState } from "react";
 
 export const CheckboxOption = ({

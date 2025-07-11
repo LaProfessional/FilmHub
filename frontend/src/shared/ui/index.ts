@@ -1,6 +1,7 @@
 export * from "./accordion";
 export * from "./avatar";
 export * from "./button";
+export * from "./checkbox";
 export * from "./dropdown-menu";
 export * from "./form";
 export * from "./input";
@@ -8,4 +9,5 @@ export * from "./popover";
 export * from "./scroll-area";
 export * from "./separator";
 export * from "./sidebar";
+export * from "./switch";
 export * from "./tabs";
