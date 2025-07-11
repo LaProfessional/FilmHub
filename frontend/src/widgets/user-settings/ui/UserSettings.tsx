@@ -7,10 +7,13 @@ import {
   DialogTrigger,
 } from "@/shared/ui";
 import { Settings } from "lucide-react";
+
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+
 import { getSettingsData } from "../model/getSettingsData";
 import type { NavItemKey, SavedOptions } from "../model/types";
+
 import { SettingsOptions } from "./SettingsOptions";
 import { SettingsSidebar } from "./SettingsSidebar";
 

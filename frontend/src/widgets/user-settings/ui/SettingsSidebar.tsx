@@ -1,5 +1,6 @@
 import { cn } from "@/shared/lib/utils";
 import { Button } from "@/shared/ui";
+
 import { getSettingsData } from "../model/getSettingsData";
 import type { NavItemKey } from "../model/types";
 
