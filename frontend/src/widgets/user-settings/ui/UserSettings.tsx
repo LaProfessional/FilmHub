@@ -19,7 +19,7 @@ import { SettingsSidebar } from "./SettingsSidebar";
 
 export const UserSettings = () => {
   const { t } = useTranslation();
-  const { settings } = getSettingsData();
+  const { settings } = getSettingsData(t);
 
   const [activeTab, setActiveTab] = useState<NavItemKey>("gallery");
   const [options, setOptions] = useState<SavedOptions>({

@@ -4,6 +4,8 @@ import { Button } from "@/shared/ui";
 import { getSettingsData } from "../model/getSettingsData";
 import type { NavItemKey } from "../model/types";
 
+import { useTranslation } from "react-i18next";
+
 export const SettingsSidebar = ({
   setActiveTab,
   activeTab,
@@ -11,7 +13,8 @@ export const SettingsSidebar = ({
   setActiveTab: (i: NavItemKey) => void;
   activeTab: NavItemKey;
 }) => {
-  const { navItems } = getSettingsData();
+  const { t } = useTranslation();
+  const { navItems } = getSettingsData(t);
 
   return (
     <aside className="h-full lg:max-w-[325px] lg:w-full p-4 border-r border-r-primary">

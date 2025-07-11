@@ -1,116 +1,45 @@
+import type { TFunction } from "i18next";
 import type { NavItem, Settings } from "./types";
 
-export const getSettingsData = () => {
+export const getSettingsData = (t: TFunction) => {
   const navItems: NavItem[] = [
     {
-      text: "Gallery",
+      text: t("settings.nav.gallery"),
       key: "gallery",
     },
     {
-      text: "Sidebar",
+      text: t("settings.nav.sidebar"),
       key: "sidebar",
     },
     {
-      text: "Main Page",
+      text: t("settings.nav.mainPage"),
       key: "mainPage",
     },
   ];
 
   const settings: Settings = {
     gallery: {
-      title: "Gallery",
-      desc: "Настройте отображения карточек с фильмами",
+      title: t("settings.gallery.title"),
+      desc: t("settings.gallery.desc"),
       options: [
-        {
-          value: "Описание под карточкой",
-          type: "switch",
-        },
-        {
-          value: "Без отступов по краям",
-          type: "switch",
-        },
-        {
-          value: "Для 4к мониторов",
-          type: "checkbox",
-        },
-        {
-          value: "Слайдер",
-          type: "switch",
-        },
-        {
-          value: "Список",
-          type: "switch",
-        },
-        {
-          value: "Сетка",
-          type: "switch",
-        },
-        {
-          value: "Большие карточки",
-          type: "switch",
-        },
-        {
-          value: "Отключить отображение флагов на фильме",
-          type: "switch",
-        },
-        {
-          value: "Показывать только картинку флага",
-          type: "switch",
-        },
-        {
-          value: "Маленькие карточки",
-          type: "switch",
-        },
-        {
-          value: "Маленькие карточки",
-          type: "switch",
-        },
-        {
-          value: "Маленькие карточки",
-          type: "switch",
-        },
-        {
-          value: "Маленькие карточки",
-          type: "switch",
-        },
-        {
-          value: "Маленькие карточки",
-          type: "switch",
-        },
-        {
-          value: "Маленькие карточки",
-          type: "switch",
-        },
-        {
-          value: "Маленькие карточки",
-          type: "switch",
-        },
+        { value: t("settings.gallery.options.descBelowCard"), type: "switch" },
+        { value: t("settings.gallery.options.noGutters"), type: "switch" },
+        { value: t("settings.gallery.options.for4k"), type: "checkbox" },
+        // и т.д.
       ],
     },
     sidebar: {
-      title: "Sidebar",
+      title: t("settings.sidebar.title"),
       options: [
-        {
-          value: "Показывать progress bar флагов",
-          type: "checkbox",
-        },
-        {
-          value: "Показывать количество флагов",
-          type: "checkbox",
-        },
+        { value: t("settings.sidebar.options.showProgress"), type: "checkbox" },
+        { value: t("settings.sidebar.options.showCount"), type: "checkbox" },
       ],
     },
     mainPage: {
-      title: "Main Page",
+      title: t("settings.mainPage.title"),
       options: [
-        {
-          value: "Параметр",
-          type: "checkbox",
-        },
-        {
-          value: "Показывать количество флагов",
-          type: "checkbox",
-        },
+        { value: t("settings.mainPage.options.param"), type: "checkbox" },
+        { value: t("settings.mainPage.options.showCount"), type: "checkbox" },
       ],
     },
   };
