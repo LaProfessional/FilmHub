@@ -1,33 +1,28 @@
-import styles from '@/features/modals/ui/media-modal-header/MediaModalHeader.module.scss'
 import { useTranslation } from 'react-i18next'
-import type { SetStateAction } from 'react'
 
 import { Button } from '@/shared/ui/button'
+import { DialogTrigger } from '@/shared/ui'
 
 import { X } from 'lucide-react'
 
 import type { MovieData } from '@/features/modals/lib/types.ts'
 
 interface MediaModalHeaderProps {
-  isOpen: boolean
-  setIsOpen: React.Dispatch<SetStateAction<boolean>>
   dataType: MovieData
 }
 
-export const MediaModalHeader: React.FC<MediaModalHeaderProps> = ({
-  isOpen,
-  setIsOpen,
-  dataType,
-}) => {
+export const MediaModalHeader: React.FC<MediaModalHeaderProps> = ({ dataType }) => {
   const { t } = useTranslation()
 
   return (
-    <header className={styles.modalHeader}>
-      <h2 className={styles.modalTitle}>{t(dataType.add)}</h2>
+    <header className="flex justify-between items-center px-5 py-2.5">
+      <h2 className="text-[18px]">{t(dataType.add)}</h2>
 
-      <Button type="button" onClick={() => setIsOpen(!isOpen)}>
-        <X className={styles.iconX} />
-      </Button>
+      <DialogTrigger asChild>
+        <Button type="button">
+          <X className="align-middle" />
+        </Button>
+      </DialogTrigger>
     </header>
   )
 }

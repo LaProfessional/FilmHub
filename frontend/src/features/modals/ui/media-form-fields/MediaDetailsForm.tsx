@@ -1,4 +1,3 @@
-import styles from '@/features/modals/ui/media-form-fields/MediaDetailsForm.module.scss'
 import { type Dispatch, type SetStateAction } from 'react'
 import {
   type Control,
@@ -41,10 +40,10 @@ export const MediaDetailsForm: React.FC<MediaFormFieldsProps> = ({
 }) => {
   return (
     <>
-      <div className={styles.formMain}>
+      <div className="flex mb-5">
         <MediaImageUpload register={register} errors={errors} control={control} />
 
-        <div className={styles.formGroupWrapper}>
+        <div className="flex flex-col gap-[15px] max-w-[323px] min-w-[100px]">
           <MediaBasicInfoFields
             control={control}
             register={register}

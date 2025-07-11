@@ -1,10 +1,9 @@
-import styles from './ManualAddMediaModal.module.scss'
-import { type Dispatch, type SetStateAction, useEffect, useState } from 'react'
+import { useState } from 'react'
 import { type Resolver, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-
+import { Plus, X } from 'lucide-react'
+import { Button } from '@/shared/ui'
 import { MediaModalFooter } from '@/features/modals/ui/media-modal-footer/MediaModalFooter'
-import { MediaModalHeader } from '@/features/modals/ui/media-modal-header/MediaModalHeader'
 import { MediaDetailsForm } from '@/features/modals/ui/media-form-fields/MediaDetailsForm'
 
 import {
@@ -13,26 +12,16 @@ import {
 } from '@/features/modals/model/movieModalScheme'
 import { getMediaTypeData } from '@/features/modals/lib/mediaTypeMap'
 import type { MediaType } from '@/features/modals/lib/types.ts'
+import { Dialog, DialogTrigger, DialogContent, DialogTitle } from '@/shared/ui/dialog'
+import { useTranslation } from 'react-i18next'
 
-interface AddMovieModalProps {
-  modalRef: React.RefObject<HTMLFormElement | null>
-  isOpen: boolean
-  setIsOpen: Dispatch<SetStateAction<boolean>>
-}
+export const ManualAddMediaModal = () => {
+  const { t } = useTranslation()
 
-export const ManualAddMediaModal: React.FC<AddMovieModalProps> = ({
-  modalRef,
-  isOpen,
-  setIsOpen,
-}) => {
   const [isMenuOpen, setIsMenuOpen] = useState<string>('')
   const [typeKey, setTypeKey] = useState<MediaType>('Movie')
 
   const dataType = getMediaTypeData(typeKey)
-
-  useEffect(() => {
-    if (!isOpen) setIsMenuOpen('')
-  }, [isOpen])
 
   const movieModalSchema = getMovieModalSchema(typeKey)
 
@@ -52,24 +41,49 @@ export const ManualAddMediaModal: React.FC<AddMovieModalProps> = ({
   }
 
   return (
-    <form className={styles.modal} ref={modalRef} onSubmit={handleSubmit(handleAddMovie)}>
-      <MediaModalHeader isOpen={isOpen} setIsOpen={setIsOpen} dataType={dataType} />
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button>
+          <Plus />
+          {t('Add movie')}
+        </Button>
+      </DialogTrigger>
 
-      <section className={styles.modalBody}>
-        <MediaDetailsForm
-          control={control}
-          watch={watch}
-          register={register}
-          errors={errors}
-          isMenuOpen={isMenuOpen}
-          setIsMenuOpen={setIsMenuOpen}
-          setTypeKey={setTypeKey}
-          dataType={dataType}
-          unregister={unregister}
-        />
-      </section>
+      <DialogContent
+        className="bg-[#09090BFF] max-w-[620px] [&>button]:hidden"
+        aria-describedby={undefined}
+      >
+        <DialogTitle className="flex justify-between items-center px-5 py-2.5 text-[18px] ">
+          {t(dataType.add)}
 
-      <MediaModalFooter isOpen={isOpen} setIsOpen={setIsOpen} dataType={dataType} />
-    </form>
+          <DialogTrigger asChild>
+            <Button type="button">
+              <X className="align-middle" />
+            </Button>
+          </DialogTrigger>
+        </DialogTitle>
+
+        <form
+          className="flex flex-col max-h-[90vh] overflow-hidden min-w-[200px] w-full"
+          onSubmit={handleSubmit(handleAddMovie)}
+        >
+          <section className="w-full overflow-auto px-5 py-2.5">
+            <MediaDetailsForm
+              control={control}
+              watch={watch}
+              register={register}
+              errors={errors}
+              isMenuOpen={isMenuOpen}
+              setIsMenuOpen={setIsMenuOpen}
+              setTypeKey={setTypeKey}
+              dataType={dataType}
+              unregister={unregister}
+            />
+          </section>
+
+          <MediaModalFooter dataType={dataType} />
+        </form>
+      </DialogContent>
+    </Dialog>
   )
 }

@@ -1,4 +1,3 @@
-@use "../../../../shared/styles/abstracts/text-styles" as text-styles;
 
 .imageUpload {
     display: flex;
@@ -63,7 +62,6 @@
         height: 100%;
 
         text-align: center;
-        @include text-styles.text-small-semibold;
 
         padding: 0 1rem;
     }
