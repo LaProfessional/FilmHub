@@ -25,7 +25,7 @@ export const SettingsSidebar = ({
             key={item.key}
             className={cn(
               "justify-start lg:text-lg text-[16px] py-5",
-              activeTab === item.key && "bg-accent",
+              activeTab === item.key && "bg-accent dark:bg-accent",
             )}
           >
             {item.text}
