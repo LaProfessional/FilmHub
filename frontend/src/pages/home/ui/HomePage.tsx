@@ -3,6 +3,7 @@ import { FilterPanel } from "@/widgets/filters/ui/FilterPanel";
 import { ControlsPanel } from "@/pages/home/ui/ControlsPanel";
 import { NavTabs } from "@/pages/home/ui/NavTabs";
 import { Separator } from "@/shared/ui";
+import { SettingsModal } from "@/widgets/settings-modal/ui/SettingsModal";
 
 export const HomePage = () => {
   return (
@@ -16,6 +17,8 @@ export const HomePage = () => {
         <Separator orientation="horizontal" />
 
         <ControlsPanel />
+
+        <SettingsModal />
       </nav>
     </div>
   );
