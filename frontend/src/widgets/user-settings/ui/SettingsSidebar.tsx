@@ -12,8 +12,6 @@ export const SettingsSidebar = ({
 }) => {
   const { navItems } = getSettingsData();
 
-  console.log("tab", activeTab);
-
   return (
     <aside className="h-full lg:max-w-[325px] lg:w-full p-4 border-r border-r-primary">
       <div className="flex flex-col gap-4">
