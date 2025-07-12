@@ -1,22 +1,15 @@
 import { FormGroup } from '@/features/modals/ui/FormGroup'
 import { type Control, Controller, type FieldErrors } from 'react-hook-form'
-import { SelectDropdown } from '@/features/modals/ui/select-dropdown/SelectDropdown'
+import { SelectDropdown } from '@/features/modals/ui/SelectDropdown'
 import type { MovieModalFormValues } from '@/features/modals/model/movieModalScheme.ts'
 import { movieSelectOptions } from '@/features/modals/model/movieSelectOptions'
 
 interface MediaSelectionFieldsProps {
   control: Control<MovieModalFormValues>
   errors: FieldErrors<MovieModalFormValues>
-  isMenuOpen: string
-  setIsMenuOpen: (menu: string) => void
 }
 
-export const MediaSelectionFields: React.FC<MediaSelectionFieldsProps> = ({
-  control,
-  errors,
-  isMenuOpen,
-  setIsMenuOpen,
-}) => {
+export const MediaSelectionFields: React.FC<MediaSelectionFieldsProps> = ({ control, errors }) => {
   const { genreOptions, countryOptions } = movieSelectOptions()
 
   return (
@@ -29,8 +22,6 @@ export const MediaSelectionFields: React.FC<MediaSelectionFieldsProps> = ({
             <SelectDropdown
               {...field}
               options={genreOptions}
-              isOpen={isMenuOpen === 'modalGenres'}
-              onToggle={() => setIsMenuOpen(isMenuOpen === 'modalGenres' ? '' : 'modalGenres')}
               isMulti={true}
               error={errors.genres?.message}
             />
@@ -46,10 +37,6 @@ export const MediaSelectionFields: React.FC<MediaSelectionFieldsProps> = ({
             <SelectDropdown
               {...field}
               options={countryOptions}
-              isOpen={isMenuOpen === 'modalCountries'}
-              onToggle={() =>
-                setIsMenuOpen(isMenuOpen === 'modalCountries' ? '' : 'modalCountries')
-              }
               isMulti={true}
               error={errors.countries?.message}
             />

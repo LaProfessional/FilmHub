@@ -18,7 +18,6 @@ import { useTranslation } from 'react-i18next'
 export const ManualAddMediaModal = () => {
   const { t } = useTranslation()
 
-  const [isMenuOpen, setIsMenuOpen] = useState<string>('')
   const [typeKey, setTypeKey] = useState<MediaType>('Movie')
 
   const dataType = getMediaTypeData(typeKey)
@@ -73,8 +72,6 @@ export const ManualAddMediaModal = () => {
               watch={watch}
               register={register}
               errors={errors}
-              isMenuOpen={isMenuOpen}
-              setIsMenuOpen={setIsMenuOpen}
               setTypeKey={setTypeKey}
               dataType={dataType}
               unregister={unregister}

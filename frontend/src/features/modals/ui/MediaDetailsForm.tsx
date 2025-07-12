@@ -11,8 +11,8 @@ import { type MovieModalFormValues } from '@/features/modals/model/movieModalSch
 import type { MediaType, MovieData } from '@/features/modals/lib/types.ts'
 import { MediaImageUpload } from '@/features/modals/ui/MediaImageUpload'
 import { MediaBasicInfoFields } from '@/features/modals/ui/MediaBasicInfoFields'
-import { MediaSelectionFields } from '@/features/modals/ui/media-selection-fields/MediaSelectionFields'
-import { MediaMetricsFields } from '@/features/modals/ui/media-metrics-fields/MediaMetricsFields'
+import { MediaSelectionFields } from '@/features/modals/ui/MediaSelectionFields'
+import { MediaMetricsFields } from '@/features/modals/ui/MediaMetricsFields'
 import { MediaDescriptionField } from '@/features/modals/ui/MediaDescriptionField'
 
 interface MediaFormFieldsProps {
@@ -21,8 +21,6 @@ interface MediaFormFieldsProps {
   register: UseFormRegister<MovieModalFormValues>
   unregister: UseFormUnregister<MovieModalFormValues>
   errors: FieldErrors<MovieModalFormValues>
-  isMenuOpen: string
-  setIsMenuOpen: (menu: string) => void
   setTypeKey?: Dispatch<SetStateAction<MediaType>>
   dataType: MovieData
 }
@@ -33,8 +31,6 @@ export const MediaDetailsForm: React.FC<MediaFormFieldsProps> = ({
   register,
   unregister,
   errors,
-  isMenuOpen,
-  setIsMenuOpen,
   setTypeKey,
   dataType,
 }) => {
@@ -47,27 +43,18 @@ export const MediaDetailsForm: React.FC<MediaFormFieldsProps> = ({
           <MediaBasicInfoFields
             control={control}
             register={register}
-            isMenuOpen={isMenuOpen}
-            setIsMenuOpen={setIsMenuOpen}
             setTypeKey={setTypeKey}
             dataType={dataType}
             errors={errors}
           />
 
-          <MediaSelectionFields
-            control={control}
-            isMenuOpen={isMenuOpen}
-            setIsMenuOpen={setIsMenuOpen}
-            errors={errors}
-          />
+          <MediaSelectionFields control={control} errors={errors} />
 
           <MediaMetricsFields
             watch={watch}
             control={control}
             register={register}
             unregister={unregister}
-            isMenuOpen={isMenuOpen}
-            setIsMenuOpen={setIsMenuOpen}
             dataType={dataType}
             errors={errors}
           />

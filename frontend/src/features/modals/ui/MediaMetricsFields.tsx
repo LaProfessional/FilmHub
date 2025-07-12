@@ -1,7 +1,6 @@
-import styles from '@/features/modals/ui/media-metrics-fields/MediaMetricsFields.module.scss'
 import { FormGroup } from '@/features/modals/ui/FormGroup'
 import { Input } from '@/shared/ui/input'
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import {
   type Control,
   Controller,
@@ -10,7 +9,7 @@ import {
   type UseFormUnregister,
   type WatchInternal,
 } from 'react-hook-form'
-import { SelectDropdown } from '@/features/modals/ui/select-dropdown/SelectDropdown'
+import { SelectDropdown } from '@/features/modals/ui/SelectDropdown'
 import type { MovieModalFormValues } from '@/features/modals/model/movieModalScheme.ts'
 import type { MovieData } from '@/features/modals/lib/types.ts'
 import { useTranslation } from 'react-i18next'
@@ -22,8 +21,6 @@ interface MediaMetricsFieldsProps {
   unregister: UseFormUnregister<MovieModalFormValues>
   control: Control<MovieModalFormValues>
   errors: FieldErrors<MovieModalFormValues>
-  isMenuOpen: string
-  setIsMenuOpen: (menu: string) => void
   dataType: MovieData
 }
 
@@ -33,15 +30,13 @@ export const MediaMetricsFields: React.FC<MediaMetricsFieldsProps> = ({
   unregister,
   control,
   errors,
-  isMenuOpen,
-  setIsMenuOpen,
   dataType,
 }) => {
   const { t } = useTranslation()
 
   const { ageOptions } = movieSelectOptions()
 
-  const seasons = new Set(['Serial', 'Animated series'])
+  const seasons = useMemo(() => new Set(['Serial', 'Animated series']), [])
   const selectedType = watch('type')
 
   useEffect(() => {
@@ -50,11 +45,11 @@ export const MediaMetricsFields: React.FC<MediaMetricsFieldsProps> = ({
     } else {
       unregister('numberOfSeasons')
     }
-  }, [selectedType, unregister])
+  }, [selectedType, unregister, seasons])
 
   return (
     <>
-      <div className={styles.formGroupRow}>
+      <div className="flex gap-2.5">
         <FormGroup label="Rating (0–10)" error={errors.rating?.message}>
           <Input
             placeholder="8.5"
@@ -72,8 +67,6 @@ export const MediaMetricsFields: React.FC<MediaMetricsFieldsProps> = ({
               <SelectDropdown
                 {...field}
                 options={ageOptions}
-                isOpen={isMenuOpen === 'modalAges'}
-                onToggle={() => setIsMenuOpen(isMenuOpen === 'modalAges' ? '' : 'modalAges')}
                 isMulti={false}
                 error={errors.age?.message}
               />
@@ -82,7 +75,7 @@ export const MediaMetricsFields: React.FC<MediaMetricsFieldsProps> = ({
         </FormGroup>
       </div>
 
-      <div className={styles.formGroupRow}>
+      <div className="flex gap-2.5">
         <FormGroup label="Release year" error={errors.yearOfRelease?.message}>
           <Input
             placeholder="2025"

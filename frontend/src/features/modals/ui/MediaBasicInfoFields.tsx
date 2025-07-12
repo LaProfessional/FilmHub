@@ -1,7 +1,7 @@
 import { Input } from '@/shared/ui/input'
 import { FormGroup } from '@/features/modals/ui/FormGroup'
 import { type Control, Controller, type FieldErrors, type UseFormRegister } from 'react-hook-form'
-import { SelectDropdown } from '@/features/modals/ui/select-dropdown/SelectDropdown'
+import { SelectDropdown } from '@/features/modals/ui/SelectDropdown'
 import { useTranslation } from 'react-i18next'
 import type { MovieModalFormValues } from '@/features/modals/model/movieModalScheme.ts'
 import { movieSelectOptions } from '@/features/modals/model/movieSelectOptions'
@@ -12,8 +12,6 @@ interface MediaBasicInfoFieldsProps {
   register: UseFormRegister<MovieModalFormValues>
   control: Control<MovieModalFormValues>
   errors: FieldErrors<MovieModalFormValues>
-  isMenuOpen: string
-  setIsMenuOpen: (menu: string) => void
   setTypeKey?: Dispatch<SetStateAction<MediaType>> | undefined
   dataType: MovieData
 }
@@ -22,8 +20,6 @@ export const MediaBasicInfoFields: React.FC<MediaBasicInfoFieldsProps> = ({
   register,
   control,
   errors,
-  isMenuOpen,
-  setIsMenuOpen,
   setTypeKey,
   dataType,
 }) => {
@@ -40,8 +36,6 @@ export const MediaBasicInfoFields: React.FC<MediaBasicInfoFieldsProps> = ({
             <SelectDropdown
               {...field}
               options={typeOptions}
-              isOpen={isMenuOpen === 'modalTypes'}
-              onToggle={() => setIsMenuOpen(isMenuOpen === 'modalTypes' ? '' : 'modalTypes')}
               isMulti={false}
               error={errors.type?.message}
               setTypeKey={setTypeKey}
