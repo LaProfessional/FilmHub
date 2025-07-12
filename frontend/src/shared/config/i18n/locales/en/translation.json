@@ -1,4 +1,35 @@
 {
+  "settings": {
+    "nav": {
+      "gallery": "Gallery",
+      "sidebar": "Sidebar",
+      "mainPage": "Main Page"
+    },
+    "gallery": {
+      "title": "Gallery",
+      "desc": "Customize the appearance of movie cards",
+      "options": {
+        "descBelowCard": "Description below the card",
+        "noGutters": "No side paddings",
+        "for4k": "For 4K monitors"
+      }
+    },
+    "sidebar": {
+      "title": "Sidebar",
+      "options": {
+        "showProgress": "Show flag progress bar",
+        "showCount": "Show number of flags"
+      }
+    },
+    "mainPage": {
+      "title": "Main Page",
+      "options": {
+        "param": "Parameter",
+        "showCount": "Show number of flags"
+      }
+    }
+  },
+
   "Search movies": "Search movies...",
   "Create category": "Create category",
   "All movies": "All movies",
