@@ -1,4 +1,35 @@
 {
+  "settings": {
+    "nav": {
+      "gallery": "Галерея",
+      "sidebar": "Боковая панель",
+      "mainPage": "Главная страница"
+    },
+    "gallery": {
+      "title": "Галерея",
+      "desc": "Настройте отображение карточек",
+      "options": {
+        "descBelowCard": "Описание под карточкой",
+        "noGutters": "Без отступов по краям",
+        "for4k": "Для 4к мониторов"
+      }
+    },
+    "sidebar": {
+      "title": "Боковая панель",
+      "options": {
+        "showProgress": "Показывать progress bar флагов",
+        "showCount": "Показывать количество флагов"
+      }
+    },
+    "mainPage": {
+      "title": "Главная",
+      "options": {
+        "param": "Параметр",
+        "showCount": "Показывать количество флагов"
+      }
+    }
+  },
+
   "Search movies": "Поиск фильмов...",
   "Create category": "Создать категорию",
   "All movies": "Все фильмы",
