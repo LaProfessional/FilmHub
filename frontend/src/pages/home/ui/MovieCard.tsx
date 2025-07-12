@@ -7,6 +7,7 @@ import { Button } from "@/shared/ui";
 export const MovieCard = () => {
   const genresRef = useRef<HTMLDivElement>(null);
 
+  // TODO заглушка
   const dataMovies = [
     {
       imgUrl:
