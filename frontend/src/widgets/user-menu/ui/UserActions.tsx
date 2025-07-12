@@ -1,5 +1,6 @@
 import { Button } from "@/shared/ui";
-import { User, Folder, Flag, Settings } from "lucide-react";
+import { UserSettings } from "@/widgets/user-settings";
+import { Flag, Folder, User } from "lucide-react";
 
 import { useTranslation } from "react-i18next";
 
@@ -16,10 +17,10 @@ const userActionsButtons: { icon: React.ReactNode; text: string }[] = [
     icon: <Flag size={18} />,
     text: "YourFlags",
   },
-  {
-    icon: <Settings size={18} />,
-    text: "Settings",
-  },
+  // {
+  //   icon: <Settings size={18} />,
+  //   text: "Settings",
+  // },
 ];
 
 export const UserActions = () => {
@@ -36,6 +37,9 @@ export const UserActions = () => {
           </Button>
         </li>
       ))}
+      <li>
+        <UserSettings />
+      </li>
     </ul>
   );
 };
