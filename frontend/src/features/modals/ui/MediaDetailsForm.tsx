@@ -36,10 +36,10 @@ export const MediaDetailsForm: React.FC<MediaFormFieldsProps> = ({
 }) => {
   return (
     <>
-      <div className="flex mb-5">
+      <div className="flex justify-between mb-5">
         <MediaImageUpload register={register} errors={errors} control={control} />
 
-        <div className="flex flex-col gap-[15px] max-w-[323px] min-w-[100px]">
+        <div className="flex flex-col gap-[15px] max-w-[323px] min-w-[100px] w-full">
           <MediaBasicInfoFields
             control={control}
             register={register}

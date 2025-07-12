@@ -56,7 +56,7 @@ export const MediaImageUpload: React.FC<MediaImageUploadProps> = ({
   })
 
   return (
-    <div className="flex flex-col gap-[5px] min-w-[100px] max-w-[230px] mr-[25px]">
+    <div className="flex flex-col gap-[5px] min-w-[100px] max-w-[230px] w-full mr-[25px]">
       <Controller
         name="image"
         control={control}
@@ -67,7 +67,7 @@ export const MediaImageUpload: React.FC<MediaImageUploadProps> = ({
             <div
               {...field}
               className={clsx(
-                'relative h-full w-full max-h-[300px] mb-[15px] cursor-pointer border border-dashed border-[#E2E8F0FF] rounded-[12px]',
+                'relative h-full w-full max-h-[320px] mb-[15px] cursor-pointer border border-dashed border-[#E2E8F0FF] rounded-[12px]',
                 errors.image?.message && 'border-[#EF4444FF] border-dashed rounded-[12px]',
               )}
               {...getRootProps()}

@@ -49,7 +49,7 @@ export const ManualAddMediaModal = () => {
       </DialogTrigger>
 
       <DialogContent
-        className="bg-[#09090BFF] max-w-[620px] [&>button]:hidden"
+        className="bg-[#09090BFF] max-w-[620px] [&>button]:hidden gap-0"
         aria-describedby={undefined}
       >
         <DialogTitle className="flex justify-between items-center px-5 py-2.5 text-[18px] ">
