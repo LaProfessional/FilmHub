@@ -137,3 +137,14 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Custom file types
+*.css
+*.css.map
+*.xml
+
+# JetBrains IDE
+.idea/
+
+# Vite deps
+.vite/
