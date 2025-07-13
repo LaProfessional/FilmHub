@@ -1,11 +1,7 @@
-import { Button } from "@/shared/ui";
-import { useTranslation } from "react-i18next";
-
-import { flagModel, FlagBage } from "@/entities/flag";
+import { flagModel, FlagBage } from "@/entities/flags";
+import FlagAddModal from "@/features/flag-add-modal/ui/FlagAddModal";
 
 export function StoryLevel() {
-  const { t } = useTranslation();
-
   const flags = flagModel.getAllFlags();
 
   return (
@@ -18,7 +14,7 @@ export function StoryLevel() {
         ))}
       </ul>
 
-      <Button className="w-full">{t("Add flag")}</Button>
+      <FlagAddModal />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { type Flag } from "../model";
+import { type Flag } from "../model/model";
 
 export function FlagBage(props: Flag) {
   const { t } = useTranslation();
