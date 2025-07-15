@@ -9,39 +9,61 @@ import {
   AccordionItem,
   AccordionTrigger,
   Accordion,
+  Form,
+  FormField,
+  FormItem,
+  FormControl,
+  FormMessage,
 } from "@/shared/ui";
 import { useTranslation } from "react-i18next";
 import iro from "@jaames/iro";
 import { useRef, useState, useEffect } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { colorSchema } from "@/features/flag-add-modal/model/colorSchema";
+import { hexColorRegex } from "@/features/flag-add-modal/lib/colorUtils";
 
 const FlagAddModal = () => {
   const { t } = useTranslation();
 
-  const dataColors = new Set([
-    "#e91e63",
-    "#3f51b5",
-    "#2196f3",
-    "#ff9800",
-    "#9c27b0",
-    "#009688",
-    "#f44336",
-    "#4caf50",
-    "#a855f7",
-    "#6366f1",
-    "#3b82f6",
-    "#14b8a6",
-    "#22c55e",
-    "#f59e0b",
-    "#f97316",
-    "#ef4444",
-    "#10b981",
-    "#8b5cf6",
-  ]);
-
+  const [dataColors, setDataColors] = useState<string[]>(
+    Array.from(
+      new Set([
+        "#8d8d9c",
+        "#FFFFFF",
+        "#FF0000",
+        "#008000",
+        "#0000FF",
+        "#FFFF00",
+        "#FFA500",
+        "#800080",
+        "#FFC0CB",
+        "#A52A2A",
+        "#808080",
+        "#00FFFF",
+        "#FF00FF",
+        "#00FF00",
+        "#000080",
+        "#008080",
+        "#808000",
+        "#800000",
+        "#C0C0C0",
+        "#FFD700",
+      ]),
+    ),
+  );
   const [showColorPicker, setShowColorPicker] = useState(false);
-  const [selectedColor, setSelectedColor] = useState<string>("#ff0000");
+  const [selectedColor, setSelectedColor] = useState<string>("#ffffff");
   const colorPickerRef = useRef<HTMLDivElement>(null);
   const iroInstanceRef = useRef<any>(null);
+
+  const validColor = useForm({
+    resolver: zodResolver(colorSchema),
+    defaultValues: {
+      hexColor: "",
+    },
+    mode: "onChange",
+  });
 
   useEffect(() => {
     if (showColorPicker && colorPickerRef.current) {
@@ -65,13 +87,23 @@ const FlagAddModal = () => {
     }
   }, [showColorPicker]);
 
+  useEffect(() => {
+    if (iroInstanceRef.current && isValidHex(selectedColor)) {
+      iroInstanceRef.current.color.hexString = selectedColor;
+    }
+  }, [selectedColor]);
+
+  const isValidHex = (value: string) => {
+    return hexColorRegex.test(value);
+  };
+
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button className="w-full">{t("Add flag")}</Button>
       </DialogTrigger>
 
-      <DialogContent aria-describedby="">
+      <DialogContent className="w-full !max-w-[520px] min-w-[200px]" aria-describedby="">
         <DialogTitle>{t("flagModal.header.title")}</DialogTitle>
 
         <label className="flex flex-col gap-2">
@@ -81,12 +113,12 @@ const FlagAddModal = () => {
 
         <section>
           <h2>Цвет</h2>
-          <ul className="flex flex-wrap gap-2 justify-between w-full mt-2">
-            {Array.from(dataColors).map((col, index) => (
+          <ul className="flex flex-wrap gap-2 mt-2 max-h-[140px] overflow-auto">
+            {dataColors.map((col, index) => (
               <li
                 key={index}
                 onClick={() => setSelectedColor(col)}
-                className={`w-[40px] h-[40px] rounded-full cursor-pointer border-2 ${
+                className={`basis-[calc((100%-9*8px)/10)] w-[40px] h-[40px] rounded-full cursor-pointer border-2 ${
                   selectedColor === col ? "border-black" : "border-transparent"
                 }`}
                 style={{ backgroundColor: col }}
@@ -119,12 +151,41 @@ const FlagAddModal = () => {
                     className="w-[120px] h-[120px] rounded-[6px] border-[gray] border border-dashed mb-3"
                   ></div>
 
-                  <Button className="mb-3">Добавить цвет</Button>
+                  <Button
+                    className="mb-3"
+                    onClick={() =>
+                      setDataColors((prev) => Array.from(new Set([...prev, selectedColor])))
+                    }
+                  >
+                    Добавить цвет
+                  </Button>
 
-                  <label>
-                    Введите цвет
-                    <Input placeholder="HEX" />
-                  </label>
+                  <Form {...validColor}>
+                    <FormField
+                      name="hexColor"
+                      control={validColor.control}
+                      render={({ field }) => (
+                        <FormItem>
+                          <label htmlFor="hexColor">Введите цвет</label>
+                          <FormControl>
+                            <Input
+                              placeholder="#FFFFFF"
+                              id="hexColor"
+                              {...field}
+                              onChange={(e) => {
+                                const value = e.target.value;
+                                field.onChange(e);
+
+                                if (isValidHex(value)) setSelectedColor(value);
+                              }}
+                              maxLength={7}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </Form>
                 </div>
               </div>
             </AccordionContent>
