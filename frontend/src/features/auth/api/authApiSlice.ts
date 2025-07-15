@@ -16,6 +16,21 @@ export const authApiSlice = baseApiSlice.injectEndpoints({
         method: "POST",
         body,
       }),
+      // TODO: убрать копипасту
+      async onQueryStarted(_arg, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled;
+          dispatch(setCredentials(data));
+          dispatch(currentUserApiSlice.endpoints.getCurrentUser.initiate());
+        } catch (error) {
+          if (error instanceof Error) {
+            dispatch(setAuthError(error.message));
+          } else {
+            // TODO
+            throw error;
+          }
+        }
+      },
     }),
     login: builder.mutation<AuthApiLoginResponse, AuthUserLoginData>({
       query: (body) => ({

@@ -21,10 +21,13 @@ export const handlers = [
       const { accessToken, refreshToken } = createTokens();
       const userId = crypto.randomUUID();
 
-      users[body.email] = {
+      const user = {
         userId,
         ...body,
       };
+
+      sessions[accessToken] = user;
+      users[body.email] = user;
 
       return HttpResponse.json({
         accessToken,
