@@ -1,4 +1,3 @@
-export { AuthProvider } from "./AuthProvider";
+export { LoginForm } from "./LoginForm";
 export { LogoutButton } from "./LogoutButton";
-export { SignInForm } from "./SignInForm";
-export { SignUpForm } from "./SignUpForm";
+export { RegisterForm } from "./RegisterForm";

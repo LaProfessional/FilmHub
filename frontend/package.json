@@ -25,11 +25,10 @@
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-tabs": "^1.1.12",
     "@radix-ui/react-tooltip": "^1.2.7",
+    "@reduxjs/toolkit": "^2.8.2",
     "axios": "^1.10.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "effector": "^23.4.0",
-    "effector-react": "^23.3.0",
     "i18next": "^25.3.1",
     "i18next-browser-languagedetector": "^8.2.0",
     "lucide-react": "^0.525.0",
@@ -37,6 +36,7 @@
     "react-dom": "^19.1.0",
     "react-hook-form": "^7.60.0",
     "react-i18next": "^15.6.0",
+    "react-redux": "^9.2.0",
     "react-router": "^7.6.3",
     "tailwind-merge": "^3.3.1",
     "zod": "^3.25.74"
@@ -55,6 +55,7 @@
     "eslint-plugin-prettier": "^5.5.1",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
+    "msw": "^2.10.3",
     "playwright": "^1.53.2",
     "prettier": "^3.6.2",
     "sass-embedded": "^1.89.2",
@@ -65,5 +66,10 @@
     "vite": "^7.0.2",
     "vitest": "^3.2.4",
     "vitest-browser-react": "^1.0.0"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

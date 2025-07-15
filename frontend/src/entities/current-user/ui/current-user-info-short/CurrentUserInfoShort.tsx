@@ -1,9 +1,9 @@
-export type UserInfoShortProps = {
+export type CurrentUserInfoShortProps = {
   name: string;
   email: string;
 };
 
-export function UserInfoShort(props: UserInfoShortProps) {
+export function CurrentUserInfoShort(props: CurrentUserInfoShortProps) {
   const { name, email } = props;
 
   return (

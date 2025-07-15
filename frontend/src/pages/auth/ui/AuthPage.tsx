@@ -1,6 +1,6 @@
 import { Navigate } from "react-router";
-import { SignInForm } from "@/features/auth/ui/SignInForm";
-import { SignUpForm } from "@/features/auth/ui/SignUpForm";
+import { LoginForm } from "@/features/auth/ui/LoginForm";
+import { RegisterForm } from "@/features/auth/ui/RegisterForm";
 import { useAuth } from "@/features/auth";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/ui";
 
@@ -11,9 +11,9 @@ import { ThemeSwitcher } from "@/shared/theme";
 // TODO: добавить i18n
 
 export const AuthPage = () => {
-  const { isAuth } = useAuth();
+  const { isAuthenticated } = useAuth();
 
-  if (isAuth) {
+  if (isAuthenticated) {
     return <Navigate to={AppRoute.ROOT} />;
   }
 
@@ -30,16 +30,16 @@ export const AuthPage = () => {
       </header>
       <main className="flex justify-center items-center m-10">
         <div className="border rounded-2xl p-8">
-          <Tabs className="w-[400px] gap-6" defaultValue="signup">
+          <Tabs className="w-[400px] gap-6" defaultValue="login">
             <TabsList className="w-full">
-              <TabsTrigger value="signup">Sign up</TabsTrigger>
-              <TabsTrigger value="signin">Sign in</TabsTrigger>
+              <TabsTrigger value="register">Register</TabsTrigger>
+              <TabsTrigger value="login">Login</TabsTrigger>
             </TabsList>
-            <TabsContent value="signup">
-              <SignUpForm />
+            <TabsContent value="register">
+              <RegisterForm />
             </TabsContent>
-            <TabsContent value="signin">
-              <SignInForm />
+            <TabsContent value="login">
+              <LoginForm />
             </TabsContent>
           </Tabs>
         </div>

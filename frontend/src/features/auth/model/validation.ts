@@ -1,9 +1,8 @@
 import z from "zod";
 
-export const signUpFormSchema = z
+export const registerFormSchema = z
   .object({
-    firstName: z.string().min(2, "Firstname must be at least 2 characters"),
-    lastName: z.string().min(2, "Lastname must be at least 2 characters"),
+    username: z.string().min(2, "Lastname must be at least 2 characters"),
     email: z.string().email("Invalid email"),
     password: z.string().min(8, "Password must be at least 8 characters"),
     confirmPassword: z.string().min(8),
@@ -13,10 +12,10 @@ export const signUpFormSchema = z
     path: ["confirmPassword"],
   });
 
-export const signInFormSchema = z.object({
+export const loginFormSchema = z.object({
   email: z.string().email("Invalid email"),
   password: z.string().min(8, "Password must be at least 8 characters"),
 });
 
-export type SignInFormSchema = z.infer<typeof signInFormSchema>;
-export type SignUpFormSchema = z.infer<typeof signUpFormSchema>;
+export type RegisterFormData = z.infer<typeof registerFormSchema>;
+export type LoginFormData = z.infer<typeof loginFormSchema>;

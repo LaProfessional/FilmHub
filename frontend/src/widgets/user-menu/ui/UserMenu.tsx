@@ -1,5 +1,4 @@
-import {} from "@/shared/ui";
-import { UserInfoShort } from "@/entities/user";
+import { CurrentUserInfoShort } from "@/entities/current-user";
 import {
   Popover,
   PopoverTrigger,
@@ -10,10 +9,13 @@ import {
   AvatarFallback,
 } from "@/shared/ui";
 
-import { UserActions } from "./UserActions";
 import { LogoutButton } from "@/features/auth";
+import { useCurrentUser } from "@/entities/current-user";
+import { UserActions } from "./UserActions";
 
 export const UserMenu = () => {
+  const user = useCurrentUser();
+
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -23,8 +25,11 @@ export const UserMenu = () => {
         </Avatar>
       </PopoverTrigger>
       <PopoverContent className="flex flex-col gap-2" align="end" sideOffset={5}>
-        {/* TODO: убрать хардкод */}
-        <UserInfoShort name="Arnold" email="callme@tonight.uwu" />
+        {/* TODO: убрать хардкод, исправить */}
+        <CurrentUserInfoShort
+          name={user?.username || "Arnold"}
+          email={user?.email || "callme@tonight.uwu"}
+        />
         <Separator decorative orientation="horizontal" />
         <UserActions />
         <Separator decorative orientation="horizontal" />

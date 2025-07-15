@@ -3,40 +3,27 @@ import { AuthPage } from "@/pages/auth";
 import { HomePage } from "@/pages/home";
 import { NotFoundPage } from "@/pages/404";
 import { AppShell } from "@/app/AppShell";
-import { AuthProvider } from "@/features/auth";
+// import { AuthProvider } from "@/features/auth";
 import { AppRoute } from "@/shared/config";
-import { PrivateRoute } from "./PrivateRoute";
+// import { PrivateRoute } from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
     path: AppRoute.AUTH,
-    element: (
-      <AuthProvider>
-        <AuthPage />
-      </AuthProvider>
-    ),
+    Component: AuthPage,
   },
   {
     path: AppRoute.ROOT,
-    element: (
-      <AuthProvider>
-        <PrivateRoute />
-      </AuthProvider>
-    ),
+    Component: AppShell,
     children: [
       {
-        element: <AppShell />,
-        children: [
-          {
-            index: true,
-            element: <HomePage />,
-          },
-        ],
+        index: true,
+        Component: HomePage,
       },
     ],
   },
   {
     path: AppRoute.NOT_FOUND,
-    element: <NotFoundPage />,
+    Component: NotFoundPage,
   },
 ]);

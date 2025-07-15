@@ -3,9 +3,9 @@ import { useAuth } from "@/features/auth";
 import { AppRoute } from "@/shared/config";
 
 export const PrivateRoute = () => {
-  const { isAuth } = useAuth();
+  const { isAuthenticated } = useAuth();
 
-  if (!isAuth) return <Navigate to={AppRoute.AUTH} />;
+  if (!isAuthenticated) return <Navigate to={AppRoute.AUTH} />;
 
   return <Outlet />;
 };
