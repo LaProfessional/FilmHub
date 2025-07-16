@@ -1,4 +1,7 @@
 // это просто заглушка
-export function addCollection() {
-  // noop
+export const mockCollections: string[] = [];
+
+export function addCollection(name: string) {
+  mockCollections.push(name);
+  console.log("new folder", name);
 }
