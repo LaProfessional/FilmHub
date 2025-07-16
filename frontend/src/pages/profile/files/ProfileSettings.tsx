@@ -1,14 +1,13 @@
 import type { FormData } from './ProfilePage';
 import { Button } from '@/shared/ui/button';
 import { Input } from '@/shared/ui/input';
-import styles from './ProfileSettings.module.scss';
+import { Textarea } from '@/shared/ui/textarea';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Textarea } from '@/shared/ui/Textarea';
 
-import { ReactComponent as VkIcon} from '@/shared/assets/profile/vk.svg';
-import { ReactComponent as FacebookIcon} from '@/shared/assets/profile/facebook.svg';
-import { ReactComponent as GoogleIcon} from '@/shared/assets/profile/google.svg';
+import { ReactComponent as VkIcon } from '@/shared/assets/profile/vk.svg';
+import { ReactComponent as FacebookIcon } from '@/shared/assets/profile/facebook.svg';
+import { ReactComponent as GoogleIcon } from '@/shared/assets/profile/google.svg';
 
 interface Props {
   formData: FormData;
@@ -22,7 +21,6 @@ export const ProfileSettingsTab: React.FC<Props> = ({
   handleChangeTextData,
   handleAvatarChange,
   handleSubmit,
-
 }) => {
   const { t } = useTranslation();
 
@@ -32,115 +30,129 @@ export const ProfileSettingsTab: React.FC<Props> = ({
   };
 
   return (
-    <section className={styles.tabContent}>
-      <h3 className={styles.hidden}>{t('ProfileSettings')}</h3>
-      <form onSubmit={handleSubmit} className={styles.profileForm}>
-        <div className={styles.profileSettingsContentCell}>
-          <label>{t('Username')}</label>
+    <section className="p-4">
+      <h3 className="sr-only">{t('ProfileSettings')}</h3>
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-wrap gap-5"
+      >
+        <div className="flex-1 mb-3.5 md:basis-[calc(50%-10px)] w-full md:w-auto">
+          <label className="block mb-2 min-w-[250px] font-semibold text-primary text-xl">
+            {t('Username')}
+          </label>
           <Input
             type="text"
             name="username"
             value={formData.username}
             onChange={handleChangeTextData}
             placeholder={t('EnterUsername')}
-           /*  variant={'inputCategory'} */
           />
         </div>
 
-        <div className={styles.profileSettingsContentCell}>
-          <label>{t('Email')}</label>
+        <div className="flex-1 mb-3.5 md:flex-[1_1_calc(50%-0.625rem)] w-full md:w-auto">
+          <label className=" block mb-2 min-w-[250px] font-semibold text-primary text-xl">
+            {t('Email')}
+          </label>
           <Input
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChangeTextData}
             placeholder={t('EnterYourEmail')}
-           /*  variant={'inputCategory'} */
           />
-
         </div>
 
-        <div className={styles.profileSettingsContentCell}>
-          <label>{t('CurrentPassword')}</label>
+        <div className="flex-1 mb-3.5 md:flex-[1_1_calc(50%-0.625rem)] w-full md:w-auto">
+          <label className=" block mb-2 min-w-[250px] font-semibold text-primary text-xl">
+            {t('CurrentPassword')}
+          </label>
           <Input
             type="password"
             name="currentPassword"
             value={formData.currentPassword}
             onChange={handleChangeTextData}
             placeholder={t('EnterCurrentPassword')}
-           /*  variant={'inputCategory'} */
           />
         </div>
 
-        <div className={styles.profileSettingsContentCell}>
-          <label>{t('NewPassword')}</label>
+        <div className="flex-1 mb-3.5 md:flex-[1_1_calc(50%-0.625rem)] w-full md:w-auto">
+          <label className=" block mb-2 min-w-[250px] font-semibold text-primary text-xl">
+            {t('NewPassword')}
+          </label>
           <Input
             type="password"
             name="newPassword"
             value={formData.newPassword}
             onChange={handleChangeTextData}
             placeholder={t('EnterNewPassword')}
-          /*   variant={'inputCategory'} */
           />
         </div>
 
-        <div className={styles.profileSettingsContentCell}>
-          <label>{t('ConfirmPassword')}</label>
+        <div className="flex-1 mb-3.5 md:flex-[1_1_calc(50%-0.625rem)] w-full md:w-auto">
+          <label className=" block mb-2 min-w-[250px] font-semibold text-primary text-xl">
+            {t('ConfirmPassword')}
+          </label>
           <Input
             type="password"
             name="confirmPassword"
             value={formData.confirmPassword}
             onChange={handleChangeTextData}
             placeholder={t('RepeatNewPassword')}
-          /*   variant={'inputCategory'} */
           />
         </div>
 
-        <div className={styles.profileSettingsContentCell}>
-          <label>{t('AboutMe')}</label>
+
+        <div className="flex-1 mb-3.5 md:flex-[1_1_calc(50%-0.625rem)] w-full md:w-auto">
+          <label className=" block mb-2 min-w-[250px] font-semibold text-primary text-xl">
+            {t('AboutMe')}
+          </label>
           <Textarea
-           /*  variant='descriptionMovie' */
             value={formData.bio}
             onChange={handleChangeTextData}
-            rows={4} 
+            rows={4}
           />
         </div>
 
-        <div className={styles.profileSettingsContentCell}>
-          <label>{t('ProfileAvatar')}</label>
-          <div className={styles.avatarUpload}>
+
+        <div className="flex-1 mb-3.5 md:flex-[1_1_calc(50%-0.625rem)] w-full md:w-auto">
+          <label className=" block mb-2 min-w-[250px] font-semibold text-primary text-xl">
+            {t('ProfileAvatar')}
+          </label>
+          <div className="flex items-center gap-4">
             <input
               type="file"
               id="avatarUpload"
               accept="image/*"
               onChange={handleAvatarChange}
-              style={{ display: 'none' }}
+              className="hidden"
             />
-            <Button /* variant="uploadButton"  */onClick={handleTriggerAvatarChange}>
+            <Button type="button" onClick={handleTriggerAvatarChange}>
               <span>{t('ChangePhoto')}</span>
             </Button>
           </div>
         </div>
 
-        <div className={styles.profileSettingsContentCell}>
-          <label>{t("LinkedAccounts")}</label>
-          <div className={styles.LinkedIconsContainer}>
-            <a href="#" title="Google">
-               <GoogleIcon width={30} style={{ filter:'grayscale(100%) brightness(0.7)' }} />
+
+        <div className="flex-1 mb-3.5 md:flex-[1_1_calc(50%-0.625rem)] w-full md:w-auto">
+          <label className=" block mb-2 min-w-[250px] font-semibold text-primary text-xl">
+            {t('LinkedAccounts')}
+          </label>
+          <div className="flex items-center mt-2">
+            <a href="#" title="Google" className="pr-8">
+              <GoogleIcon width={30} style={{ filter: 'grayscale(100%) brightness(0.7)' }} />
             </a>
-            <a href="#" title="VK">
-              <VkIcon width={30} height={30} style={{ filter:'grayscale(100%) brightness(0.7)' }} />
+            <a href="#" title="VK" className="pr-8">
+              <VkIcon width={30} height={30} style={{ filter: 'grayscale(100%) brightness(0.7)' }} />
             </a>
-            <a href="#" title="Facebook">
-              <FacebookIcon width={30} style={{ filter:'grayscale(100%) brightness(0.7)' }}/>
+            <a href="#" title="Facebook" className="pr-8">
+              <FacebookIcon width={30} style={{ filter: 'grayscale(100%) brightness(0.7)' }} />
             </a>
-            
           </div>
         </div>
 
-        <Button /* variant="uploadButton" */>
-          {t('SaveChanges')}
-        </Button>
+        <div className="w-full">
+          <Button type="submit">{t('SaveChanges')}</Button>
+        </div>
       </form>
     </section>
   );
