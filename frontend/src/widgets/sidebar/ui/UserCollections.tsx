@@ -9,12 +9,15 @@ import { NavLink } from "react-router";
 import { NavItem } from "./NavItem";
 
 export function UserCollections() {
+  // Состояние чтобы react знал, что нужно ререндерить
   const [collections, setCollections] = useState(collectionModel.mockCollections);
+
   const [creating, setCreating] = useState(false);
   const [editing, setEditing] = useState(false);
 
   const { t } = useTranslation();
 
+  // Оч не красиво, но работает
   const onAddCollection = (name: string) => {
     collectionModel.addCollection(name);
     setCollections([...collectionModel.mockCollections]);

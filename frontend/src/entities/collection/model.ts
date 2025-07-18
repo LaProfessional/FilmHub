@@ -1,5 +1,6 @@
 // это просто заглушка
 
+// ? Здесь еще должен хранится url
 export type Collection = {
   id: number;
   name: string;
