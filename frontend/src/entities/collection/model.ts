@@ -5,7 +5,7 @@ export type Collection = {
   name: string;
 };
 
-export const mockCollections: Collection[] = [];
+export let mockCollections: Collection[] = [];
 
 export function addCollection(name: string) {
   const id = mockCollections.length + 1;
@@ -22,9 +22,6 @@ export function renameCollection(col: Collection) {
 }
 
 export function removeCollection(id: number) {
-  const colIndex = mockCollections.findIndex((item) => item.id === id);
-
-  if (mockCollections[colIndex]) {
-    mockCollections.splice(colIndex, 1);
-  }
+  const filteredCol = mockCollections.filter((item) => item.id !== id);
+  mockCollections = filteredCol;
 }
