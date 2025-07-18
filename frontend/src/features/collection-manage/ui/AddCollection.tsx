@@ -1,18 +1,12 @@
-import { collectionModel } from "@/entities/collection";
 import { Form, FormControl, FormField, FormItem, FormMessage, Input } from "@/shared/ui";
-import { zodResolver } from "@hookform/resolvers/zod";
+
 import { useEffect } from "react";
+
+import { collectionModel } from "@/entities/collection";
+
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import z from "zod";
-
-const collectionSchema = z.object({
-  name: z
-    .string()
-    .min(3, "Введите название папки")
-    .max(12, "Название не должно быть длиннее 12 символов"),
-});
-
-type CollectionSchema = z.infer<typeof collectionSchema>;
+import { collectionSchema, type CollectionSchema } from "../model/validation";
 
 export const AddCollection = ({ onSuccess }: { onSuccess: () => void }) => {
   const form = useForm<CollectionSchema>({
