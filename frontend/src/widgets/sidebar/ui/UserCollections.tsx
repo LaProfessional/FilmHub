@@ -9,8 +9,9 @@ import { NavLink } from "react-router";
 import { NavItem } from "./NavItem";
 
 export function UserCollections() {
+  const { mockCollections, addCollection, removeCollection, renameCollection } = collectionModel;
   // Состояние чтобы react знал, что нужно ререндерить
-  const [collections, setCollections] = useState(collectionModel.mockCollections);
+  const [collections, setCollections] = useState(mockCollections);
 
   const [creating, setCreating] = useState(false);
   const [editing, setEditing] = useState(false);
@@ -19,18 +20,18 @@ export function UserCollections() {
 
   // Оч не красиво, но работает
   const onAddCollection = (name: string) => {
-    collectionModel.addCollection(name);
-    setCollections([...collectionModel.mockCollections]);
+    addCollection(name);
+    setCollections([...mockCollections]);
   };
 
   const onEditCollection = (col: Collection) => {
-    collectionModel.renameCollection(col);
-    setCollections([...collectionModel.mockCollections]);
+    renameCollection(col);
+    setCollections([...mockCollections]);
   };
 
   const onDeleteCollection = (id: number) => {
-    collectionModel.removeCollection(id);
-    setCollections([...collectionModel.mockCollections]);
+    removeCollection(id);
+    setCollections([...mockCollections]);
   };
 
   const toggleCreating = () => {
