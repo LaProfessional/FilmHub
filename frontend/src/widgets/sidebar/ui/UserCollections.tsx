@@ -35,7 +35,7 @@ export function UserCollections() {
         </ul>
       </nav>
 
-      <div className="">
+      <div className="mt-4">
         {creating ?
           <AddCollection onSuccess={toggleCreating} />
         : <Button className="w-full" onClick={toggleCreating}>
