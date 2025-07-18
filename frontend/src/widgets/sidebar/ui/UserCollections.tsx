@@ -29,8 +29,8 @@ export function UserCollections() {
           <li className="p-2 cursor-pointer text-base">
             <NavLink to="/">{t("Favourites")}</NavLink>
           </li>
-          {mockCollections.map((name) => (
-            <NavItem name={name} />
+          {mockCollections.map((col) => (
+            <NavItem key={col.id} name={col.name} />
           ))}
         </ul>
       </nav>
