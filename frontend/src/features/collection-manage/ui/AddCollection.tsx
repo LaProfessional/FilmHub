@@ -1,7 +1,6 @@
 import { collectionModel } from "@/entities/collection";
-import { Button, Form, FormControl, FormField, FormItem, FormMessage, Input } from "@/shared/ui";
+import { Form, FormControl, FormField, FormItem, FormMessage, Input } from "@/shared/ui";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FolderInput } from "lucide-react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import z from "zod";
@@ -31,14 +30,14 @@ export const AddCollection = ({ onSuccess }: { onSuccess: () => void }) => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex gap-4">
+      <form onSubmit={form.handleSubmit(onSubmit)}>
         <FormField
           control={form.control}
           name="name"
           render={({ field }) => {
             return (
               <FormItem>
-                <FormControl>
+                <FormControl onBlur={onSuccess}>
                   <Input type="text" placeholder="Введите название папки..." {...field} />
                 </FormControl>
                 <FormMessage />
@@ -46,10 +45,6 @@ export const AddCollection = ({ onSuccess }: { onSuccess: () => void }) => {
             );
           }}
         />
-
-        <Button type="submit">
-          <FolderInput />
-        </Button>
       </form>
     </Form>
   );
