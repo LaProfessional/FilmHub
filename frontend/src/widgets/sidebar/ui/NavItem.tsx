@@ -11,7 +11,7 @@ export const NavItem = ({ collection }: { collection: Collection }) => {
     setEditing((prev) => !prev);
   };
 
-  return editing ?
+  return !editing ?
       <li className="group p-2 cursor-pointer text-base flex items-center justify-between transition-all delay-150 hover:opacity-50">
         <NavLink to="/">{collection.name}</NavLink>
         <ActionsMenu onEdit={toggleEditing} />
