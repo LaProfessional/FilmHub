@@ -5,6 +5,7 @@ import { Button } from "@/shared/ui";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router";
+import { NavItem } from "./NavItem";
 
 export function UserCollections() {
   const [creating, setCreating] = useState(false);
@@ -29,9 +30,7 @@ export function UserCollections() {
             <NavLink to="/">{t("Favourites")}</NavLink>
           </li>
           {mockCollections.map((name) => (
-            <li className="p-2 cursor-pointer text-base">
-              <NavLink to="/">{name}</NavLink>
-            </li>
+            <NavItem name={name} />
           ))}
         </ul>
       </nav>
