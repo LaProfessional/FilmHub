@@ -11,6 +11,9 @@ import { collectionSchema, type CollectionSchema } from "../model/validation";
 export const AddCollection = ({ onSuccess }: { onSuccess: () => void }) => {
   const form = useForm<CollectionSchema>({
     resolver: zodResolver(collectionSchema),
+    defaultValues: {
+      name: "",
+    },
   });
 
   const onSubmit = (data: CollectionSchema) => {
