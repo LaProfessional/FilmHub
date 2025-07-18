@@ -108,6 +108,31 @@
   "Your flags": "Your Flags",
   "Settings": "Settings",
   "Logout": "Log Out",
+
+
+    "ProfileSettings": "Profile settings",
+    "Flags": "Flags",
+    "Collections": "Collections",
+    "Achievements": "Achievements",
+    "Username": "Username",
+    "EnterUsername": "Enter your username",
+    "Email": "Email",
+    "EnterYourEmail": "Enter your email",
+    "CurrentPassword": "Current password",
+    "EnterCurrentPassword": "Enter current password",
+    "NewPassword": "New password",
+    "EnterNewPassword": "Enter new password",
+    "ConfirmPassword": "Confirm password",
+    "RepeatNewPassword": "Repeat new password",
+    "AboutMe": "About me",
+    "ProfileAvatar": "Profile avatar",
+    "ChangePhoto": "Change photo",
+    "LinkedAccounts": "Linked accounts",
+    "Connect": "Connect",
+    "SaveChanges": "Save changes",
+    "UserProfileHeader": "User Profile",
+
+
   "Reset all": "Reset all",
 
   "Cancel": "Cancel",

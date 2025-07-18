@@ -6,6 +6,7 @@ import { AppShell } from "@/app/AppShell";
 import { AuthProvider } from "@/features/auth";
 import { AppRoute } from "@/shared/config";
 import { PrivateRoute } from "./PrivateRoute";
+import { ProfilePage } from "@/pages/profile";
 
 export const router = createBrowserRouter([
   {
@@ -19,22 +20,27 @@ export const router = createBrowserRouter([
   {
     path: AppRoute.ROOT,
     element: (
-      <AuthProvider>
+/*       <AuthProvider>
         <PrivateRoute />
-      </AuthProvider>
+      </AuthProvider> */
+      <AppShell />
     ),
     children: [
-      {
+/*       {
         element: <AppShell />,
-        children: [
+        children: [ */
           {
             index: true,
             element: <HomePage />,
           },
+        {
+          path: '/profile',
+          element: <ProfilePage/>
+        },
         ],
       },
-    ],
-  },
+/*     ],
+  }, */
   {
     path: AppRoute.NOT_FOUND,
     element: <NotFoundPage />,
