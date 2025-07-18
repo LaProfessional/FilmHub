@@ -12,3 +12,11 @@ export function addCollection(name: string) {
 
   mockCollections.push({ id, name });
 }
+
+export function renameCollection(col: Collection) {
+  const colIndex = mockCollections.findIndex((item) => item.id === col.id);
+
+  if (mockCollections[colIndex]) {
+    mockCollections[colIndex].name = col.name;
+  }
+}
