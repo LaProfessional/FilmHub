@@ -1,49 +1,40 @@
 import bcrypt from 'bcrypt'
 import { checkEmailValid, checkPasswordValid, createTokens } from '~/helpers/auth'
 import { useErrorCombiner } from '~/utils/validationCombiner'
+import { ICandidate } from '~/types/user'
 
 type Login = {
-  email: string
-  password: string
+  email: ICandidate['email']
+  password: ICandidate['password']
 }
 
 export default defineEventHandler(async event => {
+  // === Init dependency
   const candidate: Login | null = await readBody(event)
   const config = useRuntimeConfig(event)
-
   const { modelUser } = useDB(event)
   const errors = useErrorCombiner()
 
+  // === Validation request body
   checkEmailValid(errors, candidate?.email)
   checkPasswordValid(errors, candidate?.password)
+  if (errors.isNotEmpty()) return useApiError(event, 'bad-request', { detail: errors.get() })
 
-  if (errors.isNotEmpty()) {
-    setResponseStatus(event, 400)
-    return { detail: errors.get() }
-  }
-
+  // === Check user existed
   const user: any = await modelUser.findOne({ where: { email: candidate.email } })
-  if (!user) {
-    setResponseStatus(event, 404)
-    return { detail: `Пользователь с email '${candidate.email}' не найден!` }
-  }
+  if (!user) return useApiError(event, 'user-not-exist')
 
+  // === Check password from bd and body
   const isPasswordCorrect = bcrypt.compare(candidate.password, user.password)
-  if (!isPasswordCorrect) {
-    setResponseStatus(event, 401)
-    return { detail: `Не верный пароль!` }
-  }
+  if (!isPasswordCorrect) return useApiError(event, 'bad-request', { detail: 'Password invalid'})
 
+  // === Start authorization
   const { accessToken, refreshToken } = createTokens(event, candidate.email)
   await user.update({ token: accessToken })
 
-  setCookie(event, 'refreshToken', refreshToken, {
-    maxAge: config.auth.refresh.maxAge,
-    httpOnly: true,
-  })
-
+  // === Out
   return {
-    access: accessToken,
-    ...user,
+    accessToken: accessToken,
+    refreshToken: refreshToken,
   }
 })
