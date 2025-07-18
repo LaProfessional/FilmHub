@@ -1,12 +1,15 @@
 import { collectionModel } from "@/entities/collection";
 import { type Collection } from "@/entities/collection/model";
+
 import { AddCollection } from "@/features/collection-manage/ui/AddCollection";
 import { RenameCollection } from "@/features/collection-manage/ui/RenameCollection";
+
 import { Button } from "@/shared/ui";
+import { NavItem } from "./NavItem";
+
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router";
-import { NavItem } from "./NavItem";
 
 export function UserCollections() {
   const { mockCollections, addCollection, removeCollection, renameCollection } = collectionModel;
