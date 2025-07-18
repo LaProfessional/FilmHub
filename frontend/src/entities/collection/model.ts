@@ -20,3 +20,11 @@ export function renameCollection(col: Collection) {
     mockCollections[colIndex].name = col.name;
   }
 }
+
+export function removeCollection(id: number) {
+  const colIndex = mockCollections.findIndex((item) => item.id === id);
+
+  if (mockCollections[colIndex]) {
+    mockCollections.splice(colIndex, 1);
+  }
+}
