@@ -1,10 +1,17 @@
-import "@/shared/config/i18n/i18n.ts"
-import "@/shared/styles/base/reset.scss"
+import "@/shared/config/i18n";
 
-import { AppRouter } from "@/app/providers/router"
+import { ThemeProvider } from "@/shared/theme";
+import { LanguageProvider } from "@/app/providers/i18n";
+import { AppRouter } from "./router";
 
-const App = () => {
-  return <AppRouter />
+import "./index.css";
+
+export function App() {
+  return (
+    <LanguageProvider>
+      <ThemeProvider defaultTheme="system">
+        <AppRouter />
+      </ThemeProvider>
+    </LanguageProvider>
+  );
 }
-
-export default App

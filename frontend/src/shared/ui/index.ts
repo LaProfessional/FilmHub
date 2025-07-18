@@ -1,4 +1,14 @@
-export { Button } from "./Button"
-export { Input } from "./Input"
-export { Popover } from "./Popover"
-export { Separator } from "./Separator"
+export * from "./accordion";
+export * from "./avatar";
+export * from "./button";
+export * from "./checkbox";
+export * from "./dialog";
+export * from "./dropdown-menu";
+export * from "./form";
+export * from "./input";
+export * from "./popover";
+export * from "./scroll-area";
+export * from "./separator";
+export * from "./sidebar";
+export * from "./switch";
+export * from "./tabs";
