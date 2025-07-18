@@ -5,6 +5,7 @@ import { AuthPage } from "@/pages/auth";
 import { HomePage } from "@/pages/home";
 import { AppRoute } from "@/shared/config";
 import { createBrowserRouter } from "react-router";
+import { PrivateRoute } from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -15,25 +16,25 @@ export const router = createBrowserRouter([
       </AuthProvider>
     ),
   },
-  // {
-  //   element: (
-  //     <AuthProvider>
-  //       <PrivateRoute />
-  //     </AuthProvider>
-  //   ),
-  //   children: [
   {
     path: AppRoute.ROOT,
-    element: <AppShell />,
+    element: (
+      <AuthProvider>
+        <PrivateRoute />
+      </AuthProvider>
+    ),
     children: [
       {
-        index: true,
-        element: <HomePage />,
+        element: <AppShell />,
+        children: [
+          {
+            index: true,
+            element: <HomePage />,
+          },
+        ],
       },
     ],
   },
-  // ],
-  // },
   {
     path: AppRoute.NOT_FOUND,
     element: <NotFoundPage />,
