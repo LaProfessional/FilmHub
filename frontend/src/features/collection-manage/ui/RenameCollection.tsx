@@ -1,4 +1,3 @@
-import { collectionModel } from "@/entities/collection";
 import type { Collection } from "@/entities/collection/model";
 import { Form, FormControl, FormField, FormItem, FormMessage, Input } from "@/shared/ui";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -6,13 +5,13 @@ import { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { collectionSchema, type CollectionSchema } from "../model/validation";
 
-export const RenameCollection = ({
-  col,
-  onSuccess,
-}: {
+type Props = {
   col: Collection;
   onSuccess: () => void;
-}) => {
+  renameCollection: (col: Collection) => void;
+};
+
+export const RenameCollection = ({ col, onSuccess, renameCollection }: Props) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const form = useForm<CollectionSchema>({
@@ -23,7 +22,7 @@ export const RenameCollection = ({
   });
 
   const onSubmit = ({ name }: CollectionSchema) => {
-    collectionModel.renameCollection({ id: col.id, name });
+    renameCollection({ id: col.id, name });
     onSuccess();
   };
 

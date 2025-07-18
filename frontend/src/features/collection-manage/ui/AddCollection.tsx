@@ -2,13 +2,16 @@ import { Form, FormControl, FormField, FormItem, FormMessage, Input } from "@/sh
 
 import { useEffect } from "react";
 
-import { collectionModel } from "@/entities/collection";
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { collectionSchema, type CollectionSchema } from "../model/validation";
 
-export const AddCollection = ({ onSuccess }: { onSuccess: () => void }) => {
+type Props = {
+  onSuccess: () => void;
+  addCollection: (name: string) => void;
+};
+
+export const AddCollection = ({ addCollection, onSuccess }: Props) => {
   const form = useForm<CollectionSchema>({
     resolver: zodResolver(collectionSchema),
     defaultValues: {
@@ -17,7 +20,7 @@ export const AddCollection = ({ onSuccess }: { onSuccess: () => void }) => {
   });
 
   const onSubmit = (data: CollectionSchema) => {
-    collectionModel.addCollection(data.name);
+    addCollection(data.name);
     onSuccess();
   };
 

@@ -7,7 +7,7 @@ import {
 } from "@/shared/ui";
 import { MoreVerticalIcon } from "lucide-react";
 
-export const ActionsMenu = ({ onEdit }: { onEdit: () => void }) => {
+export const ActionsMenu = ({ onDelete, onEdit }: { onDelete: () => void; onEdit: () => void }) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="cursor-pointer opacity-0 group-hover:opacity-100 data-[state=open]:opacity-100 transition-all delay-150">
@@ -16,7 +16,7 @@ export const ActionsMenu = ({ onEdit }: { onEdit: () => void }) => {
       <DropdownMenuContent>
         <DropdownMenuItem onClick={onEdit}>Rename</DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>Delete</DropdownMenuItem>
+        <DropdownMenuItem onClick={onDelete}>Delete</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

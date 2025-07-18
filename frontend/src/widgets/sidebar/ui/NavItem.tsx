@@ -1,20 +1,22 @@
 import { type Collection } from "@/entities/collection/model";
 import { ActionsMenu } from "@/features/collection-manage/ui/ActionsMenu";
-import { RenameCollection } from "@/features/collection-manage/ui/RenameCollection";
-import { useState } from "react";
 import { NavLink } from "react-router";
 
-export const NavItem = ({ collection }: { collection: Collection }) => {
-  const [editing, setEditing] = useState(false);
+type Props = {
+  collection: Collection;
+  onEdit: () => void;
+  onDelete: (id: number) => void;
+};
 
-  const toggleEditing = () => {
-    setEditing((prev) => !prev);
+export const NavItem = ({ collection, onEdit, onDelete }: Props) => {
+  const handleDelete = () => {
+    onDelete(collection.id);
   };
 
-  return !editing ?
-      <li className="group p-2 cursor-pointer text-base flex items-center justify-between transition-all delay-150 hover:opacity-50">
-        <NavLink to="/">{collection.name}</NavLink>
-        <ActionsMenu onEdit={toggleEditing} />
-      </li>
-    : <RenameCollection col={collection} onSuccess={toggleEditing} />;
+  return (
+    <>
+      <NavLink to="/">{collection.name}</NavLink>
+      <ActionsMenu onDelete={handleDelete} onEdit={onEdit} />
+    </>
+  );
 };
