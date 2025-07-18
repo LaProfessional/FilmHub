@@ -30,7 +30,7 @@ export function UserCollections() {
             <NavLink to="/">{t("Favourites")}</NavLink>
           </li>
           {mockCollections.map((col) => (
-            <NavItem key={col.id} name={col.name} />
+            <NavItem key={col.id} collection={col} />
           ))}
         </ul>
       </nav>
