@@ -2,6 +2,7 @@ import { collectionModel } from "@/entities/collection";
 import { Button, Form, FormControl, FormField, FormItem, FormMessage, Input } from "@/shared/ui";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FolderInput } from "lucide-react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import z from "zod";
 
@@ -23,6 +24,10 @@ export const AddCollection = ({ onSuccess }: { onSuccess: () => void }) => {
     collectionModel.addCollection(data.name);
     onSuccess();
   };
+
+  useEffect(() => {
+    form.setFocus("name");
+  }, []); // eslint-disable-line
 
   return (
     <Form {...form}>
