@@ -1,4 +1,9 @@
 {
+  "action-menu": {
+    "share": "Поделится",
+    "edit": "Переименовать",
+    "delete": "Удалить"
+  },
   "settings": {
     "nav": {
       "gallery": "Галерея",
