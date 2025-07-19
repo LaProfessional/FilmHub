@@ -5,7 +5,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/shared/ui";
-import { MoreVerticalIcon } from "lucide-react";
+import { Edit2, MoreVerticalIcon, ShareIcon, Trash2 } from "lucide-react";
 
 export const ActionsMenu = ({ onDelete, onEdit }: { onDelete: () => void; onEdit: () => void }) => {
   return (
@@ -14,9 +14,16 @@ export const ActionsMenu = ({ onDelete, onEdit }: { onDelete: () => void; onEdit
         <MoreVerticalIcon size={18} />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuItem onClick={onEdit}>Rename</DropdownMenuItem>
+        <DropdownMenuItem>
+          <ShareIcon /> Share
+        </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={onDelete}>Delete</DropdownMenuItem>
+        <DropdownMenuItem onClick={onEdit}>
+          <Edit2 /> Rename
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={onDelete}>
+          <Trash2 /> Delete
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
