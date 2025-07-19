@@ -1,8 +1,7 @@
 import { collectionModel } from "@/entities/collection";
 import { type Collection } from "@/entities/collection/model";
 
-import { AddCollection } from "@/features/collection-manage/ui/AddCollection";
-import { RenameCollection } from "@/features/collection-manage/ui/RenameCollection";
+import { AddCollection, RenameCollection } from "@/features/collection-manage";
 
 import { Button } from "@/shared/ui";
 import { NavItem } from "./NavItem";

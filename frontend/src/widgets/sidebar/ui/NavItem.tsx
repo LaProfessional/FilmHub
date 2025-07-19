@@ -1,5 +1,5 @@
 import { type Collection } from "@/entities/collection/model";
-import { ActionsMenu } from "@/features/collection-manage/ui/ActionsMenu";
+import { ActionsMenu } from "@/features/collection-manage";
 import { NavLink } from "react-router";
 
 interface NavItemProps {
