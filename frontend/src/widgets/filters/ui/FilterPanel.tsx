@@ -11,8 +11,13 @@ import type { FilterHandle } from "@/widgets/filters/ui/Filter";
 
 import { Filter } from "@/widgets/filters/ui/Filter";
 import { Button, Popover, PopoverTrigger, PopoverContent } from "@/shared/ui";
+import type { IFilters, IMoviePeriods } from '@/hooks/useMovie'
 
-export const FilterPanel = () => {
+interface Props {
+  onUpdateFilters: (value: Partial<IFilters>) => void;
+}
+
+export const FilterPanel = ({onUpdateFilters} : Props) => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const fieldsRef = useRef<HTMLDivElement>(null);
@@ -31,6 +36,14 @@ export const FilterPanel = () => {
 
   useHandleClickOutside(fieldsRef, isOpen, setIsOpen);
 
+  const onChangePeriod = (index) => {
+    const period: IMoviePeriods = dataYear[index].value
+    onUpdateFilters({period: period})
+  }
+
+  const onChangeGenres = (value) => {
+  }
+
   return (
     <div className="" ref={fieldsRef}>
       <div className="" tabIndex={0}>
@@ -46,8 +59,8 @@ export const FilterPanel = () => {
           <PopoverContent>
             {/* TODO: это должны быть форма (или часть формы) с селектами */}
             <section className={cn("", isOpen && "")}>
-              <Filter ref={genreRef} data={dataGenre} dropdownTitle={"Genre"} isMulti={true} />
-              <Filter ref={yearRef} data={dataYear} dropdownTitle={"Year of release"} />
+              <Filter ref={genreRef} data={dataGenre} onChange={onChangeGenres} dropdownTitle={"Genre"} isMulti={true} />
+              <Filter ref={yearRef} data={dataYear} onChange={onChangePeriod} dropdownTitle={"Year of release"} />
               <Filter ref={sortRef} data={dataOptions} dropdownTitle={"Sorting"} />
               <Button onClick={resetFilters}>
                 <Delete className="" />
