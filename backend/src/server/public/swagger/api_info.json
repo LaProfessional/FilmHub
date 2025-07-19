@@ -1,0 +1,421 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "My API",
+    "version": "1.0.0",
+    "description": "Пример базового API"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:4444/api",
+      "description": "Локальный сервер"
+    }
+  ],
+  "paths": {
+    "/auth/registration": {
+      "post": {
+        "summary": "Создать нового пользователя",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Candidate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK - Успешный ответ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "example": {
+                    "detail": [
+                      {
+                        "email": ["is required field!"]
+                      },
+                      {
+                        "password": ["is required field!"]
+                      },
+                      {
+                        "confirmPassword": ["is required field!"]
+                      },
+                      {
+                        "First name": ["is required field!"]
+                      },
+                      {
+                        "Last name": ["is required field!"]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "detail": "This user is exist"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "Авторизация пользователя",
+        "description": "Вход по email и паролю",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Login"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK - Успешная авторизация",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "accessToken": {
+                      "type": "string",
+                      "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                    },
+                    "refreshToken": {
+                      "type": "string",
+                      "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                    }
+                  },
+                  "required": ["accessToken", "refreshToken"]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad-request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string",
+                      "example": "Invalid request body"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "user-exist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string",
+                      "example": "This user does not exist"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/refresh-token": {
+      "get": {
+        "summary": "Обновление access токена через refresh токен",
+        "description": "Получить новые access и refresh токены, используя refresh токен.",
+        "parameters": [
+          {
+            "name": "refresh",
+            "in": "query",
+            "required": true,
+            "description": "Refresh токен для обновления access токена",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Успешно обновлены токены",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "accessToken": {
+                      "type": "string",
+                      "description": "Новый access токен",
+                      "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                    },
+                    "refreshToken": {
+                      "type": "string",
+                      "description": "Новый refresh токен",
+                      "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "token-invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                },
+                "examples": {
+                  "token-expired": {
+                    "description": "Токен уже умер",
+                    "value": {
+                      "detail": "Your <access_token> has expired"
+                    }
+                  },
+                  "token-invalid": {
+                    "description": "Токен кривой",
+                    "value": {
+                      "detail": "Token is invalid"
+                    }
+                  },
+                  "user-not-exist": {
+                    "description": "Юзера с таким accessToken нет в базе данных",
+                    "value": {
+                      "detail": "This user does not exist"
+                    }
+                  },
+                  "token-required": {
+                    "description": "Запрос требует авторизации",
+                    "value": {
+                      "detail": "This API requires a mandatory header Authorization: Bearer <access_token>"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/movies": {
+      "get": {
+        "summary": "Получить список фильмов",
+        "responses": {
+          "200": {
+            "description": "Успешный ответ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Movie"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/movies/{id}": {
+      "get": {
+        "summary": "Получить фильм по ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID фильма",
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Фильм найден",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Movie"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Фильм не найден"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Movie": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "example": "Inception"
+          },
+          "yearOfRelease": {
+            "type": "integer",
+            "example": 2010
+          },
+          "rating": {
+            "type": "number",
+            "format": "float",
+            "example": 8.8
+          },
+          "genres": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Sci-Fi"
+            }
+          },
+          "description": {
+            "type": "string",
+            "example": "A mind-bending thriller about dreams within dreams."
+          },
+          "imgUrl": {
+            "type": "string",
+            "example": "https://example.com/inception.jpg"
+          }
+        },
+        "required": ["id", "title"]
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
+          "firstName": {
+            "type": "string",
+            "example": "Ivan"
+          },
+          "lastName": {
+            "type": "string",
+            "example": "Pupkin"
+          },
+          "email": {
+            "type": "string",
+            "example": "test@test.com"
+          }
+        },
+        "required": ["id", "firstName", "lastName", "email"]
+      },
+      "Candidate": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "example": "Ivan"
+          },
+          "lastName": {
+            "type": "string",
+            "example": "Pupkin"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "example": "test@test.com"
+          },
+          "password": {
+            "type": "string",
+            "minLength": 8,
+            "example": "11111111"
+          },
+          "confirmPassword": {
+            "type": "string",
+            "minLength": 8,
+            "example": "11111111",
+            "description": "Обязательно должен совпадать с password полем"
+          }
+        },
+        "required": [
+          "firstName",
+          "lastName",
+          "email",
+          "password",
+          "passwordConfirm"
+        ]
+      },
+      "Login": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email",
+            "example": "test@example.com"
+          },
+          "password": {
+            "type": "string",
+            "minLength": 8,
+            "example": "securepassword"
+          }
+        },
+        "required": ["email", "password"]
+      }
+    }
+  }
+}
