@@ -37,16 +37,6 @@ export const useMovieApi = (event: H3Event) => {
     })
   }
 
-  const getList = () => {
-    return $fetch(`https://api.themoviedb.org/3/discover/movie`, {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${TOKEN}`,
-        accept: 'application/json',
-      },
-    })
-  }
-
   const findOne = (id: number) => {
     return $fetch(`${PATH}/films/${id}`, {
       method: 'GET',
@@ -61,6 +51,6 @@ export const useMovieApi = (event: H3Event) => {
     getList,
     findOne,
     search,
-    findById
+    findById,
   }
 }
