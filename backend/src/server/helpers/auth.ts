@@ -36,21 +36,25 @@ export const checkNameValid = (combiner, name, key) => {
 export const createTokens = (event: H3Event, email: string) => {
   const config = useRuntimeConfig(event)
 
-  const endDate = Math.floor(Date.now() / 1000) + 60 * 60
   const accessToken = jwt.sign(
     {
-      exp: endDate,
+      data: { email },
     },
     config.auth.tokenHash,
+    {
+      expiresIn: '1h',
+    }
   )
 
   const endDateLong = Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 7
   const refreshToken = jwt.sign(
     {
-      exp: endDateLong,
       data: { email },
     },
     config.auth.tokenHashLong,
+    {
+      expiresIn: '24h',
+    }
   )
 
   return { accessToken, refreshToken }

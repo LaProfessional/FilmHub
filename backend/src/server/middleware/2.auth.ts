@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 
 export default defineEventHandler(event => {
-  const PATHS = ['/category', '/user']
+  const PATHS = ['/category', '/user', '/profile']
   const currentPath = getRequestURL(event).pathname
 
   const index = PATHS.findIndex(path => {
@@ -10,32 +10,28 @@ export default defineEventHandler(event => {
 
   if (index > -1) {
     const config = useRuntimeConfig(event)
-    const tokenHeader = getRequestHeader(event, 'Authorization')
-    const refreshToken = getCookie(event, 'refreshToken')
-    if (!tokenHeader) {
-      setResponseStatus(event, 401, 'Unauthorized')
-      return {
-        detail:
-          'The Authorization header is not defined, either it is empty, or it does not have a Bearer <your_token> template',
-      }
-    }
 
-    const token = tokenHeader.match(/^Bearer\s+(.+)$/)?.[1]
-    if (!token) {
-      setResponseStatus(event, 401, 'Unauthorized')
-      return {
-        detail: 'Header template Authorization does not match template: Bearer <your_token>',
-      }
-    }
+    const authorizationHeader = getRequestHeader(event, 'Authorization')
+    if (!authorizationHeader) return useApiError(event, 'token-required')
 
+    const token = authorizationHeader.match(/^Bearer\s+(.+)$/)?.[1]
+    if (!token) return useApiError(event, 'token-required' )
     try {
-      jwt.verify(token, config.auth.tokenHash)
+      const decoded = jwt.verify(token, config.auth.tokenHash)
+      event.context.user = { email: decoded.data.email }
 
-      const refreshTokenDecoded = jwt.verify(refreshToken, config.auth.tokenHashLong)
-      event.context.user = { email: refreshTokenDecoded.data.email }
+      if (!decoded.exp) return useApiError(event, 'token-invalid', 'The token must contain an exp value.')
+
+      const currentTime = Math.floor(Date.now() / 1000);
+      if (decoded.exp < currentTime) {
+        return useApiError(event, 'token-expired')
+      }
     } catch (err) {
-      setResponseStatus(event, 401, 'Unauthorized')
-      return { detail: err }
+      if (err?.name === 'TokenExpiredError') {
+        return useApiError(event, 'token-expired')
+      } else {
+        return useApiError(event, 'token-invalid', err?.message)
+      }
     }
   }
 })

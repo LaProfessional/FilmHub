@@ -7,8 +7,7 @@ export default defineEventHandler(async event => {
   const email = event.context.user.email
 
   if (!body.movieId) {
-    setResponseStatus(event, 400)
-    return { detail: 'Required parameter movieId is not specified' }
+    return useApiError(event, 'bad-request', 'Required parameter movieId is not specified')
   }
 
   const movie = await movieApi.findOne(body.movieId)

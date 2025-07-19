@@ -6,6 +6,7 @@ import { AppShell } from "@/app/AppShell";
 import { AuthProvider } from "@/features/auth";
 import { AppRoute } from "@/shared/config";
 import { PrivateRoute } from "./PrivateRoute";
+import { MoviePage } from "@/pages/movie/ui/MoviePage";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
           {
             index: true,
             element: <HomePage />,
+          },
+          {
+            path: "/movie/:id",
+            element: <MoviePage />,
           },
         ],
       },
