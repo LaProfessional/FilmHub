@@ -7,7 +7,6 @@ export const useMovieApi = (event: H3Event) => {
 
   const search = (params) => {
     const queryString = new URLSearchParams(params).toString();
-    console.log(queryString)
     return $fetch(`https://api.themoviedb.org/3/discover/movie?${queryString}`, {
       method: 'GET',
       headers: {
