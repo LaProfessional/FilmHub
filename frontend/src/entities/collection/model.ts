@@ -23,6 +23,5 @@ export function renameCollection(col: Collection) {
 }
 
 export function removeCollection(id: number) {
-  const filteredCol = mockCollections.filter((item) => item.id !== id);
-  mockCollections = filteredCol;
+  mockCollections = mockCollections.filter((item) => item.id !== id);
 }
