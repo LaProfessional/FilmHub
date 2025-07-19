@@ -1,4 +1,4 @@
-import { forwardRef, useImperativeHandle, useRef, useState } from "react";
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react'
 import { useTranslation } from "react-i18next";
 
 import { ChevronDown } from "lucide-react";
@@ -28,10 +28,11 @@ interface FilterProps {
   data: Item[];
   dropdownTitle: string;
   isMulti?: boolean;
+  onChange?: (selectedIndexes: Item[]) => void;
 }
 
 export const Filter = React.memo(
-  forwardRef<FilterHandle, FilterProps>(({ data, dropdownTitle, isMulti }, ref) => {
+  forwardRef<FilterHandle, FilterProps>(({ data, dropdownTitle, isMulti, onChange = null }, ref) => {
     const { t } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
     const wrapperRef = useRef<HTMLDivElement>(null);
@@ -39,6 +40,12 @@ export const Filter = React.memo(
     useHandleClickOutside(wrapperRef, isOpen, setIsOpen);
 
     const { activeIndexes, handleSelectItem, resetFilter } = useFilters(isMulti ?? false);
+
+    useEffect(() => {
+      if (typeof onChange === 'function') {
+        onChange(activeIndexes)
+      }
+    }, [activeIndexes])
 
     useImperativeHandle(ref, () => ({
       reset: () => {
