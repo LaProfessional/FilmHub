@@ -15,7 +15,9 @@ export const NavItem = ({ collection, onEdit, onDelete }: NavItemProps) => {
 
   return (
     <>
-      <NavLink to="/">{collection.name}</NavLink>
+      <NavLink to="/" title={collection.name} className="block max-w-[180px] truncate">
+        {collection.name}
+      </NavLink>
       <ActionsMenu onDelete={handleDelete} onEdit={onEdit} />
     </>
   );
