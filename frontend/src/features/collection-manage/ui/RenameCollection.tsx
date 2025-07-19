@@ -5,13 +5,13 @@ import { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { collectionSchema, type CollectionSchema } from "../model/validation";
 
-type Props = {
+interface RenameCollectionProps {
   col: Collection;
   onSuccess: () => void;
   renameCollection: (col: Collection) => void;
-};
+}
 
-export const RenameCollection = ({ col, onSuccess, renameCollection }: Props) => {
+export const RenameCollection = ({ col, onSuccess, renameCollection }: RenameCollectionProps) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const form = useForm<CollectionSchema>({

@@ -6,12 +6,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { collectionSchema, type CollectionSchema } from "../model/validation";
 
-type Props = {
+interface AddCollectionProps {
   onSuccess: () => void;
   addCollection: (name: string) => void;
-};
+}
 
-export const AddCollection = ({ addCollection, onSuccess }: Props) => {
+export const AddCollection = ({ addCollection, onSuccess }: AddCollectionProps) => {
   const form = useForm<CollectionSchema>({
     resolver: zodResolver(collectionSchema),
     defaultValues: {

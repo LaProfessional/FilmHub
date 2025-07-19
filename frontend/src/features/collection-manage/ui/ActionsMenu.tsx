@@ -8,7 +8,12 @@ import {
 import { Edit2, MoreVerticalIcon, ShareIcon, Trash2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-export const ActionsMenu = ({ onDelete, onEdit }: { onDelete: () => void; onEdit: () => void }) => {
+interface ActionsMenuProps {
+  onDelete: () => void;
+  onEdit: () => void;
+}
+
+export const ActionsMenu = ({ onDelete, onEdit }: ActionsMenuProps) => {
   const { t } = useTranslation();
 
   return (

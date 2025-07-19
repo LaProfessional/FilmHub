@@ -2,13 +2,13 @@ import { type Collection } from "@/entities/collection/model";
 import { ActionsMenu } from "@/features/collection-manage/ui/ActionsMenu";
 import { NavLink } from "react-router";
 
-type Props = {
+interface NavItemProps {
   collection: Collection;
   onEdit: () => void;
   onDelete: (id: number) => void;
-};
+}
 
-export const NavItem = ({ collection, onEdit, onDelete }: Props) => {
+export const NavItem = ({ collection, onEdit, onDelete }: NavItemProps) => {
   const handleDelete = () => {
     onDelete(collection.id);
   };
