@@ -11,7 +11,7 @@ import type { MovieTypeValue } from '@/constants/movieTypes'
 export const HomePage = () => {
   const { movies, fetchData, updateFilters, loading } = useMovie()
 
-  const updateType = (newType: MovieTypeValue | null) => {
+  const updateType = (newType: MovieTypeValue[]) => {
     updateFilters({type: newType})
   }
 

@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/shared/lib/utils";
-import { movieTypes, type MovieTypeValue } from '@/constants/movieTypes'
+import { movieTypes, type MovieTypeValue } from "@/constants/movieTypes";
 
 interface Props {
-  onChange: (data: MovieTypeValue | null) => void
+  onChange: (data: MovieTypeValue[]) => void;
 }
-
-const ALL_ELEMENT = 'all'
 
 interface IItems {
   label: string;
@@ -19,11 +17,23 @@ interface IItems {
 export const NavTabs = ({ onChange }: Props) => {
   const { t } = useTranslation();
 
-  const [selectedIndex, setSelectedIndex] = useState<MovieTypeValue | 'all'>(ALL_ELEMENT);
+  const [value, setValue] = useState<MovieTypeValue[]>([]);
 
-  const handleSelect = (value: MovieTypeValue | 'all') => {
-    setSelectedIndex(value)
-    onChange(value === 'all' ? null : value);
+  const handleSelect = (newValue: MovieTypeValue | "all") => {
+    if (newValue === "all") {
+      setValue([]);
+      onChange([]);
+      return;
+    }
+
+    const lValue = [...value];
+    if (!lValue.includes(newValue)) {
+      lValue.splice(lValue.indexOf(newValue), 1);
+      lValue.push(newValue);
+
+      setValue(lValue);
+      onChange(lValue);
+    }
   };
 
   const navItems: IItems[] = [
@@ -36,28 +46,25 @@ export const NavTabs = ({ onChange }: Props) => {
     <ul className="flex flex-wrap gap-3">
       <li
         className={cn(
-          "rounded-2 cursor-pointer p-4 hover:bg-blue-100 hover:shadow-2xl", (
-            selectedIndex === ALL_ELEMENT && "bg-blue-300"
-          )
+          "rounded-2 cursor-pointer p-4 hover:bg-blue-100 hover:shadow-2xl",
+          value.length === 0 && "bg-blue-300",
         )}
-        onClick={() => handleSelect(ALL_ELEMENT)}
+        onClick={() => handleSelect("all")}
       >
         {t("All")} {124}
       </li>
       {navItems.map((item, index) => (
-          <li
-            className={cn(
-              "rounded-2 cursor-pointer p-4 hover:bg-blue-100 hover:shadow-2xl",
-              selectedIndex === item.value && "bg-blue-300",
-            )}
-            onClick={() => handleSelect(item.value)}
-            key={index}
-          >
-            {item.label} {item.count}
-          </li>
-        )
-      )}
+        <li
+          className={cn(
+            "rounded-2 cursor-pointer p-4 hover:bg-blue-100 hover:shadow-2xl",
+            value.includes(item.value) && "bg-blue-300",
+          )}
+          onClick={() => handleSelect(item.value)}
+          key={index}
+        >
+          {item.label} {item.count}
+        </li>
+      ))}
     </ul>
-  )
-    ;
+  );
 };
