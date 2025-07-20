@@ -11,7 +11,7 @@ import { Logo } from "./Logo";
 
 export const Header = () => {
   return (
-    <header className="top-0 p-3 flex items-center gap-3 w-full border-b-primary border-b px-[210px]">
+    <header className="flex-min top-0 p-3 flex items-center gap-3 w-full border-b-primary border-b px-[210px]">
       <Logo />
 
       <div className="flex justify-end w-full gap-1.5">

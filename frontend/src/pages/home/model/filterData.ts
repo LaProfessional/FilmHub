@@ -1,23 +1,35 @@
 import { type TFunction } from "i18next";
+import {GENRES } from '@/constants/genres'
+
+export type IMoviePeriods =
+  | "all"
+  | "before-1990"
+  | "1990-2000"
+  | "2000-2010"
+  | "2010-2020"
+  | "2020-today";
+
+export interface IDataOption {
+  id: string;
+  htmlFor: string;
+  label: string;
+  value: string;
+}
+
+const createGenres = () => {
+  return GENRES.map((item) => {
+    const labelSliced = item.name.split('-')
+    const labelJoined = labelSliced.join(' ')
+    const outLabel = (labelJoined[0] as string).toUpperCase() + labelJoined.slice(1)
+
+    return { id: item.name, htmlFor: outLabel, label: outLabel, value: `${item.id}` };
+  })
+}
 
 export const dataFilter = (t: TFunction) => {
-  const dataGenre = [
-    { id: "Any genre", htmlFor: "Any genre", label: "Any genre", value: "any" },
-    { id: "Action", htmlFor: "Action", label: "Action", value: "action" },
-    { id: "Horror", htmlFor: "Horror", label: "Horror", value: "horror" },
-    { id: "Comedy", htmlFor: "Comedy", label: "Comedy", value: "comedy" },
-    { id: "Drama", htmlFor: "Drama", label: "Drama", value: "drama" },
-    { id: "Thriller", htmlFor: "Thriller", label: "Thriller", value: "thriller" },
-    { id: "Romance", htmlFor: "Romance", label: "Romance", value: "romance" },
-    { id: "Sci-Fi", htmlFor: "Sci-Fi", label: "Sci-Fi", value: "sci-fi" },
-    { id: "Detective", htmlFor: "Detective", label: "Detective", value: "detective" },
-    { id: "Documentary", htmlFor: "Documentary", label: "Documentary", value: "documentary" },
-    { id: "Animation", htmlFor: "Animation", label: "Animation", value: "animation" },
-    { id: "Adventure", htmlFor: "Adventure", label: "Adventure", value: "adventure" },
-    { id: "Historical", htmlFor: "Historical", label: "Historical", value: "historical" },
-  ];
+  const dataGenre: IDataOption[] = createGenres()
 
-  const dataYear = [
+  const dataYear: IDataOption[] = [
     { id: "All years", htmlFor: "All years", label: "All years", value: "all" },
     {
       id: "Before 1990",

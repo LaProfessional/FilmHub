@@ -1,6 +1,6 @@
 import axios from 'axios'
-import { createApi } from './auth.ts'
-import { createApi as createMovieApi } from './movie.ts'
+import { createApi } from './auth'
+import { createApi as createMovieApi } from './movie'
 
 export const api = () => {
   const axiosInstance = axios.create({

@@ -29,8 +29,8 @@ export const MovieCard: FC<Props> = ({ movies = [] }) => {
   const navigate = useNavigate();
 
   return movies.map((card, index) => (
-    <article className="max-h-fit h-auto max-w-[290px]" key={index}>
-      <div className="relative aspect-[2/3]">
+    <article className="max-h-fit h-auto " key={index}>
+      <div className="relative">
         <img
           className="block w-full h-full object-cover rounded-t-[12px] rounded-b-[0] border-[1px] border-[#FFFFFF19] border-b-0"
           src={`https://image.tmdb.org/t/p/w300/${card.poster_path}`}

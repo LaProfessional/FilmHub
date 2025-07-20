@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export const useFilters = (isMulti?: boolean) => {
-  const [activeIndexes, setActiveIndexes] = useState<number[]>([0]);
+  const [activeIndexes, setActiveIndexes] = useState<number[] | 'all' | number>([0]);
 
   const handleSelectItem = (index: number) => {
     setActiveIndexes((prev) => {
@@ -12,8 +12,10 @@ export const useFilters = (isMulti?: boolean) => {
       } else if (index === 0) {
         newIndexes = [0];
       } else {
-        newIndexes = prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index];
-        newIndexes = newIndexes.filter((i) => i !== 0);
+        if (Array.isArray(prev)) {
+          newIndexes = prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index];
+          newIndexes = newIndexes.filter((i) => i !== 0);
+        }
       }
 
       return newIndexes;
