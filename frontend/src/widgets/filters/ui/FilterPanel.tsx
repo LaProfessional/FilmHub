@@ -23,7 +23,7 @@ export const FilterPanel = ({ onUpdateFilters }: Props) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const fieldsRef = useRef<HTMLDivElement>(null)
 
-  const { dataYear, dataGenre } = dataFilter(t)
+  const { dataYear, dataGenre, dataOptions } = dataFilter(t)
 
   const genreRef = useRef<FilterHandle>(null)
   const yearRef = useRef<FilterHandle>(null)
@@ -86,6 +86,13 @@ export const FilterPanel = ({ onUpdateFilters }: Props) => {
                     className={cn('w-40')}
                     onChange={onChangePeriod}
                     dropdownTitle={'Year of release'}
+                  />
+                  <Filter
+                    ref={sortRef}
+                    data={dataOptions}
+                    className={cn('w-40')}
+                    onChange={onChangePeriod}
+                    dropdownTitle={'Sort by'}
                   />
                   <Button onClick={resetFilters}>
                     <Delete className="" />

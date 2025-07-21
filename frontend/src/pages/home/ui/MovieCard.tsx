@@ -1,4 +1,4 @@
-import { type FC, useRef } from 'react'
+import { type FC } from 'react'
 
 import { Eye, Trash2, Pencil } from "lucide-react";
 
@@ -9,23 +9,25 @@ interface Props {
   movies: any[]
 }
 
-const GenreList: FC = () => {
-  return (
-    <div className="flex gap-[5px] mb-3 overflow-ellipsis overflow-hidden" ref={genresRef}>
-      {card.genres.map((genre, index) => (
-        <span
-          className="leading-1 whitespace-nowrap text-[12px] text-[#fafafa] bg-[#1f2937] rounded-full py-[9px] px-[3px]"
-          key={index}
-        >
-          {genre}
-        </span>
-      ))}
-    </div>
-  );
-};
+// @ts-ignore
+/**
+ * const GenreList: FC = (card: any) => {
+ *   return (
+ *     <div className="flex gap-[5px] mb-3 overflow-ellipsis overflow-hidden">
+ *       {card.genres.map((genre: any, index: number) => (
+ *         <span
+ *           className="leading-1 whitespace-nowrap text-[12px] text-[#fafafa] bg-[#1f2937] rounded-full py-[9px] px-[3px]"
+ *           key={index}
+ *         >
+ *           {genre}
+ *         </span>
+ *       ))}
+ *     </div>
+ *   );
+ * };
+ */
 
 export const MovieCard: FC<Props> = ({ movies = [] }) => {
-  const genresRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
   return movies.map((card, index) => (

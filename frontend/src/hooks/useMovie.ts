@@ -27,9 +27,9 @@ export const useMovie = () => {
     setLoading(true);
 
     try {
-      const { data, page } = await apiMovie.search(filters);
+      const { data } = await apiMovie.search(filters);
       setMovies(data.results);
-      setPage(page);
+      setPage(data.page);
     } catch (err) {
       console.error(err);
     } finally {
