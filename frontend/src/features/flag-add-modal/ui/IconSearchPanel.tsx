@@ -1,23 +1,14 @@
 import { Input } from "@/shared/ui";
-import { useCallback, useEffect, useRef, useState } from "react";
-import lucideIcons from "@iconify/json/json/tabler.json";
-
-interface IconType {
-  body: string;
-  width?: number;
-  height?: number;
-}
+import { useMemo, useRef } from "react";
+import tablerIcons from "@iconify/json/json/tabler.json";
+import { useVirtualizer } from "@tanstack/react-virtual";
 
 export const IconSearchPanel = () => {
-  const [iconList, setIconList] = useState(
-    Array.from(new Map(Object.entries(lucideIcons.icons).slice(0, 45))),
-  );
   const containerRef = useRef<HTMLDivElement>(null);
-  const startSlice = useRef<number>(0);
-  const endSlice = useRef<number>(45);
-  const observer = useRef<IntersectionObserver | null>(null);
-  const prevNode = useRef<HTMLDivElement | null>(null);
-  const totalIcons = useRef<number>(0);
+
+  const iconEntries = useMemo(() => Object.entries(tablerIcons.icons), []);
+  const iconsPerRow = 9;
+  const rowCount = Math.ceil(iconEntries.length / iconsPerRow);
 
   const renderIcon = (icon: { body: string; width?: number; height?: number }) => {
     const w = icon.width || 24;
@@ -33,57 +24,11 @@ export const IconSearchPanel = () => {
     );
   };
 
-  useEffect(() => {
-    totalIcons.current = Object.entries(lucideIcons.icons).length - 1;
-  }, []);
-
-  const loadMoreIcons = () => {
-    const nextStart = startSlice.current + 45;
-    const nextEnd = endSlice.current + 45;
-
-    const more = Object.entries(lucideIcons.icons).slice(nextStart, nextEnd);
-
-    setIconList((prev) => {
-      const allEntries = [...prev, ...more];
-      const uniqueEntries = new Map<string, [string, IconType]>();
-
-      for (const [name, icon] of allEntries) {
-        if (!uniqueEntries.has(name)) {
-          uniqueEntries.set(name, [name, icon]);
-        }
-      }
-
-      return Array.from(uniqueEntries.values());
-    });
-
-    startSlice.current = nextStart;
-    endSlice.current = nextEnd;
-  };
-
-  const lastIconRef = useCallback((node: HTMLDivElement) => {
-    if (node) {
-      if (!observer.current) {
-        observer.current = new IntersectionObserver(
-          (entries) => {
-            if (entries[0]?.isIntersecting) {
-              loadMoreIcons();
-            }
-          },
-          {
-            root: containerRef.current,
-            rootMargin: "0px",
-            threshold: 0.5,
-          },
-        );
-      }
-
-      if (prevNode.current) observer.current.unobserve(prevNode.current);
-      prevNode.current = node;
-      observer.current.observe(prevNode.current);
-
-      if (endSlice.current >= totalIcons.current) observer.current.disconnect();
-    }
-  }, []);
+  const rowVirtualizer = useVirtualizer({
+    count: rowCount,
+    getScrollElement: () => containerRef.current,
+    estimateSize: () => 40,
+  });
 
   return (
     <>
@@ -91,20 +36,45 @@ export const IconSearchPanel = () => {
         <Input placeholder="Найти иконку" />
       </div>
 
-      <section className="overflow-auto max-h-[200px]">
-        <div ref={containerRef} className="flex mt-2.5 gap-2 flex-wrap justify-between">
-          {iconList.map(([name, icon], index) => (
-            <div
-              key={name}
-              title={name}
-              ref={index === iconList.length - 1 ? lastIconRef : null}
-              className="border border-solid border-[#d9d9d9] p-2 cursor-pointer rounded-[6px] flex items-center"
-            >
-              {renderIcon(icon)}
-            </div>
-          ))}
+      <div ref={containerRef} className="overflow-auto max-h-[300px] border rounded">
+        <div
+          style={{
+            height: rowVirtualizer.getTotalSize(),
+            position: "relative",
+          }}
+        >
+          {rowVirtualizer.getVirtualItems().map((virtualRow) => {
+            const rowIndex = virtualRow.index;
+            const startIndex = rowIndex * iconsPerRow;
+            const rowIcons = iconEntries.slice(startIndex, startIndex + iconsPerRow);
+
+            return (
+              <div
+                key={rowIndex}
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  transform: `translateY(${virtualRow.start}px)`,
+                  height: `${virtualRow.size}px`,
+                  width: "100%",
+                }}
+                className="flex gap-2 px-2 py-1"
+              >
+                {rowIcons.map(([name, icon]) => (
+                  <div
+                    key={name}
+                    title={name}
+                    className="border border-solid border-[#d9d9d9] p-2 cursor-pointer rounded-[6px] flex items-center justify-center w-[40px] h-[40px]"
+                  >
+                    {renderIcon(icon)}
+                  </div>
+                ))}
+              </div>
+            );
+          })}
         </div>
-      </section>
+      </div>
     </>
   );
 };
