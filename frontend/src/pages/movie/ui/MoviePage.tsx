@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { api } from "@/api";
 import type { MovieMore } from '@/types/movie.types'
+import { Button } from '@/shared/ui'
 
 export const MoviePage = () => {
   const [movie, setMovie] = useState<MovieMore | null>(null);
@@ -65,14 +66,12 @@ export const MoviePage = () => {
             <p className="text-gray-300 leading-relaxed">{movie.overview}</p>
 
             <div className="flex gap-4 mt-4">
-              <button
-                className="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-lg shadow transition">
+              <Button>
                 Смотреть
-              </button>
-              <button
-                className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg shadow transition">
+              </Button>
+              <Button>
                 В избранное
-              </button>
+              </Button>
             </div>
           </div>
         </div>
