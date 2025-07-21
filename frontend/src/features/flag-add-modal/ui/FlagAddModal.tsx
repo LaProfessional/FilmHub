@@ -13,7 +13,7 @@ import {
 import { useTranslation } from "react-i18next";
 import { FlagNameField } from "@/features/flag-add-modal/ui/FlagNameField";
 import { FlagColorSection } from "@/features/flag-add-modal/ui/FlagColorSection";
-import lucideIcons from "@iconify/json/json/lucide.json";
+import lucideIcons from "@iconify/json/json/tabler.json";
 
 import {
   Home,
@@ -35,23 +35,31 @@ import {
   Download,
   Upload,
 } from "lucide-react";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
-type IconEntry = {
+interface IconEntry {
   name: string;
   icon: React.ElementType;
-};
+}
+
+interface IconType {
+  body: string;
+  width?: number;
+  height?: number;
+}
 
 export const FlagAddModal = () => {
   const { t } = useTranslation();
 
-  const [startSliceIcons, setStartSliceIcons] = useState<number>(0);
-  const [endSliceIcons, setEndSliceIcons] = useState<number>(45);
   const [iconList, setIconList] = useState(
     Array.from(new Map(Object.entries(lucideIcons.icons).slice(0, 45))),
   );
   const containerRef = useRef<HTMLDivElement>(null);
-  // const lastItemRef = useRef<HTMLDivElement>(null);
+  const startSlice = useRef<number>(0);
+  const endSlice = useRef<number>(45);
+  const observer = useRef<IntersectionObserver | null>(null);
+  const prevNode = useRef<HTMLDivElement | null>(null);
+  const totalIcons = useRef<number>(0);
 
   const icons: IconEntry[] = [
     { name: "Home", icon: Home },
@@ -88,58 +96,40 @@ export const FlagAddModal = () => {
     );
   };
 
+  useEffect(() => {
+    totalIcons.current = Object.entries(lucideIcons.icons).length - 1;
+  }, []);
+
   const loadMoreIcons = () => {
-    console.log("startSliceIcons:", startSliceIcons);
-    console.log("endSliceIcons:", endSliceIcons);
-
-    const nextStart = startSliceIcons + 45;
-    const nextEnd = endSliceIcons + 45;
-
-    console.log("next start:", nextStart);
-    console.log("nextEnd:", nextEnd);
+    const nextStart = startSlice.current + 45;
+    const nextEnd = endSlice.current + 45;
 
     const more = Object.entries(lucideIcons.icons).slice(nextStart, nextEnd);
 
-    // console.log(more); // [["angry", {...}]]
-
     setIconList((prev) => {
-      console.log("prev:", prev); // дважды вызов при первом достижении наблюдателя
-      console.log("more:", more); // дважды вызов при первом достижении наблюдателя
+      const allEntries = [...prev, ...more];
+      const uniqueEntries = new Map<string, [string, IconType]>();
 
-      // return [...prev, ...more]
-      const merged = [...prev, ...more];
-      return Array.from(new Map(merged));
+      for (const [name, icon] of allEntries) {
+        if (!uniqueEntries.has(name)) {
+          uniqueEntries.set(name, [name, icon]);
+        }
+      }
+
+      return Array.from(uniqueEntries.values());
     });
-    setStartSliceIcons(nextStart);
-    setEndSliceIcons(nextEnd);
+
+    startSlice.current = nextStart;
+    endSlice.current = nextEnd;
   };
 
-  const observer = useRef<IntersectionObserver | null>(null);
-
-  // useEffect(() => {
-  //   const allKeys = iconList.map(([name]) => name);
-  //   const duplicates = allKeys.filter((key, index) => allKeys.indexOf(key) !== index);
-  //   if (duplicates.length) {
-  //     console.warn("🚨 Дубликаты ключей:", duplicates);
-  //   }
-  // }, [iconList]);
-
-  const lastIconRef = useCallback((node: HTMLDivElement | null) => {
-    // console.log(node);
-    // console.log(observer.current);
-    // if (observer.current) {
-    //   observer.current.unobserve(node);
-    // }
-
+  const lastIconRef = useCallback((node: HTMLDivElement) => {
     if (node) {
       if (!observer.current) {
-        // Это Null мы делаем true
-        // console.log(observer.current); // null
         observer.current = new IntersectionObserver(
           (entries) => {
-            // console.log(entries);
             if (entries[0]?.isIntersecting) {
-              loadMoreIcons(); // 2 раза вызывается
+              loadMoreIcons();
             }
           },
           {
@@ -150,11 +140,13 @@ export const FlagAddModal = () => {
         );
       }
 
-      observer.current.observe(node);
+      if (prevNode.current) observer.current.unobserve(prevNode.current);
+      prevNode.current = node;
+      observer.current.observe(prevNode.current);
+
+      if (endSlice.current >= totalIcons.current) observer.current.disconnect();
     }
   }, []);
-
-  // console.log(lastItemRef.current);
 
   return (
     <Dialog>
