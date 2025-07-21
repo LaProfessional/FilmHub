@@ -35,6 +35,7 @@ export const FlagColorSection = () => {
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [selectedColor, setSelectedColor] = useState<string>("#ffffff");
   const colorPickerRef = useRef<HTMLDivElement>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- использование any необходимо, так как тип ColorPickerRef неизвестен
   const iroInstanceRef = useRef<any>(null);
 
   useEffect(() => {

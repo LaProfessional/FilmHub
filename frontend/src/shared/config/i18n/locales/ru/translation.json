@@ -30,6 +30,15 @@
     }
   },
 
+  "flagModal": {
+    "header": {
+      "title": "Создание флага"
+    },
+    "body": {
+      "name": "Имя флага"
+    }
+  },
+
   "Search movies": "Поиск фильмов...",
   "Create category": "Создать категорию",
   "All movies": "Все фильмы",

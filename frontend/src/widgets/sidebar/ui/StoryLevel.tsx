@@ -1,5 +1,5 @@
 import { flagModel, FlagBage } from "@/entities/flags";
-import FlagAddModal from "@/features/flag-add-modal/ui/FlagAddModal";
+import { FlagAddModal } from "@/features/flag-add-modal/ui/FlagAddModal";
 
 export function StoryLevel() {
   const flags = flagModel.getAllFlags();

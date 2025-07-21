@@ -30,6 +30,15 @@
     }
   },
 
+  "flagModal": {
+    "header": {
+      "title": "Create flag"
+    },
+    "body": {
+      "name": "Flag name"
+    }
+  },
+
   "Search movies": "Search movies...",
   "Create category": "Create category",
   "All movies": "All movies",
