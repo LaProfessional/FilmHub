@@ -4,6 +4,7 @@ import { PresentColorPalette } from "@/features/flag-add-modal/ui/PresentColorPa
 import { useRef, useState, useEffect } from "react";
 import { hexColorRegex } from "@/features/flag-add-modal/lib/colorUtils";
 import iro from "@jaames/iro";
+import ColorPicker = iro.ColorPicker;
 
 export const FlagColorSection = () => {
   const [dataColors, setDataColors] = useState<string[]>(
@@ -35,17 +36,10 @@ export const FlagColorSection = () => {
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [selectedColor, setSelectedColor] = useState<string>("#ffffff");
   const colorPickerRef = useRef<HTMLDivElement>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- использование any необходимо, так как тип ColorPickerRef неизвестен
-  const iroInstanceRef = useRef<any>(null);
+  const iroInstanceRef = useRef<ColorPicker | null>(null);
 
   useEffect(() => {
     if (showColorPicker && colorPickerRef.current) {
-      if (iroInstanceRef.current) {
-        iroInstanceRef.current.off("color:change");
-        iroInstanceRef.current = null;
-        colorPickerRef.current.innerHTML = "";
-      }
-
       // @ts-expect-error: iro.ColorPicker не имеет явно объявленного конструктора
       const picker = new iro.ColorPicker(colorPickerRef.current, {
         width: 200,
