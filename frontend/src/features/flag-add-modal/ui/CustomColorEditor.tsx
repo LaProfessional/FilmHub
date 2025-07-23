@@ -1,8 +1,8 @@
+import React from "react";
 import { Input, Button, Form, FormField, FormItem, FormControl, FormMessage } from "@/shared/ui";
 import { colorSchema } from "@/features/flag-add-modal/model/colorSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
 
 interface CustomColorEditorProps {
   setDataColors: React.Dispatch<React.SetStateAction<string[]>>;

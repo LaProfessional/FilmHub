@@ -1,63 +1,22 @@
-import {
-  Bell,
-  Camera,
-  CheckCircle,
-  Download,
-  Edit,
-  Eye,
-  Heart,
-  Home,
-  Lock,
-  LogOut,
-  Menu,
-  Plus,
-  Search,
-  Settings,
-  Star,
-  Trash2,
-  Upload,
-  User,
-} from "lucide-react";
+import { RenderIcon } from "@/features/flag-add-modal/ui/RenderIcon";
+import type { IconType } from "@/features/flag-add-modal/model/types";
 
-interface IconEntry {
-  name: string;
-  icon: React.ElementType;
+interface PresentIconPaletteProps {
+  dataIcons: [string, IconType][];
 }
 
-export const PresentIconPalette = () => {
-  const icons: IconEntry[] = [
-    { name: "Home", icon: Home },
-    { name: "Search", icon: Search },
-    { name: "Menu", icon: Menu },
-    { name: "User", icon: User },
-    { name: "Settings", icon: Settings },
-    { name: "Bell", icon: Bell },
-    { name: "Camera", icon: Camera },
-    { name: "Heart", icon: Heart },
-    { name: "Star", icon: Star },
-    { name: "CheckCircle", icon: CheckCircle },
-    { name: "Plus", icon: Plus },
-    { name: "Trash2", icon: Trash2 },
-    { name: "Edit", icon: Edit },
-    { name: "Eye", icon: Eye },
-    { name: "Lock", icon: Lock },
-    { name: "LogOut", icon: LogOut },
-    { name: "Download", icon: Download },
-    { name: "Upload", icon: Upload },
-  ];
-
+export const PresentIconPalette = ({ dataIcons }: PresentIconPaletteProps) => {
   return (
     <section>
       <h2>Выберите иконку</h2>
-
-      <div className="flex justify-between gap-2 flex-wrap mt-2">
-        {icons.map(({ name, icon: Icon }) => (
+      <div className="flex gap-2 flex-wrap mt-2 max-h-[140px] overflow-auto">
+        {dataIcons.map(([name, icon]) => (
           <div
-            className="border border-solid border-[#d9d9d9] p-2 cursor-pointer"
+            className="basis-[calc((100%-9*8px)/10)] border border-solid border-[#d9d9d9] p-1 cursor-pointer max-w-[40px] h-[40px] rounded-[6px] flex items-center justify-center"
             key={name}
             title={name}
           >
-            <Icon />
+            <RenderIcon icon={icon} />
           </div>
         ))}
       </div>

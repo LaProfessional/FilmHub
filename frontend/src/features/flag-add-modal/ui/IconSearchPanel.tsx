@@ -1,39 +1,57 @@
 import { Input } from "@/shared/ui";
-import { useMemo, useRef } from "react";
+import React, { type ChangeEvent, useRef, useState } from "react";
 import tablerIcons from "@iconify/json/json/tabler.json";
 import { useVirtualizer } from "@tanstack/react-virtual";
+import { RenderIcon } from "@/features/flag-add-modal/ui/RenderIcon";
+import type { IconType } from "@/features/flag-add-modal/model/types";
+import type { IconTypeMap } from "@/features/flag-add-modal/model/types";
 
-export const IconSearchPanel = () => {
+interface IconSearchPanelProps {
+  dataIcons: [string, IconType][];
+  setDataIcons: React.Dispatch<React.SetStateAction<[string, IconType][]>>;
+}
+
+export const IconSearchPanel = ({ dataIcons, setDataIcons }: IconSearchPanelProps) => {
+  const timeoutId = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const queryRef = useRef<string>("");
+  const [iconEntries, setIconEntries] = useState<[string, IconTypeMap][]>(
+    Object.entries(tablerIcons.icons),
+  );
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const iconEntries = useMemo(() => Object.entries(tablerIcons.icons), []);
   const iconsPerRow = 9;
   const rowCount = Math.ceil(iconEntries.length / iconsPerRow);
-
-  const renderIcon = (icon: { body: string; width?: number; height?: number }) => {
-    const w = icon.width || 24;
-    const h = icon.height || 24;
-
-    return (
-      <div
-        className="w-6 h-6 inline-block "
-        dangerouslySetInnerHTML={{
-          __html: `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${icon.body}</svg>`,
-        }}
-      />
-    );
-  };
 
   const rowVirtualizer = useVirtualizer({
     count: rowCount,
     getScrollElement: () => containerRef.current,
-    estimateSize: () => 40,
+    estimateSize: () => 48,
   });
+
+  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    queryRef.current = e.target.value.trim();
+
+    if (timeoutId.current) clearTimeout(timeoutId.current);
+
+    timeoutId.current = setTimeout(() => {
+      setIconEntries(() => {
+        return Object.entries(tablerIcons.icons).filter(([icon]) =>
+          icon.includes(queryRef.current),
+        );
+      });
+    }, 300);
+  };
+
+  const handleAddIcon = (IconName: string, icon: IconType) => {
+    const alreadyExists = dataIcons.some(([name]) => name === IconName);
+    if (alreadyExists) return;
+    setDataIcons((prev) => [...prev, [IconName, icon]]);
+  };
 
   return (
     <>
       <div className="p-2">
-        <Input placeholder="Найти иконку" />
+        <Input onChange={handleSearch} placeholder="Найти иконку" />
       </div>
 
       <div ref={containerRef} className="overflow-auto max-h-[300px] border rounded">
@@ -59,15 +77,16 @@ export const IconSearchPanel = () => {
                   height: `${virtualRow.size}px`,
                   width: "100%",
                 }}
-                className="flex gap-2 px-2 py-1"
+                className="flex gap-2 px-2"
               >
                 {rowIcons.map(([name, icon]) => (
                   <div
+                    onClick={() => handleAddIcon(name, icon)}
                     key={name}
                     title={name}
                     className="border border-solid border-[#d9d9d9] p-2 cursor-pointer rounded-[6px] flex items-center justify-center w-[40px] h-[40px]"
                   >
-                    {renderIcon(icon)}
+                    <RenderIcon icon={icon} />
                   </div>
                 ))}
               </div>
