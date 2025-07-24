@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Accordion, AccordionTrigger, AccordionItem, AccordionContent } from "@/shared/ui";
-
-import { PresentIconPalette } from "@/features/flag-add-modal/ui/PresentIconPalette";
-import { IconSearchPanel } from "@/features/flag-add-modal/ui/IconSearchPanel";
+import { PresentIconPalette, IconSearchPanel } from "./index";
 import tablerIcons from "@iconify/json/json/tabler.json";
 import type { IconType } from "@/features/flag-add-modal/model/types";
 

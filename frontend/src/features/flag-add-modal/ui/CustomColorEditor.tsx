@@ -11,7 +11,7 @@ interface CustomColorEditorProps {
   isValidHex: (val: string) => boolean;
 }
 
-const CustomColorEditor = React.forwardRef<HTMLDivElement, CustomColorEditorProps>(
+export const CustomColorEditor = React.forwardRef<HTMLDivElement, CustomColorEditorProps>(
   ({ setDataColors, selectedColor, isValidHex, setSelectedColor }, ref) => {
     const validColor = useForm({
       resolver: zodResolver(colorSchema),
@@ -72,5 +72,3 @@ const CustomColorEditor = React.forwardRef<HTMLDivElement, CustomColorEditorProp
     );
   },
 );
-
-export default CustomColorEditor;

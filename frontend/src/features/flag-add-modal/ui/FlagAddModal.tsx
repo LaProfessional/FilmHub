@@ -1,8 +1,6 @@
 import { Button, Dialog, DialogTrigger, DialogContent, DialogTitle } from "@/shared/ui";
 import { useTranslation } from "react-i18next";
-import { FlagNameField } from "@/features/flag-add-modal/ui/FlagNameField";
-import { FlagColorSection } from "@/features/flag-add-modal/ui/FlagColorSection";
-import { FlagPickerSection } from "@/features/flag-add-modal/ui/FlagPickerSection";
+import { FlagPickerSection, FlagColorSection, FlagNameField } from "./index";
 
 export const FlagAddModal = () => {
   const { t } = useTranslation();

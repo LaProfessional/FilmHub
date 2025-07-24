@@ -1,57 +1,22 @@
 import { AccordionContent, AccordionItem, AccordionTrigger, Accordion } from "@/shared/ui";
-import CustomColorEditor from "@/features/flag-add-modal/ui/CustomColorEditor";
-import { PresentColorPalette } from "@/features/flag-add-modal/ui/PresentColorPalette";
+import { PresentColorPalette, CustomColorEditor } from "./index";
 import { useRef, useState, useEffect } from "react";
 import { hexColorRegex } from "@/features/flag-add-modal/lib/colorUtils";
 import iro from "@jaames/iro";
 import ColorPicker = iro.ColorPicker;
+import { initColorPicker } from "@/features/flag-add-modal/model/services";
+import { colorList } from "@/features/flag-add-modal/data/colorList";
 
 export const FlagColorSection = () => {
-  const [dataColors, setDataColors] = useState<string[]>(
-    Array.from(
-      new Set([
-        "#8d8d9c",
-        "#FFFFFF",
-        "#FF0000",
-        "#008000",
-        "#0000FF",
-        "#FFFF00",
-        "#FFA500",
-        "#800080",
-        "#FFC0CB",
-        "#A52A2A",
-        "#808080",
-        "#00FFFF",
-        "#FF00FF",
-        "#00FF00",
-        "#000080",
-        "#008080",
-        "#808000",
-        "#800000",
-        "#C0C0C0",
-        "#FFD700",
-      ]),
-    ),
-  );
+  const [dataColors, setDataColors] = useState<string[]>(colorList);
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [selectedColor, setSelectedColor] = useState<string>("#ffffff");
   const colorPickerRef = useRef<HTMLDivElement>(null);
   const iroInstanceRef = useRef<ColorPicker | null>(null);
 
   useEffect(() => {
-    if (showColorPicker && colorPickerRef.current) {
-      // @ts-expect-error: iro.ColorPicker не имеет явно объявленного конструктора
-      const picker = new iro.ColorPicker(colorPickerRef.current, {
-        width: 200,
-        color: selectedColor,
-      });
-
-      picker.on("color:change", (color: { hexString: string }) => {
-        setSelectedColor(color.hexString);
-      });
-
-      iroInstanceRef.current = picker;
-    }
+    if (showColorPicker)
+      initColorPicker(colorPickerRef, selectedColor, setSelectedColor, iroInstanceRef);
   }, [showColorPicker]);
 
   useEffect(() => {
