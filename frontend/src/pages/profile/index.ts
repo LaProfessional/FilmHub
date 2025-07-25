@@ -1,3 +1,3 @@
-export {ProfilePage} from "./files/ProfilePage";
+export {ProfilePage} from "./ui/ProfilePage";
 
 

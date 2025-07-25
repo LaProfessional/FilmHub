@@ -16,6 +16,7 @@ interface Props {
   handleSubmit: (e: React.FormEvent) => void;
 }
 
+
 export const ProfileSettingsTab: React.FC<Props> = ({
   formData,
   handleChangeTextData,
@@ -29,6 +30,16 @@ export const ProfileSettingsTab: React.FC<Props> = ({
     input?.click();
   };
 
+
+const inputFields = [
+  { label: t('Username'), type: 'text', name: 'username', value: formData.username, placeholder: t('EnterUsername') },
+  { label: t('Email'), type: 'email', name: 'email', value: formData.email, placeholder: t('EnterYourEmail') },
+  { label: t('CurrentPassword'), type: 'password', name: 'currentPassword', value: formData.currentPassword, placeholder: t('EnterCurrentPassword') },
+  { label: t('NewPassword'), type: 'password', name: 'newPassword', value: formData.newPassword, placeholder: t('EnterNewPassword') },
+  { label: t('ConfirmPassword'), type: 'password', name: 'confirmPassword', value: formData.confirmPassword, placeholder: t('RepeatNewPassword') },
+];
+
+
   return (
     <section className="p-4">
       <h3 className="sr-only">{t('ProfileSettings')}</h3>
@@ -36,70 +47,23 @@ export const ProfileSettingsTab: React.FC<Props> = ({
         onSubmit={handleSubmit}
         className="flex flex-wrap gap-5"
       >
-        <div className="flex-1 mb-3.5 md:basis-[calc(50%-10px)] w-full md:w-auto">
-          <label className="block mb-2 min-w-[250px] font-semibold text-primary text-xl">
-            {t('Username')}
-          </label>
-          <Input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChangeTextData}
-            placeholder={t('EnterUsername')}
-          />
-        </div>
 
-        <div className="flex-1 mb-3.5 md:flex-[1_1_calc(50%-0.625rem)] w-full md:w-auto">
-          <label className=" block mb-2 min-w-[250px] font-semibold text-primary text-xl">
-            {t('Email')}
-          </label>
-          <Input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChangeTextData}
-            placeholder={t('EnterYourEmail')}
-          />
-        </div>
-
-        <div className="flex-1 mb-3.5 md:flex-[1_1_calc(50%-0.625rem)] w-full md:w-auto">
-          <label className=" block mb-2 min-w-[250px] font-semibold text-primary text-xl">
-            {t('CurrentPassword')}
-          </label>
-          <Input
-            type="password"
-            name="currentPassword"
-            value={formData.currentPassword}
-            onChange={handleChangeTextData}
-            placeholder={t('EnterCurrentPassword')}
-          />
-        </div>
-
-        <div className="flex-1 mb-3.5 md:flex-[1_1_calc(50%-0.625rem)] w-full md:w-auto">
-          <label className=" block mb-2 min-w-[250px] font-semibold text-primary text-xl">
-            {t('NewPassword')}
-          </label>
-          <Input
-            type="password"
-            name="newPassword"
-            value={formData.newPassword}
-            onChange={handleChangeTextData}
-            placeholder={t('EnterNewPassword')}
-          />
-        </div>
-
-        <div className="flex-1 mb-3.5 md:flex-[1_1_calc(50%-0.625rem)] w-full md:w-auto">
-          <label className=" block mb-2 min-w-[250px] font-semibold text-primary text-xl">
-            {t('ConfirmPassword')}
-          </label>
-          <Input
-            type="password"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChangeTextData}
-            placeholder={t('RepeatNewPassword')}
-          />
-        </div>
+        {inputFields.map(Field=>{
+          return(
+            <div className="flex-1 mb-3.5 md:basis-[calc(50%-10px)] w-full md:w-auto">
+              <label className="block mb-2 min-w-[250px] font-semibold text-primary text-xl">
+                {Field.label}
+              </label>
+              <Input
+                type={Field.type}
+                name={Field.name}
+                value={Field.value}
+                onChange={handleChangeTextData}
+                placeholder={Field.placeholder}
+              />
+            </div>
+          )
+        })}
 
 
         <div className="flex-1 mb-3.5 md:flex-[1_1_calc(50%-0.625rem)] w-full md:w-auto">
