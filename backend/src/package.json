@@ -5,6 +5,7 @@
     "dev": "nitro dev",
     "start": "node .output/server/index.mjs",
     "migration": "npx sequelize-cli db:migrate",
+    "seeds": "npx sequelize-cli db:seed:all",
     "prepare": "nitro prepare",
     "preview": "node .output/server/index.mjs"
   },

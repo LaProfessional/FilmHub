@@ -20,7 +20,6 @@ export default defineEventHandler(async event => {
   checkPasswordValid(errors, candidate.password)
   checkPasswordConfirmValid(errors, candidate.password, candidate.confirmPassword)
   checkNameValid(errors, candidate.firstName, 'First name')
-  checkNameValid(errors, candidate.lastName, 'Last name')
 
   if (errors.isNotEmpty()) return useApiError(event, 'bad-request', { detail: errors.get() })
 
@@ -32,7 +31,7 @@ export default defineEventHandler(async event => {
   return await modelUser.create({
     email: candidate.email,
     firstName: candidate.firstName,
-    lastName: candidate.lastName,
+    lastName: candidate?.lastName || '',
     password: bcrypt.hashSync(candidate.password, config.auth.saltRounds),
   })
 })
