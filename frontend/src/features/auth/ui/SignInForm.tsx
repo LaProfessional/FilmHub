@@ -1,17 +1,18 @@
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import {
+  Button,
   Form,
+  FormControl,
   FormField,
   FormItem,
-  FormControl,
   FormMessage,
   Input,
-  Button,
   Separator,
 } from "@/shared/ui";
-import { signInFormSchema, type SignInFormSchema } from "../model";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { Link } from "react-router";
 import { useSignIn } from "../api/use-sign-in";
+import { signInFormSchema, type SignInFormSchema } from "../model";
 
 export function SignInForm() {
   const form = useForm<SignInFormSchema>({
@@ -62,7 +63,16 @@ export function SignInForm() {
             );
           }}
         />
+
         <Separator orientation="horizontal" />
+
+        <Link
+          to={"/auth/reset-password"}
+          className="text-sm cursor-pointer text-center hover:opacity-50 transition-opacity"
+        >
+          Забыли пароль?
+        </Link>
+
         <Button type="submit">Login</Button>
       </form>
     </Form>
