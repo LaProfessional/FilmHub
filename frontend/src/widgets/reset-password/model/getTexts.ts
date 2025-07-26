@@ -1,14 +1,16 @@
-export const getTexts = () => {
+import type { TFunction } from "i18next";
+
+export const getTexts = (t: TFunction) => {
   const descriptions = {
-    0: "Для смены пароля вашего аккаунта",
-    1: "Мы отправили код на вашу почту",
-    2: "Придумайте и подтвердите пароль",
+    0: t("resetPassword.steps.email.description"),
+    1: t("resetPassword.steps.code.description"),
+    2: t("resetPassword.steps.newPassword.description"),
   };
 
   const titles = {
-    0: "Введите вашу почту",
-    1: "Подтвердите код",
-    2: "Новый пароль",
+    0: t("resetPassword.steps.email.title"),
+    1: t("resetPassword.steps.code.title"),
+    2: t("resetPassword.steps.newPassword.title"),
   };
 
   return { descriptions, titles };

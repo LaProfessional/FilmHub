@@ -1,4 +1,26 @@
 {
+  "resetPassword": {
+    "confirm": "Confirm",
+    "placeholders": {
+      "email": "Mail...",
+      "password": "New password...",
+      "confirmPassword": "Confirm password..."
+    },
+    "steps": {
+      "email": {
+        "title": "Enter your email",
+        "description": "To reset your account password"
+      },
+      "code": {
+        "title": "Verify the code",
+        "description": "We've sent a code to your email"
+      },
+      "newPassword": {
+        "title": "Set a new password",
+        "description": "Minimum 6 characters. Confirm the password."
+      }
+    }
+  },
   "settings": {
     "nav": {
       "gallery": "Gallery",

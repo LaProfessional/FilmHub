@@ -1,6 +1,7 @@
 import { Button, Form, FormControl, FormField, FormItem, FormMessage, Input } from "@/shared/ui";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { emailEntryFormSchema, type EmailEntryFormSchema } from "../../model";
 
 interface EmailEntryFormProps {
@@ -8,6 +9,7 @@ interface EmailEntryFormProps {
 }
 
 export const EmailEntryForm = ({ onSuccess }: EmailEntryFormProps) => {
+  const { t } = useTranslation();
   const form = useForm<EmailEntryFormSchema>({
     resolver: zodResolver(emailEntryFormSchema),
     defaultValues: {
@@ -30,7 +32,11 @@ export const EmailEntryForm = ({ onSuccess }: EmailEntryFormProps) => {
             return (
               <FormItem>
                 <FormControl>
-                  <Input type="email" placeholder="почта..." {...field} />
+                  <Input
+                    type="email"
+                    placeholder={t("resetPassword.placeholders.email")}
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -39,7 +45,7 @@ export const EmailEntryForm = ({ onSuccess }: EmailEntryFormProps) => {
         />
 
         <Button type="submit" className="w-fit mx-auto">
-          Подтвердить
+          {t("resetPassword.confirm")}
         </Button>
       </form>
     </Form>

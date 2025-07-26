@@ -1,6 +1,7 @@
 import { Button, Form, FormControl, FormField, FormItem, FormMessage, Input } from "@/shared/ui";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { confirmPasswordSchema, type ConfirmPasswordSchema } from "../../model";
 
 interface ConfirmPasswordFormProps {
@@ -8,6 +9,7 @@ interface ConfirmPasswordFormProps {
 }
 
 export const ConfirmPasswordForm = ({ onSuccess }: ConfirmPasswordFormProps) => {
+  const { t } = useTranslation();
   const form = useForm<ConfirmPasswordSchema>({
     resolver: zodResolver(confirmPasswordSchema),
     defaultValues: {
@@ -31,7 +33,11 @@ export const ConfirmPasswordForm = ({ onSuccess }: ConfirmPasswordFormProps) => 
             return (
               <FormItem>
                 <FormControl>
-                  <Input type="text" placeholder="Новый пароль..." {...field} />
+                  <Input
+                    type="text"
+                    placeholder={t("resetPassword.placeholders.password")}
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -46,7 +52,11 @@ export const ConfirmPasswordForm = ({ onSuccess }: ConfirmPasswordFormProps) => 
             return (
               <FormItem>
                 <FormControl>
-                  <Input type="text" placeholder="Подтвердите пароль..." {...field} />
+                  <Input
+                    type="text"
+                    placeholder={t("resetPassword.placeholders.confirmPassword")}
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -55,7 +65,7 @@ export const ConfirmPasswordForm = ({ onSuccess }: ConfirmPasswordFormProps) => 
         />
 
         <Button type="submit" className="w-fit mx-auto">
-          Подтвердить
+          {t("resetPassword.confirm")}
         </Button>
       </form>
     </Form>

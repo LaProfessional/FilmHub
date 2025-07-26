@@ -2,6 +2,7 @@ import { Button, Form, FormControl, FormField, FormItem, FormMessage, Input } fr
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { ChangeEvent } from "react";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { codeVerifyFormSchema, type CodeVerifyFormSchema } from "../../model";
 
 interface CodeVerifyFormProps {
@@ -9,6 +10,7 @@ interface CodeVerifyFormProps {
 }
 
 export const CodeVerifyForm = ({ onSuccess }: CodeVerifyFormProps) => {
+  const { t } = useTranslation();
   const form = useForm<CodeVerifyFormSchema>({
     resolver: zodResolver(codeVerifyFormSchema),
     defaultValues: {
@@ -54,7 +56,7 @@ export const CodeVerifyForm = ({ onSuccess }: CodeVerifyFormProps) => {
         />
 
         <Button type="submit" className="w-fit mx-auto">
-          Подтвердить
+          {t("resetPassword.confirm")}
         </Button>
       </form>
     </Form>

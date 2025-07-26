@@ -1,4 +1,26 @@
 {
+  "resetPassword": {
+    "confirm": "Подтвердить",
+    "placeholders": {
+      "email": "Почта...",
+      "password": "Новый пароль...",
+      "confirmPassword": "Подтвердите пароль..."
+    },
+    "steps": {
+      "email": {
+        "title": "Введите вашу почту",
+        "description": "Для смены пароля вашего аккаунта"
+      },
+      "code": {
+        "title": "Подтвердите код",
+        "description": "Мы отправили код на вашу почту"
+      },
+      "newPassword": {
+        "title": "Придумайте новый пароль",
+        "description": "Минимум 6 символов. Подтвердите пароль."
+      }
+    }
+  },
   "settings": {
     "nav": {
       "gallery": "Галерея",
