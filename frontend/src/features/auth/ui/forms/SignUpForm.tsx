@@ -1,17 +1,17 @@
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import {
+  Button,
   Form,
+  FormControl,
   FormField,
   FormItem,
-  FormControl,
   FormMessage,
   Input,
-  Button,
   Separator,
 } from "@/shared/ui";
-import { signUpFormSchema, type SignUpFormSchema } from "../model";
-import { useSignUp } from "../api/use-sign-up";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { useSignUp } from "../../api/use-sign-up";
+import { signUpFormSchema, type SignUpFormSchema } from "../../model";
 
 // TODO: это нужно привести в порядок. Как избавится от повторений?
 // TODO: будет хорошо добавить иконки к инпутам и возмножность переключать видимисть пароля
