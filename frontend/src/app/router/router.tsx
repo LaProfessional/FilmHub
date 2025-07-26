@@ -1,7 +1,7 @@
 import { AppShell } from "@/app/AppShell";
 import { AuthLayout, AuthProvider } from "@/features/auth";
 import { NotFoundPage } from "@/pages/404";
-import { AuthPage, ResetPassword } from "@/pages/auth";
+import { AuthPage, ResetPasswordPage } from "@/pages/auth";
 import { HomePage } from "@/pages/home";
 import { AppRoute } from "@/shared/config";
 import { createBrowserRouter } from "react-router";
@@ -19,7 +19,7 @@ export const router = createBrowserRouter([
       },
       {
         path: AppRoute.RESET_PASSWORD,
-        element: <ResetPassword />,
+        element: <ResetPasswordPage />,
       },
     ],
   },

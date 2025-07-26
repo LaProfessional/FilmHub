@@ -1,2 +1,2 @@
 export { AuthPage } from "./ui/AuthPage";
-export { ResetPassword } from "./ui/ResetPassword";
+export { ResetPasswordPage } from "./ui/ResetPasswordPage";
