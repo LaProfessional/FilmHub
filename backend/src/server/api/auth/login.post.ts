@@ -11,7 +11,6 @@ type Login = {
 export default defineEventHandler(async event => {
   // === Init dependency
   const candidate: Login | null = await readBody(event)
-  const config = useRuntimeConfig(event)
   const { modelUser } = useDB(event)
   const errors = useErrorCombiner()
 
@@ -25,7 +24,7 @@ export default defineEventHandler(async event => {
   if (!user) return useApiError(event, 'user-not-exist')
 
   // === Check password from bd and body
-  const isPasswordCorrect = bcrypt.compare(candidate.password, user.password)
+  const isPasswordCorrect = await bcrypt.compare(candidate.password, user.password)
   if (!isPasswordCorrect) return useApiError(event, 'bad-request', { detail: 'Password invalid'})
 
   // === Start authorization
