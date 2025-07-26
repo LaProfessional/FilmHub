@@ -22,6 +22,14 @@ export const emailEntryFormSchema = z.object({
   email: z.string().email("Неверный формат почты"),
 });
 
+export const codeVerifyFormSchema = z.object({
+  code: z
+    .string()
+    .length(4, "Введите 4 цифры")
+    .regex(/^\d{4}$/, "Только цифры"),
+});
+
+export type CodeVerifyFormSchema = z.infer<typeof codeVerifyFormSchema>;
 export type EmailEntryFormSchema = z.infer<typeof emailEntryFormSchema>;
 export type SignInFormSchema = z.infer<typeof signInFormSchema>;
 export type SignUpFormSchema = z.infer<typeof signUpFormSchema>;
