@@ -18,5 +18,10 @@ export const signInFormSchema = z.object({
   password: z.string().min(8, "Password must be at least 8 characters"),
 });
 
+export const emailEntryFormSchema = z.object({
+  email: z.string().email("Неверный формат почты"),
+});
+
+export type EmailEntryFormSchema = z.infer<typeof emailEntryFormSchema>;
 export type SignInFormSchema = z.infer<typeof signInFormSchema>;
 export type SignUpFormSchema = z.infer<typeof signUpFormSchema>;
