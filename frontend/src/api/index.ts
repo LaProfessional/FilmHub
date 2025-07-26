@@ -1,23 +1,26 @@
-import axios from "axios";
-import {createApi} from "./auth.ts";
+import axios from 'axios'
+import { createApi } from './auth'
+import { createApi as createMovieApi } from './movie'
 
 export const api = () => {
-  const axios = axios.create()
+  const axiosInstance = axios.create({
+    baseURL: import.meta.env.VITE_API_URL + '/api/',
+  })
 
-  const api = { auth: createApi(api) }
+  const api = { auth: createApi(axiosInstance), movie: createMovieApi(axiosInstance) }
 
-  axios.interceptors.response.use(function (response) {
+  axiosInstance.interceptors.response.use(function(response) {
     // Любой код состояния, находящийся в диапазоне 2xx, вызывает срабатывание этой функции
     // Здесь можете сделать что-нибудь с ответом
-    return response;
-  }, function (error) {
+    return response
+  }, function(error) {
     // Любые коды состояния, выходящие за пределы диапазона 2xx, вызывают срабатывание этой функции
     // Здесь можете сделать что-то с ошибкой ответа
-    if (error.status === 401 && error.statusMessage = 'Unauthorized') {
+    if (error.status === 401 && error.statusMessage === 'Unauthorized') {
       api.auth.updateToken()
     }
-    return Promise.reject(error);
-  });
+    return Promise.reject(error)
+  })
 
-  return out
+  return api
 }

@@ -13,7 +13,7 @@ export const Sidebar = () => {
   const { t } = useTranslation();
 
   return (
-    <aside className="h-full flex flex-col gap-4 border-r border-r-primary py-6 px-4 max-w-[288px]">
+    <aside className="h-full flex flex-col gap-4 border-r border-r-primary py-6 pr-4 max-w-[288px]">
       <AddCategory />
 
       <Separator orientation="horizontal" />

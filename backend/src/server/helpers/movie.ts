@@ -5,8 +5,19 @@ const TOKEN = `eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2NDgxOTYwMWUxNjQ3NjIzMjM1ZTU0ODQz
 export const useMovieApi = (event: H3Event) => {
   const config = useRuntimeConfig(event)
 
-  const search = (search: string, page = 0) => {
-    return $fetch(`https://api.themoviedb.org/3/search/movie?query=${search}&page=${page}`, {
+  const search = (params) => {
+    const queryString = new URLSearchParams(params).toString();
+    return $fetch(`https://api.themoviedb.org/3/discover/movie?${queryString}`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${TOKEN}`,
+        accept: 'application/json',
+      },
+    });
+  };
+
+  const getList = () => {
+    return $fetch(`https://api.themoviedb.org/3/discover/movie`, {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${TOKEN}`,
@@ -15,8 +26,8 @@ export const useMovieApi = (event: H3Event) => {
     })
   }
 
-  const getList = () => {
-    return $fetch(`https://api.themoviedb.org/3/discover/movie`, {
+  const findById = (id) => {
+    return $fetch(`https://api.themoviedb.org/3/movie/${id}`, {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${TOKEN}`,
@@ -38,6 +49,7 @@ export const useMovieApi = (event: H3Event) => {
   return {
     getList,
     findOne,
-    search
+    search,
+    findById,
   }
 }
