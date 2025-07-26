@@ -29,7 +29,18 @@ export const codeVerifyFormSchema = z.object({
     .regex(/^\d{4}$/, "Только цифры"),
 });
 
-export type CodeVerifyFormSchema = z.infer<typeof codeVerifyFormSchema>;
-export type EmailEntryFormSchema = z.infer<typeof emailEntryFormSchema>;
-export type SignInFormSchema = z.infer<typeof signInFormSchema>;
+export const confirmPasswordSchema = z
+  .object({
+    password: z.string().min(6, "Минимум 6 символов"),
+    confirmPassword: z.string(),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Пароли не совпадают",
+    path: ["confirmPassword"],
+  });
+
 export type SignUpFormSchema = z.infer<typeof signUpFormSchema>;
+export type SignInFormSchema = z.infer<typeof signInFormSchema>;
+export type EmailEntryFormSchema = z.infer<typeof emailEntryFormSchema>;
+export type CodeVerifyFormSchema = z.infer<typeof codeVerifyFormSchema>;
+export type ConfirmPasswordSchema = z.infer<typeof confirmPasswordSchema>;
