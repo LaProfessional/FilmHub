@@ -11,8 +11,8 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router";
-import { useSignIn } from "../api/use-sign-in";
-import { signInFormSchema, type SignInFormSchema } from "../model";
+import { useSignIn } from "../../api/use-sign-in";
+import { signInFormSchema, type SignInFormSchema } from "../../model";
 
 export function SignInForm() {
   const form = useForm<SignInFormSchema>({

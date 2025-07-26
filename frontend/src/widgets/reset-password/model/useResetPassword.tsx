@@ -1,10 +1,10 @@
-import { CodeVerifyForm } from "@/features/auth/ui/forms/CodeVerifyForm";
-import { ConfirmPasswordForm } from "@/features/auth/ui/forms/ConfirmPasswordForm";
-import { EmailEntryForm } from "@/features/auth/ui/forms/EmailEntryForm";
+import { CodeVerifyForm, ConfirmPasswordForm, EmailEntryForm } from "@/features/auth";
+
+import { getTexts } from "./getTexts";
+
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
-import { getTexts } from "./getTexts";
 
 type Step = 0 | 1 | 2;
 

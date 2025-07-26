@@ -1,8 +1,6 @@
-import { Navigate } from "react-router";
-import { SignInForm } from "@/features/auth/ui/SignInForm";
-import { SignUpForm } from "@/features/auth/ui/SignUpForm";
-import { useAuth } from "@/features/auth";
+import { SignInForm, SignUpForm, useAuth } from "@/features/auth";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/ui";
+import { Navigate } from "react-router";
 
 import { AppRoute } from "@/shared/config";
 import { ThemeSwitcher } from "@/shared/theme";
